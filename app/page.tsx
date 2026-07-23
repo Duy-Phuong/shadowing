@@ -14,6 +14,7 @@ import Sidebar, { type View } from "@/components/Sidebar";
 import MyVideos from "@/components/MyVideos";
 import Practice from "@/components/Practice";
 import Wordlist from "@/components/Wordlist";
+import Vocabulary from "@/components/Vocabulary";
 import { useSentenceLoop } from "@/hooks/useSentenceLoop";
 import { useToast } from "@/components/Toast";
 import { fetchTranscript } from "@/lib/loadTranscript";
@@ -247,6 +248,10 @@ export default function Home() {
           onSetUnit={setUnit}
         />
       );
+    }
+
+    if (view === "vocabulary") {
+      return <Vocabulary />;
     }
 
     if (view === "library") {

@@ -3,7 +3,13 @@
 import { useState, type ReactNode } from "react";
 import ThemeToggle from "./ThemeToggle";
 
-export type View = "home" | "explore" | "practice" | "library" | "wordlist";
+export type View =
+  | "home"
+  | "explore"
+  | "practice"
+  | "library"
+  | "wordlist"
+  | "vocabulary";
 
 interface Props {
   collapsed: boolean;
@@ -87,6 +93,16 @@ export default function Sidebar({
         <Icon>
           <path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z" />
           <path d="M9 7h6M9 11h6" />
+        </Icon>
+      ),
+    },
+    {
+      key: "vocabulary",
+      label: "Vocabulary",
+      icon: (
+        <Icon>
+          <rect x="3" y="3" width="18" height="18" rx="2" />
+          <path d="M3 9h18M3 15h18M9 3v18" />
         </Icon>
       ),
     },

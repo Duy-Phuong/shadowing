@@ -1,0 +1,474 @@
+"use client";
+
+import { useEffect, useMemo, useRef, useState } from "react";
+import type { VocabRow } from "@/lib/vocabulary";
+import ConfirmDialog from "./ConfirmDialog";
+import { useToast } from "./Toast";
+
+type Row = VocabRow & { _k: string };
+type Field = keyof VocabRow;
+type SortDir = "asc" | "desc";
+
+const FIELDS: { key: Field; label: string; width: string }[] = [
+  { key: "id", label: "ID", width: "w-24" },
+  { key: "name", label: "Name", width: "w-80" },
+  { key: "type", label: "Type", width: "w-28" },
+  { key: "description", label: "Description", width: "min-w-72" },
+  { key: "unit", label: "Unit", width: "w-20" },
+];
+
+const PAGE_SIZE = 50;
+
+const key = () => crypto.randomUUID();
+const withKeys = (rows: VocabRow[]): Row[] =>
+  rows.map((r) => ({ ...r, _k: key() }));
+const strip = (rows: Row[]): VocabRow[] =>
+  rows.map(({ _k, ...r }) => {
+    void _k;
+    return r;
+  });
+
+const unitKey = (u: string) => (u.trim() === "" ? "none" : u.trim());
+
+function compareField(a: string, b: string, dir: SortDir): number {
+  const av = a.trim();
+  const bv = b.trim();
+  if (av === "" && bv === "") return 0;
+  if (av === "") return 1; // empties always last
+  if (bv === "") return -1;
+  const an = Number(av);
+  const bn = Number(bv);
+  const numeric = !Number.isNaN(an) && !Number.isNaN(bn);
+  const base = numeric
+    ? an - bn
+    : av.localeCompare(bv, undefined, { sensitivity: "base" });
+  return dir === "desc" ? -base : base;
+}
+
+export default function Vocabulary() {
+  const [rows, setRows] = useState<Row[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [busy, setBusy] = useState(false);
+  const [query, setQuery] = useState("");
+  const [page, setPage] = useState(0);
+  const [sort, setSort] = useState<{ col: Field; dir: SortDir } | null>(null);
+  const [unitFilter, setUnitFilter] = useState<Set<string> | null>(null);
+  const [filterOpen, setFilterOpen] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState<Row | null>(null);
+  const fileRef = useRef<HTMLInputElement>(null);
+  const dirty = useRef(false);
+  const toast = useToast();
+
+  useEffect(() => {
+    fetch("/api/vocabulary")
+      .then((r) => (r.ok ? r.json() : []))
+      .then((data: VocabRow[]) => setRows(withKeys(data)))
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }, []);
+
+  const unitValues = useMemo(() => {
+    const nums = new Set<string>();
+    let hasNone = false;
+    for (const r of rows) {
+      if (r.unit.trim() === "") hasNone = true;
+      else nums.add(r.unit.trim());
+    }
+    const sorted = [...nums].sort((a, b) => compareField(a, b, "asc"));
+    return { sorted, hasNone };
+  }, [rows]);
+
+  const view = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    let list = q
+      ? rows.filter((r) =>
+          `${r.id} ${r.name} ${r.type} ${r.description} ${r.unit}`
+            .toLowerCase()
+            .includes(q),
+        )
+      : rows;
+    if (unitFilter) list = list.filter((r) => unitFilter.has(unitKey(r.unit)));
+    if (sort) {
+      list = [...list].sort((a, b) =>
+        compareField(a[sort.col], b[sort.col], sort.dir),
+      );
+    }
+    return list;
+  }, [rows, query, unitFilter, sort]);
+
+  const pageCount = Math.max(1, Math.ceil(view.length / PAGE_SIZE));
+  const current = Math.min(page, pageCount - 1);
+  const pageRows = view.slice(current * PAGE_SIZE, current * PAGE_SIZE + PAGE_SIZE);
+
+  const toggleSort = (col: Field) =>
+    setSort((cur) =>
+      cur && cur.col === col
+        ? { col, dir: cur.dir === "asc" ? "desc" : "asc" }
+        : { col, dir: "asc" },
+    );
+  const sortMark = (col: Field) =>
+    !sort || sort.col !== col ? "↕" : sort.dir === "asc" ? "▲" : "▼";
+
+  const totalUnitOptions = unitValues.sorted.length + (unitValues.hasNone ? 1 : 0);
+  const toggleUnit = (k: string) =>
+    setUnitFilter((cur) => {
+      if (cur === null) return new Set([k]);
+      const next = new Set(cur);
+      if (next.has(k)) next.delete(k);
+      else next.add(k);
+      if (next.size === 0 || next.size === totalUnitOptions) return null;
+      return next;
+    });
+
+  const save = async (next: Row[]) => {
+    const res = await fetch("/api/vocabulary", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ rows: strip(next) }),
+    });
+    if (!res.ok) toast("Couldn't save changes", "error");
+  };
+
+  const editCell = (k: string, field: Field, value: string) => {
+    dirty.current = true;
+    setRows((rs) => rs.map((r) => (r._k === k ? { ...r, [field]: value } : r)));
+  };
+  const saveOnBlur = () => {
+    if (!dirty.current) return;
+    dirty.current = false;
+    void save(rows);
+  };
+
+  const addRow = () => {
+    const next: Row[] = [
+      ...rows,
+      { _k: key(), id: "", name: "", type: "", description: "", unit: "" },
+    ];
+    setRows(next);
+    setQuery("");
+    setUnitFilter(null);
+    setSort(null);
+    setPage(Math.floor((next.length - 1) / PAGE_SIZE));
+    void save(next);
+  };
+
+  const removeRow = (k: string) => {
+    const next = rows.filter((r) => r._k !== k);
+    setRows(next);
+    void save(next);
+  };
+
+  const onImport = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file) return;
+    setBusy(true);
+    try {
+      const res = await fetch("/api/vocabulary/import", {
+        method: "POST",
+        body: await file.arrayBuffer(),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        toast(data.message ?? "Import failed", "error");
+        return;
+      }
+      setRows(withKeys(data as VocabRow[]));
+      setQuery("");
+      setUnitFilter(null);
+      setSort(null);
+      setPage(0);
+      toast(`Imported ${data.length} rows`, "success");
+    } catch {
+      toast("Import failed", "error");
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  return (
+    <div className="mx-auto w-full max-w-6xl px-4 py-8">
+      <div className="mb-4 flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-bold tracking-tight">Vocabulary</h1>
+          <p className="mt-1 text-sm text-neutral-500">
+            {rows.length.toLocaleString()} {rows.length === 1 ? "row" : "rows"} ·
+            import & edit from Excel
+          </p>
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          <input
+            ref={fileRef}
+            type="file"
+            accept=".xlsx,.xls"
+            className="hidden"
+            onChange={onImport}
+          />
+          <button
+            onClick={() => fileRef.current?.click()}
+            disabled={busy}
+            className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-indigo-700 disabled:opacity-40"
+          >
+            {busy ? "Importing…" : "Import Excel"}
+          </button>
+          <a
+            href="/api/vocabulary/export"
+            className="inline-flex items-center gap-2 rounded-lg border border-neutral-300 px-4 py-2 text-sm font-medium transition hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-800"
+          >
+            Export Excel
+          </a>
+        </div>
+      </div>
+
+      <input
+        type="search"
+        value={query}
+        onChange={(e) => {
+          setQuery(e.target.value);
+          setPage(0);
+        }}
+        placeholder="Search vocabulary…"
+        className="mb-4 w-full max-w-sm rounded-lg border border-neutral-300 px-3 py-2 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-neutral-700 dark:bg-neutral-900"
+      />
+
+      {loading ? (
+        <p className="text-neutral-400">Loading…</p>
+      ) : (
+        <div className="overflow-x-auto rounded-xl border border-neutral-200 shadow-sm dark:border-neutral-800">
+          <table className="w-full border-collapse text-left text-sm">
+            <thead>
+              <tr className="border-b border-neutral-200 bg-neutral-50 text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:border-neutral-800 dark:bg-neutral-900/60">
+                {FIELDS.map((f) => (
+                  <th key={f.key} className={`p-0 ${f.width}`}>
+                    <div className="flex items-center">
+                      <button
+                        onClick={() => toggleSort(f.key)}
+                        className="flex flex-1 items-center gap-1 px-3 py-3 transition-colors hover:text-neutral-900 dark:hover:text-white"
+                      >
+                        {f.label}
+                        <span
+                          className={`text-xs ${
+                            sort?.col === f.key
+                              ? "text-indigo-600 dark:text-indigo-400"
+                              : "text-neutral-300 dark:text-neutral-600"
+                          }`}
+                        >
+                          {sortMark(f.key)}
+                        </span>
+                      </button>
+                      {f.key === "unit" && (
+                        <div className="relative">
+                          <button
+                            onClick={() => setFilterOpen((o) => !o)}
+                            aria-label="Filter by unit"
+                            title="Filter by unit"
+                            className={`px-2 py-3 hover:text-neutral-900 dark:hover:text-white ${
+                              unitFilter
+                                ? "text-indigo-600 dark:text-indigo-400"
+                                : "text-neutral-300 dark:text-neutral-600"
+                            }`}
+                          >
+                            <svg
+                              viewBox="0 0 24 24"
+                              fill={unitFilter ? "currentColor" : "none"}
+                              stroke="currentColor"
+                              strokeWidth={2}
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              className="h-3.5 w-3.5"
+                              aria-hidden="true"
+                            >
+                              <path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z" />
+                            </svg>
+                          </button>
+                          {filterOpen && (
+                            <>
+                              <button
+                                aria-hidden="true"
+                                tabIndex={-1}
+                                onClick={() => setFilterOpen(false)}
+                                className="fixed inset-0 z-30 cursor-default"
+                              />
+                              <div className="absolute right-0 z-40 mt-1 max-h-64 w-36 overflow-y-auto rounded-lg border border-neutral-200 bg-white p-1 font-normal normal-case tracking-normal shadow-lg dark:border-neutral-700 dark:bg-neutral-900">
+                                <label className="flex cursor-pointer items-center gap-2 rounded px-2 py-1.5 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800">
+                                  <input
+                                    type="checkbox"
+                                    checked={unitFilter === null}
+                                    onChange={() => setUnitFilter(null)}
+                                  />
+                                  All
+                                </label>
+                                {unitValues.sorted.map((n) => (
+                                  <label
+                                    key={n}
+                                    className="flex cursor-pointer items-center gap-2 rounded px-2 py-1.5 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                                  >
+                                    <input
+                                      type="checkbox"
+                                      checked={
+                                        unitFilter === null || unitFilter.has(n)
+                                      }
+                                      onChange={() => toggleUnit(n)}
+                                    />
+                                    Unit {n}
+                                  </label>
+                                ))}
+                                {unitValues.hasNone && (
+                                  <label className="flex cursor-pointer items-center gap-2 rounded px-2 py-1.5 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800">
+                                    <input
+                                      type="checkbox"
+                                      checked={
+                                        unitFilter === null ||
+                                        unitFilter.has("none")
+                                      }
+                                      onChange={() => toggleUnit("none")}
+                                    />
+                                    No unit
+                                  </label>
+                                )}
+                              </div>
+                            </>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  </th>
+                ))}
+                <th className="px-3 py-3">
+                  <span className="sr-only">Actions</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {view.length === 0 && (
+                <tr>
+                  <td
+                    colSpan={FIELDS.length + 1}
+                    className="px-4 py-10 text-center text-neutral-400"
+                  >
+                    {rows.length === 0
+                      ? "No rows yet. Import an Excel file or add a row."
+                      : "No rows match your search or filter."}
+                  </td>
+                </tr>
+              )}
+              {pageRows.map((row) => (
+                <tr
+                  key={row._k}
+                  className="transition-colors even:bg-neutral-100/70 hover:bg-indigo-50 dark:even:bg-neutral-800/50 dark:hover:bg-neutral-800/80"
+                >
+                  {FIELDS.map((f) => (
+                    <td key={f.key} className="px-2 py-1.5">
+                      <input
+                        value={row[f.key]}
+                        title={row[f.key]}
+                        aria-label={`${f.label} for row ${row.id || "new"}`}
+                        onChange={(e) => editCell(row._k, f.key, e.target.value)}
+                        onBlur={saveOnBlur}
+                        className="w-full rounded-md border border-transparent bg-transparent px-2 py-1 text-sm outline-none transition hover:border-neutral-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:hover:border-neutral-700"
+                      />
+                    </td>
+                  ))}
+                  <td className="px-1 py-1.5 text-center">
+                    <button
+                      onClick={() => setConfirmDelete(row)}
+                      aria-label={`Delete row ${row.id || row.name}`}
+                      title="Delete row"
+                      className="inline-flex items-center justify-center rounded-md p-2 text-neutral-400 transition hover:bg-red-50 hover:text-red-500 dark:hover:bg-red-500/10"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="h-4 w-4"
+                        aria-hidden="true"
+                      >
+                        <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M10 11v6M14 11v6" />
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
+        <button
+          onClick={addRow}
+          className="inline-flex items-center gap-2 rounded-lg border border-neutral-300 px-4 py-2 text-sm font-medium transition hover:bg-neutral-100 dark:border-neutral-700 dark:hover:bg-neutral-800"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="h-4 w-4"
+            aria-hidden="true"
+          >
+            <path d="M12 5v14M5 12h14" />
+          </svg>
+          Add row
+        </button>
+
+        {pageCount > 1 && (
+          <div className="flex items-center gap-2 text-sm">
+            <button
+              onClick={() => setPage(0)}
+              disabled={current === 0}
+              className="rounded-md border border-neutral-300 px-3 py-1.5 font-medium transition hover:bg-neutral-100 disabled:opacity-40 dark:border-neutral-700 dark:hover:bg-neutral-800"
+            >
+              First
+            </button>
+            <button
+              onClick={() => setPage((p) => Math.max(0, p - 1))}
+              disabled={current === 0}
+              className="rounded-md border border-neutral-300 px-3 py-1.5 font-medium transition hover:bg-neutral-100 disabled:opacity-40 dark:border-neutral-700 dark:hover:bg-neutral-800"
+            >
+              Prev
+            </button>
+            <span className="tabular-nums text-neutral-500">
+              Page {current + 1} of {pageCount}
+            </span>
+            <button
+              onClick={() => setPage((p) => Math.min(pageCount - 1, p + 1))}
+              disabled={current >= pageCount - 1}
+              className="rounded-md border border-neutral-300 px-3 py-1.5 font-medium transition hover:bg-neutral-100 disabled:opacity-40 dark:border-neutral-700 dark:hover:bg-neutral-800"
+            >
+              Next
+            </button>
+            <button
+              onClick={() => setPage(pageCount - 1)}
+              disabled={current >= pageCount - 1}
+              className="rounded-md border border-neutral-300 px-3 py-1.5 font-medium transition hover:bg-neutral-100 disabled:opacity-40 dark:border-neutral-700 dark:hover:bg-neutral-800"
+            >
+              Last
+            </button>
+          </div>
+        )}
+      </div>
+
+      <ConfirmDialog
+        open={confirmDelete !== null}
+        title="Delete row?"
+        message={
+          confirmDelete
+            ? `Delete “${confirmDelete.name || confirmDelete.id || "this row"}” from the vocabulary?`
+            : ""
+        }
+        confirmLabel="Delete"
+        onCancel={() => setConfirmDelete(null)}
+        onConfirm={() => {
+          if (confirmDelete) removeRow(confirmDelete._k);
+          setConfirmDelete(null);
+        }}
+      />
+    </div>
+  );
+}
