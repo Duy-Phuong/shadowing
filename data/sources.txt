@@ -1,0 +1,8 @@
+{"channelId":"UCHaHD477h-FeBbVh9Sh7syA","name":"BBC Learning English","url":"https://www.youtube.com/@bbclearningenglish"}
+{"channelId":"UCQXHTFnQYFTqN0MqmNh9EIA","name":"BBC World Service","url":"https://www.youtube.com/@BBCWorldService"}
+{"channelId":"UCZJJTxA36ZPNTJ1WFIByaeA","name":"Learn English with Bob the Canadian","url":"https://www.youtube.com/@LearnEnglishwithBobtheCanadian"}
+{"channelId":"UCiwfO0dY4kB-fzwBYqFGFNg","name":"English by Giovana","url":"https://www.youtube.com/@englishbygiovana"}
+{"channelId":"UCz4tgANd4yy8Oe0iXCdSWfA","name":"English with Lucy","url":"https://www.youtube.com/@EnglishwithLucy"}
+{"channelId":"UCJ0uqCI0Vqr2Rrt1HseGirg","name":"The Late Late Show with James Corden","url":"https://www.youtube.com/@TheLateLateShow"}
+{"channelId":"UC8-Th83bH_thdKZDJCrn88g","name":"The Tonight Show Starring Jimmy Fallon","url":"https://www.youtube.com/@fallontonight"}
+{"channelId":"UCAuUUnT6oDeKwE6v1NGQxug","name":"TED","url":"https://www.youtube.com/@TED"}
