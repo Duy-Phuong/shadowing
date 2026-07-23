@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import ThemeToggle from "./ThemeToggle";
 
 export type View = "home" | "explore" | "practice" | "library" | "wordlist";
@@ -39,6 +39,8 @@ export default function Sidebar({
   onToggleCollapse,
   onNavigate,
 }: Props) {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   const items: {
     key: View;
     label: string;
@@ -90,68 +92,129 @@ export default function Sidebar({
     },
   ];
 
+  const renderNav = (compact: boolean) => (
+    <nav className="flex flex-col gap-1 px-2">
+      {items.map((item) => {
+        const active = view === item.key;
+        return (
+          <button
+            key={item.key}
+            onClick={() => {
+              onNavigate(item.key);
+              setMobileOpen(false);
+            }}
+            title={item.label}
+            className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition ${
+              compact ? "justify-center" : ""
+            } ${
+              active
+                ? "bg-indigo-600 text-white shadow-sm shadow-indigo-600/20"
+                : "text-neutral-600 hover:bg-neutral-200 dark:text-neutral-300 dark:hover:bg-neutral-800"
+            }`}
+          >
+            {item.icon}
+            {!compact && <span className="flex-1 text-left">{item.label}</span>}
+            {!compact && item.badge !== undefined && (
+              <span
+                className={`rounded-full px-2 py-0.5 text-xs ${
+                  active
+                    ? "bg-white/25"
+                    : "bg-neutral-200 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300"
+                }`}
+              >
+                {item.badge}
+              </span>
+            )}
+          </button>
+        );
+      })}
+    </nav>
+  );
+
   return (
-    <aside
-      className={`flex shrink-0 flex-col border-r border-neutral-200 bg-neutral-50 transition-[width] dark:border-neutral-800 dark:bg-neutral-950 ${
-        collapsed ? "w-16" : "w-60"
-      }`}
-    >
-      <div className="flex items-center justify-between gap-2 px-3 py-4">
-        {!collapsed && (
-          <span className="truncate text-sm font-bold tracking-tight">
-            Shadowing
-          </span>
-        )}
+    <>
+      {/* Mobile top bar */}
+      <header className="flex h-14 items-center justify-between border-b border-neutral-200 bg-neutral-50/90 px-3 backdrop-blur md:hidden dark:border-neutral-800 dark:bg-neutral-950/90">
         <button
-          onClick={onToggleCollapse}
-          aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
-          title={collapsed ? "Expand" : "Collapse"}
-          className="rounded-md p-2 text-neutral-500 hover:bg-neutral-200 hover:text-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-white"
+          onClick={() => setMobileOpen(true)}
+          aria-label="Open menu"
+          className="rounded-md p-2 text-neutral-600 hover:bg-neutral-200 dark:text-neutral-300 dark:hover:bg-neutral-800"
         >
           <Icon>
-            <rect x="3" y="4" width="18" height="16" rx="2" />
-            <line x1="9" y1="4" x2="9" y2="20" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
           </Icon>
         </button>
-      </div>
+        <span className="font-bold tracking-tight">Shadowing</span>
+        <ThemeToggle collapsed />
+      </header>
 
-      <nav className="flex flex-col gap-1 px-2">
-        {items.map((item) => {
-          const active = view === item.key;
-          return (
-            <button
-              key={item.key}
-              onClick={() => onNavigate(item.key)}
-              title={item.label}
-              className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition ${
-                collapsed ? "justify-center" : ""
-              } ${
-                active
-                  ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
-                  : "text-neutral-600 hover:bg-neutral-200 dark:text-neutral-300 dark:hover:bg-neutral-800"
-              }`}
-            >
-              {item.icon}
-              {!collapsed && <span className="flex-1 text-left">{item.label}</span>}
-              {!collapsed && item.badge !== undefined && (
-                <span
-                  className={`rounded-full px-2 py-0.5 text-xs ${
-                    active
-                      ? "bg-white/20 dark:bg-black/20"
-                      : "bg-neutral-200 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300"
-                  }`}
-                >
-                  {item.badge}
-                </span>
-              )}
-            </button>
-          );
-        })}
-      </nav>
+      {/* Desktop sidebar */}
+      <aside
+        className={`hidden shrink-0 flex-col border-r border-neutral-200 bg-neutral-50 transition-[width] md:flex dark:border-neutral-800 dark:bg-neutral-950 ${
+          collapsed ? "w-16" : "w-60"
+        }`}
+      >
+        <div className="flex items-center justify-between gap-2 px-3 py-4">
+          {!collapsed && (
+            <span className="truncate text-sm font-bold tracking-tight">
+              Shadowing
+            </span>
+          )}
+          <button
+            onClick={onToggleCollapse}
+            aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+            title={collapsed ? "Expand" : "Collapse"}
+            className="rounded-md p-2 text-neutral-500 hover:bg-neutral-200 hover:text-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-white"
+          >
+            <Icon>
+              <rect x="3" y="4" width="18" height="16" rx="2" />
+              <line x1="9" y1="4" x2="9" y2="20" />
+            </Icon>
+          </button>
+        </div>
 
-      <div className="mt-auto p-2">
-        <ThemeToggle collapsed={collapsed} />
-      </div>
-    </aside>
+        {renderNav(collapsed)}
+
+        <div className="mt-auto p-2">
+          <ThemeToggle collapsed={collapsed} />
+        </div>
+      </aside>
+
+      {/* Mobile drawer */}
+      {mobileOpen && (
+        <div className="fixed inset-0 z-50 md:hidden">
+          <button
+            aria-label="Close menu"
+            onClick={() => setMobileOpen(false)}
+            className="absolute inset-0 cursor-default bg-black/40 backdrop-blur-sm"
+          />
+          <aside className="absolute left-0 top-0 flex h-full w-64 flex-col border-r border-neutral-200 bg-neutral-50 shadow-xl dark:border-neutral-800 dark:bg-neutral-950">
+            <div className="flex items-center justify-between gap-2 px-3 py-4">
+              <span className="truncate text-sm font-bold tracking-tight">
+                Shadowing
+              </span>
+              <button
+                onClick={() => setMobileOpen(false)}
+                aria-label="Close menu"
+                className="rounded-md p-2 text-neutral-500 hover:bg-neutral-200 hover:text-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-white"
+              >
+                <Icon>
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </Icon>
+              </button>
+            </div>
+
+            {renderNav(false)}
+
+            <div className="mt-auto p-2">
+              <ThemeToggle collapsed={false} />
+            </div>
+          </aside>
+        </div>
+      )}
+    </>
   );
 }

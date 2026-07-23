@@ -21,7 +21,7 @@ export default function ModeTabs({ mode, onChange }: Props) {
           onClick={() => onChange(key)}
           className={`rounded-md px-4 py-1.5 text-sm font-medium transition ${
             mode === key
-              ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
+              ? "bg-indigo-600 text-white"
               : "text-neutral-500 hover:text-neutral-900 dark:hover:text-white"
           }`}
         >

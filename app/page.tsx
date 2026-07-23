@@ -324,7 +324,7 @@ export default function Home() {
                   title="Automatically move to the next sentence"
                   className={`rounded-lg border px-3 py-1.5 text-xs font-medium transition ${
                     autoNext
-                      ? "border-neutral-900 bg-neutral-900 text-white dark:border-white dark:bg-white dark:text-neutral-900"
+                      ? "border-indigo-600 bg-indigo-600 text-white"
                       : "border-neutral-200 text-neutral-500 hover:text-neutral-900 dark:border-neutral-800 dark:hover:text-white"
                   }`}
                 >
@@ -369,7 +369,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen flex-col md:flex-row">
       <Sidebar
         collapsed={collapsed}
         view={view}
@@ -378,7 +378,7 @@ export default function Home() {
         onToggleCollapse={() => setCollapsed((v) => !v)}
         onNavigate={setView}
       />
-      <main className="flex-1 overflow-y-auto">{renderMain()}</main>
+      <main className="min-w-0 flex-1 overflow-y-auto">{renderMain()}</main>
     </div>
   );
 }

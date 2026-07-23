@@ -66,7 +66,7 @@ export default function TranscriptList({
               <div
                 className={`flex items-center gap-1 rounded-md pr-1 transition ${
                   active
-                    ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
+                    ? "bg-indigo-600 text-white"
                     : "hover:bg-neutral-100 dark:hover:bg-neutral-800"
                 }`}
               >

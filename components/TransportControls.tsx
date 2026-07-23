@@ -50,7 +50,7 @@ export default function TransportControls({
         onClick={onPlayPause}
         aria-label={playing ? "Pause" : "Play"}
         title={playing ? "Pause" : "Play"}
-        className="flex h-11 w-20 items-center justify-center rounded-lg bg-blue-500 text-white transition hover:bg-blue-600"
+        className="flex h-11 w-20 items-center justify-center rounded-lg bg-indigo-600 text-white transition hover:bg-indigo-700"
       >
         {playing ? (
           <svg {...iconProps}>

@@ -163,13 +163,13 @@ export default function Practice({
           value={addUrl}
           onChange={(e) => setAddUrl(e.target.value)}
           placeholder="Paste a YouTube channel URL, e.g. https://youtube.com/@SpeakEnglishWithVanessa"
-          className="flex-1 rounded-lg border border-neutral-300 px-3 py-2 text-sm outline-none focus:border-neutral-900 dark:border-neutral-700 dark:bg-neutral-900 dark:focus:border-neutral-300"
+          className="flex-1 rounded-lg border border-neutral-300 px-3 py-2 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-neutral-700 dark:bg-neutral-900"
           disabled={adding}
         />
         <button
           type="submit"
           disabled={adding || addUrl.trim() === ""}
-          className="rounded-lg bg-neutral-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-neutral-700 disabled:opacity-40 dark:bg-white dark:text-neutral-900"
+          className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-indigo-700 disabled:opacity-40"
         >
           {adding ? "Adding…" : "Add source"}
         </button>
@@ -201,7 +201,7 @@ export default function Practice({
           onClick={() => setFilter("all")}
           className={`rounded-full px-3 py-1 text-sm font-medium transition ${
             level === "all"
-              ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
+              ? "bg-indigo-600 text-white"
               : "text-neutral-500 hover:text-neutral-900 dark:hover:text-white"
           }`}
         >
@@ -213,7 +213,7 @@ export default function Practice({
             onClick={() => setFilter(lv)}
             className={`flex items-center gap-1.5 rounded-full px-3 py-1 text-sm font-medium transition ${
               level === lv
-                ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
+                ? "bg-indigo-600 text-white"
                 : "text-neutral-500 hover:text-neutral-900 dark:hover:text-white"
             }`}
           >

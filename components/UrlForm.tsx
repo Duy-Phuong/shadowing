@@ -27,7 +27,7 @@ export default function UrlForm({ onLoaded }: Props) {
   };
 
   return (
-    <div className="mx-auto flex w-full max-w-2xl flex-col items-center gap-6 py-20 text-center">
+    <div className="mx-auto flex w-full max-w-2xl flex-col items-center gap-6 px-4 py-16 text-center sm:py-20">
       <h1 className="text-4xl font-bold tracking-tight">
         Shadowing &amp; Dictation
       </h1>
@@ -41,13 +41,13 @@ export default function UrlForm({ onLoaded }: Props) {
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           placeholder="https://www.youtube.com/watch?v=..."
-          className="flex-1 rounded-lg border border-neutral-300 px-4 py-3 text-base outline-none focus:border-neutral-900 dark:border-neutral-700 dark:bg-neutral-900 dark:focus:border-neutral-300"
+          className="flex-1 rounded-lg border border-neutral-300 px-4 py-3 text-base outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-neutral-700 dark:bg-neutral-900"
           disabled={loading}
         />
         <button
           type="submit"
           disabled={loading || url.trim() === ""}
-          className="rounded-lg bg-neutral-900 px-6 py-3 font-medium text-white transition hover:bg-neutral-700 disabled:opacity-40 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200"
+          className="rounded-lg bg-indigo-600 px-6 py-3 font-medium text-white shadow-sm transition hover:bg-indigo-700 disabled:opacity-40"
         >
           {loading ? "Loading…" : "Load"}
         </button>

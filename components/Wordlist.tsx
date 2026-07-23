@@ -117,7 +117,7 @@ export default function Wordlist({
         <button
           onClick={() => setReviewing(true)}
           disabled={entries.length === 0}
-          className="inline-flex items-center gap-2 rounded-lg bg-neutral-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-neutral-700 disabled:opacity-40 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200"
+          className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-indigo-700 disabled:opacity-40"
         >
           <svg
             viewBox="0 0 24 24"
@@ -158,7 +158,7 @@ export default function Wordlist({
                         <span
                           className={`text-xs ${
                             sort?.column === c.key
-                              ? "text-neutral-900 dark:text-white"
+                              ? "text-indigo-600 dark:text-indigo-400"
                               : "text-neutral-300 dark:text-neutral-600"
                           }`}
                         >
@@ -173,7 +173,7 @@ export default function Wordlist({
                             title="Filter by unit"
                             className={`px-2 py-2 hover:text-neutral-900 dark:hover:text-white ${
                               unitFilter
-                                ? "text-neutral-900 dark:text-white"
+                                ? "text-indigo-600 dark:text-indigo-400"
                                 : "text-neutral-300 dark:text-neutral-600"
                             }`}
                           >
@@ -266,7 +266,7 @@ export default function Wordlist({
               {displayed.map((row) => (
                 <tr
                   key={row.word}
-                  className="transition-colors even:bg-neutral-50/70 hover:bg-neutral-100 dark:even:bg-neutral-800/30 dark:hover:bg-neutral-800/60"
+                  className="transition-colors even:bg-neutral-100/70 hover:bg-indigo-50 dark:even:bg-neutral-800/50 dark:hover:bg-neutral-800/80"
                 >
                   <td className="px-4 py-3 tabular-nums text-neutral-400">
                     {row.id}
@@ -311,7 +311,7 @@ export default function Wordlist({
                       onKeyDown={(e) => {
                         if (e.key === "Enter") e.currentTarget.blur();
                       }}
-                      className="w-14 rounded-md border border-neutral-200 bg-white/60 px-2 py-1 text-center text-sm outline-none transition focus:border-neutral-900 focus:ring-2 focus:ring-neutral-900/10 dark:border-neutral-700 dark:bg-neutral-900/40 dark:focus:border-neutral-300 dark:focus:ring-white/10"
+                      className="w-14 rounded-md border border-neutral-200 bg-white/60 px-2 py-1 text-center text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-neutral-700 dark:bg-neutral-900/40"
                     />
                   </td>
                   <td className="px-1 py-3 text-center">

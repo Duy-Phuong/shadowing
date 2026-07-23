@@ -54,13 +54,13 @@ export default function YouTubeSearch({ onOpen }: Props) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="e.g. English pronunciation tips"
-          className="flex-1 rounded-lg border border-neutral-300 px-4 py-3 text-base outline-none focus:border-neutral-900 dark:border-neutral-700 dark:bg-neutral-900 dark:focus:border-neutral-300"
+          className="flex-1 rounded-lg border border-neutral-300 px-4 py-3 text-base outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-neutral-700 dark:bg-neutral-900"
           disabled={loading}
         />
         <button
           type="submit"
           disabled={loading || query.trim() === ""}
-          className="rounded-lg bg-neutral-900 px-6 py-3 font-medium text-white transition hover:bg-neutral-700 disabled:opacity-40 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200"
+          className="rounded-lg bg-indigo-600 px-6 py-3 font-medium text-white shadow-sm transition hover:bg-indigo-700 disabled:opacity-40"
         >
           {loading ? "Searching…" : "Search"}
         </button>

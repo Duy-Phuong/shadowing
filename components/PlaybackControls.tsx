@@ -35,7 +35,7 @@ function Segmented<T extends number>({
             onClick={() => onChange(opt)}
             className={`rounded-md px-2.5 py-1 text-xs font-medium transition ${
               opt === value
-                ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
+                ? "bg-indigo-600 text-white"
                 : "text-neutral-500 hover:text-neutral-900 dark:hover:text-white"
             }`}
           >
