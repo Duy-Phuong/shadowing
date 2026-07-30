@@ -1,6 +1,7 @@
 export interface VocabRow {
   id: string;
   name: string;
+  ipa: string;
   type: string;
   description: string;
   unit: string;
@@ -10,6 +11,7 @@ export interface VocabRow {
 export const VOCAB_COLUMNS = [
   "ID",
   "Name",
+  "IPA",
   "Type",
   "Description",
   "Unit",
@@ -18,6 +20,7 @@ export const VOCAB_COLUMNS = [
 const FIELD_BY_HEADER: Record<string, keyof VocabRow> = {
   id: "id",
   name: "name",
+  ipa: "ipa",
   type: "type",
   description: "description",
   unit: "unit",
@@ -65,6 +68,7 @@ export function rowsFromAoa(aoa: Cell[][]): VocabRow[] {
     rows.push({
       id: at(row, "id"),
       name,
+      ipa: at(row, "ipa"),
       type: at(row, "type"),
       description: at(row, "description"),
       unit: at(row, "unit"),
@@ -77,6 +81,6 @@ export function rowsFromAoa(aoa: Cell[][]): VocabRow[] {
 export function aoaFromRows(rows: VocabRow[]): string[][] {
   return [
     [...VOCAB_COLUMNS],
-    ...rows.map((r) => [r.id, r.name, r.type, r.description, r.unit]),
+    ...rows.map((r) => [r.id, r.name, r.ipa, r.type, r.description, r.unit]),
   ];
 }

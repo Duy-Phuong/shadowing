@@ -44,6 +44,8 @@ export default function Practice({
     videoId: string;
     title: string;
     text: string;
+    start: number;
+    sentenceId: number;
   }) => void;
 }) {
   const saved = new Set(bookmarkedIds);

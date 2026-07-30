@@ -10,6 +10,7 @@ export function normalizeRow(input: Partial<VocabRow>): VocabRow {
   return {
     id: s(input.id),
     name: s(input.name),
+    ipa: s(input.ipa),
     type: s(input.type),
     description: s(input.description),
     unit: s(input.unit),

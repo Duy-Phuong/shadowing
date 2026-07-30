@@ -23,6 +23,8 @@ interface Props {
     videoId: string;
     title: string;
     text: string;
+    start: number;
+    sentenceId: number;
   }) => void;
   onClose: () => void;
 }
@@ -208,6 +210,8 @@ export default function ListeningModal({
                   videoId: video.videoId,
                   title: video.title,
                   text: activeSentence.text,
+                  start: activeSentence.start,
+                  sentenceId: activeSentence.id,
                 });
               }}
             />

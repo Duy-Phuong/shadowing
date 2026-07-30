@@ -5,11 +5,49 @@ export interface SavedSentence {
   /** Title of the video the sentence came from. */
   title: string;
   text: string;
+  /** Player time (seconds) where the sentence begins. */
+  start: number;
+  /** Index of the sentence within the transcript when it was saved. */
+  sentenceId: number;
 }
 
 /** Builds the stable id for a sentence within a video. */
 export function sentenceKey(videoId: string, sentenceId: number): string {
   return `${videoId}:${sentenceId}`;
+}
+
+/**
+ * Locates a saved sentence inside a freshly-loaded transcript so we can jump to
+ * it. Prefers the stored index when its text still matches (transcripts are
+ * regenerated deterministically), then falls back to matching by text, then to
+ * the sentence playing at the saved timestamp. Returns 0 if nothing matches.
+ */
+export function findSentenceIndex(
+  sentences: { start: number; text: string }[],
+  target: { sentenceId?: number; start?: number; text?: string },
+): number {
+  const { sentenceId, start, text } = target;
+  if (
+    typeof sentenceId === "number" &&
+    sentenceId >= 0 &&
+    sentenceId < sentences.length &&
+    (text === undefined || sentences[sentenceId].text === text)
+  ) {
+    return sentenceId;
+  }
+  if (text !== undefined) {
+    const byText = sentences.findIndex((s) => s.text === text);
+    if (byText !== -1) return byText;
+  }
+  if (typeof start === "number") {
+    let best = 0;
+    for (let i = 0; i < sentences.length; i++) {
+      if (sentences[i].start <= start + 0.01) best = i;
+      else break;
+    }
+    return best;
+  }
+  return 0;
 }
 
 /** Parses newline-delimited JSON sentences, skipping blank/malformed lines. */
@@ -19,8 +57,18 @@ export function parseSentences(text: string): SavedSentence[] {
     const trimmed = line.trim();
     if (trimmed === "") continue;
     try {
-      const obj = JSON.parse(trimmed) as SavedSentence;
-      if (obj && typeof obj.id === "string") result.push(obj);
+      const obj = JSON.parse(trimmed) as Partial<SavedSentence>;
+      if (obj && typeof obj.id === "string") {
+        result.push({
+          id: obj.id,
+          videoId: obj.videoId ?? "",
+          title: obj.title ?? "",
+          text: obj.text ?? "",
+          // Entries saved before timestamps existed default to 0.
+          start: typeof obj.start === "number" ? obj.start : 0,
+          sentenceId: typeof obj.sentenceId === "number" ? obj.sentenceId : 0,
+        });
+      }
     } catch {
       // skip malformed line
     }

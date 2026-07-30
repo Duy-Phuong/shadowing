@@ -2,18 +2,28 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { VocabRow } from "@/lib/vocabulary";
+import type { LookupResult } from "@/lib/gemini";
 import { speakWord } from "@/lib/speak";
 import { oxfordUrl } from "@/lib/oxford";
 import ConfirmDialog from "./ConfirmDialog";
+import LookupModal, { type LookupFields } from "./LookupModal";
 import { useToast } from "./Toast";
+
+/** A pending AI lookup awaiting the user's Apply confirmation. */
+interface Pending {
+  mode: "add" | "update";
+  rowKey?: string;
+  initial: LookupFields;
+}
 
 type Row = VocabRow & { _k: string };
 type Field = keyof VocabRow;
 type SortDir = "asc" | "desc";
 
 const FIELDS: { key: Field; label: string; width: string }[] = [
-  { key: "id", label: "ID", width: "w-24" },
-  { key: "name", label: "Name", width: "w-80" },
+  { key: "id", label: "ID", width: "w-20" },
+  { key: "name", label: "Name", width: "w-72" },
+  { key: "ipa", label: "IPA", width: "w-36" },
   { key: "type", label: "Type", width: "w-28" },
   { key: "description", label: "Description", width: "min-w-72" },
   { key: "unit", label: "Unit", width: "w-20" },
@@ -60,6 +70,12 @@ export default function Vocabulary() {
   const fileRef = useRef<HTMLInputElement>(null);
   const [dirty, setDirty] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [newWord, setNewWord] = useState("");
+  const [addingWord, setAddingWord] = useState(false);
+  const [lookingUp, setLookingUp] = useState<Set<string>>(new Set());
+  const [model, setModel] = useState("");
+  const [models, setModels] = useState<string[]>([]);
+  const [pending, setPending] = useState<Pending | null>(null);
   const toast = useToast();
 
   // Warn before leaving/reloading with unsaved changes.
@@ -79,6 +95,21 @@ export default function Vocabulary() {
       .then((data: VocabRow[]) => setRows(withKeys(data)))
       .catch(() => {})
       .finally(() => setLoading(false));
+
+    let stored = "";
+    try {
+      stored = localStorage.getItem("shadowing:geminiModel") ?? "";
+    } catch {
+      // ignore storage errors
+    }
+    fetch("/api/vocabulary/models")
+      .then((r) => (r.ok ? r.json() : { models: [] }))
+      .then((d: { models: string[] }) => {
+        const list = d.models ?? [];
+        setModels(list);
+        setModel(stored || list[0] || "gemini-flash-latest");
+      })
+      .catch(() => setModel(stored || "gemini-flash-latest"));
   }, []);
 
   const unitValues = useMemo(() => {
@@ -113,6 +144,11 @@ export default function Vocabulary() {
   const pageCount = Math.max(1, Math.ceil(view.length / PAGE_SIZE));
   const current = Math.min(page, pageCount - 1);
   const pageRows = view.slice(current * PAGE_SIZE, current * PAGE_SIZE + PAGE_SIZE);
+
+  // Keep the active model selectable even if the live list doesn't include it
+  // (e.g. a value restored from localStorage or set via GEMINI_MODEL).
+  const modelOptions =
+    model && !models.includes(model) ? [model, ...models] : models;
 
   const toggleSort = (col: Field) =>
     setSort((cur) =>
@@ -160,10 +196,129 @@ export default function Vocabulary() {
     setRows((rs) => rs.map((r) => (r._k === k ? { ...r, [field]: value } : r)));
   };
 
+  const changeModel = (m: string) => {
+    setModel(m);
+    try {
+      localStorage.setItem("shadowing:geminiModel", m);
+    } catch {
+      // ignore storage errors
+    }
+  };
+
+  /** Calls the Gemini lookup route; throws with a user-facing message. */
+  const fetchLookup = async (word: string): Promise<LookupResult> => {
+    const res = await fetch("/api/vocabulary/lookup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ word, model }),
+    });
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      throw new Error(data.detail ?? data.message ?? "Couldn't look that word up.");
+    }
+    return (await res.json()) as LookupResult;
+  };
+
+  // Look up an existing row's Name via Gemini, then preview before updating it.
+  const lookupRow = async (row: Row) => {
+    const word = row.name.trim();
+    if (word === "" || lookingUp.has(row._k)) return;
+    setLookingUp((s) => new Set(s).add(row._k));
+    try {
+      const result = await fetchLookup(word);
+      // Keep the row's own name and prepend any existing note so it isn't lost.
+      const existing = row.description.trim();
+      setPending({
+        mode: "update",
+        rowKey: row._k,
+        initial: {
+          word: row.name,
+          ipa: result.ipa,
+          type: result.type,
+          meaning: existing ? `${row.description}  ·  ${result.meaning}` : result.meaning,
+        },
+      });
+    } catch (e) {
+      toast(e instanceof Error ? e.message : "Lookup failed", "error");
+    } finally {
+      setLookingUp((s) => {
+        const next = new Set(s);
+        next.delete(row._k);
+        return next;
+      });
+    }
+  };
+
+  // Look up a fresh word from the top box, then preview before adding a row.
+  const lookupNew = async () => {
+    const word = newWord.trim();
+    if (word === "" || addingWord) return;
+    setAddingWord(true);
+    try {
+      const result = await fetchLookup(word);
+      setPending({
+        mode: "add",
+        initial: {
+          word: result.word,
+          ipa: result.ipa,
+          type: result.type,
+          meaning: result.meaning,
+        },
+      });
+    } catch (e) {
+      toast(e instanceof Error ? e.message : "Lookup failed", "error");
+    } finally {
+      setAddingWord(false);
+    }
+  };
+
+  // Commit the previewed lookup: add a new row, or update the looked-up row.
+  const applyPending = (fields: LookupFields) => {
+    if (!pending) return;
+    if (pending.mode === "add") {
+      const next: Row[] = [
+        ...rows,
+        {
+          _k: key(),
+          id: "",
+          name: fields.word,
+          ipa: fields.ipa,
+          type: fields.type,
+          description: fields.meaning,
+          unit: "",
+        },
+      ];
+      setRows(next);
+      setNewWord("");
+      setQuery("");
+      setUnitFilter(null);
+      setSort(null);
+      setPage(Math.floor((next.length - 1) / PAGE_SIZE));
+      toast(`Added “${fields.word}”`, "success");
+    } else {
+      setRows((rs) =>
+        rs.map((r) =>
+          r._k === pending.rowKey
+            ? {
+                ...r,
+                name: fields.word,
+                ipa: fields.ipa,
+                type: fields.type,
+                description: fields.meaning,
+              }
+            : r,
+        ),
+      );
+      toast(`Updated “${fields.word}”`, "success");
+    }
+    setDirty(true);
+    setPending(null);
+  };
+
   const addRow = () => {
     const next: Row[] = [
       ...rows,
-      { _k: key(), id: "", name: "", type: "", description: "", unit: "" },
+      { _k: key(), id: "", name: "", ipa: "", type: "", description: "", unit: "" },
     ];
     setRows(next);
     setQuery("");
@@ -255,6 +410,44 @@ export default function Vocabulary() {
             Export Excel
           </a>
         </div>
+      </div>
+
+      <div className="mb-4 flex flex-wrap items-center gap-2 rounded-xl border border-indigo-200 bg-indigo-50/50 p-3 dark:border-indigo-500/30 dark:bg-indigo-500/10">
+        <span className="text-sm font-medium text-indigo-700 dark:text-indigo-300">
+          ✨ AI lookup
+        </span>
+        <input
+          value={newWord}
+          onChange={(e) => setNewWord(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") void lookupNew();
+          }}
+          disabled={addingWord}
+          placeholder="Type a word, e.g. serendipity"
+          className="min-w-48 flex-1 rounded-lg border border-neutral-300 px-3 py-2 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-900"
+        />
+        <button
+          onClick={() => void lookupNew()}
+          disabled={addingWord || newWord.trim() === ""}
+          className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-indigo-700 disabled:opacity-40"
+        >
+          {addingWord ? "Looking up…" : "Look up & add"}
+        </button>
+        <label className="flex items-center gap-1.5 text-xs text-neutral-500 dark:text-neutral-400">
+          Model
+          <select
+            value={model}
+            onChange={(e) => changeModel(e.target.value)}
+            title="Switch model if you hit a rate limit"
+            className="rounded-lg border border-neutral-300 bg-white px-2 py-1.5 text-xs outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-neutral-700 dark:bg-neutral-900"
+          >
+            {modelOptions.map((m) => (
+              <option key={m} value={m}>
+                {m}
+              </option>
+            ))}
+          </select>
+        </label>
       </div>
 
       <input
@@ -408,6 +601,39 @@ export default function Vocabulary() {
                   <td className="px-1 py-1.5">
                     <div className="flex items-center justify-end gap-0.5">
                       <button
+                        onClick={() => void lookupRow(row)}
+                        disabled={row.name.trim() === "" || lookingUp.has(row._k)}
+                        aria-label={`AI lookup for ${row.name}`}
+                        title="AI lookup — IPA, type & Vietnamese meaning"
+                        className="inline-flex items-center justify-center rounded-md p-2 text-indigo-500 transition hover:bg-indigo-100 hover:text-indigo-700 disabled:opacity-30 dark:hover:bg-indigo-500/15"
+                      >
+                        {lookingUp.has(row._k) ? (
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                            className="h-4 w-4 animate-spin"
+                            aria-hidden="true"
+                          >
+                            <path d="M21 12a9 9 0 1 1-6.22-8.56" strokeLinecap="round" />
+                          </svg>
+                        ) : (
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="h-4 w-4"
+                            aria-hidden="true"
+                          >
+                            <path d="M5 3v4M3 5h4M6 17v4M4 19h4M13 3l2.5 6.5L22 12l-6.5 2.5L13 21l-2.5-6.5L4 12l6.5-2.5L13 3z" />
+                          </svg>
+                        )}
+                      </button>
+                      <button
                         onClick={() => speakWord(row.name)}
                         aria-label={`Pronounce ${row.name}`}
                         title="Pronounce"
@@ -536,6 +762,15 @@ export default function Vocabulary() {
           setConfirmDelete(null);
         }}
       />
+
+      {pending && (
+        <LookupModal
+          initial={pending.initial}
+          mode={pending.mode}
+          onApply={applyPending}
+          onCancel={() => setPending(null)}
+        />
+      )}
     </div>
   );
 }

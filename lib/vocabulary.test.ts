@@ -14,10 +14,12 @@ describe("rowsFromAoa", () => {
   ];
 
   test("finds the offset header row and maps columns by name", () => {
+    // This sheet has no IPA column, so ipa defaults to "" (backward compat).
     expect(rowsFromAoa(aoa)).toEqual<VocabRow[]>([
       {
         id: "1",
         name: "antonym",
+        ipa: "",
         type: "/ˈæntənɪm/",
         description: "từ trái nghĩa",
         unit: "2",
@@ -25,9 +27,27 @@ describe("rowsFromAoa", () => {
       {
         id: "2",
         name: "meanwhile",
+        ipa: "",
         type: "adv",
         description: "trong lúc này",
         unit: "2",
+      },
+    ]);
+  });
+
+  test("reads an IPA column when present", () => {
+    const withIpa = [
+      ["ID", "Name", "IPA", "Type", "Description", "Unit"],
+      ["1", "hello", "/həˈləʊ/", "exclamation", "a greeting", "1"],
+    ];
+    expect(rowsFromAoa(withIpa)).toEqual<VocabRow[]>([
+      {
+        id: "1",
+        name: "hello",
+        ipa: "/həˈləʊ/",
+        type: "exclamation",
+        description: "a greeting",
+        unit: "1",
       },
     ]);
   });
@@ -50,6 +70,7 @@ describe("rowsFromAoa", () => {
       {
         id: "9",
         name: "hello",
+        ipa: "",
         type: "excl",
         description: "a greeting",
         unit: "5",
@@ -68,14 +89,15 @@ describe("aoaFromRows", () => {
       {
         id: "1",
         name: "antonym",
-        type: "/ˈæntənɪm/",
+        ipa: "/ˈæntənɪm/",
+        type: "noun",
         description: "từ trái nghĩa",
         unit: "2",
       },
     ];
     expect(aoaFromRows(rows)).toEqual([
-      ["ID", "Name", "Type", "Description", "Unit"],
-      ["1", "antonym", "/ˈæntənɪm/", "từ trái nghĩa", "2"],
+      ["ID", "Name", "IPA", "Type", "Description", "Unit"],
+      ["1", "antonym", "/ˈæntənɪm/", "noun", "từ trái nghĩa", "2"],
     ]);
   });
 });

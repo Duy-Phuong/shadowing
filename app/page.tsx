@@ -20,7 +20,11 @@ import { useSentenceLoop } from "@/hooks/useSentenceLoop";
 import { useToast } from "@/components/Toast";
 import { fetchTranscript } from "@/lib/loadTranscript";
 import type { Bookmark } from "@/lib/bookmarks";
-import { sentenceKey, type SavedSentence } from "@/lib/sentences";
+import {
+  findSentenceIndex,
+  sentenceKey,
+  type SavedSentence,
+} from "@/lib/sentences";
 import type { WordEntry } from "@/lib/wordlist";
 import type { PracticeMode, Transcript } from "@/lib/types";
 
@@ -65,6 +69,13 @@ export default function Home() {
   const loop = useSentenceLoop(() => playerRef.current);
   const toast = useToast();
   const skipPersist = useRef(true);
+  // Set when opening a saved sentence: once the player is ready we jump to it.
+  const pendingSeekRef = useRef<{
+    videoId: string;
+    start: number;
+    sentenceId: number;
+    text: string;
+  } | null>(null);
 
   useEffect(() => {
     fetch("/api/bookmarks")
@@ -152,7 +163,14 @@ export default function Home() {
   const showTranscript = (t: Transcript) => {
     loop.stop();
     setTranscript(t);
-    setSelectedId(0);
+    // When opening a saved sentence, start on that sentence rather than the top.
+    const target = pendingSeekRef.current;
+    if (target && target.videoId === t.videoId) {
+      setSelectedId(findSentenceIndex(t.sentences, target));
+    } else {
+      pendingSeekRef.current = null;
+      setSelectedId(0);
+    }
     setView("practice");
   };
 
@@ -172,6 +190,27 @@ export default function Home() {
 
   const openVideoId = (videoId: string) =>
     openUrl(`https://www.youtube.com/watch?v=${videoId}`, "explore");
+
+  // Open a saved sentence's video and jump to the moment it was spoken. The
+  // reloadKey bump forces the player to remount (and re-fire onReady) even when
+  // the same video is already loaded.
+  const openSavedSentence = (s: SavedSentence) => {
+    pendingSeekRef.current = {
+      videoId: s.videoId,
+      start: s.start,
+      sentenceId: s.sentenceId,
+      text: s.text,
+    };
+    setReloadKey((k) => k + 1);
+    openVideoId(s.videoId);
+  };
+
+  // Once the player is ready after opening a saved sentence, seek + play it.
+  const onPlayerReady = () => {
+    if (!pendingSeekRef.current) return;
+    pendingSeekRef.current = null;
+    playCurrentRef.current();
+  };
 
   // Reload just the embedded player (remount) without leaving the page.
   const reloadVideo = () => {
@@ -259,11 +298,14 @@ export default function Home() {
   /** Saves/removes the sentence currently selected in the practice view. */
   const toggleCurrentSentence = () => {
     if (!transcript || currentSentenceKey === null) return;
+    const s = transcript.sentences[selectedId];
     void toggleSentence({
       id: currentSentenceKey,
       videoId: transcript.videoId,
       title: transcript.title,
-      text: transcript.sentences[selectedId].text,
+      text: s.text,
+      start: s.start,
+      sentenceId: selectedId,
     });
   };
 
@@ -365,7 +407,7 @@ export default function Home() {
         <SavedSentences
           sentences={sentences}
           loading={sentencesLoading}
-          onOpen={openVideoId}
+          onOpen={openSavedSentence}
           onRemove={removeSentence}
         />
       );
@@ -447,6 +489,7 @@ export default function Home() {
                 key={`${transcript.videoId}-${reloadKey}`}
                 videoId={transcript.videoId}
                 ref={playerRef}
+                onReady={onPlayerReady}
                 onPlayingChange={setPlaying}
               />
               <div className="flex flex-wrap items-center justify-between gap-4">

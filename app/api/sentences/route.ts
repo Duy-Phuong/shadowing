@@ -43,6 +43,8 @@ export async function POST(request: Request) {
     videoId: body.videoId,
     title: body.title ?? "",
     text: body.text,
+    start: typeof body.start === "number" ? body.start : 0,
+    sentenceId: typeof body.sentenceId === "number" ? body.sentenceId : 0,
   });
   await writeAll(updated);
   return NextResponse.json(updated);
