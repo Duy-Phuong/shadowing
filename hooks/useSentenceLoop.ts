@@ -14,6 +14,18 @@ interface LoopState {
 }
 
 const POLL_MS = 150;
+/** Largest gap we'll play through rather than seek across, in seconds. */
+const SEAM_TOLERANCE = 0.5;
+
+/**
+ * True when playback is already inside the sentence, so it can roll straight on
+ * instead of seeking. The end of a sentence is noticed up to POLL_MS late, which
+ * leaves us just past the next one's start; seeking back from there makes the
+ * player flicker and replays a sliver of audio.
+ */
+function alreadyInside(now: number, sentence: Sentence): boolean {
+  return now >= sentence.start - SEAM_TOLERANCE && now < sentence.end;
+}
 
 /**
  * Drives per-sentence looping on a YouTube player: seeks to the sentence start,
@@ -23,6 +35,8 @@ export function useSentenceLoop(getPlayer: () => PlayerHandle | null) {
   const [playing, setPlaying] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const stateRef = useRef<LoopState | null>(null);
+  /** Set while a completion handler runs, so its play() can roll straight on. */
+  const continuingRef = useRef(false);
 
   const clearTimer = useCallback(() => {
     if (intervalRef.current !== null) {
@@ -50,8 +64,12 @@ export function useSentenceLoop(getPlayer: () => PlayerHandle | null) {
 
       clearTimer();
       player.setPlaybackRate(rate);
-      player.seekTo(sentence.start);
-      player.play();
+      // Auto-next lands here already playing the next sentence, so leave the
+      // player alone; anything else (replay, a click, resuming) needs the seek.
+      if (!continuingRef.current || !alreadyInside(player.getCurrentTime(), sentence)) {
+        player.seekTo(sentence.start);
+        player.play();
+      }
       stateRef.current = {
         sentence,
         repeatsLeft: repeat - 1,
@@ -82,10 +100,16 @@ export function useSentenceLoop(getPlayer: () => PlayerHandle | null) {
           } else {
             const done = state.onComplete;
             clearTimer();
-            p.pause();
             stateRef.current = null;
-            setPlaying(false);
+            // Let the handler start the next sentence before deciding to pause,
+            // so a continuing loop is never interrupted mid-word.
+            continuingRef.current = true;
             done?.();
+            continuingRef.current = false;
+            if (stateRef.current === null) {
+              p.pause();
+              setPlaying(false);
+            }
           }
         }
       }, POLL_MS);

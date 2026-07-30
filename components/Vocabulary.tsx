@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { VocabRow } from "@/lib/vocabulary";
+import { speakWord } from "@/lib/speak";
+import { oxfordUrl } from "@/lib/oxford";
 import ConfirmDialog from "./ConfirmDialog";
 import { useToast } from "./Toast";
 
@@ -56,8 +58,20 @@ export default function Vocabulary() {
   const [filterOpen, setFilterOpen] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState<Row | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
-  const dirty = useRef(false);
+  const [dirty, setDirty] = useState(false);
+  const [saving, setSaving] = useState(false);
   const toast = useToast();
+
+  // Warn before leaving/reloading with unsaved changes.
+  useEffect(() => {
+    if (!dirty) return;
+    const handler = (e: BeforeUnloadEvent) => {
+      e.preventDefault();
+      e.returnValue = "";
+    };
+    window.addEventListener("beforeunload", handler);
+    return () => window.removeEventListener("beforeunload", handler);
+  }, [dirty]);
 
   useEffect(() => {
     fetch("/api/vocabulary")
@@ -120,23 +134,30 @@ export default function Vocabulary() {
       return next;
     });
 
-  const save = async (next: Row[]) => {
-    const res = await fetch("/api/vocabulary", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ rows: strip(next) }),
-    });
-    if (!res.ok) toast("Couldn't save changes", "error");
+  const saveAll = async () => {
+    setSaving(true);
+    try {
+      const res = await fetch("/api/vocabulary", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ rows: strip(rows) }),
+      });
+      if (!res.ok) {
+        toast("Couldn't save changes", "error");
+        return;
+      }
+      setDirty(false);
+      toast("Saved", "success");
+    } catch {
+      toast("Couldn't save changes", "error");
+    } finally {
+      setSaving(false);
+    }
   };
 
   const editCell = (k: string, field: Field, value: string) => {
-    dirty.current = true;
+    setDirty(true);
     setRows((rs) => rs.map((r) => (r._k === k ? { ...r, [field]: value } : r)));
-  };
-  const saveOnBlur = () => {
-    if (!dirty.current) return;
-    dirty.current = false;
-    void save(rows);
   };
 
   const addRow = () => {
@@ -149,13 +170,12 @@ export default function Vocabulary() {
     setUnitFilter(null);
     setSort(null);
     setPage(Math.floor((next.length - 1) / PAGE_SIZE));
-    void save(next);
+    setDirty(true);
   };
 
   const removeRow = (k: string) => {
-    const next = rows.filter((r) => r._k !== k);
-    setRows(next);
-    void save(next);
+    setRows((rs) => rs.filter((r) => r._k !== k));
+    setDirty(true);
   };
 
   const onImport = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -178,6 +198,7 @@ export default function Vocabulary() {
       setUnitFilter(null);
       setSort(null);
       setPage(0);
+      setDirty(false); // import already persists on the server
       toast(`Imported ${data.length} rows`, "success");
     } catch {
       toast("Import failed", "error");
@@ -194,9 +215,25 @@ export default function Vocabulary() {
           <p className="mt-1 text-sm text-neutral-500">
             {rows.length.toLocaleString()} {rows.length === 1 ? "row" : "rows"} ·
             import & edit from Excel
+            {dirty && (
+              <span className="ml-1 font-medium text-amber-600 dark:text-amber-400">
+                · unsaved changes
+              </span>
+            )}
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-2">
+          <button
+            onClick={saveAll}
+            disabled={!dirty || saving}
+            className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium shadow-sm transition disabled:cursor-not-allowed ${
+              dirty
+                ? "bg-indigo-600 text-white hover:bg-indigo-700"
+                : "bg-neutral-200 text-neutral-400 dark:bg-neutral-800 dark:text-neutral-500"
+            }`}
+          >
+            {saving ? "Saving…" : dirty ? "Save changes" : "Saved"}
+          </button>
           <input
             ref={fileRef}
             type="file"
@@ -207,7 +244,7 @@ export default function Vocabulary() {
           <button
             onClick={() => fileRef.current?.click()}
             disabled={busy}
-            className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-indigo-700 disabled:opacity-40"
+            className="inline-flex items-center gap-2 rounded-lg border border-neutral-300 px-4 py-2 text-sm font-medium transition hover:bg-neutral-100 disabled:opacity-40 dark:border-neutral-700 dark:hover:bg-neutral-800"
           >
             {busy ? "Importing…" : "Import Excel"}
           </button>
@@ -364,31 +401,61 @@ export default function Vocabulary() {
                         title={row[f.key]}
                         aria-label={`${f.label} for row ${row.id || "new"}`}
                         onChange={(e) => editCell(row._k, f.key, e.target.value)}
-                        onBlur={saveOnBlur}
                         className="w-full rounded-md border border-transparent bg-transparent px-2 py-1 text-sm outline-none transition hover:border-neutral-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:hover:border-neutral-700"
                       />
                     </td>
                   ))}
-                  <td className="px-1 py-1.5 text-center">
-                    <button
-                      onClick={() => setConfirmDelete(row)}
-                      aria-label={`Delete row ${row.id || row.name}`}
-                      title="Delete row"
-                      className="inline-flex items-center justify-center rounded-md p-2 text-neutral-400 transition hover:bg-red-50 hover:text-red-500 dark:hover:bg-red-500/10"
-                    >
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="h-4 w-4"
-                        aria-hidden="true"
+                  <td className="px-1 py-1.5">
+                    <div className="flex items-center justify-end gap-0.5">
+                      <button
+                        onClick={() => speakWord(row.name)}
+                        aria-label={`Pronounce ${row.name}`}
+                        title="Pronounce"
+                        className="inline-flex items-center justify-center rounded-md px-2 py-1 text-base transition hover:bg-neutral-200/70 dark:hover:bg-neutral-700/70"
                       >
-                        <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M10 11v6M14 11v6" />
-                      </svg>
-                    </button>
+                        🔊
+                      </button>
+                      <a
+                        href={oxfordUrl(row.name)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Open ${row.name} in Oxford Learner's Dictionaries`}
+                        title="Open in Oxford Learner's Dictionaries"
+                        className="inline-flex items-center justify-center rounded-md p-2 text-neutral-400 transition hover:bg-neutral-200/70 hover:text-neutral-900 dark:hover:bg-neutral-700/70 dark:hover:text-white"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="h-4 w-4"
+                          aria-hidden="true"
+                        >
+                          <path d="M14 4h6v6M20 4l-9 9M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6" />
+                        </svg>
+                      </a>
+                      <button
+                        onClick={() => setConfirmDelete(row)}
+                        aria-label={`Delete row ${row.id || row.name}`}
+                        title="Delete row"
+                        className="inline-flex items-center justify-center rounded-md p-2 text-neutral-400 transition hover:bg-red-50 hover:text-red-500 dark:hover:bg-red-500/10"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="h-4 w-4"
+                          aria-hidden="true"
+                        >
+                          <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M10 11v6M14 11v6" />
+                        </svg>
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}

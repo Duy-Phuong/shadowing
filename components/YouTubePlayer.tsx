@@ -20,10 +20,17 @@ interface Props {
   onReady?: () => void;
   /** Fired when playback starts/stops, including native clicks on the video. */
   onPlayingChange?: (playing: boolean) => void;
+  /** Fired when the video plays through to the end. */
+  onEnded?: () => void;
+  /** Fired when the video can't be played (removed, private, embedding off). */
+  onError?: () => void;
+  autoplay?: boolean;
 }
 
 /** YT.PlayerState.PLAYING */
 const STATE_PLAYING = 1;
+/** YT.PlayerState.ENDED */
+const STATE_ENDED = 0;
 
 let apiPromise: Promise<void> | null = null;
 
@@ -47,7 +54,7 @@ function loadIframeApi(): Promise<void> {
 }
 
 const YouTubePlayer = forwardRef<PlayerHandle, Props>(function YouTubePlayer(
-  { videoId, onReady, onPlayingChange },
+  { videoId, onReady, onPlayingChange, onEnded, onError, autoplay },
   ref,
 ) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -56,6 +63,10 @@ const YouTubePlayer = forwardRef<PlayerHandle, Props>(function YouTubePlayer(
   onReadyRef.current = onReady;
   const onPlayingChangeRef = useRef(onPlayingChange);
   onPlayingChangeRef.current = onPlayingChange;
+  const onEndedRef = useRef(onEnded);
+  onEndedRef.current = onEnded;
+  const onErrorRef = useRef(onError);
+  onErrorRef.current = onError;
 
   useImperativeHandle(
     ref,
@@ -75,11 +86,18 @@ const YouTubePlayer = forwardRef<PlayerHandle, Props>(function YouTubePlayer(
       if (cancelled || !containerRef.current || !window.YT) return;
       playerRef.current = new window.YT.Player(containerRef.current, {
         videoId,
-        playerVars: { rel: 0, modestbranding: 1 },
+        playerVars: {
+          rel: 0,
+          modestbranding: 1,
+          ...(autoplay ? { autoplay: 1 } : {}),
+        },
         events: {
           onReady: () => onReadyRef.current?.(),
-          onStateChange: (event) =>
-            onPlayingChangeRef.current?.(event.data === STATE_PLAYING),
+          onStateChange: (event) => {
+            onPlayingChangeRef.current?.(event.data === STATE_PLAYING);
+            if (event.data === STATE_ENDED) onEndedRef.current?.();
+          },
+          onError: () => onErrorRef.current?.(),
         },
       });
     });
@@ -88,7 +106,7 @@ const YouTubePlayer = forwardRef<PlayerHandle, Props>(function YouTubePlayer(
       playerRef.current?.destroy();
       playerRef.current = null;
     };
-  }, [videoId]);
+  }, [videoId, autoplay]);
 
   return (
     <div className="aspect-video w-full overflow-hidden rounded-xl bg-black">

@@ -9,6 +9,7 @@ export type View =
   | "practice"
   | "library"
   | "wordlist"
+  | "sentences"
   | "vocabulary";
 
 interface Props {
@@ -16,6 +17,7 @@ interface Props {
   view: View;
   bookmarkCount: number;
   wordlistCount: number;
+  sentenceCount: number;
   onToggleCollapse: () => void;
   onNavigate: (view: View) => void;
 }
@@ -42,6 +44,7 @@ export default function Sidebar({
   view,
   bookmarkCount,
   wordlistCount,
+  sentenceCount,
   onToggleCollapse,
   onNavigate,
 }: Props) {
@@ -93,6 +96,16 @@ export default function Sidebar({
         <Icon>
           <path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z" />
           <path d="M9 7h6M9 11h6" />
+        </Icon>
+      ),
+    },
+    {
+      key: "sentences",
+      label: "My Sentences",
+      badge: sentenceCount,
+      icon: (
+        <Icon>
+          <path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z" />
         </Icon>
       ),
     },

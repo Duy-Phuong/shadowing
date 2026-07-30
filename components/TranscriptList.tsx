@@ -39,8 +39,10 @@ export default function TranscriptList({
   const activeRef = useRef<HTMLButtonElement>(null);
   const [revealed, setRevealed] = useState<Set<number>>(new Set());
 
+  // Not smooth-scrolled: with auto-next the selection moves on its own, and a
+  // queued animation can be dropped, leaving the active line off-screen.
   useEffect(() => {
-    activeRef.current?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    activeRef.current?.scrollIntoView({ block: "nearest" });
   }, [selectedId]);
 
   const toggleReveal = (id: number) => {

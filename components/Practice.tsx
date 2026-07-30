@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import type { CatalogVideo, Level } from "@/lib/practiceVideos";
 import type { Source } from "@/lib/sources";
 import ConfirmDialog from "./ConfirmDialog";
+import ListeningModal from "./ListeningModal";
 import { useToast } from "./Toast";
 
 const LEVELS: Level[] = ["A1", "A2", "B1", "B2", "C1", "C2"];
@@ -31,10 +32,19 @@ export default function Practice({
   onOpen,
   bookmarkedIds,
   onToggleBookmark,
+  savedSentenceIds,
+  onToggleSentence,
 }: {
   onOpen: (videoId: string) => void;
   bookmarkedIds: string[];
   onToggleBookmark: (v: { videoId: string; title: string; url: string }) => void;
+  savedSentenceIds: string[];
+  onToggleSentence: (entry: {
+    id: string;
+    videoId: string;
+    title: string;
+    text: string;
+  }) => void;
 }) {
   const saved = new Set(bookmarkedIds);
   const [videos, setVideos] = useState<CatalogVideo[]>([]);
@@ -48,6 +58,7 @@ export default function Practice({
   const [addError, setAddError] = useState<string | null>(null);
   const [showTop, setShowTop] = useState(false);
   const [confirmRemove, setConfirmRemove] = useState<Source | null>(null);
+  const [listening, setListening] = useState(false);
 
   const toast = useToast();
 
@@ -221,6 +232,27 @@ export default function Practice({
             {lv}
           </button>
         ))}
+        <button
+          onClick={() => setListening(true)}
+          disabled={filtered.length === 0}
+          title="Play videos back to back and listen"
+          className="ml-auto inline-flex items-center gap-1.5 rounded-lg bg-indigo-600 px-3 py-1.5 text-sm font-medium text-white shadow-sm transition hover:bg-indigo-700 disabled:opacity-40"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="h-4 w-4"
+            aria-hidden="true"
+          >
+            <path d="M3 14v-2a9 9 0 0 1 18 0v2" />
+            <path d="M3 14a2 2 0 0 1 2-2h1v6H5a2 2 0 0 1-2-2zM21 14a2 2 0 0 0-2-2h-1v6h1a2 2 0 0 0 2-2z" />
+          </svg>
+          Practice listening
+        </button>
       </div>
 
       {loading ? (
@@ -328,6 +360,15 @@ export default function Practice({
             <path d="M12 19V5M5 12l7-7 7 7" />
           </svg>
         </button>
+      )}
+
+      {listening && filtered.length > 0 && (
+        <ListeningModal
+          videos={filtered}
+          savedSentenceIds={savedSentenceIds}
+          onToggleSentence={onToggleSentence}
+          onClose={() => setListening(false)}
+        />
       )}
 
       <ConfirmDialog

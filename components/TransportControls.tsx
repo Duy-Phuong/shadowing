@@ -9,6 +9,8 @@ interface Props {
   onPrev: () => void;
   onNext: () => void;
   onPlayPause: () => void;
+  /** What prev/next steps through, used in the button labels. */
+  itemLabel?: string;
 }
 
 const iconProps = {
@@ -30,14 +32,15 @@ export default function TransportControls({
   onPrev,
   onNext,
   onPlayPause,
+  itemLabel = "sentence",
 }: Props) {
   return (
     <div className="flex items-center gap-3">
       <button
         onClick={onPrev}
         disabled={!canPrev}
-        aria-label="Previous sentence"
-        title="Previous sentence"
+        aria-label={`Previous ${itemLabel}`}
+        title={`Previous ${itemLabel}`}
         className={sideBtn}
       >
         <svg {...iconProps}>
@@ -67,8 +70,8 @@ export default function TransportControls({
       <button
         onClick={onNext}
         disabled={!canNext}
-        aria-label="Next sentence"
-        title="Next sentence"
+        aria-label={`Next ${itemLabel}`}
+        title={`Next ${itemLabel}`}
         className={sideBtn}
       >
         <svg {...iconProps}>

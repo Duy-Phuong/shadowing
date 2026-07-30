@@ -14,11 +14,13 @@ import Sidebar, { type View } from "@/components/Sidebar";
 import MyVideos from "@/components/MyVideos";
 import Practice from "@/components/Practice";
 import Wordlist from "@/components/Wordlist";
+import SavedSentences from "@/components/SavedSentences";
 import Vocabulary from "@/components/Vocabulary";
 import { useSentenceLoop } from "@/hooks/useSentenceLoop";
 import { useToast } from "@/components/Toast";
 import { fetchTranscript } from "@/lib/loadTranscript";
 import type { Bookmark } from "@/lib/bookmarks";
+import { sentenceKey, type SavedSentence } from "@/lib/sentences";
 import type { WordEntry } from "@/lib/wordlist";
 import type { PracticeMode, Transcript } from "@/lib/types";
 
@@ -54,11 +56,15 @@ export default function Home() {
   const [bookmarksLoading, setBookmarksLoading] = useState(true);
   const [wordlist, setWordlist] = useState<WordEntry[]>([]);
   const [wordlistLoading, setWordlistLoading] = useState(true);
+  const [sentences, setSentences] = useState<SavedSentence[]>([]);
+  const [sentencesLoading, setSentencesLoading] = useState(true);
   const [busy, setBusy] = useState(false);
+  const [reloadKey, setReloadKey] = useState(0);
 
   const playerRef = useRef<PlayerHandle>(null);
   const loop = useSentenceLoop(() => playerRef.current);
   const toast = useToast();
+  const skipPersist = useRef(true);
 
   useEffect(() => {
     fetch("/api/bookmarks")
@@ -71,6 +77,11 @@ export default function Home() {
       .then((data: WordEntry[]) => setWordlist(data))
       .catch(() => {})
       .finally(() => setWordlistLoading(false));
+    fetch("/api/sentences")
+      .then((r) => (r.ok ? r.json() : []))
+      .then((data: SavedSentence[]) => setSentences(data))
+      .catch(() => {})
+      .finally(() => setSentencesLoading(false));
   }, []);
 
   const savedWords = new Set(wordlist.map((w) => w.word.toLowerCase()));
@@ -111,6 +122,33 @@ export default function Home() {
     if (res.ok) setWordlist((await res.json()) as WordEntry[]);
   };
 
+  const toggleSentence = async (entry: SavedSentence) => {
+    const exists = sentences.some((s) => s.id === entry.id);
+    const res = exists
+      ? await fetch(`/api/sentences?id=${encodeURIComponent(entry.id)}`, {
+          method: "DELETE",
+        })
+      : await fetch("/api/sentences", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(entry),
+        });
+    if (res.ok) {
+      setSentences((await res.json()) as SavedSentence[]);
+      toast(
+        exists ? "Removed from My Sentences" : "Saved to My Sentences",
+        exists ? "info" : "success",
+      );
+    }
+  };
+
+  const removeSentence = async (id: string) => {
+    const res = await fetch(`/api/sentences?id=${encodeURIComponent(id)}`, {
+      method: "DELETE",
+    });
+    if (res.ok) setSentences((await res.json()) as SavedSentence[]);
+  };
+
   const showTranscript = (t: Transcript) => {
     loop.stop();
     setTranscript(t);
@@ -134,6 +172,48 @@ export default function Home() {
 
   const openVideoId = (videoId: string) =>
     openUrl(`https://www.youtube.com/watch?v=${videoId}`, "explore");
+
+  // Reload just the embedded player (remount) without leaving the page.
+  const reloadVideo = () => {
+    loop.stop();
+    setReloadKey((k) => k + 1);
+  };
+
+  // Restore the last view (and reload its video) after a page refresh. This
+  // deliberately sets state on mount to rehydrate from localStorage.
+  /* eslint-disable react-hooks/set-state-in-effect */
+  useEffect(() => {
+    let saved: { view?: View; videoId?: string | null } | null = null;
+    try {
+      saved = JSON.parse(localStorage.getItem("shadowing:lastView") ?? "null");
+    } catch {
+      saved = null;
+    }
+    if (!saved) return;
+    if (saved.view === "practice" && saved.videoId) {
+      openVideoId(saved.videoId);
+    } else if (saved.view && saved.view !== "home") {
+      setView(saved.view);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  /* eslint-enable react-hooks/set-state-in-effect */
+
+  // Persist the current view + loaded video so a refresh doesn't reset to home.
+  useEffect(() => {
+    if (skipPersist.current) {
+      skipPersist.current = false;
+      return;
+    }
+    try {
+      localStorage.setItem(
+        "shadowing:lastView",
+        JSON.stringify({ view, videoId: transcript?.videoId ?? null }),
+      );
+    } catch {
+      // ignore storage errors
+    }
+  }, [view, transcript]);
 
   const isBookmarked =
     transcript !== null &&
@@ -170,6 +250,23 @@ export default function Home() {
     });
   };
 
+  const currentSentenceKey =
+    transcript === null ? null : sentenceKey(transcript.videoId, selectedId);
+  const isCurrentSentenceSaved =
+    currentSentenceKey !== null &&
+    sentences.some((s) => s.id === currentSentenceKey);
+
+  /** Saves/removes the sentence currently selected in the practice view. */
+  const toggleCurrentSentence = () => {
+    if (!transcript || currentSentenceKey === null) return;
+    void toggleSentence({
+      id: currentSentenceKey,
+      videoId: transcript.videoId,
+      title: transcript.title,
+      text: transcript.sentences[selectedId].text,
+    });
+  };
+
   const select = (id: number) => {
     if (!transcript || id < 0 || id >= transcript.sentences.length) return;
     loop.stop();
@@ -181,14 +278,20 @@ export default function Home() {
     setMode(next);
   };
 
+  // Auto-next reads these through refs: the completion callback is created when
+  // a sentence starts, so a captured value would still be the one from then —
+  // toggling auto-next (or the speed) mid-sentence would not take effect.
+  const autoNextRef = useRef(autoNext);
+  const playCurrentRef = useRef<(id?: number) => void>(() => {});
+
   const playCurrent = (id = selectedId) => {
     if (!transcript) return;
     const onComplete = () => {
-      if (!autoNext) return;
+      if (!autoNextRef.current) return;
       const next = id + 1;
       if (next >= transcript.sentences.length) return;
       setSelectedId(next);
-      playCurrent(next);
+      playCurrentRef.current(next);
     };
     loop.play(
       transcript.sentences[id],
@@ -197,6 +300,11 @@ export default function Home() {
       onComplete,
     );
   };
+  // Refreshed after every render, well before the loop's next poll can fire.
+  useEffect(() => {
+    autoNextRef.current = autoNext;
+    playCurrentRef.current = playCurrent;
+  });
 
   const togglePlay = () => {
     if (!transcript) return;
@@ -235,6 +343,8 @@ export default function Home() {
           onOpen={openVideoId}
           bookmarkedIds={bookmarks.map((b) => b.videoId)}
           onToggleBookmark={toggleBookmarkFor}
+          savedSentenceIds={sentences.map((s) => s.id)}
+          onToggleSentence={toggleSentence}
         />
       );
     }
@@ -246,6 +356,17 @@ export default function Home() {
           loading={wordlistLoading}
           onRemove={removeWord}
           onSetUnit={setUnit}
+        />
+      );
+    }
+
+    if (view === "sentences") {
+      return (
+        <SavedSentences
+          sentences={sentences}
+          loading={sentencesLoading}
+          onOpen={openVideoId}
+          onRemove={removeSentence}
         />
       );
     }
@@ -296,12 +417,34 @@ export default function Home() {
                 {transcript.title || "Practice"}
               </h1>
             </div>
-            <ModeTabs mode={mode} onChange={changeMode} />
+            <div className="flex items-center gap-3">
+              <button
+                onClick={reloadVideo}
+                title="Reload the video"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-neutral-200 px-3 py-1.5 text-sm font-medium text-neutral-500 transition hover:bg-neutral-100 hover:text-neutral-900 dark:border-neutral-800 dark:hover:bg-neutral-800 dark:hover:text-white"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-4 w-4"
+                  aria-hidden="true"
+                >
+                  <path d="M3 12a9 9 0 1 0 3-6.7L3 8m0-5v5h5" />
+                </svg>
+                Reload
+              </button>
+              <ModeTabs mode={mode} onChange={changeMode} />
+            </div>
           </header>
 
           <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
             <div className="flex flex-col gap-4">
               <YouTubePlayer
+                key={`${transcript.videoId}-${reloadKey}`}
                 videoId={transcript.videoId}
                 ref={playerRef}
                 onPlayingChange={setPlaying}
@@ -345,9 +488,16 @@ export default function Home() {
                     sentence={sentence}
                     savedWords={savedWords}
                     onToggleWord={toggleWord}
+                    sentenceSaved={isCurrentSentenceSaved}
+                    onToggleSentence={toggleCurrentSentence}
                   />
                 ) : (
-                  <DictationPanel key={sentence.id} sentence={sentence} />
+                  <DictationPanel
+                    key={sentence.id}
+                    sentence={sentence}
+                    sentenceSaved={isCurrentSentenceSaved}
+                    onToggleSentence={toggleCurrentSentence}
+                  />
                 )}
               </div>
             </div>
@@ -380,6 +530,7 @@ export default function Home() {
         view={view}
         bookmarkCount={bookmarks.length}
         wordlistCount={wordlist.length}
+        sentenceCount={sentences.length}
         onToggleCollapse={() => setCollapsed((v) => !v)}
         onNavigate={setView}
       />

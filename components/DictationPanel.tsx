@@ -2,11 +2,15 @@
 
 import { useState } from "react";
 import { diffWords, type DiffToken } from "@/lib/diffWords";
+import { celebrate } from "@/lib/confetti";
 import type { Sentence } from "@/lib/types";
 import DictationWords from "./DictationWords";
+import SaveSentenceButton from "./SaveSentenceButton";
 
 interface Props {
   sentence: Sentence;
+  sentenceSaved: boolean;
+  onToggleSentence: () => void;
 }
 
 const TOKEN_STYLES: Record<DiffToken["type"], string> = {
@@ -17,12 +21,24 @@ const TOKEN_STYLES: Record<DiffToken["type"], string> = {
   extra: "text-neutral-400 line-through",
 };
 
-export default function DictationPanel({ sentence }: Props) {
+export default function DictationPanel({
+  sentence,
+  sentenceSaved,
+  onToggleSentence,
+}: Props) {
   const [typed, setTyped] = useState("");
   const [diff, setDiff] = useState<DiffToken[] | null>(null);
   const [revealed, setRevealed] = useState(false);
   const [revealedWords, setRevealedWords] = useState<Set<number>>(new Set());
   const [showAll, setShowAll] = useState(false);
+
+  const check = () => {
+    const result = diffWords(sentence.text, typed);
+    setDiff(result);
+    if (result.length > 0 && result.every((t) => t.type === "correct")) {
+      void celebrate();
+    }
+  };
 
   const toggleWord = (index: number) => {
     setRevealedWords((prev) => {
@@ -35,9 +51,12 @@ export default function DictationPanel({ sentence }: Props) {
 
   return (
     <div className="flex flex-col gap-5">
-      <span className="text-xs font-medium uppercase tracking-wide text-neutral-400">
-        Listen, then type what you hear
-      </span>
+      <div className="flex items-center justify-between gap-2">
+        <span className="text-xs font-medium uppercase tracking-wide text-neutral-400">
+          Listen, then type what you hear
+        </span>
+        <SaveSentenceButton saved={sentenceSaved} onToggle={onToggleSentence} />
+      </div>
 
       <textarea
         value={typed}
@@ -45,7 +64,7 @@ export default function DictationPanel({ sentence }: Props) {
         onKeyDown={(e) => {
           if (e.key === "Enter" && !e.shiftKey && typed.trim() !== "") {
             e.preventDefault();
-            setDiff(diffWords(sentence.text, typed));
+            check();
           }
         }}
         rows={3}
@@ -76,7 +95,7 @@ export default function DictationPanel({ sentence }: Props) {
 
       <div className="flex flex-wrap gap-3">
         <button
-          onClick={() => setDiff(diffWords(sentence.text, typed))}
+          onClick={check}
           disabled={typed.trim() === ""}
           className="rounded-lg bg-neutral-900 px-5 py-2 text-sm font-medium text-white transition hover:bg-neutral-700 disabled:opacity-40 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200"
         >

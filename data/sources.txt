@@ -6,3 +6,12 @@
 {"channelId":"UCJ0uqCI0Vqr2Rrt1HseGirg","name":"The Late Late Show with James Corden","url":"https://www.youtube.com/@TheLateLateShow"}
 {"channelId":"UC8-Th83bH_thdKZDJCrn88g","name":"The Tonight Show Starring Jimmy Fallon","url":"https://www.youtube.com/@fallontonight"}
 {"channelId":"UCAuUUnT6oDeKwE6v1NGQxug","name":"TED","url":"https://www.youtube.com/@TED"}
+{"channelId":"UCeiYXex_fwgYDonaTcSIk6w","name":"MinuteEarth","url":"https://www.youtube.com/@MinuteEarth"}
+{"channelId":"UCxJGMJbjokfnr2-s4_RXPxQ","name":"Speak English With Vanessa","url":"https://www.youtube.com/@SpeakEnglishWithVanessa"}
+{"channelId":"UCXw1ddyrUmib3zmCmvSI1ow","name":"More Best Ever Food Review Show","url":"https://www.youtube.com/@MoreBestEverFoodReviewShow"}
+{"channelId":"UC2L7vR43LKuBXXV2AentEMw","name":"Luke&#39;s English Podcast","url":"https://www.youtube.com/c/LukesEnglishPodcast"}
+{"channelId":"UCsooa4yRKGN_zEE8iknghZA","name":"TED-Ed","url":"https://www.youtube.com/@TEDEd"}
+{"channelId":"UCpExuV8qJMfCaSQNL1YG6bQ","name":"Better Than Yesterday","url":"https://www.youtube.com/@BetterThanYesterday"}
+{"channelId":"UCsT0YIqwnpJCM-mx7-gSA4Q","name":"TEDx Talks","url":"https://www.youtube.com/@TEDx"}
+{"channelId":"UCsXVk37bltHxD1rDPwtNM8Q","name":"Kurzgesagt – In a Nutshell","url":"https://www.youtube.com/user/Kurzgesagt"}
+{"channelId":"UC16niRr50-MSBwiO3YDb3RA","name":"BBC News","url":"https://www.youtube.com/@BBCNews"}

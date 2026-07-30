@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { compareWords } from "@/lib/compareWords";
 import { pronunciationAccuracy } from "@/lib/pronunciation";
+import { celebrate } from "@/lib/confetti";
 import type { SpeechRecognitionInstance } from "@/types/speech";
 
 function getRecognitionCtor() {
@@ -41,7 +42,9 @@ export default function ShadowingSpeak({ expected }: { expected: string }) {
     recognition.interimResults = false;
     recognition.maxAlternatives = 1;
     recognition.onresult = (event) => {
-      setHeard(event.results[0]?.[0]?.transcript ?? "");
+      const transcript = event.results[0]?.[0]?.transcript ?? "";
+      setHeard(transcript);
+      if (pronunciationAccuracy(expected, transcript) === 100) void celebrate();
     };
     recognition.onerror = () => setListening(false);
     recognition.onend = () => setListening(false);
