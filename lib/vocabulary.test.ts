@@ -1,5 +1,10 @@
 import { describe, expect, test } from "vitest";
-import { aoaFromRows, rowsFromAoa, type VocabRow } from "./vocabulary";
+import {
+  aoaFromRows,
+  rankSuggestions,
+  rowsFromAoa,
+  type VocabRow,
+} from "./vocabulary";
 
 describe("rowsFromAoa", () => {
   // Mimics the real Vocabulary.xlsx: a few empty rows/columns before a header
@@ -99,5 +104,34 @@ describe("aoaFromRows", () => {
       ["ID", "Name", "IPA", "Type", "Description", "Unit"],
       ["1", "antonym", "/ˈæntənɪm/", "noun", "từ trái nghĩa", "2"],
     ]);
+  });
+});
+
+describe("rankSuggestions", () => {
+  const names = ["run", "running", "runner", "overrun", "rehearse", "rehearsal"];
+
+  test("prefix matches come before substring matches", () => {
+    // "run", "running", "runner" start with "run"; "overrun" only contains it.
+    expect(rankSuggestions(names, "run")).toEqual([
+      "run",
+      "running",
+      "runner",
+      "overrun",
+    ]);
+  });
+
+  test("is case-insensitive and de-duplicates", () => {
+    expect(rankSuggestions(["Cat", "cat", "cattle"], "cat")).toEqual([
+      "Cat",
+      "cattle",
+    ]);
+  });
+
+  test("respects the limit", () => {
+    expect(rankSuggestions(names, "re", 1)).toEqual(["rehearse"]);
+  });
+
+  test("returns [] for a blank query", () => {
+    expect(rankSuggestions(names, "  ")).toEqual([]);
   });
 });

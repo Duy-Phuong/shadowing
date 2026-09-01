@@ -15,3 +15,11 @@
 {"channelId":"UCsT0YIqwnpJCM-mx7-gSA4Q","name":"TEDx Talks","url":"https://www.youtube.com/@TEDx"}
 {"channelId":"UCsXVk37bltHxD1rDPwtNM8Q","name":"Kurzgesagt – In a Nutshell","url":"https://www.youtube.com/user/Kurzgesagt"}
 {"channelId":"UC16niRr50-MSBwiO3YDb3RA","name":"BBC News","url":"https://www.youtube.com/@BBCNews"}
+{"channelId":"UCzR_meY0y-YKE1uEIetbQmg","name":"Learn English with Om","url":"https://www.youtube.com/@LearnEnglishwithOm"}
+{"channelId":"UCBv7HEHuVlNAELGi5XJd85Q","name":"Apple Music","url":"https://www.youtube.com/@AppleMusic"}
+{"channelId":"UChME7blpRpX1ViN-oPBpNmw","name":"Zeliha Akpinar","url":"https://www.youtube.com/@zelihaakpinar"}
+{"channelId":"UCRXiA3h1no_PFkb1JCP0yMA","name":"Vogue","url":"https://www.youtube.com/@Vogue"}
+{"channelId":"UC-PYaO3-ikcOLYKmvdN_CwA","name":"Food Club","url":"https://www.youtube.com/@FoodClubFOX"}
+{"channelId":"UCDiPds0v60wueil5B8w3fPQ","name":"FOX","url":"https://www.youtube.com/@FOXTV"}
+{"channelId":"UC-kIKjS3gUFvsi4YoxveiWA","name":"MasterChef On FOX","url":"https://www.youtube.com/@MasterChefOnFOX"}
+{"channelId":"UCKgpamMlm872zkGDcBJHYDg","name":"Learn English With TV Series","url":"https://www.youtube.com/@LearnEnglishWithTVSeries"}

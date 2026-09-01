@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { extractVideoId, fetchCaptions } from "@/lib/youtube";
 import { segmentSentences } from "@/lib/segmentSentences";
+import { findTimingProblems } from "@/lib/sentenceTiming";
 
 interface ErrorBody {
   error: string;
@@ -60,6 +61,17 @@ export async function POST(request: Request) {
   const sentences = segmentSentences(cues);
   if (sentences.length === 0) {
     return fail(422, "no_transcript", "This video has no available transcript.");
+  }
+
+  // Timing the player can't loop through is a segmentation bug, not a bad video.
+  // Serve the transcript anyway — reading along still works — but say so here
+  // rather than let it surface as sentences that won't stop playing.
+  const problems = findTimingProblems(sentences);
+  if (problems.length > 0) {
+    console.warn(
+      `[transcript] ${videoId}: ${problems.length} timing problem(s) in ` +
+        `${sentences.length} sentences\n  ${problems.slice(0, 5).join("\n  ")}`,
+    );
   }
 
   const title = await fetchTitle(videoId);

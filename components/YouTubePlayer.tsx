@@ -5,6 +5,7 @@ import {
   useEffect,
   useImperativeHandle,
   useRef,
+  useState,
 } from "react";
 
 export interface PlayerHandle {
@@ -13,6 +14,7 @@ export interface PlayerHandle {
   seekTo(seconds: number): void;
   setPlaybackRate(rate: number): void;
   getCurrentTime(): number;
+  getDuration(): number;
 }
 
 interface Props {
@@ -31,6 +33,11 @@ interface Props {
 const STATE_PLAYING = 1;
 /** YT.PlayerState.ENDED */
 const STATE_ENDED = 0;
+/** States where the player is actually showing a frame/poster (not black). */
+const STATE_PAUSED = 2;
+const STATE_CUED = 5;
+/** Hide the spinner this long after onReady even if no content state arrives. */
+const READY_FALLBACK_MS = 2500;
 
 let apiPromise: Promise<void> | null = null;
 
@@ -59,6 +66,13 @@ const YouTubePlayer = forwardRef<PlayerHandle, Props>(function YouTubePlayer(
 ) {
   const containerRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<YTPlayer | null>(null);
+  // The YT.Player object exists before its API methods are attached; they only
+  // become callable once onReady fires.
+  const readyRef = useRef(false);
+  // "loaded" means the player is showing a frame (poster/playback), not the
+  // black gap that exists between the API being ready and the first frame.
+  const [loaded, setLoaded] = useState(false);
+  const fallbackRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const onReadyRef = useRef(onReady);
   onReadyRef.current = onReady;
   const onPlayingChangeRef = useRef(onPlayingChange);
@@ -71,17 +85,36 @@ const YouTubePlayer = forwardRef<PlayerHandle, Props>(function YouTubePlayer(
   useImperativeHandle(
     ref,
     () => ({
-      play: () => playerRef.current?.playVideo(),
-      pause: () => playerRef.current?.pauseVideo(),
-      seekTo: (s: number) => playerRef.current?.seekTo(s, true),
-      setPlaybackRate: (r: number) => playerRef.current?.setPlaybackRate(r),
-      getCurrentTime: () => playerRef.current?.getCurrentTime() ?? 0,
+      play: () => {
+        if (readyRef.current) playerRef.current?.playVideo();
+      },
+      pause: () => {
+        if (readyRef.current) playerRef.current?.pauseVideo();
+      },
+      seekTo: (s: number) => {
+        if (readyRef.current) playerRef.current?.seekTo(s, true);
+      },
+      setPlaybackRate: (r: number) => {
+        if (readyRef.current) playerRef.current?.setPlaybackRate(r);
+      },
+      getCurrentTime: () =>
+        readyRef.current ? (playerRef.current?.getCurrentTime() ?? 0) : 0,
+      getDuration: () =>
+        readyRef.current ? (playerRef.current?.getDuration() ?? 0) : 0,
     }),
     [],
   );
 
   useEffect(() => {
     let cancelled = false;
+    readyRef.current = false;
+    setLoaded(false);
+    const clearFallback = () => {
+      if (fallbackRef.current !== null) {
+        clearTimeout(fallbackRef.current);
+        fallbackRef.current = null;
+      }
+    };
     loadIframeApi().then(() => {
       if (cancelled || !containerRef.current || !window.YT) return;
       playerRef.current = new window.YT.Player(containerRef.current, {
@@ -92,25 +125,62 @@ const YouTubePlayer = forwardRef<PlayerHandle, Props>(function YouTubePlayer(
           ...(autoplay ? { autoplay: 1 } : {}),
         },
         events: {
-          onReady: () => onReadyRef.current?.(),
-          onStateChange: (event) => {
-            onPlayingChangeRef.current?.(event.data === STATE_PLAYING);
-            if (event.data === STATE_ENDED) onEndedRef.current?.();
+          onReady: () => {
+            readyRef.current = true;
+            onReadyRef.current?.();
+            // The poster/first frame lands slightly after onReady; keep the
+            // spinner until a content state arrives, with a safety timeout.
+            clearFallback();
+            fallbackRef.current = setTimeout(
+              () => setLoaded(true),
+              READY_FALLBACK_MS,
+            );
           },
-          onError: () => onErrorRef.current?.(),
+          onStateChange: (event) => {
+            const d = event.data;
+            if (d === STATE_PLAYING || d === STATE_PAUSED || d === STATE_CUED) {
+              clearFallback();
+              setLoaded(true);
+            }
+            onPlayingChangeRef.current?.(d === STATE_PLAYING);
+            if (d === STATE_ENDED) onEndedRef.current?.();
+          },
+          onError: () => {
+            clearFallback();
+            setLoaded(true); // stop spinning; let YouTube show its own notice
+            onErrorRef.current?.();
+          },
         },
       });
     });
     return () => {
       cancelled = true;
-      playerRef.current?.destroy();
+      clearFallback();
+      // destroy() is also only attached once the player is ready.
+      if (readyRef.current) playerRef.current?.destroy();
+      readyRef.current = false;
       playerRef.current = null;
     };
   }, [videoId, autoplay]);
 
   return (
-    <div className="aspect-video w-full overflow-hidden rounded-xl bg-black">
+    <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-neutral-900">
       <div ref={containerRef} className="h-full w-full" />
+      {!loaded && (
+        <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-3 bg-neutral-900 text-neutral-400">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            className="h-8 w-8 animate-spin"
+            aria-hidden="true"
+          >
+            <path d="M21 12a9 9 0 1 1-6.22-8.56" strokeLinecap="round" />
+          </svg>
+          <span className="text-sm">Loading video…</span>
+        </div>
+      )}
     </div>
   );
 });

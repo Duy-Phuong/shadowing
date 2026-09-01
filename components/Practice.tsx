@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import type { CatalogVideo, Level } from "@/lib/practiceVideos";
 import type { Source } from "@/lib/sources";
+import type { PracticeMode } from "@/lib/types";
 import ConfirmDialog from "./ConfirmDialog";
 import ListeningModal from "./ListeningModal";
 import { useToast } from "./Toast";
@@ -35,7 +36,7 @@ export default function Practice({
   savedSentenceIds,
   onToggleSentence,
 }: {
-  onOpen: (videoId: string) => void;
+  onOpen: (videoId: string, mode?: PracticeMode) => void;
   bookmarkedIds: string[];
   onToggleBookmark: (v: { videoId: string; title: string; url: string }) => void;
   savedSentenceIds: string[];
@@ -367,6 +368,12 @@ export default function Practice({
       {listening && filtered.length > 0 && (
         <ListeningModal
           videos={filtered}
+          bookmarkedIds={bookmarkedIds}
+          onToggleBookmark={onToggleBookmark}
+          onPractice={(videoId) => {
+            setListening(false);
+            onOpen(videoId, "dictation");
+          }}
           savedSentenceIds={savedSentenceIds}
           onToggleSentence={onToggleSentence}
           onClose={() => setListening(false)}

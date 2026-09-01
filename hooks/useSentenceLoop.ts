@@ -9,6 +9,12 @@ interface LoopState {
   repeatsLeft: number;
   /** False right after a seek, until playback re-enters the sentence window. */
   armed: boolean;
+  /** Playback rate, used to predict where the playhead should be next poll. */
+  rate: number;
+  /** Where we expect the playhead next poll; null skips the first check. */
+  expected: number | null;
+  /** Polls spent waiting for playback to settle inside the sentence. */
+  waited: number;
   /** Called once when the loop finishes naturally (not on manual stop). */
   onComplete?: () => void;
 }
@@ -16,6 +22,19 @@ interface LoopState {
 const POLL_MS = 150;
 /** Largest gap we'll play through rather than seek across, in seconds. */
 const SEAM_TOLERANCE = 0.5;
+/**
+ * If the playhead moves further than this from where we expected it, the user
+ * grabbed the scrubber — we release the loop so the video plays freely. Natural
+ * per-poll advance is well under a second even at 1.5×, so this never misfires.
+ */
+const SEEK_JUMP = 1.2;
+/**
+ * How long playback may take to settle inside the sentence before we give up and
+ * pause. Only a stall or an unplayable window gets near this — a normal seek
+ * lands within a poll or two — and without it a window the playhead never enters
+ * would leave the loop polling while the video runs on past the sentence.
+ */
+const ARM_TIMEOUT_MS = 5000;
 
 /**
  * True when playback is already inside the sentence, so it can roll straight on
@@ -66,14 +85,23 @@ export function useSentenceLoop(getPlayer: () => PlayerHandle | null) {
       player.setPlaybackRate(rate);
       // Auto-next lands here already playing the next sentence, so leave the
       // player alone; anything else (replay, a click, resuming) needs the seek.
-      if (!continuingRef.current || !alreadyInside(player.getCurrentTime(), sentence)) {
+      const seeked =
+        !continuingRef.current ||
+        !alreadyInside(player.getCurrentTime(), sentence);
+      if (seeked) {
         player.seekTo(sentence.start);
         player.play();
       }
       stateRef.current = {
         sentence,
         repeatsLeft: repeat - 1,
-        armed: true,
+        // "armed" means playback has settled inside the sentence. After a seek
+        // it's false until the playhead lands in the window — this absorbs the
+        // pre-seek → post-seek jump so it isn't mistaken for a manual scrub.
+        armed: !seeked,
+        rate,
+        expected: null,
+        waited: 0,
         onComplete,
       };
       setPlaying(true);
@@ -85,17 +113,45 @@ export function useSentenceLoop(getPlayer: () => PlayerHandle | null) {
 
         const now = p.getCurrentTime();
 
-        // After seeking back, wait until we're safely inside the window again
-        // so a stale time reading doesn't count as an extra loop.
+        // Wait for playback to land inside the sentence after a seek before we
+        // start tracking, so the seek transition doesn't read as a manual jump.
         if (!state.armed) {
-          if (now < state.sentence.end - 0.2) state.armed = true;
+          if (
+            now >= state.sentence.start - SEAM_TOLERANCE &&
+            now < state.sentence.end
+          ) {
+            state.armed = true;
+            state.expected = now + (POLL_MS / 1000) * state.rate;
+            return;
+          }
+          state.waited += 1;
+          // Never settled: stop rather than let the video play on unattended.
+          if (state.waited * POLL_MS >= ARM_TIMEOUT_MS) {
+            clearTimer();
+            stateRef.current = null;
+            p.pause();
+            setPlaying(false);
+          }
           return;
         }
+
+        // If the playhead jumped away from where natural playback would put it,
+        // the user scrubbed the progress bar — release the loop and let the
+        // video keep playing from there like a normal YouTube video.
+        if (state.expected !== null && Math.abs(now - state.expected) > SEEK_JUMP) {
+          clearTimer();
+          stateRef.current = null;
+          return;
+        }
+        state.expected = now + (POLL_MS / 1000) * state.rate;
 
         if (now >= state.sentence.end) {
           if (state.repeatsLeft > 0) {
             state.repeatsLeft -= 1;
+            // Settle again after seeking back to the start.
             state.armed = false;
+            state.expected = null;
+            state.waited = 0;
             p.seekTo(state.sentence.start);
           } else {
             const done = state.onComplete;
@@ -119,5 +175,10 @@ export function useSentenceLoop(getPlayer: () => PlayerHandle | null) {
 
   useEffect(() => clearTimer, [clearTimer]);
 
-  return { play, stop, playing };
+  // True while a sentence loop is actively driving playback. Callers use this to
+  // avoid fighting the loop (e.g. a transcript-follow that only runs on free
+  // playback). Reads a ref so it's always current without re-rendering.
+  const isLooping = useCallback(() => stateRef.current !== null, []);
+
+  return { play, stop, playing, isLooping };
 }

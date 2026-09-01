@@ -108,6 +108,40 @@ describe("segmentSentences", () => {
     expect(result[1].start).toBeGreaterThanOrEqual(result[0].end);
   });
 
+  test("keeps times ordered when cues overlap, as rolling captions do", () => {
+    // A later cue starting before the previous one's text has run out. Left
+    // alone, the interpolated character times go backwards and a sentence ends
+    // before it starts — a window the player can never play through.
+    const cues: Cue[] = [
+      { text: "Notice the pronunciation. What are you?", start: 138, duration: 8 },
+      { text: "What becomes what with a D.", start: 143, duration: 4 },
+    ];
+
+    const result = segmentSentences(cues);
+
+    for (let i = 0; i < result.length; i++) {
+      expect(result[i].end).toBeGreaterThan(result[i].start);
+      if (i > 0) {
+        expect(result[i].start).toBeGreaterThanOrEqual(result[i - 1].start);
+      }
+    }
+  });
+
+  test("gives a sentence a playable window even when cues leave it no time", () => {
+    // Two sentences whose characters map to the same instant: without a floor
+    // the first has a zero-length window and never finishes playing.
+    const cues: Cue[] = [
+      { text: "Bye. See you.", start: 10, duration: 0 },
+      { text: "Next thing.", start: 10, duration: 2 },
+    ];
+
+    const result = segmentSentences(cues);
+
+    for (const s of result) {
+      expect(s.end - s.start).toBeGreaterThanOrEqual(0.4);
+    }
+  });
+
   test("does not split on the dot inside an abbreviation like Mr.", () => {
     const cues: Cue[] = [
       { text: "Mr. Smith arrived. He sat down.", start: 0, duration: 5 },

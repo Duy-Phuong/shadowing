@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { compareWords } from "@/lib/compareWords";
-import { pronunciationAccuracy } from "@/lib/pronunciation";
+import { bestTranscript, pronunciationAccuracy } from "@/lib/pronunciation";
 import { celebrate } from "@/lib/confetti";
 import type { SpeechRecognitionInstance } from "@/types/speech";
 
@@ -40,9 +40,18 @@ export default function ShadowingSpeak({ expected }: { expected: string }) {
     recognition.lang = "en-US";
     recognition.continuous = false;
     recognition.interimResults = false;
-    recognition.maxAlternatives = 1;
+    // Ask for several guesses and keep the one closest to the target sentence —
+    // the recogniser's top guess is often wrong for accented or fast speech.
+    recognition.maxAlternatives = 6;
     recognition.onresult = (event) => {
-      const transcript = event.results[0]?.[0]?.transcript ?? "";
+      const result = event.results[0];
+      const alternatives: string[] = [];
+      if (result) {
+        for (let i = 0; i < result.length; i++) {
+          alternatives.push(result[i].transcript);
+        }
+      }
+      const transcript = bestTranscript(expected, alternatives);
       setHeard(transcript);
       if (pronunciationAccuracy(expected, transcript) === 100) void celebrate();
     };

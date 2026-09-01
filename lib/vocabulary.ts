@@ -7,6 +7,36 @@ export interface VocabRow {
   unit: string;
 }
 
+/**
+ * Ranks vocabulary names for search autocomplete: names that start with the
+ * query come first, then names that merely contain it, de-duplicated
+ * (case-insensitive) and capped at `limit`. Returns [] for a blank query.
+ */
+export function rankSuggestions(
+  names: string[],
+  query: string,
+  limit = 8,
+): string[] {
+  const q = query.trim().toLowerCase();
+  if (q === "") return [];
+  const seen = new Set<string>();
+  const prefix: string[] = [];
+  const contains: string[] = [];
+  for (const name of names) {
+    if (prefix.length >= limit) break;
+    const nl = name.trim().toLowerCase();
+    if (nl === "" || seen.has(nl)) continue;
+    if (nl.startsWith(q)) {
+      seen.add(nl);
+      prefix.push(name);
+    } else if (contains.length < limit && nl.includes(q)) {
+      seen.add(nl);
+      contains.push(name);
+    }
+  }
+  return [...prefix, ...contains].slice(0, limit);
+}
+
 /** Column order used for export and as the canonical field list. */
 export const VOCAB_COLUMNS = [
   "ID",

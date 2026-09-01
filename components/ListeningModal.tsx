@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import YouTubePlayer, { type PlayerHandle } from "./YouTubePlayer";
+import VideoScrubber from "./VideoScrubber";
 import TransportControls from "./TransportControls";
 import SaveSentenceButton from "./SaveSentenceButton";
 import { fetchTranscript } from "@/lib/loadTranscript";
@@ -17,6 +18,10 @@ const TICK_MS = 250;
 interface Props {
   /** Videos to listen through; a random one starts, then it walks the list. */
   videos: CatalogVideo[];
+  bookmarkedIds: string[];
+  onToggleBookmark: (v: { videoId: string; title: string; url: string }) => void;
+  /** Close the modal and open this video on the dictation practice page. */
+  onPractice: (videoId: string) => void;
   savedSentenceIds: string[];
   onToggleSentence: (entry: {
     id: string;
@@ -41,6 +46,9 @@ function sentenceAt(sentences: Sentence[], time: number): number | null {
 
 export default function ListeningModal({
   videos,
+  bookmarkedIds,
+  onToggleBookmark,
+  onPractice,
   savedSentenceIds,
   onToggleSentence,
   onClose,
@@ -71,6 +79,7 @@ export default function ListeningModal({
   const activeKey = activeSentence
     ? sentenceKey(video.videoId, activeSentence.id)
     : null;
+  const savedVideo = bookmarkedIds.includes(video.videoId);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -136,6 +145,14 @@ export default function ListeningModal({
   const goNext = () => go((index + 1) % videos.length);
   const goPrev = () => go((index - 1 + videos.length) % videos.length);
 
+  // Jump to a line's moment. The highlight is set here rather than waiting for
+  // the next tick so the click feels immediate; the scrubber follows on its own.
+  const jumpTo = (sentence: Sentence) => {
+    playerRef.current?.seekTo(sentence.start);
+    playerRef.current?.play();
+    setActiveId(sentence.id);
+  };
+
   const togglePlay = () => {
     if (playing) playerRef.current?.pause();
     else playerRef.current?.play();
@@ -187,6 +204,14 @@ export default function ListeningModal({
           }}
         />
 
+        <VideoScrubber
+          player={playerRef}
+          onSeek={(seconds) => {
+            playerRef.current?.seekTo(seconds);
+            playerRef.current?.play();
+          }}
+        />
+
         <div className="flex flex-wrap items-center justify-between gap-3">
           <TransportControls
             playing={playing}
@@ -199,7 +224,37 @@ export default function ListeningModal({
             onNext={goNext}
             onPlayPause={togglePlay}
           />
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              onClick={() =>
+                onToggleBookmark({
+                  videoId: video.videoId,
+                  title: video.title,
+                  url: `https://www.youtube.com/watch?v=${video.videoId}`,
+                })
+              }
+              aria-pressed={savedVideo}
+              title={savedVideo ? "Saved to My Videos" : "Save to My Videos"}
+              className={`flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-md border px-2.5 py-1 text-xs font-medium transition ${
+                savedVideo
+                  ? "border-amber-500 bg-amber-500 text-white"
+                  : "border-neutral-200 text-neutral-500 hover:text-neutral-900 dark:border-neutral-800 dark:hover:text-white"
+              }`}
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill={savedVideo ? "currentColor" : "none"}
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-3.5 w-3.5"
+                aria-hidden="true"
+              >
+                <path d="M12 17.3 6.2 20l1.1-6.3-4.6-4.5 6.4-.9L12 2.5l2.9 5.8 6.4.9-4.6 4.5L17.8 20z" />
+              </svg>
+              {savedVideo ? "Saved" : "Save video"}
+            </button>
             <SaveSentenceButton
               saved={activeKey !== null && savedSentenceIds.includes(activeKey)}
               disabled={activeSentence === null}
@@ -216,9 +271,16 @@ export default function ListeningModal({
               }}
             />
             <button
+              onClick={() => onPractice(video.videoId)}
+              title="Open this video in dictation practice"
+              className="shrink-0 whitespace-nowrap rounded-md border border-neutral-200 px-2.5 py-1 text-xs font-medium text-neutral-500 transition hover:text-neutral-900 dark:border-neutral-800 dark:hover:text-white"
+            >
+              Practice dictation
+            </button>
+            <button
               onClick={toggleTranscript}
               aria-pressed={showTranscript}
-              className="rounded-lg border border-neutral-200 px-3 py-1.5 text-sm font-medium text-neutral-500 transition hover:bg-neutral-100 hover:text-neutral-900 dark:border-neutral-800 dark:hover:bg-neutral-800 dark:hover:text-white"
+              className="shrink-0 whitespace-nowrap rounded-md border border-neutral-200 px-2.5 py-1 text-xs font-medium text-neutral-500 transition hover:text-neutral-900 dark:border-neutral-800 dark:hover:text-white"
             >
               {showTranscript ? "Hide transcript" : "Show transcript"}
             </button>
@@ -236,23 +298,25 @@ export default function ListeningModal({
                 {transcript?.sentences.map((s) => {
                   const active = s.id === activeId;
                   return (
-                    <li
-                      key={s.id}
-                      ref={active ? activeRef : undefined}
-                      className={`flex gap-3 rounded-md px-2 py-1 transition ${
-                        active
-                          ? "bg-indigo-600 text-white"
-                          : "text-neutral-500 dark:text-neutral-400"
-                      }`}
-                    >
-                      <span
-                        className={`shrink-0 tabular-nums ${
-                          active ? "opacity-70" : "text-neutral-400"
+                    <li key={s.id} ref={active ? activeRef : undefined}>
+                      <button
+                        onClick={() => jumpTo(s)}
+                        title="Jump to this moment"
+                        className={`flex w-full gap-3 rounded-md px-2 py-1 text-left transition ${
+                          active
+                            ? "bg-indigo-600 text-white"
+                            : "text-neutral-500 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-white"
                         }`}
                       >
-                        {s.id + 1}
-                      </span>
-                      <span>{s.text}</span>
+                        <span
+                          className={`shrink-0 tabular-nums ${
+                            active ? "opacity-70" : "text-neutral-400"
+                          }`}
+                        >
+                          {s.id + 1}
+                        </span>
+                        <span>{s.text}</span>
+                      </button>
                     </li>
                   );
                 })}

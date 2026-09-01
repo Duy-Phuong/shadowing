@@ -4,6 +4,21 @@
  * it as structured data. No SDK — just the REST generateContent endpoint.
  */
 
+/** One way the word is used, as a dictionary would print it under a sense. */
+export interface Example {
+  /** Grammar pattern or collocation, e.g. "work for somebody/something". */
+  pattern?: string;
+  /** Example sentence showing the word in use. */
+  sentence: string;
+}
+
+/** The word under one part of speech, with a couple of examples. */
+export interface Sense {
+  /** Part of speech spelled out, e.g. "verb", "noun". */
+  type: string;
+  examples: Example[];
+}
+
 export interface LookupResult {
   /** The (possibly spelling-corrected) headword. */
   word: string;
@@ -13,7 +28,13 @@ export interface LookupResult {
   type: string;
   /** Concise Vietnamese meaning / translation. */
   meaning: string;
+  /** Usage examples grouped by part of speech; reference only, never saved. */
+  senses: Sense[];
 }
+
+/** Most parts of speech to show, and examples per part — a preview, not an entry. */
+const MAX_SENSES = 4;
+const MAX_EXAMPLES = 2;
 
 // An alias that always points at the current stable Flash model, so it won't
 // break when a specific version is retired ("no longer available to new users").
@@ -61,6 +82,12 @@ function buildPrompt(word: string): string {
     "ipa: the British English phonemic transcription wrapped in slashes.",
     "type: the part of speech as a short abbreviation — n (noun), v (verb), adj (adjective), adv (adverb), prep (preposition), conj (conjunction), pron (pronoun), det (determiner), idiom, or phr v (phrasal verb).",
     "meaning: a concise Vietnamese translation or definition of the word.",
+    `senses: how the word is actually used, one entry per part of speech it is commonly used as, most common first, at most ${MAX_SENSES}.`,
+    "Each sense has type — the part of speech spelled out, e.g. verb, noun, adjective —",
+    `and ${MAX_EXAMPLES} short example sentences in English showing typical use.`,
+    "Give an example the grammar pattern or collocation it illustrates when the dictionary would show one,",
+    'e.g. pattern "work for somebody/something" with sentence "She works for an engineering company.";',
+    "leave pattern out when the example simply stands on its own.",
   ].join(" ");
 }
 
@@ -71,14 +98,67 @@ const RESPONSE_SCHEMA = {
     ipa: { type: "string" },
     type: { type: "string" },
     meaning: { type: "string" },
+    senses: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          type: { type: "string" },
+          examples: {
+            type: "array",
+            items: {
+              type: "object",
+              properties: {
+                pattern: { type: "string" },
+                sentence: { type: "string" },
+              },
+              required: ["sentence"],
+            },
+          },
+        },
+        required: ["type", "examples"],
+      },
+    },
   },
-  required: ["word", "ipa", "type", "meaning"],
+  required: ["word", "ipa", "type", "meaning", "senses"],
 } as const;
 
 /**
  * Parses the model's JSON text into a LookupResult, tolerating markdown code
  * fences. Throws if the payload isn't the expected shape.
  */
+/**
+ * Pulls the usage examples out of a raw payload, dropping anything malformed and
+ * holding the model to the advertised limits. Examples are a display extra, so a
+ * bad list costs the examples, never the lookup itself.
+ */
+function parseSenses(raw: unknown): Sense[] {
+  if (!Array.isArray(raw)) return [];
+  const senses: Sense[] = [];
+  for (const item of raw) {
+    const s = item as { type?: unknown; examples?: unknown };
+    const type = typeof s.type === "string" ? s.type.trim() : "";
+    if (type === "" || !Array.isArray(s.examples)) continue;
+
+    const examples: Example[] = [];
+    for (const e of s.examples) {
+      const ex = e as { pattern?: unknown; sentence?: unknown };
+      const sentence =
+        typeof ex.sentence === "string" ? ex.sentence.trim() : "";
+      if (sentence === "") continue;
+      const pattern =
+        typeof ex.pattern === "string" ? ex.pattern.trim() : "";
+      examples.push(pattern === "" ? { sentence } : { pattern, sentence });
+      if (examples.length === MAX_EXAMPLES) break;
+    }
+
+    if (examples.length === 0) continue;
+    senses.push({ type, examples });
+    if (senses.length === MAX_SENSES) break;
+  }
+  return senses;
+}
+
 export function parseLookupResponse(text: string): LookupResult {
   const cleaned = text
     .trim()
@@ -91,7 +171,7 @@ export function parseLookupResponse(text: string): LookupResult {
   const type = typeof data.type === "string" ? data.type.trim() : "";
   const meaning = typeof data.meaning === "string" ? data.meaning.trim() : "";
   if (word === "") throw new Error("Gemini returned no word.");
-  return { word, ipa, type, meaning };
+  return { word, ipa, type, meaning, senses: parseSenses(data.senses) };
 }
 
 /** Extracts the text part from a generateContent response body. */

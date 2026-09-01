@@ -1,9 +1,7 @@
 interface SpeechRecognitionAlternativeLike {
   transcript: string;
 }
-interface SpeechRecognitionResultLike {
-  0: SpeechRecognitionAlternativeLike;
-}
+type SpeechRecognitionResultLike = ArrayLike<SpeechRecognitionAlternativeLike>;
 interface SpeechRecognitionEventLike {
   results: ArrayLike<SpeechRecognitionResultLike>;
 }

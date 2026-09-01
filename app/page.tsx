@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import UrlForm from "@/components/UrlForm";
 import YouTubeSearch from "@/components/YouTubeSearch";
 import YouTubePlayer, { type PlayerHandle } from "@/components/YouTubePlayer";
+import VideoScrubber from "@/components/VideoScrubber";
 import ModeTabs from "@/components/ModeTabs";
 import TranscriptList from "@/components/TranscriptList";
 import PlaybackControls from "@/components/PlaybackControls";
@@ -188,8 +189,10 @@ export default function Home() {
 
   const openBookmark = (b: Bookmark) => openUrl(b.url, "library");
 
-  const openVideoId = (videoId: string) =>
-    openUrl(`https://www.youtube.com/watch?v=${videoId}`, "explore");
+  const openVideoId = (videoId: string, nextMode?: PracticeMode) => {
+    if (nextMode) setMode(nextMode);
+    return openUrl(`https://www.youtube.com/watch?v=${videoId}`, "explore");
+  };
 
   // Open a saved sentence's video and jump to the moment it was spoken. The
   // reloadKey bump forces the player to remount (and re-fire onReady) even when
@@ -205,11 +208,17 @@ export default function Home() {
     openVideoId(s.videoId);
   };
 
-  // Once the player is ready after opening a saved sentence, seek + play it.
+  // Once the player is ready after opening a saved sentence, seek to that moment
+  // and play through continuously — the transcript follows along (see effect
+  // below) instead of the highlight staying stuck on the one saved sentence.
   const onPlayerReady = () => {
     if (!pendingSeekRef.current) return;
     pendingSeekRef.current = null;
-    playCurrentRef.current();
+    const p = playerRef.current;
+    if (!p || !transcript) return;
+    p.setPlaybackRate(speed);
+    p.seekTo(transcript.sentences[selectedId].start);
+    p.play();
   };
 
   // Reload just the embedded player (remount) without leaving the page.
@@ -315,6 +324,17 @@ export default function Home() {
     setSelectedId(id);
   };
 
+  // Seek from the progress bar: release the sentence loop, jump, keep playing if
+  // it was, and move the transcript highlight to match the new position.
+  const seekTo = (seconds: number) => {
+    if (!transcript) return;
+    const wasPlaying = playing;
+    loop.stop();
+    playerRef.current?.seekTo(seconds);
+    if (wasPlaying) playerRef.current?.play();
+    setSelectedId(findSentenceIndex(transcript.sentences, { start: seconds }));
+  };
+
   const changeMode = (next: PracticeMode) => {
     loop.stop();
     setMode(next);
@@ -353,6 +373,29 @@ export default function Home() {
     if (playing) loop.stop();
     else playCurrent();
   };
+
+  // While the video plays, keep the transcript highlight on the sentence being
+  // spoken so it follows the video (after a saved-sentence jump, scrubbing, or
+  // free playback). During a single-sentence loop this is a no-op since playback
+  // stays within the selected sentence's window.
+  useEffect(() => {
+    if (view !== "practice" || !playing || !transcript) return;
+    const sentences = transcript.sentences;
+    const id = window.setInterval(() => {
+      // The sentence loop manages the highlight itself (single-sentence, repeat,
+      // auto-next); only follow when the video is playing freely.
+      if (loop.isLooping()) return;
+      const now = playerRef.current?.getCurrentTime() ?? 0;
+      let idx = -1;
+      for (let i = 0; i < sentences.length; i++) {
+        if (sentences[i].start <= now + 0.05) idx = i;
+        else break;
+      }
+      if (idx >= 0) setSelectedId((cur) => (cur === idx ? cur : idx));
+    }, 250);
+    return () => window.clearInterval(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [view, playing, transcript]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -435,7 +478,21 @@ export default function Home() {
 
     if (view === "practice") {
       if (busy || !transcript) {
-        return <p className="p-8 text-neutral-400">Loading…</p>;
+        return (
+          <div className="flex min-h-[60vh] flex-col items-center justify-center gap-3 text-neutral-400">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              className="h-8 w-8 animate-spin"
+              aria-hidden="true"
+            >
+              <path d="M21 12a9 9 0 1 1-6.22-8.56" strokeLinecap="round" />
+            </svg>
+            <span className="text-sm">Loading video…</span>
+          </div>
+        );
       }
       const sentences = transcript.sentences;
       const sentence = sentences[selectedId];
@@ -492,6 +549,7 @@ export default function Home() {
                 onReady={onPlayerReady}
                 onPlayingChange={setPlaying}
               />
+              <VideoScrubber player={playerRef} onSeek={seekTo} />
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <TransportControls
                   playing={playing}

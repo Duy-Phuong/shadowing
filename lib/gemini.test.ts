@@ -19,7 +19,94 @@ describe("parseLookupResponse", () => {
       ipa: "/həˈləʊ/",
       type: "exclamation",
       meaning: "xin chào",
+      senses: [],
     });
+  });
+
+  test("parses examples grouped by part of speech", () => {
+    const text = JSON.stringify({
+      word: "work",
+      ipa: "/wɜːk/",
+      type: "v",
+      meaning: "làm việc",
+      senses: [
+        {
+          type: "verb",
+          examples: [
+            {
+              pattern: "work for somebody/something",
+              sentence: "She works for an engineering company.",
+            },
+            { sentence: "I've always worked in education." },
+          ],
+        },
+        {
+          type: "noun",
+          examples: [{ sentence: "He started work as a security guard." }],
+        },
+      ],
+    });
+
+    expect(parseLookupResponse(text).senses).toEqual([
+      {
+        type: "verb",
+        examples: [
+          {
+            pattern: "work for somebody/something",
+            sentence: "She works for an engineering company.",
+          },
+          { sentence: "I've always worked in education." },
+        ],
+      },
+      {
+        type: "noun",
+        examples: [{ sentence: "He started work as a security guard." }],
+      },
+    ]);
+  });
+
+  test("holds the model to two examples per part of speech", () => {
+    const text = JSON.stringify({
+      word: "run",
+      ipa: "/rʌn/",
+      type: "v",
+      meaning: "chạy",
+      senses: [
+        {
+          type: "verb",
+          examples: [{ sentence: "A." }, { sentence: "B." }, { sentence: "C." }],
+        },
+      ],
+    });
+
+    expect(parseLookupResponse(text).senses[0].examples).toHaveLength(2);
+  });
+
+  test("drops malformed senses rather than failing the lookup", () => {
+    const text = JSON.stringify({
+      word: "run",
+      ipa: "/rʌn/",
+      type: "v",
+      meaning: "chạy",
+      senses: [
+        { type: "verb", examples: [{ sentence: "  " }] }, // no usable example
+        { type: "", examples: [{ sentence: "Nameless." }] }, // no part of speech
+        { type: "noun", examples: "not a list" },
+        { type: "noun", examples: [{ sentence: " He went for a run. " }] },
+      ],
+    });
+
+    expect(parseLookupResponse(text).senses).toEqual([
+      { type: "noun", examples: [{ sentence: "He went for a run." }] },
+    ]);
+  });
+
+  test("survives senses being absent or the wrong type", () => {
+    const base = { word: "cat", ipa: "/kæt/", type: "n", meaning: "con mèo" };
+    expect(parseLookupResponse(JSON.stringify(base)).senses).toEqual([]);
+    expect(
+      parseLookupResponse(JSON.stringify({ ...base, senses: "nope" })).senses,
+    ).toEqual([]);
   });
 
   test("tolerates markdown code fences", () => {
@@ -40,6 +127,7 @@ describe("parseLookupResponse", () => {
       ipa: "/kæt/",
       type: "n",
       meaning: "con mèo",
+      senses: [],
     });
   });
 

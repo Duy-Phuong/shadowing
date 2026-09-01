@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import type { VocabRow } from "@/lib/vocabulary";
-import type { LookupResult } from "@/lib/gemini";
+import { rankSuggestions, type VocabRow } from "@/lib/vocabulary";
+import type { LookupResult, Sense } from "@/lib/gemini";
 import { speakWord } from "@/lib/speak";
 import { oxfordUrl } from "@/lib/oxford";
 import ConfirmDialog from "./ConfirmDialog";
@@ -14,6 +14,10 @@ interface Pending {
   mode: "add" | "update";
   rowKey?: string;
   initial: LookupFields;
+  /** Vietnamese meaning, shown for reference in the popup but not saved. */
+  aiMeaning: string;
+  /** Usage examples by part of speech, shown for reference but not saved. */
+  senses: Sense[];
 }
 
 type Row = VocabRow & { _k: string };
@@ -76,6 +80,8 @@ export default function Vocabulary() {
   const [model, setModel] = useState("");
   const [models, setModels] = useState<string[]>([]);
   const [pending, setPending] = useState<Pending | null>(null);
+  const [suggestOpen, setSuggestOpen] = useState(false);
+  const [activeSuggestion, setActiveSuggestion] = useState(-1);
   const toast = useToast();
 
   // Warn before leaving/reloading with unsaved changes.
@@ -140,6 +146,37 @@ export default function Vocabulary() {
     }
     return list;
   }, [rows, query, unitFilter, sort]);
+
+  const names = useMemo(() => rows.map((r) => r.name), [rows]);
+  const suggestions = useMemo(
+    () => rankSuggestions(names, query, 8),
+    [names, query],
+  );
+  const showSuggestions = suggestOpen && suggestions.length > 0;
+
+  const pickSuggestion = (name: string) => {
+    setQuery(name);
+    setPage(0);
+    setSuggestOpen(false);
+    setActiveSuggestion(-1);
+  };
+
+  const onSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (!showSuggestions) return;
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setActiveSuggestion((i) => Math.min(i + 1, suggestions.length - 1));
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setActiveSuggestion((i) => Math.max(i - 1, -1));
+    } else if (e.key === "Enter" && activeSuggestion >= 0) {
+      e.preventDefault();
+      pickSuggestion(suggestions[activeSuggestion]);
+    } else if (e.key === "Escape") {
+      setSuggestOpen(false);
+      setActiveSuggestion(-1);
+    }
+  };
 
   const pageCount = Math.max(1, Math.ceil(view.length / PAGE_SIZE));
   const current = Math.min(page, pageCount - 1);
@@ -226,17 +263,18 @@ export default function Vocabulary() {
     setLookingUp((s) => new Set(s).add(row._k));
     try {
       const result = await fetchLookup(word);
-      // Keep the row's own name and prepend any existing note so it isn't lost.
-      const existing = row.description.trim();
       setPending({
         mode: "update",
         rowKey: row._k,
+        // The row keeps its own meaning to edit; the AI's stays alongside it.
         initial: {
           word: row.name,
           ipa: result.ipa,
           type: result.type,
-          meaning: existing ? `${row.description}  ·  ${result.meaning}` : result.meaning,
+          meaning: row.description,
         },
+        aiMeaning: result.meaning,
+        senses: result.senses,
       });
     } catch (e) {
       toast(e instanceof Error ? e.message : "Lookup failed", "error");
@@ -258,12 +296,16 @@ export default function Vocabulary() {
       const result = await fetchLookup(word);
       setPending({
         mode: "add",
+        // A new word has no meaning of its own yet, so the AI's is offered as a
+        // starting point — editable, and only saved if it's still there on Apply.
         initial: {
           word: result.word,
           ipa: result.ipa,
           type: result.type,
           meaning: result.meaning,
         },
+        aiMeaning: result.meaning,
+        senses: result.senses,
       });
     } catch (e) {
       toast(e instanceof Error ? e.message : "Lookup failed", "error");
@@ -276,6 +318,7 @@ export default function Vocabulary() {
   const applyPending = (fields: LookupFields) => {
     if (!pending) return;
     if (pending.mode === "add") {
+      // Word/IPA/type and the meaning as edited; examples stay reference-only.
       const next: Row[] = [
         ...rows,
         {
@@ -296,6 +339,7 @@ export default function Vocabulary() {
       setPage(Math.floor((next.length - 1) / PAGE_SIZE));
       toast(`Added “${fields.word}”`, "success");
     } else {
+      // Fill word/IPA/type and the row's own Description as edited.
       setRows((rs) =>
         rs.map((r) =>
           r._k === pending.rowKey
@@ -450,16 +494,59 @@ export default function Vocabulary() {
         </label>
       </div>
 
-      <input
-        type="search"
-        value={query}
-        onChange={(e) => {
-          setQuery(e.target.value);
-          setPage(0);
-        }}
-        placeholder="Search vocabulary…"
-        className="mb-4 w-full max-w-sm rounded-lg border border-neutral-300 px-3 py-2 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-neutral-700 dark:bg-neutral-900"
-      />
+      <div className="relative mb-4 w-full max-w-sm">
+        <input
+          type="text"
+          role="combobox"
+          aria-controls="vocab-suggestions"
+          aria-expanded={showSuggestions}
+          aria-autocomplete="list"
+          autoComplete="off"
+          value={query}
+          onChange={(e) => {
+            setQuery(e.target.value);
+            setPage(0);
+            setSuggestOpen(true);
+            setActiveSuggestion(-1);
+          }}
+          onFocus={() => setSuggestOpen(true)}
+          onKeyDown={onSearchKeyDown}
+          placeholder="Search vocabulary…"
+          className="w-full rounded-lg border border-neutral-300 px-3 py-2 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-neutral-700 dark:bg-neutral-900"
+        />
+        {showSuggestions && (
+          <>
+            <button
+              aria-hidden="true"
+              tabIndex={-1}
+              onClick={() => setSuggestOpen(false)}
+              className="fixed inset-0 z-30 cursor-default"
+            />
+            <ul
+              id="vocab-suggestions"
+              role="listbox"
+              className="absolute left-0 right-0 z-40 mt-1 max-h-72 overflow-y-auto rounded-lg border border-neutral-200 bg-white py-1 shadow-lg dark:border-neutral-700 dark:bg-neutral-900"
+            >
+              {suggestions.map((name, i) => (
+                <li key={name} role="option" aria-selected={i === activeSuggestion}>
+                  <button
+                    onMouseDown={(e) => e.preventDefault()}
+                    onClick={() => pickSuggestion(name)}
+                    onMouseEnter={() => setActiveSuggestion(i)}
+                    className={`block w-full truncate px-3 py-2 text-left text-sm ${
+                      i === activeSuggestion
+                        ? "bg-indigo-600 text-white"
+                        : "hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                    }`}
+                  >
+                    {name}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+      </div>
 
       {loading ? (
         <p className="text-neutral-400">Loading…</p>
@@ -766,6 +853,8 @@ export default function Vocabulary() {
       {pending && (
         <LookupModal
           initial={pending.initial}
+          aiMeaning={pending.aiMeaning}
+          senses={pending.senses}
           mode={pending.mode}
           onApply={applyPending}
           onCancel={() => setPending(null)}
