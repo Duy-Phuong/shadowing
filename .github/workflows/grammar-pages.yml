@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - grammar/english-grammar.html
+      - grammar/vocabulary.html
       - .github/workflows/grammar-pages.yml
   workflow_dispatch:
 
@@ -29,6 +30,7 @@ jobs:
         run: |
           mkdir -p _site
           cp grammar/english-grammar.html _site/index.html
+          cp grammar/english-grammar.html grammar/vocabulary.html _site/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
