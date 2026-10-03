@@ -1,0 +1,2297 @@
+# section id | title | keywords  (id prefix = chapter key; c1–c4/b1 = batch1.html)
+c1-1 | Tổng quan 9 từ loại | danh từ, động từ, tính từ, trạng từ, giới từ, liên từ
+c1-2 | Danh từ (Noun) | vị trí — danh từ đứng sau, nhận biết qua hậu tố, động từ thường, to be, this is my pen, it’s not my fault
+c1-3 | Động từ (Verb) | vị trí, nhận biết qua hậu tố, ghi chú của bạn, ngoại động từ, nội động từ, không chỉ hành động
+c1-4 | Tính từ (Adjective) | vị trí, nhận biết qua hậu tố, she is very smart
+c1-5 | Trạng từ (Adverb) | vị trí, nhận biết qua hậu tố, ghi chú của bạn, giới từ + danh từ, sau to be, trước động từ thường
+c1-6 | Giới từ (Preposition) | vị trí, phân loại, on, at, in, before
+c1-7 | Liên từ (Conjunction) & Thán từ (Interjection) | thán từ, fanboys
+c1-8 | Đại từ (Pronoun) & Từ hạn định (Determiner) | từ hạn định, i love these sandals
+c1-9 | Chuyển đổi từ loại (Word Formation) | tạo danh từ từ động từ, tạo danh từ từ tính từ, tạo tính từ từ danh từ, tạo trạng từ từ tính từ, ngoại lệ cần nhớ, friendly
+c2-1 | Danh từ đếm được (Countable nouns) | s / -es
+c2-2 | Danh từ không đếm được (Uncountable nouns) | đồ ăn, khái niệm trừu tượng, lĩnh vực, môn học, hiện tượng tự nhiên, hoạt động, tea → a cup of tea
+c2-3 | 30 danh từ không đếm được thường gặp | 
+c2-4 | Dùng với mạo từ & lượng từ | đếm được, không đếm được, cả hai
+c2-5 | Từ vừa đếm được vừa không đếm được | time, coffee
+c2-6 | Bảng so sánh | hình thái, mạo từ, không, số đếm, lượng từ, động từ
+c2-7 | Danh sách danh từ không đếm được theo nhóm ✎ bổ sung🆕 | không, số ít
+c2-8 | Cách đếm: đơn vị đo & từ đếm được tương đương ✎ bổ sung🆕 | đơn vị đo (a … of + n không đếm được), không đếm được ↔ từ đếm được tương đương, a piece of, a slice of, a loaf of, a bar of
+c2-9 | Danh từ vừa đếm được vừa không (đổi nghĩa) ✎ bổ sung🆕 | paper, glass, hair, room, time, experience
+c3-1 | Quy tắc thêm -s / -es | chung, s, ch, sh, x, z, s, f, fe, ff, phụ âm
+c3-2 | Số nhiều bất quy tắc | từ gốc latin / hy lạp, men, women, children, people, feet
+c3-3 | Danh từ không thay đổi ở số nhiều | fish, fishes, loài
+c3-4 | Danh từ ghép & tên họ | danh từ ghép (từ hai từ trở lên), số nhiều của tên họ, danh từ chính, x, z, ch, sh
+c4-1 | Đồ vật gồm hai phần | số nhiều, một, a pair of, dụng cụ, kính, tai nghe, quần áo
+c4-2 | Các danh từ luôn số nhiều khác | my clothes are wet
+c4-3 | ⚠️ Tận cùng -s nhưng động từ SỐ ÍT | 
+art-1 | Mạo từ: chọn a/an, the hay không dùng | các cách dùng riêng của a / an, xác định, chưa xác định, câu hỏi then chốt, có, không
+art-2 | Khi nào dùng the | tên riêng đi với the, the girl, the car, the boy, the camera i lent you, the pen on the table
+art-3 | Khi nào không dùng mạo từ | a big, i like apples, i like oranges
+art-4 | Bảng đầy đủ các dạng đại từ | mỗi cột dùng thế nào, đại từ chỉ định & nghi vấn, ngôi, số, giống, cách
+art-5 | Đại từ phản thân (Reflexive pronouns) | 3. nhấn mạnh “chính … tự làm”, cụm cố định
+art-6 | Tân ngữ (Object) | thứ tự hai tân ngữ, hình thức của tân ngữ, tân ngữ trong câu bị động, a cake, me, the bookshelf
+art-7 | Sở hữu cách (’s) | thêm ’s hay chỉ thêm ’, dùng ’s với những loại danh từ nào, ’s, tom’s house, danh từ ghép, of
+art-8 | Dấu nháy đơn (Apostrophe) | cặp dễ nhầm, hai, sở hữu, dạng rút gọn, không, 1. sở hữu (danh từ)
+art-9 | Chủ ngữ giả “It” | các cấu trúc thường dùng, it trong câu bị động, các ghi chú khác trong cùng ảnh, chủ ngữ thật, it, bị động đặc biệt
+art-10 | “There”: trạng từ và chủ ngữ giả | hai vai trò cơ bản, các mẫu nâng cao với there, trạng từ chỉ nơi chốn, there + be, lỗi của người việt
+art-cvA7-1 | This / that / these / those — cách dùng & cụm quen thuộc🆕 | quy tắc dùng cụ thể, this/these, that/those
+qty-1 | Tổng quan: lượng từ đi với loại danh từ nào? | đếm được, không đếm được, ý tưởng trừu tượng, trạng thái, cảm xúc, hiện tượng tự nhiên, chất lỏng
+qty-2 | Some & Any | some — các cách dùng, any — các cách dùng, dùng thay danh từ (tỉnh lược), mời, nhờ, you can take any taxi
+qty-3 | Nhiều: many, much, a lot of, lots of, plenty of… | chia động từ theo danh từ đi sau, many of / much of, many, much, a lot of / lots of, plenty of
+qty-4 | Ít và không: few, a few, little, a little, no, none | no & none, less & enough, không đủ, few, little, đủ dùng
+qty-5 | Most & Most of (All / Some) | most / all / some, chung, cụ thể, most of, most people, most of the people
+qty-6 | Each & Every | each other, one another & ourselves, danh từ số ít, riêng lẻ, tất cả, hai trở lên, từ ba trở lên
+qty-7 | Another, other, others, the other, the others | another, khác, thêm một, other, others, the other, còn lại
+qty-8 | A number of / The number of & chia động từ sau lượng từ | chia động từ sau các lượng từ khác, số lượng, số nhiều, số ít, an amount of butter, luôn số ít
+qty-9 | Trật tự tính từ (OSASCOMP) | mẹo nhớ osascomp, noun, quantity, chủ quan, cùng một loại
+qty-10 | Tính từ trong câu: động từ nối & cụm bổ nghĩa | tính từ đứng sau cụm chỉ số đo, cụm từ bổ nghĩa đứng sau danh từ, “trở nên”, giác quan, vẻ bề ngoài, it sounds great, stay calm
+qty-11 | Đuôi -ing (chính tả) & phát âm -ed | khi nào thêm -ing?, 9 quy tắc chính tả, phát âm đuôi -ed, e câm, w, -x, -y, trọng âm ở âm cuối
+qty-12 | Bổ sung: danh từ số nhiều | thêm vào quy tắc -es, f / -fe → -ves (thêm từ), từ gốc latin / hy lạp (thêm từ), danh từ ghép với man, không đổi ở số nhiều (thêm từ), phát âm đuôi -s / -es
+qty-cvX3-1 | Thay "a lot of" bằng cụm định lượng nâng cao — bổ sung🆕 | 
+qty-cvX3-3 | "Any" — so sánh hơn, làm đại từ & nghĩa "bất kỳ" — bổ sung🆕 | any
+qty-gap-1 | Tính từ đuôi -ed và -ing (Participle adjectives) ✎ bổ sung🆕 | ing, người/vật gây ra, ed, người cảm thấy, v-ing, boring
+prep-1 | Giới từ là gì? Vị trí trong câu | vị trí thường gặp, hai hình thức của giới từ, tính từ, động từ thường, to be, danh từ
+prep-2 | Cụm giới từ (Prepositional Phrases) | chức năng của cụm giới từ, danh từ, động từ, trạng ngữ
+prep-3 | Phân loại giới từ thường gặp | vị trí, nơi chốn, in, on, at, above, below / under
+prep-4 | In/into, on/onto & giới từ phức hợp | vị trí tĩnh hay chuyển động?, giới từ phức hợp (complex prepositions), in, bên trong, into, di chuyển
+prep-5 | In / On / At chỉ thời gian | những điểm dễ nhầm, mẹo nhớ, rộng → hẹp, in, on, at
+prep-6 | In / On / At chỉ nơi chốn | hình dung, in, bên trong, on, trên bề mặt, at
+prep-7 | At the end / In the end / By the end | at the end (of sth), điểm kết thúc, in the end, cuối cùng thì, không, by the end (of sth)
+prep-8 | Tính từ / động từ / danh từ + giới từ ✎ bổ sung🆕 | tính từ + giới từ, động từ + giới từ, danh từ + giới từ, n / v-ing, of, at
+prep-cvG1-1 | Động từ + giới từ & need + V-ing — bổ sung 🆕 | bị động
+prep-cvG2-1 | Cụm giới từ hay dùng — bổ sung🆕 | 
+tense-1 | Bảng tổng quan 12 thì | mẹo nhớ cách chia, hiện tại đơn, hiện tại tiếp diễn, hiện tại hoàn thành, quá khứ đơn, quá khứ tiếp diễn
+tense-2 | Nhóm thì hiện tại | hiện tại đơn (present simple), hiện tại tiếp diễn (present continuous), hiện tại hoàn thành (present perfect), i have met him, quá trình
+tense-3 | Nhóm thì quá khứ | quá khứ đơn (past simple), quá khứ tiếp diễn (past continuous), quá khứ hoàn thành (past perfect), trước, sau
+tense-4 | Nhóm thì tương lai | tương lai đơn (simple future), tương lai tiếp diễn (future continuous), tương lai hoàn thành (future perfect), đang, một thời điểm cụ thể, hiện tại đơn
+tense-5 | Will và be going to | not, quyết định, dự đoán, hứa / đề nghị, mức chắc chắn, dấu hiệu
+tense-6 | Yet (và already) | các nghĩa của yet, yet trong thì hiện tại hoàn thành, các cách dùng khác, already, yet, yet to
+tense-7 | Since và for | thì trước và sau since, since = because (chỉ lý do), phân biệt since và for, since, mốc, for
+tense-8 | This is the first time | theo thời điểm, thay first bằng second, third…, câu tương đương (viết lại câu), the first time + mệnh đề quá khứ, hiện tại hoàn thành, never
+tense-9 | The last time | quá khứ đơn, kể về lần gần nhất, câu hỏi, hứa / phàn nàn, viết lại câu, for
+tense-10 | Chia động từ theo chủ ngữ (hòa hợp chủ ngữ – động từ) | and, are, each / every, has, or / nor, either
+tense-11 | Hiện tại diễn tả tương lai & mức độ chắc chắn🆕 | present simple, present continuous, be going to, will, may / might, be bound to + v
+tense-12 | Động từ trạng thái & nghĩa khác khi ở dạng tiếp diễn🆕 | không, think, have, see, look, taste / smell
+tense-13 | Thì kể chuyện (Narrative tenses)🆕 | past simple, past continuous, past perfect, trước, present perfect
+tense-gap-1 | Tương lai trong quá khứ (Future in the past) ✎ bổ sung🆕 | lúc đó còn ở tương lai, was/were going to, would, was/were about to, was/were to, was/were to have
+tense-gap-2 | Các cách diễn đạt tương lai khác: be about to, be due to, be on the verge of… ✎ bổ sung🆕 | be, about to, on the point of, due to, due, bound to
+time-1 | Tổng quan các từ chỉ thời gian | for, since, during, while, ago, sau
+time-2 | For · Since · Ago | for + khoảng thời gian, mọi thì, since + mốc thời gian, khoảng thời gian + ago, quá khứ đơn
+time-3 | During vs While | hai nghĩa khác của while, từ loại, theo sau, danh từ / cụm danh từ, mệnh đề s + v, nghĩa
+time-4 | While · Meanwhile · In the meantime | so sánh while và meanwhile, vị trí trong câu, while, trong cùng một câu, meanwhile, một câu/mệnh đề mới
+time-5 | When: các vai trò và thì trước/sau when | bốn vai trò của when, rút gọn mệnh đề when (cùng chủ ngữ), ba lỗi thường gặp, when + to v, không, while
+time-6 | Until · By the time · By this time · By that time | phối thì với by the time, by the time vs when vs until, until / till, kéo dài, by the time, đã xong
+time-7 | As soon as | as soon as đứng đầu câu, đảo ngữ: no sooner / hardly, as soon as possible, “ngay khi”, htht, as soon as
+time-8 | Before | cụm từ với before, before + v-ing
+time-9 | After | cụm từ / phrasal verb với after, since + qkđ, htht
+time-10 | Bảng tổng hợp: thì trước/sau từ nối thời gian | quy tắc vàng, hiện tại đơn, hiện tại hoàn thành, không dùng will, when, while / as
+time-11 | Trạng từ chỉ thời gian theo thì (Time expressions) | informal → formal, tomorrow morning, at present, câu gián tiếp
+time-cvA3-1 | Thêm liên từ chỉ thời gian tương lai — bổ sung🆕 | vị trí
+verb-1 | Động từ có quy tắc và bất quy tắc (V1 – V2 – V3) | phân biệt v2 và v3, v1, v2, v3, động từ có quy tắc, động từ bất quy tắc
+verb-2 | Mẹo nhớ: các nhóm động từ bất quy tắc | a – a – a, a – b – b, a – b – a, a – b – c
+verb-irregular | Bảng động từ bất quy tắc | abide, arise, awake, backslide, be, bear
+verb-4 | Trợ động từ (Auxiliary verbs): be, have, do | 3 trợ động từ cơ bản, be, have, do
+verb-5 | Động từ khuyết thiếu (Modal verbs) | can / could, may / might, must, ought to, will / would
+verb-6 | Cách dùng trợ động từ trong câu | tạo thì, phủ định, câu hỏi, câu hỏi đuôi, tỉnh lược và nhấn mạnh, will, be, have
+verb-7 | Cấu trúc Have got | sở hữu, có, bị ốm/bị bệnh, have/has got, have/has not got, have/has
+verb-8 | Hòa hợp chủ ngữ – động từ: quy tắc cơ bản và chủ ngữ ghép | s số ít + v số ít, s1 and s2 → v số nhiều, một, s1 or/nor s2, either s1 or s2, neither s1 nor s2
+verb-9 | Hòa hợp: đại từ bất định và lượng từ | số ít, số nhiều, the
+verb-10 | Hòa hợp: danh từ và chủ ngữ đặc biệt | the + tính từ, danh từ luôn số nhiều, danh từ tập hợp
+verb-11 | Động từ khuyết thiếu hoàn thành: modal + have + V3 ✎ bổ sung🆕 | modal + have + v3, quá khứ, must have v3, must have rained, can’t have seen, might have missed
+verb-12 | Modal: bắt buộc, cho phép, khả năng & lời khuyên🆕 | bắt buộc – cấm – không cần, khả năng (ability), lời khuyên & gợi ý, must, have to, need to
+verb-gap-1 | Suy đoán ở hiện tại: must / might / can’t + V ✎ bổ sung🆕 | đoán, must, should, may / might / could, can’t / couldn’t, v (bare)
+vpat-1 | Động từ đổi nghĩa theo to V / V-ing | to v, việc sắp/cần làm, v-ing, việc đã xảy ra, remember, phải
+vpat-2 | Remember | trong câu gián tiếp: remember → remind, remember + giới từ, từ & cụm gần nghĩa, still, to v, v-ing
+vpat-3 | Forget | cách nói “quên” khác, to v, don’t forget + to v, v-ing, about + n / v-ing, to buy
+vpat-4 | Stop | cụm động từ với stop, to v, để, v-ing, from v-ing
+vpat-5 | Hope — to V hay V-ing? | hope + giới từ, hope hay wish?, danh từ gần nghĩa “hy vọng, mục tiêu”, có khả năng, to v, (that)
+vpat-6 | Prefer & would prefer | prefer — sở thích chung, lâu dài, prefer hay would prefer?, to v, v-ing, n1 to n2, v-ing to v-ing
+vpat-7 | Would rather | một chủ ngữ, hai chủ ngữ — muốn người khác làm gì, would rather / would prefer / would like, v nguyên mẫu không to, than, or
+vpat-8 | Prefer – would prefer – would rather – had better | dùng để, cùng chủ ngữ, to v, khác chủ ngữ, v quá khứ, prefer
+vpat-9 | Rather than & instead of | ba cách dùng, rather than hay instead of?, hai vế song song, nghĩa, theo sau, n / đại từ / v-ing
+vpat-10 | Can’t stand | phủ định hoặc câu hỏi, sb / sth, sb/sth + v-ing, v-ing / to v, it when, thành ngữ
+vpat-11 | Would you mind / Do you mind | 1. nhờ ai làm gì, 2. xin phép làm gì, 3. cách trả lời, 4. cấu trúc tương đương, động từ mind ở nghĩa khác, nhờ vả
+vpat-12 | Be willing to (be ready to, be prepared to) | to v, ready, prepared
+vpat-13 | Be supposed to | phân biệt với động từ suppose, to v, đáng lẽ ra, phải, được cho là, suppose we + v…?
+vpat-14 | Be subject to | danh từ / cụm danh từ, n / cụm n
+vpat-15 | Provide | sb with sth, sth for / to sb, for sb, for sth, that, with
+vpat-16 | Spend, it takes, waste | viết lại câu: spend ↔ it takes, waste — lãng phí, on + n, (in) v-ing, with + sb, itself
+vpat-17 | Prevent (stop, ban) sb from doing sth | prevent, from + v-ing, stop, ban, from doing
+vpat-18 | Used to / Be used to / Get used to ✎ bổ sung🆕 | tương tự: “to” là giới từ + v-ing, used to + v, used to live, be used to + v-ing / n, am used to getting up, get used to
+vpat-19 | Danh sách: động từ + to V / V-ing / tân ngữ + to V🆕 | v + to v, v + v-ing, v + o + to v, v + o + v (nguyên mẫu), giới từ + v-ing
+vpat-cvA4-1 | Cấu trúc với HELP🆕 | 
+vpat-cvA7-1 | Tend to — có xu hướng🆕 | tend to, intend to
+vpat-cvG1-1 | Pay attention to / Enable sb to do sth — bổ sung 🆕 | pay attention to, enable, to v
+vpat-gap-1 | Thêm cặp đổi nghĩa: go on, be afraid, be sorry, be interested, like ✎ bổ sung🆕 | to v, (giới từ +) v-ing, v-ing, of v-ing, for/about v-ing, in v-ing
+struct-1 | Enough — đủ để làm gì | tính từ + enough, trạng từ + enough, enough + danh từ, dùng enough để nối hai câu, đủ, không đủ
+struct-2 | Too — quá… (đến nỗi không thể) | enough và too, quá, trước, too + adj, too + adv, too much / too many
+struct-3 | So và such — nhấn mạnh “thật là, quá” | bảng luyện mẫu (từ ghi chú), so sánh, so, such, so + adj, so + adv
+struct-4 | So … that / Such … that — quá … đến nỗi mà | viết lại câu: so ↔ such, that + mệnh đề, kết quả, so, such, so + adj
+struct-5 | Mục đích: in order to, so as to, to V, so that | nối hai câu bằng in order to / so as to, “để, để mà”, động từ nguyên mẫu, in order (not) to, so as (not) to, to
+struct-6 | Whatever — bất cứ điều gì, bất kể | 4. câu trả lời thân mật: “sao cũng được”, thành ngữ, rút gọn, trạng từ, whatever does it mean?, …, whatever you do!
+struct-7 | Have / get something done — nhờ, thuê người làm (bị động) | cách dùng, dạng chủ động và bị động, khái niệm, được làm, không tự làm, kết quả
+struct-8 | Câu cầu khiến: have, get, make, let, help… | 3. make — bắt buộc; làm cho, 4. cause — làm cho cái gì bị làm sao, 6. help — giúp ai làm gì, 7. see / watch / hear — chứng kiến, v nguyên thể, to v
+struct-cvA5-1 | Let / Make — dạng bị động & so với Have🆕 | to v, be allowed to + v, make, have
+struct-cvG1-1 | In order that — bổ sung 🆕 | nối câu với in order that, in order that, may/might, so that, in order to
+struct-cvG2-1 | "More than" + tính từ/trạng từ = "very"🆕 | very
+cond-1 | Tổng quan câu điều kiện | mệnh đề điều kiện, mệnh đề chính, loại 0, loại 1, loại 2, were
+cond-2 | Loại 0 và loại 1 | loại 0: sự thật, thói quen, loại 1: có thể xảy ra, may / might, không dùng will, if it rains tomorrow…, sẵn lòng
+cond-3 | Loại 2 và loại 3 | loại 2: không có thật ở hiện tại, loại 3: không có thật trong quá khứ, áp dụng: ielts speaking part 1, were
+cond-4 | Câu điều kiện hỗn hợp | quá khứ → hiện tại, hiện tại → quá khứ
+cond-5 | Đảo ngữ câu điều kiện | should / were / had, loại 1, should, should it rain, loại 2, were
+cond-6 | Unless, as long as, provided that và các từ thay if🆕 | trong thương lượng, hợp đồng, unless, in case, in case of + n, only if, even if
+cond-7 | But for / If it weren’t for / If it hadn’t been for | but for, danh từ hoặc v-ing, loại 2 và loại 3, loại 2, loại 3, but for = except for
+cond-8 | Even if, even though và if | nghĩa, bản chất
+cond-9 | Câu điều kiện trong câu tường thuật | loại 1, loại 2, giữ nguyên, loại 3, if + câu hỏi, cuối câu
+cond-10 | Câu ước với wish | các lưu ý và mẫu câu hay dùng, wish hay hope?, wish, không có thật, hiện tại, were
+cond-11 | If only và only if | if only và only if khác nhau thế nào, if only, tương lai, hiện tại, quá khứ, if only i had known
+cond-12 | It’s time / It’s high time / It’s about time | high, about, it was time + s + v2, it was time they left, for sb
+cond-13 | Thức giả định hiện tại: that + V nguyên mẫu | sau động từ, sau tính từ / phân từ, sau danh từ, giả định trong thành ngữ cố định, thức giả định, were
+cond-14 | Giả định quá khứ: would rather, as if / as though | as if / as though (như thể là), cấu trúc với chủ ngữ giả it + to v, thì quá khứ, hiện tại / tương lai, were, quá khứ
+rep-1 | Câu trực tiếp & câu tường thuật | say hay tell?, 4 bước chuyển sang câu tường thuật, said, told + o, câu trần thuật, câu tường thuật
+rep-2 | Lùi thì (Tense backshift) | động từ khuyết thiếu, is, was, am studying, was studying, have gone
+rep-3 | Khi nào không cần lùi thì | 
+rep-4 | Đổi đại từ & từ sở hữu | người nói, người nghe
+rep-5 | Đổi từ chỉ thời gian & nơi chốn | 
+rep-6 | Tường thuật câu hỏi | câu hỏi yes/no, câu hỏi wh, câu khẳng định, if / whether, wh-word
+rep-7 | Tường thuật mệnh lệnh, yêu cầu & câu cảm thán | câu cảm thán, khẳng định, to v, phủ định, not to v
+rep-8 | Động từ tường thuật + to V | ý định, v + to v, v + o + (not) to v, advised, to take, agreed to meet
+rep-9 | Động từ tường thuật + V-ing | v-ing, accused, of acting, agreed on meeting, apologized, for being
+rep-10 | Câu bị động: khái niệm & cách chuyển | các bước, by, with hay bỏ tác nhân?, thực hiện, chịu tác động, be, v3/-ed
+rep-11 | Bị động theo từng thì | dạng tiếp diễn ít dùng, being, been, be
+rep-12 | Bị động với động từ khuyết thiếu & động từ hai tân ngữ | be + v3, chủ động, cách 1, cách 2, to/for
+rep-13 | It is said that… / He is said to… | chọn dạng động từ nguyên mẫu ở cách 2, thông tin, chủ động, cách 1, cách 2, to v
+rep-14 | Các dạng bị động đặc biệt khác | câu nhờ vả (have / get / make), câu hỏi yes/no, câu mệnh lệnh, to v, khẳng định, phủ định
+rep-15 | Khi nào không dùng bị động | nội động từ, đại từ phản thân, i love myself
+rep-gap-1 | Bị động với get (get + V3) ✎ bổ sung🆕 | get + v3, be + v3, do, lỗi thường gặp, he got fired, he was fired
+clause-1 | Mệnh đề quan hệ: xác định và không xác định | mệnh đề quan hệ, mệnh đề tính ngữ, đại từ quan hệ, trạng từ quan hệ, vị trí, không
+clause-2 | Đại từ và trạng từ quan hệ | chọn theo tiền ngữ và vai trò, mẹo: where / when hay which?, đại từ quan hệ kép (-ever), who, whom, which
+clause-3 | Which hay that? | rất ít, cả người và vật, so sánh nhất, số thứ tự, không dùng that
+clause-4 | Giới từ, lược bỏ đại từ quan hệ và lỗi thường gặp | giới từ + đại từ quan hệ, lược bỏ đại từ quan hệ, lỗi thường gặp, trước, ở cuối, who
+clause-5 | Rút gọn mệnh đề quan hệ (Reduced relative clauses) | cách 2: v-ing (chủ động), cách 3: v3/v-ed (bị động), cách 4: to v, cách 6: tính từ / cụm tính từ, cách 7: tính từ ghép (số đếm + danh từ), chủ động
+clause-6 | Mệnh đề danh ngữ (Noun clauses) và whether / if | đổi câu hỏi thành mệnh đề danh ngữ, whether và if, mệnh đề danh ngữ, lỗi thường gặp, be, đúng
+clause-7 | Mệnh đề trạng ngữ (Adverbial clauses) | rút gọn mệnh đề trạng ngữ, mệnh đề trạng ngữ, trước
+clause-8 | Mệnh đề phân từ (Present participle clauses) | v-ing, trùng, chủ động, các bước, vị trí, trước
+clause-9 | Mệnh đề độc lập và câu ghép | nối các mệnh đề độc lập thành câu ghép, mệnh đề độc lập, chủ ngữ + vị ngữ, động từ đã chia, andrew sings, chủ ngữ có thể là
+clause-10 | Câu phức: phân biệt câu đơn, câu ghép, câu phức | lỗi thường gặp khi viết câu phức, câu phức, một mệnh đề độc lập, mệnh đề trạng ngữ, mệnh đề quan hệ, mệnh đề danh ngữ
+clause-11 | Ứng dụng: so sánh số liệu trong IELTS Writing Task 1 | 
+sent-1 | Năm cấu trúc câu cơ bản | dạng đơn giản, dạng phức tạp, s + v, nội động từ, s + v + o, ngoại động từ
+sent-2 | Cấu trúc song song (Parallel structure) | lỗi thường gặp, cấu trúc song song, cùng dạng ngữ pháp, v-ing, danh từ, đứng trước
+sent-3 | Đảo ngữ: khái niệm và quy tắc chung | đảo ngữ (inversion), trước, s + v, nhấn mạnh, cách đảo, rarely does she go
+sent-4 | Đảo ngữ với trạng từ và cụm từ phủ định | trạng từ phủ định / hạn chế, nowhere — không nơi nào, cụm từ có “no”, no + n / not any + n, cụm từ có “not”, nowhere
+sent-5 | No sooner… than / Hardly… when | vừa mới… thì…, quá khứ hoàn thành, quá khứ đơn, than, when / before, no sooner
+sent-6 | Đảo ngữ với Only, Not until, Not only | only…, not until / not till — mãi đến khi… mới, only, mệnh đề chính, câu chẻ tương đương, not until … will i
+sent-7 | Đảo ngữ với So… that / Such… that | quá… đến nỗi mà, such + be + n + that…, tính từ, be, trạng từ, do/does/did
+sent-9 | Đảo ngữ sau than, as, neither/nor và Here/There | than, do adults, does my father, as, as do students, as does china
+sent-10 | Câu chẻ với It (It-cleft) | nhấn mạnh, it is / it was, that / who / whom, chính…, who / that, that
+sent-11 | Câu chẻ với What, All, There và câu chẻ đảo | đầu câu
+sent-12 | Câu mệnh lệnh (Imperative sentences) | theo ngôi, các dạng khác, chức năng và mẫu câu hay dùng, động từ mệnh lệnh thường gặp, động từ nguyên mẫu, you
+sent-13 | Câu cảm thán (Exclamations) | các cấu trúc, mẫu câu cảm thán thông dụng, câu cảm thán, dấu chấm than (!), how + adj / adv, s + be + so + adj!
+sent-gap-1 | Nhấn mạnh: do/does/did, the very, đại từ nhấn mạnh, at all ✎ bổ sung🆕 | do / does / did, do, the very, at all / whatsoever, do/does/did, lỗi thường gặp
+sent-gap-2 | Tỉnh lược & thay thế (Ellipsis & substitution): so/not, do so, one/ones ✎ bổ sung🆕 | thay, lược, so, not, trợ động từ, to
+comp-1 | Tổng quan & tính từ ngắn / dài | quy tắc chính tả khi thêm -er / -est, tính từ “tuyệt đối” — không so sánh, so sánh bằng, so sánh hơn / kém, so sánh nhất, ngắn
+comp-2 | So sánh hơn & kém hơn🆕 | nhấn mạnh mức độ chênh lệch, sau than / as: đại từ hay mệnh đề?, adj/adv-er, more, less, lớn
+comp-3 | So sánh nhất | the, est, the most, the least, in, of
+comp-4 | Tính từ & trạng từ bất quy tắc | good / well, bad / badly, much / many, little, far, old
+comp-5 | So sánh bằng: as … as / the same … as | as, as (so), the same, not as / not so … as, much, many
+comp-6 | So sánh gấp nhiều lần (bội số) | much / many, three times …, twice as powerful as, was double that, high
+comp-7 | So sánh kép: càng… càng / ngày càng | càng… thì càng…, ngày càng…, the more, the merrier, rút gọn, it is, to be
+comp-8 | Cấu trúc so sánh nâng cao | các cụm so sánh phổ biến khác, so sánh tu từ (simile) với as và like, so sánh tương phản, ba cách trình bày một số liệu, as … as possible, more
+comp-9 | Far: by far, so far, as far as, by | by far trong so sánh nhất, by far, so far, as far as, by, the lowest
+comp-10 | Các cấu trúc với “as” | cụm cố định với “as”, từ khác để diễn tả sự giống nhau, as soon as, as long as, as well as, as far as
+comp-11 | Lỗi thường gặp | the, other / else, fewer / less
+conj-1 | Liên từ kết hợp (Coordinating) — FANBOYS | dấu phẩy với liên từ kết hợp, liên từ, kết hợp, tương quan, phụ thuộc, ngang hàng
+conj-2 | Liên từ phụ thuộc (Subordinating) | liên từ khác giới từ thế nào?, mệnh đề phụ, hoặc, dấu phẩy, trước, hiện tại đơn
+conj-3 | Liên từ tương quan (Correlative) — các cặp | cặp từ, song song, đảo ngữ, no sooner, than, hardly / scarcely
+conj-4 | Either … or / Neither … nor & cách chia động từ | vị trí, chia động từ — rất hay ra thi, neither … nor = not … either … or, neither ở đầu vế — đảo ngữ, một trong hai, cả hai
+conj-5 | Not only … but also | đảo ngữ với not only, nhấn mạnh, song song, adj, adv, carelessly
+conj-6 | So / too · Neither / either — “tôi cũng vậy” | đồng tình, so, too, neither / nor, either, so do i
+conj-7 | Although / though / even though · despite / in spite of | despite / in spite of + …, chuyển đổi although ⇄ despite, từ đồng nghĩa với despite (+ danh từ), mặc dù, cái gì theo sau, + mệnh đề (s + v)
+conj-8 | Even + when / if / though / so | even, even when, kiên trì / lặp lại, even if, giả định, even though
+conj-9 | However · Anyway · Though (cuối câu) | however = tuy nhiên (trạng từ liên kết), however = bằng bất cứ cách nào (liên từ), anyway — anyways — any way, anyway khác though thế nào?, câu / mệnh đề độc lập, luôn có dấu câu
+conj-10 | As if / as though vs like | like, as if / as though, không có thật, be → were, mệnh đề
+conj-11 | Because / because of & các từ thay thế | because, because of
+conj-12 | Else & or else | or else = nếu không thì (otherwise), else, sau, không
+conj-13 | Từ nối theo chức năng (Linking words) | nguyên nhân · mục đích, điều kiện · giả thiết, đối lập · nhượng bộ, dấu câu với trạng từ liên kết, linking words, nhóm chức năng
+conj-cvA7-1 | Even as — bổ sung🆕 | even as
+conj-cvA5-1 | Both / Either / Neither — quy tắc chia động từ bổ sung🆕 | either of, neither of
+conj-cvG1-1 | Now that — bổ sung 🆕 | because / as / since, because of
+conj-cvG3-1 | Albeit — mặc dù (trang trọng, hay dùng trong Writing/Speaking band cao)🆕 | mặc dù, tuy, although
+adv-1 | Trạng từ tần suất: thang mức độ | tần suất xác định & cụm từ tần suất, always, usually, normally / generally, often / frequently, sometimes
+adv-2 | Vị trí trạng từ tần suất (chi tiết) | đầu câu / cuối câu, vị trí giữa câu, sau, often, sometimes, trước
+adv-3 | Trạng từ chỉ thời gian | vị trí, thứ tự khi có nhiều trạng từ thời gian, đặt câu hỏi, khi nào, bao lâu, tình trạng/tiến độ
+adv-4 | Trạng từ bổ nghĩa cho gì? Các loại theo chức năng | bốn thứ trạng từ có thể bổ nghĩa, so sánh của trạng từ, trạng từ liên kết (conjunctive adverbs), đặt trạng từ ở đâu?, how? · như thế nào, where? · ở đâu
+adv-5 | “Có lẽ”: maybe, perhaps, possibly, probably | khác nhau về mức độ khả năng, cách dùng, probably, maybe, perhaps, possibly
+adv-6 | Tám cụm cố định với “then” | back then, since then, until then, by then, now and then, only then
+adv-7 | Từ nhấn mạnh (Expressing emphasis) | khẳng định chắc chắn, làm nổi bật một ý
+adv-8 | “Ain’t” — dạng rút gọn thân mật | ain’t, không dùng, is not, are not, am not, has not
+adv-9 | Briefly vs shortly | trong thời gian ngắn, ngắn gọn, bằng ít lời, sắp, chẳng bao lâu nữa, cộc lốc, gắt, briefly, to put it briefly
+adv-10 | No longer · any longer · any more · no more | no longer — dùng với động từ khẳng định, no more — đi với danh từ (số lượng), không còn … nữa, still, no longer, not
+adv-11 | Danh xưng: Mr, Mrs, Miss, Ms, Sir, Madam | mr, mr right, mrs, miss, ms, madam
+adv-12 | Speak · talk · say · tell | speak, talk, say, tell, nhớ, to
+adv-13 | Mức độ trạng từ nhấn mạnh & trạng từ khái quát🆕 | thang mức độ + tính từ, too & enough, extremely, really / very, pretty / quite, fairly
+adv-cvV1-1 | Thêm từ nhấn mạnh (Emphasis) 🆕 | 
+adv-cvV1-2 | Thêm trạng từ chỉ thời gian: previously, formerly, eventually, throughout… 🆕 | 
+adv-cvG3-1 | Quite & Rather — bổ sung sắc thái🆕 | hoàn toàn/chính xác
+ques-1 | Năm loại câu hỏi | ngữ điệu, lên giọng, xuống giọng
+ques-2 | Câu hỏi Yes/No | cách dùng “did” trong văn nói (từ ảnh), do / does / did, am/is/are + s …?, was/were + s …?, do/does + s + v …?, did + s + v …?
+ques-3 | Câu hỏi Wh- và bảng từ để hỏi | hỏi chủ ngữ hay hỏi tân ngữ?, câu hỏi có giới từ ở cuối, who, whom, whose, what
+ques-4 | Mẫu câu với từng từ để hỏi | what, where, when, which, how, who
+ques-5 | How long & It takes | kho câu luyện nói (từ ảnh), how long, how many times, how much time, when, when will you …?
+ques-6 | Hỏi giá & hỏi thời tiết | 
+ques-7 | Câu hỏi gián tiếp & “What do you think…?” | trật tự câu khẳng định
+ques-8 | Câu hỏi đuôi (Tag questions) — quy tắc chung | ngữ điệu & cách trả lời, câu hỏi đuôi cùng chiều (same-way tag), trợ đt + n’t + đại từ, trợ đt + đại từ, do/does/did, đại từ
+ques-9 | Câu hỏi đuôi đặc biệt | i am, khẳng định, they, it, there, let’s
+ques-10 | Hỏi thăm sức khỏe & chào hỏi | đáp
+ques-11 | Câu hỏi giao tiếp theo tình huống | nghề nghiệp — “what do you do?”, đề nghị giúp đỡ & xin phép, rủ rê, gợi ý & đáp, nghề nghiệp, đang làm lúc này, a/an
+ques-12 | Câu hỏi – đáp mẫu (đã sửa lỗi) | câu hỏi ngắn hằng ngày
+ques-13 | Mẫu câu hữu ích đi kèm | what’s in it for me?, soon after + v-ing
+rewrite-1 | Cách làm bài viết lại câu | 3 bước, 1. phân tích câu gốc, 2. đối chiếu đáp án, 3. loại trừ, đúng
+rewrite-2 | Nguyên nhân, nhượng bộ, mục đích, kết quả | quy tắc chung, mệnh đề s + v, danh từ / v-ing, không, despite the rain
+rewrite-3 | Mức độ: so / such / too / enough / find it | trái nghĩa, tính từ trái nghĩa, mild
+rewrite-4 | Thời gian & thì | worked, started
+rewrite-5 | Điều kiện, câu ước, gợi ý, lời khuyên, sở thích | shall we meet tonight?, you need to go home, không
+rewrite-6 | Bị động, tường thuật, so sánh, cảm thán | he swims quickly, how quickly he swims!, s + v thường, the police are
+rewrite-7 | Đổi từ / cụm từ tương đương | she likes english, biết, nhận thức được, quen với
+rewrite-8 | 40 cấu trúc ngữ pháp thông dụng | it, i dislike jogging, let me help you, to, please stop talking
+rewrite-9 | 100+ cấu trúc cho người mất gốc | 31–100: cụm cố định (học theo nhóm), if only i were taller, thời gian, chi phí, mức độ & đáng giá, vai trò, ảnh hưởng, nỗ lực, lựa chọn
+rewrite-10 | 24 cấu trúc viết câu (Writing) | 
+rewrite-11 | Cấu trúc nâng cao: chủ ngữ giả, bị động đặc biệt, phân từ, đảo ngữ, mệnh đề danh từ | 1. chủ ngữ giả, 2. bị động đặc biệt, 4. đảo ngữ, 5. mệnh đề danh từ làm chủ ngữ, viết lại câu
+rewrite-12 | Câu phức mô tả xu hướng (Writing Task 1) | 
+rewrite-13 | After & Before: phối hợp thì | có dấu phẩy, rút gọn, cùng chủ ngữ
+rewrite-14 | 5 mẹo chia động từ theo chủ ngữ | and, một, gần nhất, each / every, many a, chính
+rewrite-15 | Ghi chú nhanh từ sổ tay | on time vs in time, on time, in time, lượng từ, at / in / on, at
+rewrite-cvA8-1 | “Seem”: cấu trúc và cách dùng🆕 | 
+rewrite-cvA8-2 | Lược bỏ giới từ trước trạng ngữ chỉ thời gian / số liệu🆕 | trạng từ
+rewrite-cvA5-1 | So / Very / Too — sắc thái mạnh yếu, tích cực/tiêu cực🆕 | it's very cold today, tiêu cực, so, "you drive so fast!", too, "you're so honest."
+rewrite-gap-1 | Danh từ hóa (Nominalisation) trong văn viết học thuật ✎ bổ sung🆕 | danh từ hóa, a/an + adj + n, s’s + n + of/to + o, lỗi thường gặp, a sharp rise, a significant increase
+pron-1 | Phát âm đuôi -s / -es | âm cuối, ch, /tʃ/, /s/, /dʒ/, /ʃ/
+pron-2 | Phát âm đuôi -ed | kh, ch, ph, /p/, /f/, /k/
+pron-3 | Nối âm (Linking) | 1. phụ âm + nguyên âm → đọc nối, 4. các trường hợp biến âm khác, giữ nguyên, âm câm, âm, âm /h/ bị lược
+pron-4 | Nuốt âm (Elision) | nghe hiểu, âm tiết không nhấn, âm /h/ đầu
+pron-5 | Trọng âm (Word Stress) — 6 quy tắc | âm tiết 1, động từ 2 âm tiết, âm tiết 2, bắt đầu bằng “a-”, ngay trước, thứ 3 từ cuối lên
+pron-8 | Trọng âm từ — quy tắc bổ sung ✎ bổ sung🆕 | hậu tố nhận trọng âm (nhấn vào chính nó), nhấn âm tiết ngay trước hậu tố, trọng âm dịch chuyển trong cùng họ từ, từ ghép, âm 1, âm 2
+pron-9 | Những âm người Việt hay phát âm sai ✎ bổ sung🆕 | bỏ âm cuối, /θ/ /ð/, /ʃ/, /tʃ/, /dʒ/, /z/
+pron-10 | Trọng âm câu (Sentence stress) ✎ bổ sung🆕 | khi từ chức năng được nhấn, từ mang nội dung, từ chức năng, she can come tomorrow, i do like it!, say
+pron-11 | Dạng yếu & âm schwa /ə/ ✎ bổ sung🆕 | schwa /ə/, dạng yếu, dạng mạnh, nghe hiểu
+pron-12 | Nhịp điệu (Rhythm) ✎ bổ sung🆕 | cách luyện, theo trọng âm, theo âm tiết, cats, chase, mice
+pron-13 | Ngắt nghỉ theo cụm ý (Thought groups) ✎ bổ sung🆕 | cụm ý, từ trọng tâm, “let’s eat grandma!”
+pron-14 | Ngữ điệu (Intonation) ✎ bổ sung🆕 | xuống ↘, lên ↗, xuống – lên ↘↗, liệt kê ↗ ↗ ↘, câu hỏi lựa chọn
+pron-6 | Sổ từ vựng (theo chủ đề) | vụng về, thiếu tế nhị, các kiểu khóc, bị, enchanting
+pron-7 | Tài liệu tham khảo | ngữ pháp chung, phát âm, giao tiếp
+pron-cvG2-1 | Phát âm đuôi "-ate": danh từ vs động từ ✎ sửa🆕 | động từ, graduate (v), danh từ, graduate (n)
+pron-cvG3-1 | 15 âm câm (silent letters) thường gặp🆕 | 
+sk-1 | Các dạng câu hỏi IELTS Speaking Part 3 | ngữ pháp hay dùng
+sk-2 | Cụm thay thế “I think” (Speaking & Writing)🆕 | v nguyên mẫu
+sk-3 | Kéo dài câu trả lời IELTS Speaking Part 1🆕 | 
+sk-4 | Khung trả lời Part 3: Point – Illustration – Explanation (P.I.E)🆕 | 
+sk-5 | Trả lời câu hỏi chọn “A hay B”🆕 | lý do rõ ràng
+sk-6 | Câu giờ tự nhiên khi bí ý & mẫu mở đầu câu trả lời🆕 | 
+sk-7 | Khái quát vấn đề, nêu ý kiến & ưu–nhược điểm🆕 | khái quát chung (nói về số đông), đồng ý / không đồng ý, ưu điểm & nhược điểm, on the whole / overall
+sk-8 | Giao tiếp nâng cao: đề nghị, gợi ý, làm rõ ý & chuyển chủ đề🆕 | đề nghị lịch sự
+sk-9 | Nâng cấp câu trả lời Part 1 theo band điểm🆕 | lý do, chi tiết
+sk-10 | Speaking Part 3 nâng cao: phân tích nguyên nhân & dẫn chứng🆕 | phân tích nguyên nhân cốt lõi, đào sâu & làm rõ bản chất, hệ quả & tác động dài hạn, dẫn chứng minh họa
+sk-11 | Speaking Part 3 nâng cao: hedging, phản biện & đề xuất giải pháp🆕 | nhượng bộ & phản biện, giải pháp & dự phóng tương lai, đánh giá tầm quan trọng
+sk-v5c1-11 | Kỹ năng — Dàn ý & mẫu câu cho dạng "Describe a place" Kỹ năng🆕 | mẫu câu
+sk-v5d-16 | Giới thiệu bản thân mở đầu bài thi Speaking Kỹ năng🆕 | 
+sk-v5g-10 | Part 3: mô tả sự vật/hiện tượng, so sánh, tác động Kỹ năng🆕 | 
+sk-v5g-11 | Part 3: giải thích, quan điểm, đánh giá, đề xuất Kỹ năng🆕 | 
+sk-v5g-12 | Dàn ý trả lời dạng “Describe an object” Kỹ năng🆕 | 1. how you got it
+sk-v5h-1 | Trả lời câu hỏi dạng Evaluate — công thức AREA Kỹ năng | 
+sk-v5k1-1 | Mẫu câu mở đầu theo 4 nhóm chủ đề Speaking Part 2 Kỹ năng🆕 | 
+sk-v5k1-2 | Khi không biết trả lời / không hiểu câu hỏi Kỹ năng🆕 | 
+sk-v5k1-3 | 4 cách phát triển ý tưởng cho Speaking Part 3 Kỹ năng🆕 | nêu cả lợi và hại
+sk-v5k2-1 | Cấu trúc bài thi IELTS Speaking Kỹ năng🆕 | 
+sk-v5k2-2 | Công thức lên ý tưởng cho Part 2 & Part 3 Kỹ năng🆕 | theo dạng đề part 2 (cue card), 5w1h
+sk-v5k2-3 | Mở rộng ý sang chủ đề tương tự Kỹ năng🆕 | 
+sk-v5k2-4 | Cụm diễn đạt lý do, sở thích & kết luận Kỹ năng🆕 | 
+sk-v5k2-5 | Cụm tương phản, mở rộng ý & liệt kê nhiều lý do Kỹ năng🆕 | 
+sk-v5k2-6 | Rủ rê ai đó một cách thân thiện Từ vựng🆕 | 
+sk-cvA7-1 | 4 cấu trúc ghi điểm Speaking Part 3🆕 | 
+sk-cvA8-1 | 11 cấu trúc chủ ngữ giả ăn điểm IELTS Speaking🆕 | 
+sk-cvA8-2 | Mở đầu & phát triển câu trả lời Part 1 — bổ sung🆕 | 
+sk-cvA8-3 | Kéo dài câu trả lời Part 3: 4 chiến thuật🆕 | paraphrase câu hỏi, nêu ví dụ thực tế, dùng mệnh đề nhượng bộ
+sk-cvA8-4 | Diễn đạt thói quen (habits) trong hội thoại tự nhiên🆕 | 
+sk-cvA8-20 | Khung C.P.E.A.S trả lời Speaking Part 3🆕 | 
+sk-cvA8-21 | Speaking nâng cao: thể hiện quan tâm, đưa lời khuyên, hứa hẹn, xen lời🆕 | 
+sk-cvG2-1 | Hỏi xem người nghe đã hiểu chưa🆕 | keep your shirt on
+sk-img3-1 | Common English vs Professional English Từ vựng🆕 | 
+sk-img3-2 | American English Fillers & Meanings Từ vựng🆕 | 
+sp-work-1 | Reading Textbooks Part 1 | 
+sp-work-2 | Speaking Part 1 – Textbooks Part 1 | 
+sp-work-3 | Concentration Part 1 | 
+sp-work-4 | Speaking Part 1 – Being on Time Part 1 | 
+sp-work-5 | Taking Breaks During Work or Study Part 1 | 
+sp-work-6 | Cue Card – Learning a Skill Part 2 | cue card, you should say
+sp-work-7 | Describe a Gifted Language Learner Part 2 | 
+sp-work-8 | Cue Card – Learning Something New Part 2 | cue card, you should say
+sp-work-9 | Cue Card – Exam Pressure Part 2 | cue card, you should say
+sp-work-10 | Cue Card – Taking Important Notes Part 2 | cue card, you should say
+sp-work-11 | High-Risk Careers vs. Stable Careers Part 3 | 
+sp-work-12 | Skills in the Modern World Part 3 | 
+sp-work-13 | Learning New Skills (Part 3) Part 3 | 
+sp-work-14 | Learning Foreign Languages Part 3 | 
+sp-work-15 | The Importance of History Part 3 | 
+sp-work-16 | Hobbies and Professional Skills (Questions 3 & 4) Part 3 | 
+sp-work-17 | Work and Career (Questions 3 & 4) Part 3 | 
+sp-work-18 | Work and Career (Questions 1 & 2) Part 3 | 
+sp-work-19 | Skills in the Modern World (Questions 4–6) Part 3 | 
+sp-work-20 | Learning New Skills (Questions 1–3) Part 3 | 
+sp-work-21 | ICOACH Reading Vocabulary List Từ vựng | 
+sp-work-22 | Huy Forum LIVE – School Holiday Discussion Thảo luận | bản ghi chép buổi live
+sp-work-v4-1 | Học tập, giáo dục & công việc — từ vựng Từ vựng🆕 | 
+sp-work-v4-101 | Nghề Developer — vai trò & kỹ năng mềm Ý tưởng🆕 | problem-solving, communication, teamwork, adaptability
+sp-work-v4-102 | Khen một chương trình / kỹ năng — mẫu câu & từ vựng Kỹ năng🆕 | mẫu câu, problem-solving, money management, stress management, teamwork, independent thinking
+sp-work-v4-103 | Business — khởi nghiệp, rủi ro & phẩm chất cần có Part 3🆕 | 
+sp-work-v4-104 | Study — lý do chọn ngành, khó khăn & du học Ý tưởng🆕 | lý do chọn một môn học, khó khăn khi học, du học — lợi ích & khó khăn, cơ hội trải nghiệm, đam mê cá nhân, phát triển tư duy
+sp-work-v4-105 | Work — lý do thích / không thích một công việc Ý tưởng🆕 | lý do thích một công việc, lý do không thích một công việc, cơ hội trải nghiệm, đam mê, linh hoạt, phát triển bản thân
+sp-work-v4-106 | Cue card – Describe a new skill you would like to learn Part 2🆕 | cue card, you should say
+sp-work-v4-107 | Cue card – Describe a job you would not like to do Part 2🆕 | cue card, you should say
+sp-work-v4-108 | Jobs & work trends — chọn lọc Part 3🆕 | 
+sp-work-v4-109 | Study (Part 1) — 18 từ vựng cần nhớ Từ vựng🆕 | 
+sp-work-v4-110 | Study (Part 1) — bài mẫu chọn lọc Part 1🆕 | 
+sp-work-v4-111 | Daily routine — Part 1 & Part 2 Part 1🆕 | 
+sp-work-v4-112 | Daily routine — Part 3 & thành ngữ hay dùng Part 3🆕 | 
+sp-work-v4-113 | Job/Work (Part 1) — từ vựng & bài mẫu Part 1🆕 | 
+sp-work-v4-114 | Job/Work (Part 2 & 3) — bài mẫu chọn lọc Part 2🆕 | 
+sp-work-v4-115 | Education (Part 1) — bài mẫu & từ vựng Part 1🆕 | 
+sp-work-v4-116 | Education (Part 2) — hai cue card chọn lọc Part 2🆕 | cue card, you should say
+sp-work-v4-117 | Education (Part 3) — công nghệ & giáo viên Part 3🆕 | 
+sp-work-v4-118 | Ngân hàng câu hỏi — Work, Study & Education🆕 | miêu tả (part 2), work (part 1), education (part 1 & part 3)
+sp-work-v4-119 | Education — 19 collocations hay dùng Từ vựng🆕 | 
+sp-work-v4-120 | Từ vựng band 7+ — Technology in Education & School Từ vựng🆕 | technology in education, school
+sp-work-v5g-4 | Ưu và nhược điểm của đồng phục công sở Ý tưởng🆕 | ưu điểm, nhược điểm, gây khó chịu
+sp-work-v5h-1 | Từ vựng — Learning Languages Từ vựng | 
+sp-work-v5h-2 | Learning Languages — Opinions Part 1 | 
+sp-work-v5h-3 | Part 3 — Foreign Language Learning Part 3 | 
+sp-work-v5k2-1 | Trách nhiệm trong công việc Part 3🆕 | 
+sp-work-v5k2-2 | Lợi ích của việc học tiếng Anh Ý tưởng🆕 | giao tiếp toàn cầu, cơ hội nghề nghiệp, học thuật, du lịch, tiếp cận thông tin số, phát triển bản thân
+sp-work-v5k2-3 | Trường cấp 2 & chữ viết tay Part 1🆕 | 
+sp-work-cvA4-1 | Job satisfaction collocations — bổ sung🆕 | 
+sp-work-cvV1-1 | 20 collocation ghi điểm chủ đề Education 🆕 | 
+sp-work-cvW1-1 | Lương & mức lương tối đa (Salaries) — từ vựng 🆕 | 
+sp-work-cvW2-1 | Paraphrase chủ đề Work (TCE)Từ vựng🆕 | 
+sp-work-cvW2-2 | Work — collocation bổ sungTừ vựng🆕 | 
+sp-work-cvW2-3 | Trường học 1 giới vs 2 giới (Single-sex vs Mixed schools)Từ vựng🆕 | 
+sp-work-cvG2-1 | Việc làm — từ vựng bổ sung🆕 | 
+sp-tech-1 | Robots and Technology Part 1 | 
+sp-tech-2 | Forecast Speaking (Social Media) Part 1 | catch on, connect with, engage in various, traditional aspects, conscious effort, stay in touch
+sp-tech-3 | Speaking Part 1 – Elevators Part 1 | 
+sp-tech-4 | Technology (Part 1) Part 1 | 
+sp-tech-5 | Social Media (Part 1) Part 1 | 
+sp-tech-6 | Technology and Interaction Part 3 | 
+sp-tech-7 | Space Exploration Part 3 | 
+sp-tech-8 | Technology and Communication Part 3 | 
+sp-tech-9 | Advertisements and Children Part 3 | 
+sp-tech-10 | Technology and Education (Questions 3 & 4) Part 3 | 
+sp-tech-11 | Technology and Education (Questions 1 & 2) Part 3 | 
+sp-tech-12 | Public Health and Technology (Questions 3 & 4) Part 3 | 
+sp-tech-13 | Following the News Bài đọc | 
+sp-tech-14 | IKES NEWS – Digital Learning Bài đọc | 
+sp-tech-15 | IKES NEWS – Artificial Intelligence Bài đọc | 
+sp-tech-v4-1 | Công nghệ & khoa học — collocation nâng cao Từ vựng🆕 | 
+sp-tech-v5f-1 | Newspapers & Magazines — từ vựng Từ vựng | 
+sp-tech-v5f-2 | Newspapers & Magazines — bài mẫu Part 1Part 3 | 
+sp-tech-v5f-3 | Media — collocations & idioms Từ vựng | 
+sp-tech-v5f-4 | Media — nguồn tin & ảnh hưởng Part 3 | 
+sp-tech-v5f-5 | Internet — từ vựng chung, lợi ích & tác hại Từ vựng | 
+sp-tech-v5f-6 | Internet — tác động (công việc, trẻ em, tương lai) Part 3 | 
+sp-tech-v5f-7 | Internet — cue card & lợi ích quan trọng nhất Part 2 | cue card
+sp-tech-v5f-8 | Describe a website you often visit (Wikipedia) Part 2 | cue card
+sp-tech-v5f-9 | Internet vs TV, library trong thời đại số Part 3 | 
+sp-tech-v5f-10 | Technology — từ vựng thiết bị, AI & không gian mạng Từ vựng | 
+sp-tech-v5f-11 | Technology — thiết bị công nghệ yêu thích Part 1Part 2 | cue card
+sp-tech-v5f-12 | Technology — máy tính, mạng xã hội & giáo dục Part 3 | 
+sp-tech-v5f-13 | Technology thay thế con người & giáo viên Part 3 | 
+sp-tech-v5f-14 | Công nghệ đã thay đổi thói quen xem TV Part 3 | 
+sp-tech-v5f-15 | Kho câu hỏi Part 3: Media & Technology Part 3 | media and news, technology
+sp-tech-v5f-16 | Lợi ích của công nghệ & Internet — ý tưởng Ý tưởng | giao tiếp, giáo dục, năng suất, chất lượng cuộc sống
+sp-tech-v5g-13 | Phát minh thay đổi cuộc sống — Smartphone Part 2🆕 | 
+sp-tech-v5g-14 | Công nghệ & phát minh — thành ngữ hữu ích Part 3🆕 | a game-changer, a double-edged sword, a trusty sidekick
+sp-tech-v5h-1 | Part 3 — Technology's Effects on Employment & Food Production Part 3 | 
+sp-tech-v5k2-1 | Ứng dụng, từ điển & email Part 1🆕 | 
+sp-tech-cvA4-1 | News collocations — bổ sung🆕 | 
+sp-tech-cvW1-1 | Mạng xã hội (Social Media) — từ vựng nâng cao 🆕 | 
+sp-tech-cvW2-1 | Technology — từ vựng bổ sungTừ vựng🆕 | 
+sp-tech-cvW2-2 | Space Exploration — từ vựngTừ vựng🆕 | 
+sp-tech-img1-1 | Space Technology in Everyday Life Part 3🆕 | 
+sp-tech-s1-1 | Social Media (Part 1) — theo band điểm Part 1🆕 | band 6, keep in touch with, band 7, on a daily basis, distracting, double-edged sword
+sp-env-1 | Weather (Part 1) Part 1 | 
+sp-env-2 | Environmental Protection (Questions 3 & 4) Part 3 | 
+sp-env-3 | Environmental Protection (Part 3 - Questions 1 & 2) Part 3 | 
+sp-env-4 | Environmental Protection (Questions 1 & 2) Part 3 | 
+sp-env-5 | Heatwave News Bài đọc | 
+sp-env-6 | ICOACH READING – Environmental Vocabulary List Từ vựng | rubbish
+sp-env-7 | IKES NEWS – Climate Adaptation Bài đọc | 
+sp-env-v4-1 | Môi trường — từ vựng nâng cao Từ vựng🆕 | 
+sp-env-v5e-1 | Water pollution — từ vựng, nguyên nhân & hậu quả Từ vựng🆕 | 
+sp-env-v5e-2 | Overpopulation — từ vựng & ý tưởng nguyên nhân/hậu quả Từ vựng🆕 | nguyên nhân, hậu quả
+sp-env-v5e-3 | Weather — từ vựng tổng hợp Từ vựng🆕 | 
+sp-env-v5e-4 | Weather — bài mẫu Part 1 Part 1🆕 | 
+sp-env-v5e-5 | Weather — bài mẫu Part 3 Part 3🆕 | 
+sp-env-v5e-6 | Climate change — bài mẫu Part 1 Part 1🆕 | 
+sp-env-v5e-7 | Climate change — cue card: Describe an environmental problem Part 2🆕 | cue card
+sp-env-v5e-8 | Climate change — bài mẫu Part 3 Part 3🆕 | 
+sp-env-v5e-9 | Environment Part 3 — ý tưởng theo từng vấn đề (Việt Nam) Ý tưởng🆕 | biến đổi khí hậu, ô nhiễm không khí, ô nhiễm nước, thoái hóa đất
+sp-env-v5e-10 | Bảo vệ môi trường — ý tưởng cá nhân/cộng đồng/chính phủ Ý tưởng🆕 | cá nhân, cộng đồng, chính phủ, giáo dục
+sp-env-v5e-11 | Rain — từ vựng Từ vựng🆕 | 
+sp-env-v5e-12 | Recycling — từ vựng Từ vựng🆕 | 
+sp-env-v5e-13 | Environment — collocations thường gặp Từ vựng🆕 | 
+sp-env-v5e-14 | Environment — 20 từ vựng "ăn điểm" band 7.0+ Từ vựng🆕 | 
+sp-env-v5h-1 | Part 3 — Human Effects on Wild Animals Part 3 | 
+sp-env-v5k2-1 | Mùa, bầu trời & rừng cây Part 1🆕 | 
+sp-env-cvA4-1 | Animal collocations — bổ sung🆕 | 
+sp-env-cvV1-1 | Collocations & động từ hành động về môi trường 🆕 | 
+sp-env-cvW1-1 | Năng lượng (Energy) — từ vựng & bài đọc Nuclear Power 🆕 | byproduct, renewable, to evacuate, ý chính bài đọc
+sp-env-cvW2-1 | Global warming / Climate change — bổ sungTừ vựng🆕 | 
+sp-env-cvW2-2 | Động vật hoang dã & bảo tồn (Animal)Từ vựng🆕 | 
+sp-env-img1-1 | Cue Card – Plastic Pollution Part 2🆕 | 
+sp-env-img1-2 | ICOACH READING – City Waste Management Vocabulary Từ vựng🆕 | 
+sp-travel-1 | Favorite Places to Visit Part 1 | 
+sp-travel-2 | Tourism and Local Communities Part 1 | 
+sp-travel-3 | Travel (Part 1) Part 1 | 
+sp-travel-4 | Describe a Trip to a Foreign Country Part 2 | 
+sp-travel-5 | Cue Card – An Inspiring Place Part 2 | cue card, you should say
+sp-travel-6 | Describe a Beautiful Beach Part 2 | 
+sp-travel-7 | Describe a Town or City Part 2 | 
+sp-travel-8 | Describe a City or Town (Hội An) Part 2 | 
+sp-travel-9 | Cue Card – A Place with a Strong Impression (Hạ Long Bay) Part 2 | cue card, you should say
+sp-travel-10 | Describe a Holiday Place (Phú Quốc) Part 2 | 
+sp-travel-11 | Cue Card – Local Area Improvement Part 2 | cue card, you should say
+sp-travel-12 | Cue Card – Describe a Country You Would Like to Visit Part 2 | you should say, undoubtedly, recognized, heritage, wander around, appeals to
+sp-travel-13 | Cue Card – Got Lost in a City or Town Part 2 | cue card, you should say
+sp-travel-14 | Cue Card – A Car Journey Part 2 | cue card, you should say, journey, remember, decided, drive
+sp-travel-15 | Traveling Abroad Part 3 | 
+sp-travel-16 | Traffic Congestion Part 3 | 
+sp-travel-17 | Urban Planning Part 3 | 
+sp-travel-18 | Traveling to Different Places Part 3 | 
+sp-travel-19 | Tourism (Questions 4 & 5) Part 3 | 
+sp-travel-20 | Travel and Holidays (Questions 1–3) Part 3 | 
+sp-travel-21 | Travel and Technology (Questions 6 & 7) Part 3 | 
+sp-travel-22 | Cities and Urban Life (Questions 3 & 4) Part 3 | 
+sp-travel-23 | Cities and Urban Life (Questions 1 & 2) Part 3 | 
+sp-travel-v4-1 | Giao thông & luật lệ đi lại — từ vựng Từ vựng🆕 | 
+sp-travel-v5c1-1 | Cue card: Describe a place you would like to visit in the future Part 2🆕 | cue card
+sp-travel-v5c1-2 | Part 3 — Travel: địa điểm phổ biến, sự cố khi du lịch, công nghệ Part 3🆕 | 
+sp-travel-v5c1-3 | Cue card: Describe a tourist attraction you once visited (Hội An) Part 2🆕 | cue card
+sp-travel-v5c1-4 | Cue card: Describe a place you visited on vacation (Singapore) Part 2🆕 | cue card
+sp-travel-v5c1-5 | Part 3 — Địa điểm du lịch & thói quen đi lại theo độ tuổi Part 3🆕 | 
+sp-travel-v5c1-6 | Từ vựng — Chuẩn bị hành lý & giấy tờ khi đi du lịch Từ vựng🆕 | 
+sp-travel-v5c1-7 | Ý tưởng — Du lịch theo tour hay tự túc, đi một mình hay theo nhóm Ý tưởng🆕 | đi một mình, đi cùng nhóm/gia đình
+sp-travel-v5c1-8 | Cue card: Describe a city you have visited (Đà Nẵng) Part 2🆕 | cue card
+sp-travel-v5c1-9 | Cue card: Describe a place in your country that is interesting (Sa Pa) Part 2🆕 | cue card
+sp-travel-v5c1-10 | Từ vựng & mẫu câu — Travelling and Holidays (Part 1) Từ vựng🆕 | khung trả lời part 1
+sp-travel-v5c1-12 | Cue card ngân hàng đề — Describe a place / Hometown Part 2🆕 | 
+sp-travel-v5c1-13 | Cue card: Hometown — bài mẫu Part 1 (Hà Nội) Part 1🆕 | 
+sp-travel-v5c1-14 | Từ vựng — Hometown: địa lý, khí hậu, thành thị vs. nông thôn Từ vựng🆕 | 
+sp-travel-v5c2-1 | Miêu tả quê hương – cảnh vật thiên nhiên Từ vựng🆕 | 
+sp-travel-v5c2-2 | Con người & lối sống ở làng quê Từ vựng🆕 | 
+sp-travel-v5c2-3 | Vị trí, khí hậu & đặc điểm nổi bật của một địa danh Từ vựng🆕 | 
+sp-travel-v5c2-4 | Cuộc sống thành thị vs nông thôn Từ vựng🆕 | 
+sp-travel-v5c2-5 | Vùng miền Việt Nam & Đà Lạt Từ vựng🆕 | 
+sp-travel-v5c2-6 | Cue card – Describe your hometown Part 2🆕 | cue card
+sp-travel-v5c2-7 | Cue card – Describe your favourite shop Part 2🆕 | cue card
+sp-travel-v5c2-8 | Cue card – Describe a park you like Part 2🆕 | cue card
+sp-travel-v5c2-9 | Traffic – vi phạm & tai nạn giao thông Từ vựng🆕 | 
+sp-travel-v5c2-10 | Traffic – phương tiện, thuật ngữ & paraphrase Từ vựng🆕 | 
+sp-travel-v5c2-11 | Vấn đề & giải pháp giao thông đô thị Ý tưởng🆕 | vấn đề, giờ làm việc linh hoạt, thu phí ùn tắc
+sp-travel-v5c2-12 | Du lịch – collocations nâng band 6.0 → 8.0 Từ vựng🆕 | 
+sp-travel-v5c2-13 | Du lịch – thành ngữ & từ lóng hiện đại Từ vựng🆕 | 
+sp-travel-v5c2-14 | Du lịch – lợi ích, tác hại & du lịch chữa lành Ý tưởng🆕 | lợi ích cho du khách, lợi ích kinh tế, tác hại môi trường, quá tải du lịch
+sp-travel-v5c2-15 | Ngân hàng câu hỏi Part 1 – Nhà ở, hàng xóm, khu vực sống, công viên Part 1🆕 | home/accommodation, hometown, the area you live in, neighborhood, gardens/parks
+sp-travel-v5k1-1 | Từ vựng miêu tả nơi mình sống (thành phố lớn) Từ vựng🆕 | 
+sp-travel-v5k2-1 | Quê hương & nơi ở Part 1🆕 | 
+sp-travel-v5k2-2 | Đi thuyền & ngày lễ Part 1🆕 | 
+sp-travel-cvW2-1 | Thành phố vs Nông thôn — bổ sungTừ vựng🆕 | 
+sp-travel-cvW2-2 | Du lịch — lợi ích & tác hại (bổ sung)Từ vựng🆕 | 
+sp-travel-cvG3-1 | Từ vựng giao thông — bổ sung🆕 | 
+sp-health-1 | Sleeping Habits Part 1 | 
+sp-health-2 | Speaking Part 1 – Chocolate Part 1 | 
+sp-health-3 | Cakes and Celebrations Part 1 | 
+sp-health-4 | Busy Lifestyles Part 1 | 
+sp-health-5 | Healthy Lifestyle Part 1 | 
+sp-health-6 | Stress Management Part 1 | 
+sp-health-7 | Morning Routine (Part 1) Part 1 | 
+sp-health-8 | Free Time Nowadays Part 1 | 
+sp-health-9 | Spending Spare Time Part 1 | 
+sp-health-10 | Cue Card – Changing a Routine Part 2 | cue card, you should say
+sp-health-11 | Cue Card – Mentally Exhausted Part 2 | cue card
+sp-health-12 | Cue Card – A Relaxing Activity Part 2 | cue card, you should say
+sp-health-13 | Fixed Daily Routine Part 3 | 
+sp-health-14 | The Importance of Free Time Part 3 | 
+sp-health-15 | Health and Lifestyle (Questions 1 & 2) Part 3 | 
+sp-health-16 | Food and Eating Habits (Questions 3 & 4) Part 3 | 
+sp-health-17 | Food and Eating Habits (Questions 1 & 2) Part 3 | 
+sp-health-18 | Sports (Questions 3 & 4) Part 3 | 
+sp-health-19 | Sports (Questions 1 & 2) Part 3 | 
+sp-health-20 | Sports (Part 3) Part 3 | 
+sp-health-21 | IKES NEWS – Anti-Aging Research Bài đọc | 
+sp-health-22 | Meditation Guide Bài đọc | meditation (thiền)
+sp-health-23 | Huy Forum LIVE – Extreme Sports Discussion Thảo luận | 
+sp-health-v4-1 | Sức khỏe — từ vựng y tế nâng cao Từ vựng🆕 | 
+sp-health-v5g-1 | Đồ uống tự pha chế — Kombucha Part 2🆕 | 
+sp-health-v5h-1 | Part 3 — Effects of Watching TV on Children Part 3 | 
+sp-health-v5i-1 | Từ vựng — Food & Drink (thói quen ăn uống) Từ vựng🆕 | 
+sp-health-v5i-2 | Từ vựng — Tên món ăn Việt Nam bằng tiếng Anh Từ vựng🆕 | 
+sp-health-v5i-3 | Favourite food — Tuna salad Part 2🆕 | cue card, you should say
+sp-health-v5i-4 | A food from another country — Dimsum Part 2🆕 | cue card, you should say
+sp-health-v5i-5 | Từ vựng — Bệnh tật & khám chữa bệnh Từ vựng🆕 | 
+sp-health-v5i-6 | Unhealthy habits & staying healthy Part 1🆕 | 
+sp-health-v5i-7 | Eating clean — a healthy lifestyle Part 2🆕 | cue card
+sp-health-v5i-8 | Keeping healthy in society Part 3🆕 | 
+sp-health-v5i-9 | Dấu hiệu sức khỏe tốt/xấu & cách duy trì sức khỏe Ý tưởng🆕 | dấu hiệu sức khỏe tốt, dấu hiệu sức khỏe xấu
+sp-health-v5i-10 | Từ vựng & mẫu câu — Thói quen (Habits) Từ vựng🆕 | 
+sp-health-v5i-11 | Good & bad habits Part 1🆕 | 
+sp-health-v5i-12 | Describe an activity to keep healthy — Jogging Part 2🆕 | cue card, you should say
+sp-health-v5i-13 | Sports — favourite sport & live event Part 1🆕 | cue card (part 2)
+sp-health-v5i-14 | Sports — athletes & competitive sports Part 3🆕 | 
+sp-health-v5i-15 | Từ vựng — Fitness & Health collocations (band 7+) Từ vựng🆕 | 
+sp-health-v5i-16 | Câu hỏi thường gặp — Health & Food Ý tưởng🆕 | health, food
+sp-health-v5k2-1 | Ăn uống, nấu ăn & bơi lội Part 1🆕 | 
+sp-health-cvA4-1 | Food & Diet collocations — bổ sung🆕 | 
+sp-health-cvW1-1 | Hút thuốc (Smoking) — từ vựng & tác hại 🆕 | 
+sp-health-cvW1-2 | Chế độ ăn & dinh dưỡng (Food & Diet) — bổ sung 🆕 | 
+sp-health-cvW1-3 | Đồ ăn nhanh (Fast Food) — từ vựng 🆕 | 
+sp-health-cvW2-2 | Sức khỏe cộng đồng — bổ sungTừ vựng🆕 | đề mẫu
+sp-health-cvG2-1 | Bệnh tật & sức khoẻ — thành ngữ, từ vựng bổ sung🆕 | 
+sp-hobby-1 | Speaking Part 1 – Smells Part 1 | 
+sp-hobby-2 | Favorite Color Part 1 | 
+sp-hobby-3 | Laughter Part 1 | 
+sp-hobby-4 | Things That Are Boring Part 1 | 
+sp-hobby-5 | Photography (Part 1) Part 1 | 
+sp-hobby-6 | Telling Jokes Part 1 | 
+sp-hobby-7 | Reading (Part 1) Part 1 | 
+sp-hobby-8 | Cue Card – Making Someone Laugh Part 2 | cue card, you should say
+sp-hobby-9 | Art and Society Part 3 | 
+sp-hobby-10 | Reading vs. Videos / TV Part 3 | 
+sp-hobby-11 | The Importance of Music Part 3 | 
+sp-hobby-12 | The Importance of Hobbies Part 3 | 
+sp-hobby-13 | Entertainment Industry Part 3 | 
+sp-hobby-14 | Hobbies and Leisure Activities (Questions 1 & 2) Part 3 | 
+sp-hobby-15 | Music (Questions 4–6) Part 3 | 
+sp-hobby-16 | Music (Questions 1–3) Part 3 | 
+sp-hobby-17 | Topic – Hobbies (Questions 1 & 2) Part 3 | 
+sp-hobby-18 | Topic – Hobbies (Questions 3 & 4) Part 3 | 
+sp-hobby-19 | What People Do While Waiting Part 3 | 
+sp-hobby-v4-1 | Nghệ thuật & âm nhạc — từ vựng Từ vựng🆕 | 
+sp-hobby-v5g-8 | Describe a Book — Harry Potter Part 2🆕 | 
+sp-hobby-v5g-9 | Từ vựng chủ đề sách (Talk about books) Từ vựng🆕 | 
+sp-hobby-v5g-15 | Mũ, nón — sở thích & mua sắm Part 1🆕 | 
+sp-hobby-v5h-1 | Part 3 — Can Hobbies Have Negative Effects? Part 3 | 
+sp-hobby-v5j-1 | Describe a movie you enjoy watching Part 2🆕 | a big fan of, a hideous beast, arrogance and vanity
+sp-hobby-v5j-2 | Cinema-going habits Part 1🆕 | hassle, cramped, bundle up, luxury, fazes, undeniable
+sp-hobby-v5j-3 | Movies — từ vựng danh/tính/động từ Từ vựng🆕 | 
+sp-hobby-v5j-4 | Movie preferences & best film watched Part 1🆕 | storylines, shedding light on, social issues, animated movie, heartwarming, stellar
+sp-hobby-v5j-5 | Describe your favorite movie — The Pianist Part 2🆕 | phenomenal, true-life memoir, glowing reviews, convincing, lauded, dreadful
+sp-hobby-v5j-6 | Từ vựng miêu tả phim hay / phim dở Từ vựng🆕 | 
+sp-hobby-v5j-7 | Cinema, real-life films & staying true to the story Part 3🆕 | gripping, tough challenge, panned by critics
+sp-hobby-v5j-8 | Describe a movie you watched and enjoyed recently Part 2🆕 | romantic dramas, face the challenges, heartfelt, emotional and deep, pulled me in
+sp-hobby-v5j-9 | What makes a movie successful? Part 3🆕 | make or break, set the stage for, resonate
+sp-hobby-v5j-10 | Describe a movie you would like to watch again — Band 8 Part 2🆕 | adaptation, hit the big screen, cried my eyes out
+sp-hobby-v5j-11 | Music taste & instruments Part 1🆕 | diverse taste in music, melody or lyrics, gravitate towards, ballads, versatile, technical proficiency
+sp-hobby-v5j-12 | Describe a song you like — Born This Way Part 2🆕 | put on repeat, positive feedback, public and critics, composer, hooked, upbeat melody
+sp-hobby-v5j-13 | Describe an interesting song — Haru Haru Part 2🆕 | a music aficionado, all-time favorites, solidified the quintet, hip-hop influences, forceful raps, agony and heartbreak
+sp-hobby-v5j-14 | Music trends across generations Part 3🆕 | prevalent, challenging prejudices, folk songs, meaningful lyrics, catchy melodies, not their cup of tea
+sp-hobby-v5j-15 | Music — thể loại & miêu tả âm nhạc Từ vựng🆕 | 
+sp-hobby-v5j-16 | Music — cụm từ & idiom thông dụng Từ vựng🆕 | 
+sp-hobby-v5j-17 | Cấu trúc & mẫu trả lời "What are your hobbies?" Part 1🆕 | an avid reader, immersing myself in
+sp-hobby-v5j-18 | Hobbies — từ vựng & cách diễn tả thích/không thích Từ vựng🆕 | 
+sp-hobby-v5j-19 | Ý tưởng trả lời: phim & sở thích chụp ảnh Ý tưởng🆕 | gợi ý phim, gợi ý sở thích
+sp-hobby-v5j-20 | Entertainment — cụm từ hay Từ vựng🆕 | 
+sp-hobby-v5k2-1 | Thú cưng, động vật & nhạc cụ Part 1🆕 | 
+sp-hobby-cvW1-1 | Thể thao (Sports) — từ vựng band 7.0 🆕 | 
+sp-hobby-cvW2-1 | Hoạt động giải trí (Leisure activities) — bổ sungTừ vựng🆕 | 
+sp-hobby-cvW2-2 | Sách & phim — từ vựng bổ sungTừ vựng🆕 | 
+sp-hobby-cvG2-1 | Phim tiếng Anh dễ nghe — gợi ý luyện nghe🆕 | 
+sp-hobby-s1-1 | Sports — Part 1 Question Bank Part 1🆕 | a big fan of sports, keeps me in shape, refreshes, the king of sports, competitive sport, have a crack at
+sp-people-1 | Surprise Gift Part 1 | 
+sp-people-2 | Your Own Voice Part 1 | 
+sp-people-3 | Gift-Giving on Special Occasions Part 1 | 
+sp-people-4 | Speaking Part 1 – Patience Part 1 | 
+sp-people-5 | Friends (Part 1) Part 1 | 
+sp-people-6 | Cue Card – Becoming More Independent Part 2 | cue card
+sp-people-7 | Success and Values Part 3 | 
+sp-people-8 | Qualities of a Good Leader Part 3 | 
+sp-people-9 | The Importance of Friendships Part 3 | 
+sp-people-10 | Role Models (Questions 6 & 7) Part 3 | 
+sp-people-11 | Role Models (Questions 4 & 5) Part 3 | 
+sp-people-12 | Role Models and Influence (Questions 1–3) Part 3 | 
+sp-people-v4-1 | Gia đình & nuôi dạy con (Parenting) — từ vựng Từ vựng🆕 | 
+sp-people-v5d-1 | Miêu tả ngoại hình — từ vựng theo khía cạnh Từ vựng🆕 | 
+sp-people-v5d-2 | Miêu tả tính cách — từ vựng & hành động chứng minh Từ vựng🆕 | character, honest, kind, personality, bubbly, extroverted
+sp-people-v5d-3 | Cue card — Describe a family member you admire Part 2🆕 | cue card
+sp-people-v5d-4 | Cue card — Describe a person who looked after you as a child Part 2🆕 | 
+sp-people-v5d-5 | Cue card — Describe one of your best friends Part 2🆕 | 
+sp-people-v5d-6 | Cue card — Describe a child you know Part 2🆕 | 
+sp-people-v5d-7 | Cue card — Describe a family member you spend most time with Part 2🆕 | 
+sp-people-v5d-8 | Family — thay đổi & vai trò các thành viên Part 3🆕 | 
+sp-people-v5d-9 | Friends — phẩm chất, kết bạn qua các độ tuổi & qua mạng Part 3🆕 | 
+sp-people-v5d-10 | Family & Friends — câu hỏi & từ vựng Part 1 Part 1🆕 | 
+sp-people-v5d-11 | Admiration — phẩm chất đáng ngưỡng mộ Part 3🆕 | 
+sp-people-v5d-12 | Grandfather you admire — mẫu câu theo band điểm Part 2🆕 | band 5+, band 7.5
+sp-people-v5d-13 | Hairstyles — Part 1 Part 1🆕 | 
+sp-people-v5d-14 | Từ vựng chủ đề Love Từ vựng🆕 | 
+sp-people-v5d-15 | Ngân hàng câu hỏi — Describe a person / Family Ý tưởng🆕 | 
+sp-people-v5f-1 | Celebrities / Famous people Part 3 | 
+sp-people-v5g-2 | Món đồ chơi tuổi thơ — Gấu bông Part 2🆕 | 
+sp-people-v5k2-1 | Tên gọi (Names) Part 1🆕 | ai đã đặt tên cho bạn?
+sp-people-cvW2-1 | Miêu tả tuổi tác, ánh mắt & tính cách — bổ sungTừ vựng🆕 | 
+sp-people-s1-1 | Cue Card – A Person Who Has Inspired You (Father) Part 2🆕 | cue card, you should say, inspiration, responsibilities, disciplined
+sp-society-1 | Saving Money Part 1 | 
+sp-society-2 | Online Shopping vs. Traditional Stores Part 3 | 
+sp-society-3 | Cultural Heritage Part 3 | 
+sp-society-4 | Popularity of Shopping Malls Part 3 | 
+sp-society-5 | What We Wear Part 3 | 
+sp-society-6 | Fashion and Culture (Questions 6–8) Part 3 | 
+sp-society-7 | Fashion and Culture (Questions 9 & 10) Part 3 | 
+sp-society-8 | Cultural Heritage Preservation (Questions 3 & 4) Part 3 | 
+sp-society-9 | Culture and Traditions (Questions 1 & 2) Part 3 | 
+sp-society-v4-1 | Chi tiêu chính phủ (Government spending) — từ vựng & collocation Từ vựng🆕 | 
+sp-society-v4-2 | Vấn đề xã hội (Social issues) — từ vựng thiết yếu Từ vựng🆕 | 
+sp-society-v4-3 | Tội phạm & an toàn cộng đồng (Crime) — từ vựng, thành ngữ Từ vựng🆕 | i got caught stealing, be caught red-handed, be nabbed by sb
+sp-society-v4-4 | Quảng cáo (Advertising) — từ vựng band 7+ Từ vựng🆕 | 
+sp-society-v4-5 | Văn hóa (Culture) — khái niệm & collocation nâng cao Từ vựng🆕 | 
+sp-society-v4-6 | Tôn giáo (Religion) — các tôn giáo & từ vựng liên quan Từ vựng🆕 | 
+sp-society-v4-7 | Công việc tình nguyện (Volunteer work) — Speaking mẫu Part 2🆕 | cue card, part 1, part 3
+sp-society-v4-8 | Văn hóa (Culture) — Speaking mẫu Part 1🆕 | 
+sp-society-v4-9 | Mô tả một sản phẩm truyền thống: hạt gạo Part 2🆕 | cue card
+sp-society-v4-10 | Lịch sử (History) — Speaking mẫu: Văn Miếu – Quốc Tử Giám Part 1🆕 | cue card
+sp-society-v5c1-15 | Cue card: Describe a historical era you are interested in Part 2🆕 | cue card
+sp-society-v5c2-1 | Cue card – Describe a national festival (Tet) Part 2🆕 | cue card
+sp-society-v5c2-2 | Tết – từ vựng & hoạt động ngày Tết Từ vựng🆕 | 
+sp-society-v5c2-3 | Festival – collocations & vocabulary Từ vựng🆕 | 
+sp-society-v5c2-4 | Ngân hàng câu hỏi Part 1 – Holiday, Festival, New Year, Public Transportation Part 1🆕 | holiday, festival, new year, public transportation, car trip
+sp-society-v5g-3 | Trang phục nói lên điều gì về một người? Ý tưởng🆕 | 
+sp-society-v5g-5 | Ngôi nhà lý tưởng Part 2🆕 | 
+sp-society-v5g-6 | Vật sở hữu quan trọng — Thẻ ghi nợ Part 2🆕 | 
+sp-society-v5h-1 | Borrowing and Lending Part 1 | 
+sp-society-v5h-2 | Cue Card – Traditional Festival (Tết) Part 2 | cue card, you should say
+sp-society-v5h-3 | Part 3 — Festivals & Traditions Part 3 | 
+sp-society-v5j-1 | Fashion — collocations Từ vựng🆕 | 
+sp-society-v5k2-1 | Bảo tàng & công việc tình nguyện Part 1🆕 | 
+sp-society-cvA4-1 | Law collocations — bổ sung🆕 | 
+sp-society-cvW1-1 | Văn hóa (Culture) — collocation bổ sung 🆕 | 
+sp-society-cvW1-2 | Ngôn ngữ (Language) — từ vựng IELTS 🆕 | 
+sp-society-cvW1-3 | Tội phạm (Crime) — từ vựng bổ sung 🆕 | 
+sp-society-cvW1-4 | Quảng cáo (Advertising) — từ vựng bổ sung 🆕 | 
+sp-society-cvW2-1 | Toàn cầu hóa (Globalization)Từ vựng🆕 | 
+sp-society-cvW2-3 | Tội phạm & Phòng trong nhà — bổ sungTừ vựng🆕 | các loại tội phạm, chính sách phòng chống tội phạm, các phòng trong nhà (bổ sung)
+sp-society-cvW2-5 | Tiền bạc (Money)Từ vựng🆕 | 
+sp-society-cvW2-6 | Mua sắm trực tuyến (Online shopping)Từ vựng🆕 | 
+sp-society-cvW2-7 | Hoạt động ngày Giáng sinh (Christmas) — bổ sungTừ vựng🆕 | 
+sp-society-s1-1 | Fashion and Culture Part 3🆕 | 
+sp-society-s1-2 | Forecast Speaking – Clothing Part 1🆕 | preferences, liberating, day-to-day wear, go-to, functionality, versatile
+sp-society-s1-3 | Forecast Speaking – Watch Part 1🆕 | ensemble, strap, timepieces, heirlooms, punctual, disciplined
+sp-exp-1 | Days of the Week Part 1 | 
+sp-exp-2 | Making Plans Part 1 | 
+sp-exp-3 | Speaking Part 1 – Taking Risks Part 1 | 
+sp-exp-4 | Speaking Part 1 – Losing Things Part 1 | 
+sp-exp-5 | Trying New Things Part 1 | 
+sp-exp-6 | Reminders Part 1 | 
+sp-exp-7 | Cue Card – A Challenge Part 2 | cue card, you should say
+sp-exp-8 | Cue Card – Everyday Item Part 2 | cue card, you should say
+sp-exp-9 | Cue Card – Surprising Experience Part 2 | cue card, you should say
+sp-exp-10 | Cue Card – Decision Without Enough Information Part 2 | cue card
+sp-exp-11 | Cue Card – Realized You Were Wrong Part 2 | cue card, you should say
+sp-exp-12 | Cue Card – Practical Experience Part 2 | cue card, you should say
+sp-exp-13 | Cue Card – Accepting Something You Disliked Part 2 | cue card, you should say
+sp-exp-14 | Important Decisions (Questions 1 & 2) Part 3 | 
+sp-exp-15 | Important Decisions (Questions 3 & 4) Part 3 | 
+sp-exp-v5g-7 | Bức ảnh yêu thích — Câu trích dẫn truyền động lực Part 2🆕 | 
+sp-exp-v5h-1 | Miêu tả trải nghiệm (Part 2) — cấu trúc & từ vựng cảm xúc Kỹ năng | cấu trúc 3 phần
+sp-exp-v5h-2 | Cue Card – Celebrating an Achievement Part 2 | cue card, you should say
+sp-exp-v5h-3 | Cue Card – A Disappointing Experience Part 2 | cue card, you should say
+sp-exp-v5h-4 | Cue Card – First Time Speaking a Foreign Language Part 2 | cue card, you should say
+sp-exp-v5h-5 | Cue Card – A Mistake and How You Dealt With It Part 2 | cue card, you should say
+sp-exp-v5h-6 | Part 3 — Mistakes: nguyên nhân & bài học Part 3 | 
+sp-exp-v5h-7 | Ngân hàng đề — Describe an event / experience thêm Ý tưởng | sự kiện/dịp, trải nghiệm cá nhân
+sp-exp-cvA4-1 | Experience collocations — bổ sung🆕 | 
+sp-exp-cvA4-2 | Memory collocations🆕 | 
+sp-exp-img1-1 | Cue Card – A Difficult Situation Part 2🆕 | 
+sp-exp-s1-1 | Morning Routine — theo band điểm Part 1🆕 | band 6, band 7.5, freshen up, grab, head off, kick off
+ph-01-1 | Giới thiệu tên 4🆕 | 
+ph-01-2 | Quê quán 10🆕 | 
+ph-01-3 | Tuổi tác 7🆕 | 
+ph-01-4 | Family 27🆕 | 
+ph-01-5 | Introducing A Talk 6🆕 | 
+ph-01-6 | Introduction 13🆕 | 
+ph-02-1 | End a conversation 3🆕 | 
+ph-02-2 | I'm fine 6🆕 | 
+ph-02-3 | Asking abaut health /Life 6🆕 | 
+ph-02-4 | catching up 4🆕 | 
+ph-02-5 | Asking About Work, Studies, Etc 5🆕 | 
+ph-02-6 | Making Comments About Their Look 4🆕 | 
+ph-02-7 | Closing Off Your Conversation 10🆕 | 
+ph-02-8 | leave me alone 7🆕 | 
+ph-02-9 | How to End a Conversation 11🆕 | 
+ph-02-10 | Greeting 12🆕 | 
+ph-02-11 | End converstation 11🆕 | 
+ph-02-12 | Goodbye 64🆕 | 
+ph-02-13 | Ways to End a Conversation Politely — Các cách kết thúc cuộc trò chuyện một cách lịch sự 8🆕 | 
+ph-02-14 | greet 9🆕 | 
+ph-02-15 | Let's go 4🆕 | 
+ph-02-16 | I need to go 4🆕 | 
+ph-02-17 | Ways to agree in English — Các cách để đồng ý bằng tiếng Anh 66🆕 | 
+ph-02-18 | How to Make Invitations in English Politely — Cách viết lời mời bằng tiếng Anh một cách lịch sự 14🆕 | 
+ph-02-19 | How to Accept Informal Invitations in English — Cách chấp nhận lời mời không chính thức bằng tiếng Anh 7🆕 | 
+ph-02-20 | How to Reject Invitations in English — Cách từ chối lời mời bằng tiếng Anh 111🆕 | 
+ph-02-21 | How to give permission — Cách cấp phép 6🆕 | 
+ph-02-22 | How to refuse permission — Cách từ chối cấp phép 7🆕 | 
+ph-02-23 | How to complain in English — Cách phàn nàn bằng tiếng Anh 85🆕 | 
+ph-02-24 | Small talk 96🆕 | 
+ph-02-25 | Giving Yourself Time To Think 52🆕 | 
+ph-03-1 | Other Ways to Say Someone is Correct 13🆕 | 
+ph-03-2 | Other Ways to Say Someone is Incorrect 23🆕 | 
+ph-03-3 | I agree 23🆕 | 
+ph-03-4 | Yes 23🆕 | 
+ph-03-5 | Disagreeing 7🆕 | 
+ph-03-6 | No 21🆕 | 
+ph-03-7 | Showing interest 12🆕 | 
+ph-03-8 | Disagree 11🆕 | 
+ph-03-9 | of course 9🆕 | 
+ph-03-10 | How To Agree With Somebody 5🆕 | 
+ph-03-11 | How To Disagree With Someone 3🆕 | 
+ph-03-12 | 37 Useful Phrases For Presentations In English — 37 Cụm từ hữu ích cho bài thuyết trình bằng tiếng Anh 10🆕 | 
+ph-03-13 | Common Phrases For Starting Off Presentations — Những cụm từ thông dụng để bắt đầu bài thuyết trình 101🆕 | 
+ph-04-1 | Chung 12🆕 | 
+ph-04-2 | Give your opinion or add something 4🆕 | 
+ph-04-3 | In my opinion 27🆕 | 
+ph-04-4 | Offering your opinion 12🆕 | 
+ph-04-5 | Expressing opinions 33🆕 | 
+ph-04-6 | How to Express Your Opinion in English 172🆕 | 
+ph-05-1 | Chung 12🆕 | 
+ph-05-2 | EXPLAIN 10🆕 | 
+ph-05-3 | CÁCH PARAPHRASE CHO TỪ “SPEND” 12🆕 | 
+ph-05-4 | 11 Ways To Say 'I Understand' 6🆕 | 
+ph-05-5 | I don't know 31🆕 | 
+ph-05-6 | When you don't hear st 5🆕 | 
+ph-05-7 | How To Ask For Clarification In English 13🆕 | 
+ph-05-8 | HOW TO CLARIFY YOUR IDEA 24🆕 | 
+ph-05-9 | Ask For Clarification Or Repetition 4🆕 | 
+ph-05-10 | Saying Something In A Different Way 5🆕 | 
+ph-05-11 | Giving Yourself Time To Think 6🆕 | 
+ph-05-12 | Paraphrasing 32🆕 | 
+ph-05-13 | More precisely 153🆕 | 
+ph-05-14 | Way to go — Làm tốt lắm 71🆕 | 
+ph-05-15 | Ways to respond to an apology — Cách đáp lại lời xin lỗi 34🆕 | 
+ph-05-16 | That's to say 10🆕 | 
+ph-06-1 | How to introduce interruption 8🆕 | 
+ph-06-2 | How to approve someone’s interruption 5🆕 | 
+ph-06-3 | How to reject interruption 6🆕 | 
+ph-06-4 | Reasons to interrupt someone 4🆕 | 
+ph-06-5 | Pass a message 3🆕 | 
+ph-06-6 | Join a conversation 4🆕 | 
+ph-06-7 | How to continue your speech after an interruption 34🆕 | 
+ph-07-1 | Asking for help 41🆕 | 
+ph-07-2 | I need some help, please 5🆕 | 
+ph-07-3 | Asking For And Giving Permission In English 6🆕 | 
+ph-07-4 | Polite Formal Responses 6🆕 | 
+ph-07-5 | Polite Formal Refusals In English 19🆕 | 
+ph-07-6 | Making, accepting, and rejecting suggestions 28🆕 | 
+ph-07-7 | How to Ask for Clarification in English 127🆕 | 
+ph-08-1 | Chung 9🆕 | 
+ph-08-2 | Thank you 10🆕 | 
+ph-08-3 | I'm (so/ very/ terrible) sorry 13🆕 | 
+ph-08-4 | Response to thank you 28🆕 | 
+ph-08-5 | Not my fault 5🆕 | 
+ph-08-6 | Never mind 3🆕 | 
+ph-08-7 | You are welcome 7🆕 | 
+ph-08-8 | How to complain in English 12🆕 | 
+ph-08-9 | How to accept a complaint — Làm thế nào để chấp nhận một khiếu nại 4🆕 | 
+ph-08-10 | How to reject a complaint — Cách từ chối khiếu nại 18🆕 | 
+ph-08-11 | Phrases for Buyers — Cụm từ dành cho người mua 9🆕 | 
+ph-08-12 | Phrases for Sellers — Cụm từ dành cho người bán 7🆕 | 
+ph-08-13 | How to Start a Business Meeting in English — Cách bắt đầu một cuộc họp kinh doanh bằng tiếng Anh 71🆕 | 
+ph-09-1 | Presentation 28🆕 | 
+ph-09-2 | Question 7🆕 | 
+ph-09-3 | 10 Phrases For Making Suggestions In English 21🆕 | 
+ph-09-4 | Introductory phrases - when you start your talk 5🆕 | 
+ph-09-5 | Developing phrases - when you want 7🆕 | 
+ph-09-6 | Background phrases - when you 24🆕 | 
+ph-09-7 | 37 Useful Phrases For Presentations In English 10🆕 | 
+ph-09-8 | Common Phrases For Starting Off Presentations 4🆕 | 
+ph-09-9 | Referring To Visuals 3🆕 | 
+ph-09-10 | Finishing Off A Section 8🆕 | 
+ph-09-11 | Checking And Moving On 8🆕 | 
+ph-09-12 | Recapping 6🆕 | 
+ph-09-13 | Coming To An End 18🆕 | 
+ph-09-14 | Other Phrases To Start A Meeting — Các cụm từ khác để bắt đầu cuộc họp 89🆕 | 
+ph-09-15 | Phrases for describing the structure of a talk: — Các cụm từ để mô tả cấu trúc của một bài nói: 5🆕 | 
+ph-09-16 | Phrases for finishing off a section of your presentation: — Các cụm từ để kết thúc một phần của bản trình bày của bạn: 64🆕 | 
+ph-09-17 | Phrases For Buyers — Cụm từ dành cho người mua 9🆕 | 
+ph-09-18 | Phrases For Sellers — Các cụm từ dành cho người bán 9🆕 | 
+ph-09-19 | Useful Words And Phrases — Từ và cụm từ hữu ích 22🆕 | 
+ph-09-20 | Useful Phrases - Conference Call English Vocabulary — Các cụm từ hữu ích - Từ vựng tiếng Anh cuộc gọi hội nghị 11🆕 | 
+ph-09-21 | IELTS Opening 22🆕 | 
+ph-09-22 | Introduction points 9🆕 | 
+ph-09-23 | Present ideas and give examples 4🆕 | 
+ph-09-24 | Express the result 5🆕 | 
+ph-09-25 | Concluding 10🆕 | 
+ph-09-26 | Pros and cons 54🆕 | 
+ph-10-1 | Chung 12🆕 | 
+ph-10-2 | Other Ways to Say In Conclusion — Các cách khác để nói kết luận 39🆕 | 
+ph-10-3 | Words and phrases to Use instead of THEREFORE 26🆕 | 
+ph-10-4 | Vocabulary to show the comparison 8🆕 | 
+ph-10-5 | BUT 23🆕 | 
+ph-10-6 | Either/or 24🆕 | 
+ph-10-7 | We can use both 'whether' and 'if 17🆕 | 
+ph-10-8 | For example/ For instance 9🆕 | 
+ph-10-9 | in consequence 11🆕 | 
+ph-10-10 | on the contrary 10🆕 | 
+ph-10-11 | e.g 12🆕 | 
+ph-10-12 | on the Other Hand 16🆕 | 
+ph-10-13 | Solutions to an Issue 5🆕 | 
+ph-10-14 | Additional Solution Approaches 5🆕 | 
+ph-10-15 | Result 5🆕 | 
+ph-10-16 | Liên quan 2🆕 | 
+ph-11-1 | surprised 5🆕 | 
+ph-11-2 | tasty 5🆕 | 
+ph-11-3 | I don't like it/ I'm not interested 5🆕 | 
+ph-11-4 | 12 Other Ways To Say Stop In English 24🆕 | 
+ph-11-5 | Interesting 41🆕 | 
+ph-11-6 | Stupid 7🆕 | 
+ph-11-7 | amazing 15🆕 | 
+ph-11-8 | It's difficult 15🆕 | 
+ph-11-9 | secret 4🆕 | 
+ph-11-10 | good job 4🆕 | 
+ph-11-11 | OMG 10🆕 | 
+ph-11-12 | I'm not a big fan of it/ Not my a cup of tea 18🆕 | 
+ph-11-13 | my goodness 7🆕 | 
+ph-11-14 | Hate 5🆕 | 
+ph-12-1 | Expressing Future Probability in English 9🆕 | 
+ph-12-2 | more than 33🆕 | 
+ph-12-3 | Now 5🆕 | 
+ph-12-4 | less than 5🆕 | 
+ph-12-5 | Paraphrase number 26🆕 | 
+ph-12-6 | Time 14🆕 | 
+ph-12-7 | Paraphrase time 6🆕 | 
+ph-12-8 | Paraphrase age 9🆕 | 
+ph-12-9 | Paraphrase spending 3🆕 | 
+ph-12-10 | Paraphrase means of transport 4🆕 | 
+ph-12-11 | Paraphrase doanh thu 30🆕 | 
+ph-13-1 | Từ vựng mô tả thứ tự các bước dạng Process IELTS WRITING TASK 1 14🆕 | 
+ph-13-2 | Linking phrase 26🆕 | 
+ph-13-3 | Question Type 2: "Liking" 30🆕 | liking, starting phrases, reason
+ph-13-4 | Question Type 3: "Disliking" Questions 7🆕 | 
+ph-13-5 | Question Type 4: " Types of" Question 68🆕 | begin with an opening phrase, then use one of the following, now use a phrase to add a detail, now you need to add a vague end line
+ph-13-6 | Question Types 5: "Wh-/How Often" Questions 28🆕 | now select a "depends" phrase, now select a linking phrase, select one of the following
+ph-13-7 | Question Type 6: "Yes/No" Questions 16🆕 | 
+ph-13-8 | Question Type 7: "Would" Questions 8🆕 | 
+ph-13-9 | A. Opening phrase + the first prompt from card 16🆕 | 
+ph-13-10 | B. The second point + the second prompt from card 12🆕 | 
+ph-13-11 | C. The third point + the third prompt from card 8🆕 | now add your second linking phrase
+ph-13-12 | D. The fourth point + the fourth prompt from card 5🆕 | 
+ph-13-13 | Part Two Topic Analysis 93🆕 | 
+ph-13-14 | Linking 46🆕 | now introduce your main disadvantage, disadvantage, now highlight your main problem, first, begin with a general statement, highlight your first solution
+ph-13-15 | Giving examples 3🆕 | 
+ph-13-16 | Paraphrase 13🆕 | continue your paraphrasing with, then " remember" the word
+ph-13-17 | Vague language 21🆕 | 
+ph-13-18 | Adverbs that go after the subject and before the verb 6🆕 | 
+ph-13-19 | Adverbs that can go before or after the subject 62🆕 | music is fascinating, studying english is interesting, there are three rules you must remember, examples
+ph-13-20 | Adverbs of frequency that go before the verb 15🆕 | 
+ph-13-21 | Adverbs of Infrequency 8🆕 | 
+ph-13-22 | Using don't 9🆕 | 
+ph-13-23 | Show comparision 10🆕 | as well as
+ph-13-24 | Age Groups & Generations 6🆕 | 
+ph-13-25 | Work related Groups 6🆕 | 
+ph-13-26 | Social Classes 6🆕 | 
+ph-13-27 | Quantity Words 12🆕 | 
+ph-13-28 | Expressions of Habit 12🆕 | 
+ph-13-29 | Superlative 15🆕 | 
+ph-13-30 | Colloquial Expressions for Advantageous Conditions 53🆕 | 
+ph-13-31 | Adjectives of Experience 7🆕 | 
+ph-13-32 | The Past Simple & Times in Life Phrases 20🆕 | 
+ph-13-33 | Non-defining Relative Clauses and Adjectives of Personality 15🆕 | 
+ph-13-34 | Phrases to Express Freedom & Constraints 121🆕 | moderately important, very important, unimportant, example
+ph-13-35 | Types of Media 32🆕 | here's a list of examples, how, why
+ph-13-36 | Agreement 4🆕 | 
+ph-13-37 | Disagreement 4🆕 | 
+ph-13-38 | Introducing your opinion 61🆕 | 
+ph-13-39 | Conditions 4🆕 | in moderation, if not abused
+ph-13-40 | Benefits 11🆕 | 
+ph-13-41 | Person Monologue 115🆕 | relationship/social positions, tv presenter, angry, confident, funny, happy
+ph-13-42 | Phrases of Achievements: Working hard 27🆕 | success, talent
+ph-13-43 | Place Monologue 74🆕 | religious, tourism, shopping, accommodation, natural, leisure
+ph-13-44 | Expressions of Size and Shape 90🆕 | big, small, width, height, length, light
+ph-13-45 | Popularity and Fame Expressions 6🆕 | 
+ph-13-46 | Expressions for How You Feel 200🆕 | relaxing, interesting, exciting, beautiful, busy, opinion
+ph-13-47 | Linking phrases for uses 8🆕 | 
+ph-13-48 | Linking phrases for evaluation 16🆕 | comparative structures
+ph-13-49 | Adjectives for how an object makes you feel 12🆕 | 
+ph-13-50 | Expressions for how an object makes you feel 121🆕 | stories, competitions /sports, learning a language, english corner, journeys, parties
+ph-13-51 | Groups 37🆕 | so, examples
+ph-13-52 | Adjectives for Describing Events & Adjectives of Feeling 57🆕 | interesting, strange, surprising, good, bad
+ph-13-53 | Introducing opinion expressions 30🆕 | quantities of people
+ph-13-54 | Types of people - ages 6🆕 | 
+ph-13-55 | Types of people - behaviour 4🆕 | 
+ph-13-56 | Types of people - specific 65🆕 | activities, objects, habits / customs, laws
+ph-13-57 | Introducing Disadvantages & Highlighting Bad Points Phrases 54🆕 | then use one of the following, activities, objects, habits/ customs, laws
+ph-13-58 | Adverbs of degree 45🆕 | you can backtrack with, sequencing
+ph-13-59 | Expressions to Identify Problems 74🆕 | filter words, question, another
+ph-13-60 | Introducing 123🆕 | explaining, exemplifying, expressing a preference, comparing and contrasting, describing likes/ dislikes, describing the past
+ph-13-61 | Expressing your Agreement 9🆕 | 
+ph-13-62 | Expressing Disagreement 10🆕 | 
+ph-13-63 | Expressing your Partial Agreement (Hedging) 22🆕 | summarizing
+ph-14-1 | Expressions for Forgetting Something — Biểu hiện cho việc Quên điều gì đó 3🆕 | 
+ph-14-2 | Expressions for Remember Things — Biểu thức cho những điều cần nhớ 5🆕 | 
+ph-14-3 | 5 ways to 'OK' 5🆕 | 
+ph-14-4 | hurry up 3🆕 | 
+ph-14-5 | I am ready 5🆕 | 
+ph-14-6 | Go straight 10🆕 | 
+ph-14-7 | tell sb to wait 7🆕 | 
+ph-14-8 | Responsible for 13🆕 | 
+ph-14-9 | Saying I know 6🆕 | 
+ph-14-10 | Accepted Facts 6🆕 | 
+ph-14-11 | Hoping for something 6🆕 | 
+ph-14-12 | Asking people to wait 12🆕 | 
+ph-14-13 | talk about the weather 5🆕 | 
+ph-14-14 | Take a taxi 10🆕 | 
+ph-14-15 | I forgot 4🆕 | 
+ph-14-16 | wait 11🆕 | 
+ph-14-17 | english phrase when so in your way 24🆕 | 
+ph-14-18 | I'm busy 7🆕 | 
+ph-14-19 | I'm in a hurry 8🆕 | 
+ph-14-20 | He is coming soon 9🆕 | 
+ph-14-21 | phone call 4🆕 | 
+ph-14-22 | Giving direction 36🆕 | 
+ph-14-23 | go fly a kite 21🆕 | 
+ph-15-1 | Other Words for “Also” — Các từ khác cho "Cũng" 5🆕 | 
+ph-15-2 | Other Words for “Overall” — Các từ khác cho "Nhìn chung" 59🆕 | 
+ph-15-3 | Decision idioms 4🆕 | 
+ph-15-4 | Phrasal Verbs About Thinking And Learning 39🆕 | 
+ph-15-5 | ASSESS 7🆕 | 
+ph-15-6 | COMPARE 4🆕 | 
+ph-15-7 | PREDICT 3🆕 | 
+ph-15-8 | SUGGEST 4🆕 | 
+ph-15-9 | BONUS:REPAIR STRATEGIES 5🆕 | 
+ph-15-10 | way to say and 36🆕 | 
+ph-15-11 | Way to say I want 7🆕 | 
+ph-15-12 | Let me know 33🆕 | 
+ph-15-13 | 10 Ways to Say I’m Busy in English 14🆕 | 
+ph-15-14 | break a leg 19🆕 | 
+ph-15-15 | Other Ways to Say Someone is Correct — Những cách khác để nói rằng ai đó đúng 5🆕 | 
+ph-15-16 | Other Ways to Say Someone is Incorrect — Những cách khác để nói rằng ai đó sai 23🆕 | 
+ph-15-17 | Common phrases — Cụm giao tiếp ngắn hằng ngày 21🆕 | 
+ph-15-18 | Improve — nói lịch sự & tự nhiên hơn 34🆕 | 1. lịch sự hơn — tránh câu cộc lốc, 2. email chuyên nghiệp, 3. trang trọng ↔ thân mật, could you…?, i want, i'd like
+cs-social-1 | Bắt chuyện & hỏi thăm người mới quen 🆕 | mẹo
+cs-social-2 | Small talk theo chủ đề: thời tiết, tin tức, cuối tuần 🆕 | 
+cs-social-3 | Small talk về đồ ăn 🆕 | 
+cs-social-4 | Khen ngoại hình, hỏi thăm công việc/học tập & kết thúc lịch sự 🆕 | 
+cs-social-5 | Giới thiệu bản thân nâng cao — 21 cấu trúc 🆕 | 
+cs-social-6 | "Nice to meet you" — thêm cách nói 🆕 | 
+cs-social-7 | Lời mời: hỏi lịch, mời & từ chối — bổ sung 🆕 | 
+cs-social-8 | Lời cảm ơn — thêm cách nói tự nhiên 🆕 | 
+cs-social-9 | Xin lỗi — sắc thái bổ sung 🆕 | nhận lỗi nghiêm túc / thẳng thắn, xin lỗi trang trọng (thư/email), chia buồn & cảm thông, đáp lại lời xin lỗi — thêm cách nói
+cs-social-10 | Chào hỏi & tạm biệt — thêm cách nói 🆕 | 
+cs-social-11 | Bày tỏ sự quan tâm & chúc mau khỏe 🆕 | 
+cs-social-12 | 14 cách nói "YES" khác 🆕 | 
+cs-social-13 | Khen ngợi — 10 lời khen thông dụng 🆕 | 
+cs-social-14 | Khen "làm tốt lắm", chúc mừng & động viên 🆕 | khen ai đó làm tốt, chúc mừng (ngoài "congratulations!"), động viên khi ai đó đang cố gắng
+cs-social-15 | Chúc mừng sinh nhật 🆕 | 
+cs-social-16 | Mời & nhận lời — thêm sắc thái nhiệt tình/từ chối lịch sự 🆕 | nhận lời rất hào hứng, từ chối tiếc nuối / trang trọng hơn
+cs-social-17 | Phản hồi tin vui/tin buồn & mời đồ uống 🆕 | 
+cs-social-18 | Chúc ngủ ngon 🆕 | 
+cs-social-19 | "How are you?" & "You're welcome" — thêm cách nói đời thường 🆕 | 
+cs-social-cvA4-1 | Từ vựng đám cưới (Wedding)🆕 | 
+cs-social-cvA4-2 | Cụm chào hỏi, xin lỗi, kiểm tra hiểu ý — bổ sung🆕 | chào đón (welcome), kiểm tra hiểu ý, xin lỗi
+cs-feel-1 | Thích / không thích — thang độ mạnh yếu 🆕 | can't stand, can't bear, chú ý ngữ pháp
+cs-feel-2 | Mệt mỏi — các cách nói "tired" 🆕 | gốc từ thú vị
+cs-feel-3 | Ốm / không khỏe — các cách nói "sick" 🆕 | 
+cs-feel-4 | Chán — "bored" 🆕 | 
+cs-feel-5 | Phân biệt Pain, Ache, Hurt, Sore 🆕 | common mistake
+cs-feel-6 | 20 cụm từ diễn tả sự tức giận 🆕 | 
+cs-feel-7 | 14 cách nói "I love you" 🆕 | 
+cs-feel-8 | Từ vựng du lịch: journey, trip, travel, voyage 🆕 | không
+cs-feel-9 | 10 động từ chỉ cử chỉ tay 🆕 | 
+cs-feel-10 | "Be likely to" — diễn đạt khả năng xảy ra 🆕 | 
+cs-feel-11 | Ưu điểm & nhược điểm — thêm cách diễn đạt 🆕 | 
+cs-feel-12 | Phân biệt Like và As 🆕 | danh từ, chủ ngữ + động từ
+cs-feel-13 | Phân biệt Dead, Killed, Murdered 🆕 | 
+cs-feel-14 | Nói người khác sai — một cách lịch sự 🆕 | cách nói bất lịch sự
+cs-feel-15 | Phân biệt Ill và Sick 🆕 | và động từ, và trạng từ, ghi nhớ
+cs-feel-16 | Mô tả triệu chứng ốm cụ thể 🆕 | 
+cs-feel-cvA4-1 | "Đừng lo" & "Hôm nay tôi rất vui" — cách nói khác🆕 | don't worry, i'm very happy today
+cs-opinion-1 | Nêu ý kiến — cách nói tự nhiên hơn "I think" 🆕 | 
+cs-opinion-2 | Đồng ý — toàn phần, một phần & tìm điểm chung 🆕 | đồng ý thêm, so + trợ động từ + s
+cs-opinion-3 | Phản đối lịch sự — 10 cách 🆕 | 
+cs-opinion-4 | Bày tỏ nghi ngờ & sự không chắc chắn (Doubt & Uncertainty) 🆕 | 
+cs-opinion-5 | Xin nhắc lại & làm rõ ý — bổ sung 🆕 | 
+cs-opinion-6 | Gợi ý — cấu trúc đưa ra, chấp nhận & từ chối 🆕 | 
+cs-opinion-7 | Xin lời khuyên, cho lời khuyên & phản hồi (Advice) 🆕 | xin lời khuyên, cho lời khuyên — theo cấu trúc ngữ pháp, phản hồi lời khuyên, advice
+cs-opinion-8 | Đề xuất, giới thiệu (Recommendations) 🆕 | mẹo đề xuất trực tiếp
+cs-opinion-9 | Sở thích: Prefer / Would rather / Rather than 🆕 | 
+cs-opinion-10 | Tranh luận, thảo luận & đàm phán (Debate & Negotiation) 🆕 | mở đầu, duy trì, kết thúc thảo luận, trình bày & phản biện luận điểm, đàm phán / đề xuất (negotiation)
+cs-opinion-11 | Nhớ & quên — bổ sung 🆕 | 
+cs-opinion-12 | Phân biệt Remind vs Remember 🆕 | 
+cs-opinion-13 | So sánh & tương phản — cụm từ bổ sung 🆕 | diễn tả sự giống nhau, 29 từ đồng nghĩa "on the other hand", thành ngữ diễn tả sự khác biệt, giống nhau, by comparison
+cs-opinion-14 | Đưa ví dụ — cụm bổ sung 🆕 | 
+cs-opinion-15 | Trấn an, động viên ai đó (Reassuring) 🆕 | 
+cs-opinion-16 | So sánh số liệu song song: respectively / correspondingly 🆕 | 
+cs-request-1 | Yêu cầu ai đó làm gì (making requests) 🆕 | can, could/will, would, trả lời
+cs-request-2 | Đề nghị giúp đỡ / mời (making offers) 🆕 | can, could, may, shall
+cs-request-3 | Nhờ giúp đỡ — bổ sung ✎ bổ sung 🆕 | 
+cs-request-4 | Thành ngữ về xin phép / được chấp thuận — bổ sung ✎ bổ sung 🆕 | thêm cách xin phép (bổ sung)
+cs-request-5 | Các cách nói "không" (different ways to say no) 🆕 | 
+cs-request-6 | Ngắt lời — bổ sung ✎ bổ sung 🆕 | 
+cs-request-7 | Phàn nàn — bổ sung ✎ bổ sung 🆕 | really
+cs-request-8 | Phê bình / góp ý khéo léo (criticising) 🆕 | cẩn thận
+cs-request-9 | Né tránh trả lời trực tiếp 🆕 | 
+cs-request-10 | Đàm phán trong công việc (negotiating) 🆕 | 
+cs-request-11 | Hỏi đường & khoảng cách 🆕 | hỏi
+cs-request-12 | WAIT vs AWAIT 🆕 | i'm waiting for a bus
+cs-request-13 | Báo tin tốt / tin xấu & hồi đáp 🆕 | 
+cs-request-14 | Làm ai đó bình tĩnh lại (calm down) 🆕 | chú ý chính tả
+cs-request-15 | Nói không thích điều gì — bổ sung ✎ bổ sung 🆕 | cách chê khéo
+cs-request-16 | Bảo ai đó đi chỗ khác — bổ sung ✎ bổ sung 🆕 | 
+cs-request-17 | Từ vựng bản đồ (IELTS Listening — Map Labelling) 🆕 | vị trí, di chuyển, địa điểm trong nhà, địa điểm ngoài trời, hướng & đường
+cs-request-18 | Thêm cách nói "chờ đã" — bổ sung ✎ bổ sung 🆕 | 
+cs-work-1 | Cụm từ viết CV & xin việc 🆕 | linh hoạt / thích ứng
+cs-work-2 | Phân biệt JOB và WORK 🆕 | 
+cs-work-3 | Từ vựng: mất việc (losing a job) 🆕 | 
+cs-work-4 | Thành ngữ tiếng Anh kinh doanh (business idioms) 🆕 | 
+cs-work-5 | Cụm từ công sở thông dụng 🆕 | 
+cs-work-6 | Phrasal verbs trong kinh doanh 🆕 | 
+cs-work-7 | Từ & cụm từ về công việc 🆕 | 
+cs-work-8 | Gọi điện thoại công việc (on the phone) 🆕 | 
+cs-work-9 | Viết thư theo mục đích & từ vựng thư từ 🆕 | thư cảm ơn, thư xin lỗi, thư mời, thư phàn nàn, thư yêu cầu thông tin, nhắc vấn đề đã đề cập
+cs-work-10 | Mở rộng ý trong họp/thuyết trình — bổ sung ✎ bổ sung 🆕 | 
+cs-work-cvG3-1 | Mở đầu & kết thúc bài thuyết trình — bổ sung🆕 | 
+cs-work-cvX1-1 | Tự giới thiệu bản thân khi phỏng vấn (Self-introduction) 🆕 | mẹo
+t1-1 | Từ vựng miêu tả xu hướng & tốc độ thay đổi (Writing Task 1)🆕 | mở đầu miêu tả biểu đồ, giới từ số liệu, liệt kê số liệu song song, correspondingly, respectively
+t1-2 | Diễn đạt nâng cao khi so sánh số liệu (Writing Task 1)🆕 | từ đồng nghĩa với “giảm mạnh”
+t1-3 | Task 1: từ vựng mô tả xu hướng (tăng, giảm, ổn định, dao động, đỉnh/đáy)🆕 | an upward trend, a rise in…
+t1-4 | Paraphrase số liệu, thời gian & nhóm đối tượng trong Task 1🆕 | số liệu / số lượng, thời gian, nhóm tuổi / đối tượng, chi tiêu, giao thông, doanh thu/sản xuất
+t1-5 | Task 1: câu dự đoán, câu miêu tả & mở bài dạng bảng🆕 | câu dự đoán (biểu đồ có mốc tương lai), câu miêu tả số liệu, mở bài & liên kết ý cho dạng bảng
+t1-cvA4-1 | Danh từ & trạng từ mô tả xu hướng — bổ sung🆕 | danh từ chỉ biến động, trạng từ mức độ, tính từ mức độ
+t1-cvA8-1 | 5 cấu trúc câu phức mô tả hai giai đoạn liên tiếp (Writing Task 1)🆕 | 
+t1-cvA8-2 | Giới từ số liệu (with, at) & account for = make up = consist of = comprise🆕 | 
+t1-cvA8-3 | Phân số & tỷ trọng: từ vựng thay số phần trăm🆕 | 
+t1-cvA8-4 | Các thì thường dùng trong Writing Task 1🆕 | 
+t1-cvA8-5 | Mở bài dạng “compares … in terms of … over …” & paraphrase đề bài🆕 | 
+t1-cvA8-6 | Từ vựng mô tả bản đồ (Map)🆕 | vị trí & phương hướng, mô tả sự thay đổi
+t1-cvA8-7 | So sánh hai sơ đồ & mô tả sơ đồ quy trình (Process)🆕 | từ vựng cho quy trình sinh học (bổ sung), một
+t1-cvA8-20 | Paraphrase “the number of” & các nhóm chủ đề thường gặp🆕 | 
+t1-cvA8-21 | Cấu trúc mô tả dữ liệu Band 8+ (Task 1)🆕 | 
+t1-cvG1-1 | Paraphrase: Sử dụng Internet — bổ sung 🆕 | 
+t1-cvG2-1 | Từ vựng Process dạng nhân tạo (gạch, đồ da) — bổ sung🆕 | 
+wr-1 | IELTS Writing: 5 cách mở đầu câu🆕 | it, there, with, v-ing, in order to
+wr-2 | IELTS Writing: nâng cấp câu academic🆕 | cụm danh từ, how, câu chẻ what…, in a way that, help, spend
+wr-3 | Khung đoạn văn theo góc nhìn🆕 | theo lĩnh vực, theo cấp độ
+wr-4 | Lỗi thường gặp & cách sửa🆕 | 
+wr-5 | Cấu trúc mở bài (Introduction) – Writing Task 2🆕 | mẫu câu đưa thông tin chung (câu 1)
+wr-6 | Khung đoạn văn dạng Problem – Solution (Writing Task 2)🆕 | 
+wr-7 | Đa dạng hoá diễn đạt: nguyên nhân, kết quả & tầm quan trọng🆕 | kết quả (chuỗi nhân – quả), tầm quan trọng / ảnh hưởng, be associated with sth, be attributable to sth, stem from sth
+wr-8 | Cụm từ mở ý & tranh luận hai chiều (bài Discussion)🆕 | nêu nhận định được thừa nhận rộng rãi, nêu vấn đề cần chú ý / cần giải quyết, trình bày hai chiều & phản biện
+wr-9 | 50 từ paraphrase thông dụng khi viết Task 2🆕 | 
+wr-10 | Khung mở bài & lập luận học thuật cho Writing Task 2🆕 | dẫn dắt vào chủ đề (mở bài), nêu luận điểm chính (thesis statement), trình bày luận điểm & ví dụ, so sánh hai quan điểm
+wr-11 | Khung 6 dạng bài Writing Task 2 theo cấu trúc mẫu🆕 | agree / disagree, discuss both views, mở, thân, kết
+wr-12 | 20 cấu trúc Band 8+ cho dạng Problems & Solutions🆕 | mở bài, thân bài, kết bài
+wr-13 | Paraphrase nhóm tuổi bằng mệnh đề quan hệ & cụm danh từ🆕 | rút gọn mệnh đề quan hệ, dùng cụm danh từ, cụm có sẵn, people aged 30–39
+wr-14 | Cấu trúc ngữ pháp nâng band cho Writing🆕 | 
+wr-15 | Collocation & cụm từ nâng band cho Writing Task 2🆕 | 
+wr-16 | 10 cụm từ nên tránh khi viết Writing (văn nói → văn viết)🆕 | 
+wr-v4-1 | Nâng cấp từ vựng: Band 6 → Band 8+ theo chủ đề Writing🆕 | 
+wr-cvA3-1 | Cụm từ học thuật khi trình bày quan điểm — bổ sung🆕 | 
+wr-cvA7-1 | Lead to & các cấu trúc tương đương🆕 | 3 cấu trúc đầy đủ, lead to something
+wr-cvA8-1 | Khung “Balanced view” & Discussion không nêu ý kiến — bổ sung🆕 | balanced view (đồng ý một phần), mở, thân 1, thân 2, kết, thân 2 (giải pháp)
+wr-cvA8-2 | Cụm từ / idiom nâng band cho Writing Task 2🆕 | 
+wr-cvA8-3 | Cấu trúc câu phức nâng band khác🆕 | 
+wr-cvA8-4 | Diễn đạt nguyên nhân–kết quả, lợi ích & yêu cầu — bổ sung🆕 | lợi ích & đáp ứng nhu cầu, trích dẫn nguồn / minh chứng
+wr-cvA8-5 | Từ nối phân loại theo chức năng cho Writing🆕 | 
+wr-cvA8-22 | 10 cấu trúc câu Writing Band 7.5+🆕 | 
+wr-cvA8-23 | 9 cấu trúc câu Band 9.0 & công thức câu ghép phức🆕 | 
+wr-cvA8-24 | Định lượng từ & phân biệt lead to / contribute to / result in🆕 | định lượng từ nên tránh → nên dùng, danh từ
+wr-cvA8-25 | Cụm từ & lối viết cần tránh trong IELTS Writing🆕 | 
+wr-cvA8b-1 | Cụm từ mở bài, nêu quan điểm & kết luận còn thiếu (bổ sung)🆕 | 
+wr-cvV1-1 | Cấu trúc so sánh, ví dụ & kết luận — bổ sung ✎ bổ sung 🆕 | 
+wr-cvV2-1 | Cấu trúc câu hiếm gặp & cụm mở đầu còn thiếu — bổ sung🆕 | mở đầu câu ít gặp, cố gắng làm gì, từ vựng năng lượng
+wr-cvV2-2 | Khung mở–thân–kết bổ sung (DOL): các cụm liên kết còn thiếu🆕 | 
+wr-cvW1-1 | Từ nối & cụm từ học thuật — bổ sung 🆕 | 
+wr-cvG2-1 | Cấu trúc với giới từ "ON" ăn điểm Writing & Speaking🆕 | 
+wr-cvG2-2 | Từ vựng band 8.0 dễ dùng — bổ sung🆕 | 
+we-1 | IELTS Writing Task 2 Structures Writing | in addition
+we-2 | Huy Forum LIVE – Essay Outline (Ideal Society) Writing | mở bài
+we-3 | Model Essay – Preservation of Traditional Skills Writing | 
+we-4 | Model Essay – Driverless Vehicles Writing | word count: 275
+we-5 | Model Essay – Internet and Plagiarism Writing | 
+we-v4-1 | Đô thị hóa: di cư nông thôn – thành thị — bài luận mẫu Writing🆕 | 
+we-v4-101 | Writing Task 2 mẫu — Life skills ở trường học Writing🆕 | 
+we-v5e-15 | Đồng nghĩa hay dùng khi viết/nói về Môi trường Writing🆕 | 
+we-v5e-16 | Đoạn mở bài mẫu — Bảo vệ môi trường & nóng lên toàn cầu Writing🆕 | 
+we-v5f-1 | Công nghệ hiện đại và mối quan hệ xã hội — bài mẫu Writing | 
+we-v5f-2 | Advantages & disadvantages of the Internet — ý tưởng Ý tưởng | ưu điểm, nhược điểm
+we-v5f-3 | Modern communication technology & social relationships — bài mẫu Writing | 
+we-v5f-4 | AI, tự động hóa & quyền riêng tư trong thời đại số — ý tưởng Ý tưởng | quyền riêng tư số
+we-v5k1-1 | Ex-prisoners nên nói chuyện với thanh thiếu niên về tội phạm? Writing🆕 | 
+we-v5k1-2 | Khách du lịch nước ngoài có nên trả phí tham quan cao hơn? Writing🆕 | 
+we-v5k1-3 | Âm nhạc có gắn kết các nền văn hoá và thế hệ? Writing🆕 | 
+we-v5k1-4 | Đại học có nên nhận số lượng nam/nữ bằng nhau ở mọi ngành? Writing🆕 | 
+we-v5k1-5 | Gia đình học trường tư có nên được miễn thuế giáo dục công? Writing🆕 | 
+we-v5k1-6 | Công nghệ có thể thay thế giáo viên? Writing🆕 | 
+we-v5k1-7 | Sinh viên nên sống xa nhà hay ở cùng bố mẹ? Writing🆕 | 
+we-v5k1-8 | Có nên đầu tư nhiều cho khám phá vũ trụ? Writing🆕 | 
+we-v5k1-9 | Chính phủ có nên bắt buộc tái chế rác bằng luật? Writing🆕 | 
+we-v5k1-10 | Quan niệm truyền thống của người lớn tuổi còn phù hợp với giới trẻ? Writing🆕 | 
+we-v5k1-11 | Lương có phải yếu tố quan trọng nhất khi chọn việc? Writing🆕 | 
+we-s1-1 | Writing – Social Media (Advantages & Disadvantages) Writing🆕 | prompt
+we-s1-2 | Writing – International Tourism Writing🆕 | prompt
+we-s1-3 | Writing – Telecommuting / Remote Work Writing🆕 | prompt
+we-s1-4 | Writing – Studying Abroad Writing🆕 | prompt
+misc-1 | Alternatives to "I think" Mẹo | 
+misc-2 | Aptis Speaking – Part 2 Mẹo | 
+misc-3 | English Contractions Reference Table Mẹo | full form, contraction
+misc-4 | Word Order: ALREADY Mẹo | is already, are already, already, have already, has already
+misc-5 | Alternatives to "For example" Mẹo | for example
+misc-cvA8-1 | Một số từ vựng C2 hay gặp🆕 | 
+misc-cvW3-1 | Mẹo luyện IELTS Reading (kinh nghiệm 8.0)🆕 | 1. skimming & scanning, 2. tăng từ vựng học thuật, 4. luyện đề theo độ khó tăng dần, kỹ thuật phù hợp, skim, scan
+misc-cvG2-1 | Từ vựng IELTS Reading thường gặp — bổ sung🆕 | 
+misc-cvG2-2 | Mẹo tự học Writing: học từ vựng & phân tích bài mẫu🆕 | 1. học từ vựng theo 2 nhóm, 2. phân tích bài mẫu (sample essay), 3. công cụ hỗ trợ, từ vựng phổ biến, từ vựng theo topic, không
+misc-cvG2-3 | Luyện Listening bằng nghe chép chính tả (dictation)🆕 | 
+misc-cvG2-4 | Chọn hình thức thi & mẹo làm bài trong phòng thi🆕 | bc hay idp, thứ tự thi, trong phòng thi, listening, writing, speaking
+misc-cvG3-1 | Trang web luyện & chữa Writing miễn phí🆕 | 
+v-01-1 | Airport 25 | 
+v-01-2 | Airport Terminal 24 | 
+v-01-3 | Departure Terminal Entrance 26 | 
+v-01-4 | Departure Board 29 | 
+v-01-5 | Airport Security 44 | 
+v-01-6 | Passport Control & Border Procedures 27 | 
+v-01-7 | Customs 17 | 
+v-01-8 | Boarding Gate 27 | 
+v-01-9 | Aircraft Boarding 29 | 
+v-01-10 | Airport Lounge 20 | 
+v-01-11 | Business Class 27 | 
+v-01-12 | Duty-Free Shop 26 | 
+v-01-13 | Airplane Cabin 26 | 
+v-01-14 | Aircraft Cabin 25 | 
+v-01-15 | In-Flight Service 27 | 
+v-01-16 | Aircraft Lavatory 30 | 
+v-01-17 | Overhead Bin 51 | 
+v-01-18 | Aircraft Doors & Emergency Exits 37 | 
+v-01-19 | Cockpit 16 | 
+v-01-20 | Aircraft Takeoff 27 | 
+v-01-21 | Aircraft Pushback 31 | 
+v-01-22 | Aircraft Turnaround 30 | 
+v-01-23 | Aircraft Maintenance 30 | 
+v-01-24 | Aircraft Communication 29 | 
+v-01-25 | Air Traffic Control 23 | 
+v-01-26 | Control Tower 48 | 
+v-01-27 | Air Cargo Warehouse 30 | 
+v-01-28 | Arrival Gate 28 | 
+v-01-29 | Baggage Claim 33 | 
+v-01-30 | Lost & Found 28 | 
+v-01-31 | Airport Skytrain 25 | 
+v-01-32 | Airport Shuttle Bus 23 | 
+v-01-33 | Airport Hotel 28 | 
+v-01-34 | Car Rental 29 | 
+v-01-35 | Airport Emergency Medical Center 35 | 
+v-01-36 | Airport & Flight Vocabulary 30 | 
+v-01-cvG2-1 | Sân bay & di chuyển — phrasal verb bổ sung🆕 | 
+v-02-1 | Motorcycle Parts 78 | 
+v-02-2 | Train Station Journey 14 | 
+v-02-3 | Railway Station Vocabulary 27 | 
+v-02-4 | Subway Station 27 | 
+v-02-5 | Bus Stop 20 | 
+v-02-6 | At the Bus Stop 14 | 
+v-02-7 | City Street 14 | 
+v-02-8 | Petrol Station 20 | 
+v-02-9 | Bus Stop Signage 5 | 
+v-02-10 | Petrol Pump 5 | 
+v-02-11 | Auto Repair Shop 10 | 
+v-02-12 | Roadside Breakdown 13 | 
+v-02-13 | Car Park 12 | 
+v-02-14 | Car Showroom 12 | 
+v-02-15 | Bus Depot 13 | 
+v-02-16 | Bike Parking 13 | 
+v-02-17 | Car Wash 12 | 
+v-02-18 | Ferry 10 | 
+v-02-19 | Taxi 8 | 
+v-02-20 | Petrol Station Services 9 | 
+v-02-21 | Car Accessories 11 | 
+v-02-22 | Metro Station 10 | 
+v-02-23 | Car Engine Repair 11 | 
+v-02-24 | City Street Fixtures 11 | 
+v-02-25 | Traffic Flow Phrases 5 | 
+v-02-26 | Traffic & Transport Collocations 14 | 
+v-02-27 | Giving Directions 11 | 
+v-02-28 | Driving Verbs 6 | 
+v-02-29 | Driving Phrasal Verbs 10 | 
+v-02-30 | Road Types 6 | 
+v-02-31 | Driving & Traffic Verbs 9 | 
+v-02-32 | Traffic Problems 12 | 
+v-02-33 | Road & Street Features 13 | 
+v-02-34 | Cars Vocabulary 25 | 
+v-02-35 | Traffic - Transporations - Vehicles 70 | 
+v-02-36 | Traffic Topic 76 | 
+v-02-37 | Town and city 26 | 
+v-02-38 | Public transport 18 | 
+v-02-39 | Driving Actions 6 | 
+v-02-40 | Traffic & Driving 13 | 
+v-03-1 | Hotel 63 | 
+v-03-2 | Hotel Lobby 14 | 
+v-03-3 | Hotel Vocabulary 36 | 
+v-03-4 | Entrance 26 | 
+v-03-5 | Grand Entrance Gate 36 | 
+v-03-6 | Hotel Room Types 7 | 
+v-04-1 | Fruits 1 | 
+v-04-2 | Fruit Names 35 | 
+v-04-3 | Part of pineapple 5 | 
+v-04-4 | Part of apple 5 | 
+v-04-5 | Seeds (phần 1) 97 | 
+v-04-6 | Seeds (phần 2) 79 | 
+v-04-7 | Port meat 89 | 
+v-04-8 | Kitchen Appliances & Gadgets (phần 1) 100 | 
+v-04-9 | Kitchen Appliances & Gadgets (phần 2) 100 | 
+v-04-10 | Kitchen Appliances & Gadgets (phần 3) 17 | 
+v-04-11 | Spices (phần 1) 99 | 
+v-04-12 | Spices (phần 2) 100 | 
+v-04-13 | Spices (phần 3) 100 | 
+v-04-14 | Spices (phần 4) 45 | 
+v-04-15 | Restaurant Verbs for Kids 134 | 
+v-04-16 | Foods and drinks 17 | 
+v-04-17 | Restaurant 29 | 
+v-04-18 | Restaurant Kitchen 34 | 
+v-04-19 | Kitchen 36 | 
+v-04-20 | Pizza Oven 36 | 
+v-04-21 | Coffee Shop 27 | 
+v-04-22 | Friendly Cafe 11 | 
+v-04-23 | Slice It Right 12 | 
+v-04-24 | Camping Cooking Vocabulary 31 | 
+v-04-25 | Pizza Shop 9 | 
+v-04-26 | Baking Equipment 6 | 
+v-04-27 | Deli Counter 14 | 
+v-04-28 | Coffee & Tea Service 9 | 
+v-04-29 | Baking Tools 11 | 
+v-04-30 | Cheese Shop 12 | 
+v-04-31 | Butcher Shop 11 | 
+v-04-32 | Camping Food Supplies 16 | 
+v-04-33 | Breakfast Table 15 | 
+v-04-34 | Tea Shop 11 | 
+v-04-35 | Party Food 14 | 
+v-04-36 | Breakfast Foods 13 | 
+v-04-37 | Desserts 15 | 
+v-04-38 | Drinking & Being Drunk 20 | 
+v-04-39 | Cooking Methods 43 | 
+v-04-40 | Sauce & Ketchup 2 | 
+v-04-41 | Fruit Idioms 6 | 
+v-04-42 | Vietnamese Dishes 66 | 
+v-04-43 | Food Taste Adjectives 16 | 
+v-04-44 | Eggs & Egg Dishes 11 | 
+v-04-45 | Measures: Glass & Garlic 3 | 
+v-04-46 | Hot Pot & Spice Levels 8 | 
+v-04-47 | Taste & Flavour 4 | 
+v-04-48 | Spoiled Food & Poor Quality 17 | 
+v-04-49 | Spoiled Food 88 | 
+v-04-50 | Cooking 19 | 
+v-04-51 | Food 18 | 
+v-04-52 | Heathy eating 13 | 
+v-04-53 | Hunger & Thirst Phrases 10 | 
+v-05-1 | Supermarket 62 | 
+v-05-2 | Supermarket Shopping 14 | 
+v-05-3 | Checkout 11 | 
+v-05-4 | Shopping Mall 26 | 
+v-05-5 | Farmers' Market 26 | 
+v-05-6 | Fruits & Vegetables 18 | 
+v-05-7 | Local Market Stall 10 | 
+v-05-8 | Electronics Store 9 | 
+v-05-9 | Types of Shops 43 | 
+v-05-10 | Supermarket Counters & Aisles 6 | 
+v-05-11 | Phone Battery 2 | 
+v-05-12 | Shopping Phrases 53 | 
+v-05-13 | Audio Devices 61 | 
+v-05-14 | Invention 26 | 
+v-05-15 | Shopping 47 | 
+v-05-16 | Computers 17 | 
+v-05-17 | Post Office 34 | 
+v-05-18 | Bank 38 | 
+v-05-19 | Hair Salon 19 | 
+v-05-20 | Movie Theater 20 | 
+v-05-21 | Flower Shop 9 | 
+v-05-22 | Print Shop 12 | 
+v-05-23 | Courier Delivery 11 | 
+v-05-24 | Parcel Locker 14 | 
+v-05-25 | Delivery Van 12 | 
+v-05-26 | Locksmith 12 | 
+v-05-27 | Warehouse 8 | 
+v-06-1 | Job 41 | 
+v-06-2 | School 123 | 
+v-06-3 | Office 18 | 
+v-06-4 | Classroom 23 | 
+v-06-5 | Library 28 | 
+v-06-6 | Job Families 16 | 
+v-06-7 | School Crossing 14 | 
+v-06-8 | Community Hall 12 | 
+v-06-9 | School Cafeteria 11 | 
+v-06-10 | Education Collocations 8 | 
+v-06-11 | Student Types 12 | 
+v-06-12 | Job Types 4 | 
+v-06-13 | Work Locations 3 | 
+v-06-14 | Using a Pen (phần 1) 100 | 
+v-06-15 | Using a Pen (phần 2) 100 | 
+v-06-16 | Using a Pen (phần 3) 99 | 
+v-06-17 | Using a Pen (phần 4) 13 | 
+v-06-18 | Study habits and skills 28 | 
+v-06-19 | Skills 19 | 
+v-06-20 | Learning Language 11 | 
+v-06-21 | Politics & Elections 43 | 
+v-06-22 | Industry Collocations 34 | 
+v-06-23 | Business 89 | 
+v-06-24 | Volunteer Work 24 | 
+v-06-25 | Social Issues (Band 7+) 53 | 
+v-06-26 | Culture (phần 1) 100 | 
+v-06-27 | Culture (phần 2) 100 | 
+v-06-28 | Culture (phần 3) 54 | 
+v-06-29 | Collocation: Kinh tế & Xã hội 16 | 
+v-06-cvA4-1 | Collocations chủ đề Kinh tế — bổ sung🆕 | 
+v-06-cvA4-2 | Education Collocations — bổ sung🆕 | 
+v-07-1 | Common Illnesses 9 | 
+v-07-2 | Common Treatments 84 | 
+v-07-3 | Hospital Reception 20 | 
+v-07-4 | Hospital Emergency Room Vocabulary 26 | 
+v-07-5 | Doctor Visit 14 | 
+v-07-6 | My Pharmacy Vocabulary 27 | 
+v-07-7 | Emergency 26 | 
+v-07-8 | Rescue Helicopter 29 | 
+v-07-9 | Minor Injuries 15 | 
+v-07-10 | Clinic Visit 13 | 
+v-07-11 | Hospital Departments 9 | 
+v-07-12 | Medicine Cabinet 10 | 
+v-07-13 | Dental Care 25 | 
+v-07-14 | Optician 13 | 
+v-07-15 | Dentist Surgery 12 | 
+v-07-16 | Pharmacy Shelf 6 | 
+v-07-17 | Injuries & Wounds 13 | 
+v-07-18 | In Hospital & At Hospital 3 | 
+v-07-19 | Phobias 5 | 
+v-07-20 | Smoking & Health 21 | 
+v-07-21 | Nose & Cold Symptoms 36 | 
+v-07-22 | Injuries & Skin Problems 130 | 
+v-08-1 | army: https://www.army.mil/ranks/ 54 | 
+v-08-2 | Fire Station 28 | 
+v-08-3 | Smoke Detector / Fire Warning 22 | 
+v-08-4 | Police Station 20 | 
+v-08-5 | Construction Site 17 | 
+v-08-6 | Naval Base 28 | 
+v-08-7 | UK Army Barracks 20 | 
+v-08-8 | Building Site 8 | 
+v-08-9 | Police Work 10 | 
+v-09-1 | Rooms in the House 6 | 
+v-09-2 | List of Dining Room Furniture 20 | 
+v-09-3 | List of Household Devices and Equipment (phần 1) 92 | 
+v-09-4 | List of Household Devices and Equipment (phần 2) 97 | 
+v-09-5 | List of Household Devices and Equipment (phần 3) 96 | 
+v-09-6 | List of Household Devices and Equipment (phần 4) 55 | 
+v-09-7 | Laundry Day 22 | 
+v-09-8 | Laundry Room 26 | 
+v-09-9 | Cleaning Tools 16 | 
+v-09-10 | Cleaning Supplies 22 | 
+v-09-11 | Bathroom Care 16 | 
+v-09-12 | Locker Room 19 | 
+v-09-13 | Pet Care 21 | 
+v-09-14 | Furniture Delivery 4 | 
+v-09-15 | Balcony View 12 | 
+v-09-16 | Plumbing 8 | 
+v-09-17 | Fasteners & Hardware 11 | 
+v-09-18 | Electrical Fittings 10 | 
+v-09-19 | Candle Making 14 | 
+v-09-20 | Rooftop Terrace 12 | 
+v-09-21 | Balcony & Outdoor Living 12 | 
+v-09-22 | Moving House 13 | 
+v-09-23 | Window Cleaning 13 | 
+v-09-24 | Recycling 14 | 
+v-09-25 | Hooks 7 | 
+v-09-26 | Opening Containers 31 | 
+v-09-27 | Curtains & Blinds 2 | 
+v-09-28 | Lights 3 | 
+v-09-29 | Where you live 21 | 
+v-09-30 | Accommodation 29 | 
+v-09-31 | Architecture - Buildings 39 | 
+v-09-32 | Buildings 17 | 
+v-09-33 | Part 2 – Section 5: Objects 46 | 
+v-10-1 | Women’s Heels 97 | 
+v-10-2 | Beauty Problems and Pictures 9 | 
+v-10-3 | Clothing Groups 16 | 
+v-10-4 | Tailor Shop 6 | 
+v-10-5 | Tattoo Studio 12 | 
+v-10-6 | Shoe Shop 11 | 
+v-10-7 | Nail Salon 9 | 
+v-10-8 | Winter Clothing & Gear 7 | 
+v-10-9 | Hair Salon Tools 7 | 
+v-10-10 | Wearing Clothes Wrong Way 2 | 
+v-10-11 | Clothing & Fashion (phần 1) 91 | 
+v-10-12 | Clothing & Fashion (phần 2) 85 | 
+v-10-13 | Clothing & Fashion (phần 3) 89 | 
+v-10-14 | Clothing & Fashion (phần 4) 67 | 
+v-10-15 | Trying On & Altering Clothes 9 | 
+v-10-16 | Dressing Verbs 11 | 
+v-10-17 | Parts of a Shoe 8 | 
+v-10-18 | Costume, Outfit, Uniform, Clothes 4 | 
+v-10-19 | Clothes 29 | 
+v-10-20 | Outfit 25 | 
+v-10-21 | Fashion (A stylish person & Accessories) 26 | 
+v-11-1 | In the Garden Vocabulary (phần 1) 99 | 
+v-11-2 | In the Garden Vocabulary (phần 2) 100 | 
+v-11-3 | In the Garden Vocabulary (phần 3) 80 | 
+v-11-4 | Nature Vocabulary in English 121 | 
+v-11-5 | Garden 18 | 
+v-11-6 | Garden Entrance 34 | 
+v-11-7 | Garden Shed 34 | 
+v-11-8 | Eco Garden Entrance 37 | 
+v-11-9 | Rain Garden 40 | 
+v-11-10 | Farm 20 | 
+v-11-11 | Farm Entrance 38 | 
+v-11-12 | Palm Tree 39 | 
+v-11-13 | Farm Field 9 | 
+v-11-14 | Orchard 12 | 
+v-11-15 | Firewood & Log Splitting 12 | 
+v-11-16 | Space 13 | 
+v-11-17 | Eclipses 2 | 
+v-11-18 | Flowers 19 | 
+v-11-19 | Space & Astronomy 23 | 
+v-11-20 | Environment (phần 1) 100 | 
+v-11-21 | Environment (phần 2) 66 | 
+v-11-22 | Saving energy 38 | 
+v-11-23 | Natural World 48 | 
+v-11-24 | Collocation: Môi trường & Nông nghiệp 4 | 
+v-12-1 | List of Domestic Animals & Farm Animals 57 | 
+v-12-2 | List of Wild Animals 35 | 
+v-12-3 | Tropical Rainforest 40 | 
+v-12-4 | Temperate Rainforest 25 | 
+v-12-5 | List of Sea, Ocean and Water Animals 40 | 
+v-12-6 | List of Birds 22 | 
+v-12-7 | List of Reptiles 31 | 
+v-12-8 | List of Male, Female, Group and Baby Animal Names (phần 1) 100 | 
+v-12-9 | List of Male, Female, Group and Baby Animal Names (phần 2) 95 | 
+v-12-10 | List of Male, Female, Group and Baby Animal Names (phần 3) 66 | 
+v-12-11 | Parts of a Cow 97 | 
+v-12-12 | Parts of an Elephant 5 | 
+v-12-13 | Animal Homes 12 | 
+v-12-14 | Aquarium 12 | 
+v-12-15 | Veterinary Clinic 13 | 
+v-12-16 | Animals 15 | 
+v-12-17 | Birds 82 | 
+v-13-1 | Blue Sky 32 | 
+v-13-2 | Weather 79 | 
+v-13-3 | Water & Water Phenomena 9 | 
+v-13-4 | Weather Instruments 14 | 
+v-13-5 | Rain Intensity 13 | 
+v-13-6 | Seasons 14 | 
+v-13-7 | Rains 15 | 
+v-14-1 | List of Hobbies For Men (phần 1) 96 | 
+v-14-2 | List of Hobbies For Men (phần 2) 96 | 
+v-14-3 | List of Hobbies For Men (phần 3) 99 | 
+v-14-4 | List of Hobbies For Men (phần 4) 35 | 
+v-14-5 | Activity 104 | 
+v-14-6 | Beach 21 | 
+v-14-7 | Day at the Beach 14 | 
+v-14-8 | Swimming Pool 19 | 
+v-14-9 | Lakeside Water Safety Vocabulary 25 | 
+v-14-10 | Outdoor Survival Vocabulary 42 | 
+v-14-11 | Hiking Vocabulary Adventure: Discover the National Park 37 | 
+v-14-12 | Exploring Our National Park: Wildlife & Nature Vocabulary 34 | 
+v-14-13 | Travel Idioms 9 | 
+v-14-14 | Seaside Promenade 18 | 
+v-14-15 | Boats & Harbour 8 | 
+v-14-16 | Lighthouse 13 | 
+v-14-17 | Fishing Pier 12 | 
+v-14-18 | Travel Agency 14 | 
+v-14-19 | Fishing Boat 14 | 
+v-14-20 | Beach Day Gear 14 | 
+v-14-21 | Swimming Pool Facilities 15 | 
+v-14-22 | Fishing Tackle 12 | 
+v-14-23 | Hiking Gear 13 | 
+v-14-24 | Ship Parts 9 | 
+v-14-25 | Summer Items 9 | 
+v-14-26 | Park Scene 3 | 
+v-14-27 | Water Park 10 | 
+v-14-28 | Picnic 13 | 
+v-14-29 | Picnic Cooler 8 | 
+v-14-30 | Tourism & Travel 25 | 
+v-14-31 | Describing a Place 19 | 
+v-14-32 | Trip, Journey, Tour, Voyage 10 | 
+v-14-33 | Swimming Styles 9 | 
+v-14-34 | Vietnam Regions 3 | 
+v-14-35 | Suitcase & Luggage 32 | 
+v-14-36 | Travelling 71 | 
+v-14-37 | Tourism 46 | 
+v-14-38 | Hometown 65 | 
+v-14-39 | The sea 23 | 
+v-14-40 | Outdoor activities 23 | 
+v-14-41 | Part 2 – Section 2: Places 52 | 
+v-14-cvG2-1 | Du lịch — collocation bổ sung🆕 | 
+v-15-1 | FIFA World Cup Football Stadium 39 | 
+v-15-2 | Olympic Games: Behind Every Great Event, There Is An Amazing Team 42 | 
+v-15-3 | Bowling Alley 19 | 
+v-15-4 | Football Match Day 9 | 
+v-15-5 | Horse Riding 13 | 
+v-15-6 | Yoga Studio 13 | 
+v-15-7 | Martial Arts Dojo 14 | 
+v-15-8 | Baseball 12 | 
+v-15-9 | Football Training 11 | 
+v-15-10 | Skiing 15 | 
+v-15-11 | Ice Hockey 13 | 
+v-15-12 | Dance Studio 14 | 
+v-15-13 | Ski Lodge 11 | 
+v-15-14 | Athletics Stadium 7 | 
+v-15-15 | Tournament Rounds 43 | 
+v-15-16 | Top Four & Rankings 2 | 
+v-15-17 | Cycling 12 | 
+v-16-1 | List of Holidays 15 | 
+v-16-2 | Birthday Vocabulary 112 | 
+v-16-3 | New Year’s Eve Vocabulary 99 | 
+v-16-4 | New year 11 | 
+v-16-5 | Birthday Party 13 | 
+v-16-6 | Wedding 11 | 
+v-16-7 | Tết & New Year 4 | 
+v-16-8 | Holidays & Festivals 29 | 
+v-16-9 | At & On Christmas 2 | 
+v-16-10 | Lunar new year 52 | 
+v-16-11 | What do you do before Tet? 4 | 
+v-16-12 | Weddings 18 | 
+v-16-13 | Birthdays 12 | 
+v-17-1 | Movie Genre 30 | 
+v-17-2 | Comedy Club 7 | 
+v-17-3 | Arcade 16 | 
+v-17-4 | Film Set 13 | 
+v-17-5 | Chess Club 13 | 
+v-17-6 | Board Games 15 | 
+v-17-7 | Band Rehearsal Room 9 | 
+v-17-8 | Funfair 16 | 
+v-17-9 | Theatre Stage 17 | 
+v-17-10 | Circus 12 | 
+v-17-11 | TV Studio 12 | 
+v-17-12 | Photography 25 | 
+v-17-13 | Pottery Studio 14 | 
+v-17-14 | Photo Studio 12 | 
+v-17-15 | Toys 10 | 
+v-17-16 | Art & Craft Room 10 | 
+v-17-17 | Theme Park 14 | 
+v-17-18 | Playing Cards 67 | 
+v-17-19 | Book and film 93 | 
+v-17-20 | Music 25 | 
+v-17-21 | Advertising 37 | 
+v-17-22 | Entertainment ( Leisure Activities & Sport) 28 | 
+v-17-23 | Hobby (phần 1) 100 | 
+v-17-24 | Hobby (phần 2) 99 | 
+v-17-25 | Hobby (phần 3) 45 | 
+v-17-26 | Collecting things 21 | 
+v-17-27 | Dancing 13 | 
+v-17-28 | Films 24 | 
+v-17-29 | Weekends 13 | 
+v-17-30 | Going out in the evening 15 | 
+v-17-31 | Museums 14 | 
+v-17-32 | Part 2 – Section 4: Media 52 | 
+v-17-33 | Part 2 – Section 6: Hobbies & Activities 43 | 
+v-18-1 | Personal qualities 77 | 
+v-18-2 | Traits of a Woman 10 | 
+v-18-3 | Skin Conditions 11 | 
+v-18-4 | Talking About Age 6 | 
+v-18-5 | Titles: Mr, Mrs, Miss, Ms 4 | 
+v-18-6 | Personality Idioms 9 | 
+v-18-7 | Family Types 2 | 
+v-18-8 | Skin Tone 2 | 
+v-18-9 | Habit Expressions 5 | 
+v-18-10 | Nationalities & Countries 10 | 
+v-18-11 | Feelings & States Slang 7 | 
+v-18-12 | Kisses 6 | 
+v-18-13 | Person Idioms (Food) 6 | 
+v-18-14 | Sleep Expressions 17 | 
+v-18-15 | Sexual Orientation 3 | 
+v-18-16 | Describing Appearance & Personality 25 | 
+v-18-17 | Age Stages 13 | 
+v-18-18 | Body Habits & Fidgeting 112 | 
+v-18-19 | Lifestyle 30 | 
+v-18-20 | Personality 26 | 
+v-18-21 | Physical appearance 30 | 
+v-18-22 | Meeting new people 14 | 
+v-18-23 | Routines 17 | 
+v-18-24 | Family 11 | 
+v-18-25 | Relaxation 11 | 
+v-18-26 | childhood 7 | 
+v-18-27 | Colours 9 | 
+v-18-28 | Part 2 – Section 1: People 41 | 
+v-18-29 | Part 2 – Section 3: Experiences 46 | 
+v-18-30 | Sleep Habits 6 | 
+v-18-cvA3-1 | Tính từ chỉ tính cách — bổ sung🆕 | 
+v-18-cvA3-2 | 22 tính từ tả khuôn mặt🆕 | 
+v-18-cvA4-1 | Tính cách nhút nhát, thiếu bản lĩnh — bổ sung🆕 | 
+v-18-cvA4-2 | Hope & Attention collocations🆕 | hope, attention
+v-19-1 | Days Of The Week In The Present 7 | 
+v-19-2 | Is John working this Monday? 6 | 
+v-19-3 | Days Of The Week In The Future 5 | 
+v-19-4 | Yesterday, Today and Tomorrow 9 | 
+v-19-5 | Shortened Days Of The Week 1 | 
+v-19-6 | Mon 20 | 
+v-19-7 | Months Of The Year In The Present 1 | 
+v-19-8 | It is March. 1 | 
+v-19-9 | Months Of The Year In The Past 3 | 
+v-19-10 | Months Of The Year In The Future 3 | 
+v-19-11 | 6 am — Dawn 7 | 
+v-19-12 | Clock Shop 12 | 
+v-19-13 | Time Periods & Frequency 10 | 
+v-19-14 | Reading Dates 1 | 
+v-19-15 | At ... Point 5 | 
+v-19-16 | In the End & At the End 3 | 
+v-19-17 | Telling the Time 13 | 
+v-19-18 | Semiannual, Biannual, Biennial 3 | 
+v-19-19 | Day & Date Expressions 15 | 
+v-19-20 | Time Idioms 15 | 
+v-19-21 | Time Units 10 | 
+v-19-22 | By the Time / Briefly 5 | 
+v-19-23 | Time Phrases 18 | 
+v-19-24 | Then Phrases 8 | 
+v-19-25 | How to Write Numbers in Words 20 | 
+v-19-26 | Counting Big Numbers (phần 1) 100 | 
+v-19-27 | Counting Big Numbers (phần 2) 100 | 
+v-19-28 | Counting Big Numbers (phần 3) 97 | 
+v-19-29 | Counting Big Numbers (phần 4) 92 | 
+v-19-30 | Counting Big Numbers (phần 5) 99 | 
+v-19-31 | Counting Big Numbers (phần 6) 97 | 
+v-19-32 | Counting Big Numbers (phần 7) 67 | 
+v-19-33 | Money 71 | 
+v-19-34 | Money & Coins 13 | 
+v-19-35 | Ordinal Numbers 44 | 
+v-19-36 | Money Collocations 5 | 
+v-19-37 | Shapes 38 | 
+v-19-cvA7-1 | Cách viết ngày tháng (Anh – Mỹ)🆕 | 
+v-20-1 | Verbs of Body Movement 126 | 
+v-20-2 | Prepositions of Place 31 | 
+v-20-3 | Politely Ask Someone to Repeat Something 111 | 
+v-20-4 | Opening & Removing Verbs 9 | 
+v-20-5 | Climbing Verbs 13 | 
+v-20-6 | Swimming Verbs 4 | 
+v-20-7 | Reasoning Verbs 10 | 
+v-20-8 | Phone Verbs 14 | 
+v-20-9 | Structures: likely / be to / without + Ving 8 | 
+v-20-10 | Talking About Problems 3 | 
+v-20-11 | Think & Decide Phrasal Verbs 14 | 
+v-20-12 | Confusable Words 77 | 
+v-20-13 | No, None, None of 4 | 
+v-20-14 | Email Sign-offs 7 | 
+v-20-15 | Most, Almost, Mostly 8 | 
+v-20-16 | Mind Idioms 10 | 
+v-20-17 | Stand Phrasal Verbs 11 | 
+v-20-18 | Suffixes: -free, -friendly, -like, -proof 28 | 
+v-20-19 | A Little, Little, A Few, Few 6 | 
+v-20-20 | Khác 16 | 
+v-20-21 | Speaking Discourse Phrases 9 | 
+v-20-22 | Either & Neither 23 | 
+v-20-23 | Compound Adjectives 44 | 
+v-20-24 | Sure Expressions 5 | 
+v-20-25 | Intelligent, Smart, Clever 3 | 
+v-20-26 | Also, Too, As well 3 | 
+v-20-27 | Walking Verbs 4 | 
+v-20-28 | Away Phrasal Verbs 13 | 
+v-20-29 | Time Conjunctions 5 | 
+v-20-30 | Spoken Expressions 6 | 
+v-20-31 | Spoken Contractions & Slang 34 | 
+v-20-32 | A Little & A Few 4 | 
+v-20-33 | Countable & Uncountable Nouns 21 | 
+v-20-34 | Usage & Pronunciation Notes 10 | 
+v-20-35 | Like, Look like, Be like 3 | 
+v-20-36 | Position Phrases 4 | 
+v-20-37 | Besides, Except, Apart from 3 | 
+v-20-38 | Right & True 2 | 
+v-20-39 | Amount, Number, Quantity 3 | 
+v-20-40 | Look like & Seem like 2 | 
+v-20-41 | Confusable Adjective Pairs 21 | 
+v-20-42 | Phone Call Phrasal Verbs 12 | 
+v-20-43 | Think of / Hear of / Ask for 6 | 
+v-20-44 | Had better, Would rather, Prefer 5 | 
+v-20-45 | Go to bed / Get in the car 4 | 
+v-20-46 | Confusable Verb Pairs 16 | 
+v-20-47 | Used to & Get used to 2 | 
+v-20-48 | Simulators & Emulators 2 | 
+v-20-49 | Stay Phrasal Verbs 22 | 
+v-20-50 | Looking Verbs 8 | 
+v-20-51 | Handling Objects Verbs 6 | 
+v-20-52 | Essay & Discourse Phrases 50 | 
+v-20-53 | IELTS Paraphrases 20 | 
+v-20-54 | All & Whole; Un/Disinterested 5 | 
+v-20-55 | Hesitation & Fear Phrases 6 | 
+v-20-56 | Casual Spoken Phrases 52 | 
+v-20-57 | Polite Indirect Phrases 6 | 
+v-20-58 | Push Phrasal Verbs 11 | 
+v-20-59 | Able & Capable 2 | 
+v-20-60 | Words with -aholic 7 | 
+v-20-61 | Historic/Historical, Classic/Classical 4 | 
+v-20-62 | Even though / Even if 4 | 
+v-20-63 | Agreeing Phrases 10 | 
+v-20-64 | Nouns That Change Meaning in Plural 7 | 
+v-20-65 | Part 2 – Section 7: Other Topics 7 | 
+v-20-66 | Empty & Deserted Places 6 | 
+v-20-67 | Nuance: Gầy (thin / skinny) 5 | 
+v-20-68 | Nuance: Béo (heavy / obese) 4 | 
+v-20-69 | Nuance: Cười (laugh / smile) 5 | 
+v-20-70 | Nuance: Khóc (cry / sob) 5 | 
+v-20-71 | Nuance: Muốn & Ước (want / wish) 6 | 
+v-20-72 | Nuance: Bao gồm (contain / include) 5 | 
+v-20-73 | Nuance: Hoãn lại (delay / postpone) 5 | 
+v-20-74 | Nuance: Nhìn & Nghe (see / hear) 7 | 
+v-20-75 | Nuance: Nhỏ (small / tiny) 4 | 
+v-20-76 | Nuance: Lớn & Nhiều (big / many) 7 | 
+v-20-77 | Nuance: Nhà vệ sinh & Khăn giấy (toilet / tissue) 11 | 
+v-20-78 | Nuance: Cặp đôi (pair / couple) 6 | 
+v-20-79 | Nuance: Tin tưởng (believe / trust) 4 | 
+v-20-80 | Nuance: Mềm & Mịn (soft / smooth) 4 | 
+v-20-81 | Nuance: Thu thập (gather / collect) 6 | 
+v-20-82 | Nuance: Liên kết & Công ty con (associate / affiliate) 4 | 
+v-20-83 | Nuance: Thông minh (smart / clever) 4 | 
+v-20-84 | Nuance: Tìm kiếm (find / search) 6 | 
+v-20-85 | Nuance: Lời chào cuối thư 2 | 
+v-20-86 | Nuance: Chuyến đi (travel / trip) 4 | 
+v-20-87 | Nuance: Giới tính (sex / gender) 7 | 
+v-20-88 | Nuance: Bởi vì (because of / due to) 2 | 
+v-20-89 | Nuance: Xưng hô lịch sự (sir / madam) 3 | 
+v-20-90 | Nuance: Trạng từ mức độ (very / quite) 4 | 
+v-20-91 | Nuance: Thay thế (replace / substitute) 7 | 
+v-20-92 | Nuance: Bắt đầu (start / begin) 6 | 
+v-20-93 | Nuance: Dừng lại (stop / cease) 6 | 
+v-20-94 | Nuance: Thay đổi (change / switch) 7 | 
+v-20-95 | Nuance: Kết thúc (end / finish) 7 | 
+v-20-96 | Nuance: Đạt được (get / obtain) 5 | 
+v-20-97 | Nuance: Giúp đỡ (help / assist) 4 | 
+v-20-98 | Nuance: Lừa gạt (deceive / cheat) 6 | 
+v-20-99 | Nuance: Sửa chữa (repair / fix) 6 | 
+v-20-100 | Nuance: Phục hồi & Chữa lành (recover / heal) 4 | 
+v-20-101 | Nuance: Dự đoán (predict / forecast) 4 | 
+v-20-102 | Nuance: Phép tính 2 | 
+v-20-103 | Nuance: Buộc (tie / bind) 2 | 
+v-20-104 | Nuance: Hét (shout / scream) 5 | 
+v-20-105 | Nuance: Phớt lờ (ignore / neglect) 5 | 
+v-20-106 | Nuance: Từ lẻ 1 | 
+v-20-107 | Nuance: Làm phiền (bother / annoy) 4 | 
+v-20-108 | Nuance: Tấn công (attack / hit) 5 | 
+v-20-109 | Nuance: Nhìn trộm & Nghe lén (peek / eavesdrop) 8 | 
+v-20-110 | Nuance: Tranh cãi (argue / quarrel) 2 | 
+v-20-111 | Nuance: Giết & Hậu tố -cide (kill / murder) 13 | 
+v-20-112 | Nuance: Bãi bỏ & Khám phá (abolish / uncover) 3 | 
+v-20-113 | Nuance: Tuân thủ (comply / obey) 2 | 
+v-20-114 | Nuance: Trộn (mix / blend) 4 | 
+v-20-115 | Nuance: Trả lời (reply / respond) 2 | 
+v-20-116 | Nuance: Trộm cắp (rob / steal) 3 | 
+v-20-117 | Nuance: Hàng hoá (goods / merchandise) 3 | 
+v-20-118 | Nuance: Tương phản (by contrast / on the contrary) 2 | 
+v-20-119 | Suffix: -free 6 | 
+v-20-120 | Suffix: -friendly 7 | 
+v-20-121 | Suffix: -like 4 | 
+v-20-122 | Suffix: -proof 6 | 
+v-20-123 | Think Phrasal Verbs 8 | 
+v-20-124 | To be + to + verb 4 | 
+v-20-125 | Pronunciation & Usage Notes 8 | 
+v-20-cvA6-1 | Từ dễ nhầm: false, artificial, counterfeit, genuine🆕 | 
+v-20-cvA5-1 | No, None, Not — phân biệt thêm với "not"🆕 | i have no money, mẹo, none, no, not
+v-20-cvV1-1 | Stay + tính từ — bổ sung ✎ bổ sung 🆕 | 
+v-21-1 | One note 80 | 
+v-21-2 | TIRED 14 | 
+v-21-3 | BEAUTIFUL 7 | 
+v-21-4 | TASTY 7 | 
+v-21-5 | SMALL 10 | 
+v-21-6 | HAPPY 8 | 
+v-21-7 | NICE 7 | 
+v-21-8 | BAD 39 | 
+v-21-9 | BIG 18 | 
+v-21-10 | Let's eat 17 | 
+v-21-11 | I'm shocked 10 | 
+v-21-12 | It's really bad 10 | 
+v-21-13 | I'll think about it 8 | 
+v-21-14 | congratulations 13 | 
+v-21-15 | In a sense 13 | 
+v-21-16 | hear 6 | 
+v-21-17 | The socks are torn 14 | 
+v-21-18 | The papers are all crumpled. 6 | 
+v-21-19 | Disadvantage 7 | 
+v-21-20 | Are you free? 10 | 
+v-21-21 | Go down 14 | 
+v-21-22 | Go up 14 | 
+v-21-23 | No change 8 | 
+v-21-24 | Constant change 7 | 
+v-21-25 | Position 6 | 
+v-21-26 | "May I sit here?" 10 | 
+v-21-27 | It's interesting 10 | 
+v-21-cvA3-1 | Từ vựng nâng cao qua bài đọc tin tức🆕 | 
+v-21-cvG2-1 | Tình yêu (Love) — từ vựng bổ sung🆕 | 
+v-22-1 | Hư ổ cắm điện (Broken Socket / Outlet) 14 | 
+v-22-2 | Nghĩa trang & Thăm mộ (Cemetery & Visiting Graves) 19 | 
+v-22-3 | Đồ ăn hỏng (Spoiled & Bad Food) 9 | 
+v-22-4 | Cụm từ chỉ thời gian (Time Expressions) 19 | 
+v-22-5 | Sức khỏe & Lối sống (Health & Lifestyle) 15 | 
+v-22-6 | Tính cách & Ứng xử (Behavior & Personality) 6 | 
+v-22-7 | Miêu tả đô thị & Không gian (City & Urban Descriptors) 15 | 
+v-22-8 | Cặp từ bất khả đảo (Binomial Pairs) 12 | 
+v-22-9 | Cụm từ với "NO" & Thành ngữ phản hồi (Idioms & Expressions) 7 | 
+v-22-10 | Quầy thu ngân & Mua sắm (Cashier & Shopping) 4 | 
+v-22-11 | Đồ dùng cho trẻ em (Baby Items) 4 | 
+v-22-12 | Nấu cơm chay 15 | 
+v-22-13 | Nấu cơm 20 | 
+v-22-14 | Nấu ăn tổng quát 21 | 
+v-22-15 | Chiên trứng 9 | 
+v-22-16 | Kho thịt 8 | 
+v-22-17 | Hoạt động trong nhà bếp (Phần 2) 10 | 
+v-22-18 | Hoạt động trong nhà bếp (Phần 1) 12 | 
+v-22-19 | Luộc trứng 16 | 
+v-22-20 | Nấu canh (Phần 1 & 2) 21 | 
+v-22-21 | Chiên cơm 10 | 
+v-22-22 | Bàn thờ tổ tiên 15 | 
+v-22-23 | Băng đô & Phụ kiện tóc 9 | 
+v-22-24 | Chai hồ & Keo dán 15 | 
+v-22-25 | Băng keo 16 | 
+v-22-26 | Khăn giấy 14 | 
+v-22-27 | Gấp dù lại 15 | 
+v-22-28 | Cái thau 12 | 
+v-22-29 | Thiền buông thư 16 | 
+v-22-30 | Thiền tọa 11 | 
+v-22-31 | Thiền chuyên sâu 9 | 
+v-22-32 | Tập yoga 16 | 
+v-22-33 | Ngồi quanh bếp lửa 15 | 
+v-22-34 | Uống trà 17 | 
+v-22-35 | Đốt tinh dầu 11 | 
+v-22-36 | Đàm đạo 14 | 
+v-22-37 | Cô ấy chửi tôi 7 | 
+v-22-38 | Véo tay & Động tác tay 7 | 
+v-22-39 | Ve chai 11 | 
+v-22-40 | Thở dài & Âm thanh cơ thể 5 | 
+v-22-41 | Biểu cảm gương mặt & Ánh mắt 3 | 
+v-22-42 | Làm nông 16 | 
+v-22-43 | Làm vườn & Xúc đất 16 | 
+v-22-44 | Trồng rau nuôi cá 14 | 
+v-22-45 | Cách động vật ăn (Phần 1) 6 | 
+v-22-46 | Cách động vật ăn (Phần 2) 6 | 
+v-22-47 | Các dấu hiệu trên răng, miệng 4 | 
+v-22-48 | Các dấu hiệu trên tóc, móng 4 | 
+v-22-49 | Các dấu hiệu trên khuôn mặt (Phần 3) 5 | 
+v-22-50 | Các dấu hiệu trên khuôn mặt (Phần 2) 5 | 
+v-22-51 | Các dấu hiệu trên khuôn mặt (Phần 1) 5 | 
+v-22-52 | Các dấu hiệu trên cơ thể 5 | 
+v-22-53 | Các dấu hiệu trên da (Phần 3) 6 | 
+v-22-54 | Các dấu hiệu trên da (Phần 2) 3 | 
+v-22-55 | Các dấu hiệu trên da (Phần 1) 7 | 
+v-22-56 | Đi thăm mộ 1 | 
+v-22-57 | Xi măng 15 | 
+v-22-58 | Làm ở công trình 3 | 
+v-22-59 | Nhà lợp ngói 14 | 
+v-22-60 | Bể cá 11 | 
+v-22-61 | Kệ dép 7 | 
+v-22-62 | Bộ bàn ghế 7 | 
+v-22-63 | Xào phơi đồ 11 | 
+v-22-64 | Cái võng 15 | 
+v-22-65 | Bị trật gân 13 | 
+v-22-66 | Đi tiểu & Đi vệ sinh 11 | 
+v-22-67 | Bóng đèn hư 11 | 
+v-22-68 | Nhà dột 11 | 
+v-22-69 | Bụi 10 | 
+v-22-70 | Bị ong chích 14 | 
+v-22-71 | Bị điện giật 9 | 
+v-22-72 | Tay bị trầy 18 | 
+v-22-73 | Bị mề đay 8 | 
+v-22-74 | Chích thuốc 11 | 
+v-22-75 | Tay bị bầm 10 | 
+v-22-76 | Nốt ruồi 7 | 
+v-22-77 | Dao cạo râu 10 | 
+v-22-78 | Đám tang 11 | 
+v-22-79 | Các kiểu mưa 8 | 
+v-22-80 | Uốn tóc 9 | 
+v-22-81 | Tay bị bỏng 9 | 
+v-22-82 | Các thói quen cá nhân (Phần 1) 16 | 
+v-22-83 | Các thói quen cá nhân (Phần 2) 12 | 
+v-22-84 | Nặn mụn 12 | 
+v-22-85 | Thuốc nhỏ mắt 9 | 
+v-22-86 | Xỉa răng 7 | 
+v-22-87 | Chảy máu cam 7 | 
+v-22-88 | Móc treo đồ 6 | 
+v-22-89 | Tẩy tế bào chết 9 | 
+v-22-90 | Tẩy trang 9 | 
+v-22-91 | Tép tỏi & Lượng từ nhà bếp 4 | 
+v-22-92 | Chuồng chó 11 | 
+v-22-93 | Nhổ lông nách 6 | 
+v-22-94 | Mưa xối xả 11 | 
+v-22-95 | Mưa phùn 5 | 
+v-22-96 | Nhà kho 12 | 
+v-22-97 | Bấm móng tay 4 | 
+v-22-98 | Sốt co giật 13 | 
+v-22-99 | Thói quen tâm lý / hành vi con người 11 | 
+v-22-100 | Ôm đồm nhiều việc 11 | 
+v-22-101 | Chân bị chảy máu 10 | 
+v-22-102 | Ngủ nướng & Giấc ngủ 12 | 
+v-22-103 | Tắm bằng xô / thùng 8 | 
+v-22-104 | Tắm 16 | 
+v-22-105 | Đeo bông tai & Phụ kiện 16 | 
+v-22-106 | Làm nước chanh 14 | 
+v-22-107 | Áo chống nắng & Bảo vệ da 10 | 
+v-22-108 | Thảm yoga 12 | 
+v-22-109 | Trầm hương 13 | 
+v-22-110 | Dép lào & Giày dép 4 | 
+v-22-111 | Khẩu trang 5 | 
+v-22-112 | Đội mũ bảo hiểm 12 | 
+v-22-113 | Bánh xe máy bị lủng 14 | 
+v-22-114 | Xe máy bị hư 12 | 
+v-22-115 | Điện thoại bị nứt màn hình 10 | 
+v-22-116 | Điện thoại bị hư 14 | 
+v-22-117 | Cấm đổ rác 10 | 
+v-22-118 | Đừng xả rác 10 | 
+v-22-119 | Khi không nghe rõ / không hiểu 6 | 
+v-22-120 | Leo đồi 16 | 
+v-22-121 | Đồi thông 12 | 
+v-22-122 | Phản ứng tự nhiên trong hội thoại 13 | 
+v-22-123 | Đi mua sắm / ăn uống 10 | 
+v-22-124 | Hỏi thời gian & kế hoạch 9 | 
+v-22-125 | Chào hỏi & bắt chuyện 6 | 
+v-22-126 | Nói chuyện tự nhiên hơn 7 | 
+v-22-127 | Khi muốn nói ý kiến/cảm xúc 4 | 
+v-22-128 | Nói về việc đang làm 3 | 
+v-22-129 | Hoạt động buổi tối / gia đình 6 | 
+v-22-130 | Các hoạt động buổi tối cùng gia đình (Phần 1) 9 | 
+v-22-131 | Cảm thấy buồn nôn 11 | 
+v-22-132 | Đau nhức, ê ẩm 11 | 
+v-22-133 | Bị tiêu chảy 10 | 
+v-22-134 | Kỳ kinh nguyệt 13 | 
+v-22-135 | Kẹt xe 10 | 
+v-22-136 | Ngủ chảy nước miếng 7 | 
+v-22-137 | Làm hòa 6 | 
+v-22-138 | Vượt đèn đỏ 4 | 
+v-22-139 | Trượt chân té 7 | 
+v-22-140 | Các hoạt động liên quan đến đường phố (Phần 2) 10 | 
+v-22-141 | Các hoạt động liên quan đến đường phố (Phần 1) 11 | 
+v-22-142 | Dọn nhà bếp 6 | 
+v-22-143 | Dọn nhà tắm 10 | 
+v-22-144 | Đi mát-xa 9 | 
+v-22-145 | Đồ dùng phụ nữ hay dùng (Phần 2) 15 | 
+v-22-146 | Đồ dùng phụ nữ hay dùng (Phần 1) 8 | 
+v-22-147 | Làm nước mía lên men 14 | 
+v-22-148 | Nợ tiền 9 | 
+v-22-149 | Đi mua đồ si 20 | 
+v-22-150 | Trang trí nhà 11 | 
+v-22-151 | Đi nhổ răng 12 | 
+v-22-152 | Uống sữa hạt 10 | 
+v-22-153 | Uống trà sữa 10 | 
+v-22-154 | Đi phượt 3 | 
+v-22-155 | Say xe 7 | 
+v-22-156 | Điện thoại hết pin 7 | 
+v-22-157 | Cúp điện 11 | 
+v-22-158 | Chăm sóc da 22 | 
+v-22-159 | Đi đón con 9 | 
+v-22-160 | Tiễn ai đó 10 | 
+v-22-161 | Các hoạt động ở ngoài sân (Làm vườn & Thư giãn) 18 | 
+v-22-162 | Các hoạt động ở ngoài sân (Dọn dẹp) 16 | 
+v-22-163 | Các hoạt động trong phòng ngủ (Phần 1) 16 | 
+v-22-164 | Các hoạt động trong phòng ngủ (Phần 2) 15 | 
+v-22-165 | Mặc áo lộn trái 7 | 
+v-22-166 | Mặc quần ngược & Trang phục 8 | 
+v-22-167 | Lau nhà 13 | 
+v-22-168 | Giặt đồ 16 | 
+v-22-169 | Ngủ trên gác 7 | 
+v-22-170 | Những câu tiếng Anh đời thường (Phần 3) 10 | 
+v-22-171 | Đi nhổ cỏ 8 | 
+v-22-172 | Đi đổ xăng 7 | 
+v-22-173 | Những câu tiếng Anh đời thường (Phần 9) 14 | 
+v-22-174 | Những câu tiếng Anh đời thường (Phần 8) 10 | 
+v-22-175 | Những câu tiếng Anh đời thường (Phần 6) 10 | 
+v-22-176 | Tiếng Anh giao tiếp cho lối sống chậm (Phần 8) 8 | 
+v-22-177 | Tiếng Anh giao tiếp cho lối sống chậm (Phần 3) 7 | 
+v-22-178 | Tiếng Anh giao tiếp cho lối sống chậm (Phần 4) 10 | 
+v-22-179 | Tiếng Anh giao tiếp cho lối sống chậm (Phần 2) 30 | 
+v-24-1 | Câu giao tiếp chung (phần 1) 100 | 
+v-24-2 | Câu giao tiếp chung (phần 2) 100 | 
+v-24-3 | Câu giao tiếp chung (phần 3) 100 | 
+v-24-4 | Câu giao tiếp chung (phần 4) 100 | 
+v-24-5 | Câu giao tiếp chung (phần 5) 100 | 
+v-24-6 | Câu giao tiếp chung (phần 6) 100 | 
+v-24-7 | Câu giao tiếp chung (phần 7) 100 | 
+v-24-8 | Câu giao tiếp chung (phần 8) 65 | 
+v-24-9 | Different Ways to Say Hello 54 | 
+v-24-10 | Other Ways to Say Goodbye 64 | 
+v-24-11 | Ways to Say Very Good 75 | 
+v-24-12 | Ways to Say “GOOD LUCK” 32 | 
+v-24-13 | Ways to Say GOOD JOB in English 33 | 
+v-24-14 | I Don’t Know Synonyms 40 | 
+v-24-15 | List of 42 synonyms for “for example” in English. 83 | 
+v-24-16 | List of 25 synonyms for on the other hand in English. 50 | 
+v-24-17 | Other Ways to Say In Conclusion (phần 1) 94 | 
+v-24-18 | Other Ways to Say In Conclusion (phần 2) 79 | 
+v-24-19 | Other Words for “However” 113 | 
+v-24-20 | Other Words for “Also” 16 | 
+v-24-21 | Other Words for “Therefore” 13 | 
+v-24-22 | List of Synonyms for According to 16 | 
+v-24-23 | List of Synonyms for In addition 13 | 
+v-24-24 | List of Synonyms for Additionally 12 | 
+v-24-25 | List of Synonyms for Furthermore 9 | 
+v-24-26 | Other Words for “Although” 12 | 
+v-24-27 | Other Words for “But” 13 | 
+v-24-28 | Other Words for “Overall” 16 | 
+v-24-29 | List of Synonyms for Despite (phần 1) 100 | 
+v-24-30 | List of Synonyms for Despite (phần 2) 100 | 
+v-24-31 | List of Synonyms for Despite (phần 3) 95 | 
+v-24-32 | List of Synonyms for Despite (phần 4) 45 | 
+v-24-33 | List of Transition Words for Essays 99 | 
+v-24-34 | List Of Conclusion Transition Words 145 | 
+v-24-35 | 50 ways to respond to the question “how are you”. (phần 1) 85 | 
+v-24-36 | 50 ways to respond to the question “how are you”. (phần 2) 52 | 
+v-24-37 | Other Ways to Say I THINK 20 | 
+v-24-38 | WAYS TO SAY "GOOD NIGHT" 31 | 
+v-24-39 | Asking for so's opinion 2 | 
+v-24-40 | How do you feel about it? 27 | 
+v-24-41 | Expressions for Forgetting Something 17 | 
+v-24-42 | Way of asking to repeat 118 | 
+v-24-43 | Asking for information 8 | 
+v-24-44 | There are some responses, we use 7 | 
+v-24-45 | Asking Information about products 13 | 
+v-24-46 | Asking information about Price 7 | 
+v-24-47 | List of Synonyms for For instance 62 | 
+v-24-48 | List of Conclusion Transitions (phần 1) 98 | 
+v-24-49 | List of Conclusion Transitions (phần 2) 97 | 
+v-24-50 | 5 ways to 'OK' 5 | 
+v-24-51 | 5 way to 'It's hard' 4 | 
+v-24-52 | 5 way to 'I think' 5 | 
+v-24-53 | 5 way to 'You're welcome' 5 | 
+v-24-54 | 5 way to 'wait' 5 | 
+v-24-55 | 5 way to say 'easy' 5 | 
+v-24-56 | 5 way to 'OMG' 4 | 
+v-24-57 | 5 way to 'I understand' 5 | 
+v-24-58 | How's it going? 1 | 
+v-24-59 | How's everything? 1 | 
+vx-adj-1 | Tính từ đồng nghĩa (paraphrase) dùng trong Writing/Speaking 🆕 | từ khác loại từ hay bị lặp trong writing
+vx-adj-2 | 11 cách nói khác cho DIFFICULT 🆕 | 
+vx-adj-3 | Tính từ miêu tả người & tính cách 🆕 | tích cực, tiêu cực
+vx-adj-4 | Tính từ miêu tả hành vi & tính đối lập 🆕 | 
+vx-adj-5 | Tính từ đánh giá (Evaluative adjectives) 🆕 | 
+vx-adj-6 | Tính từ đuôi -ED và -ING 🆕 | cảm giác của người, ed, ing, he is really boring, you look tired
+vx-adj-7 | Tính từ + giới từ — bổ sung ✎ bổ sung🆕 | 
+vx-adj-8 | Hậu tố tạo tính từ & danh từ 🆕 | 
+vx-adj-9 | Tính từ miêu tả công việc 🆕 | 
+vx-adj-10 | 24 tính từ miêu tả người mẹ 🆕 | 
+vx-adj-11 | Tính từ miêu tả thời tiết (nâng cao) 🆕 | tính từ chỉ sự khô hạn
+vx-adj-12 | Tính từ miêu tả món ăn / hương vị 🆕 | stale, rancid, sour, rotten
+vx-adj-13 | Tính từ miêu tả thái độ 🆕 | 
+vx-adj-14 | Tính từ miêu tả trải nghiệm du lịch 🆕 | 
+vx-adj-15 | Tính từ chuyên nghiệp dùng trong CV/phỏng vấn 🆕 | 
+vx-adj-16 | 20 tính từ nâng cao (C1) cho IELTS Fluency 🆕 | 
+vx-adj-17 | Tính từ/thành ngữ thân mật thường dùng 🆕 | 
+vx-adj-18 | 500 tính từ tiếng Anh thông dụng nhất — bảng bổ sung 🆕 | 
+vx-adj-19 | Tính từ miêu tả quần áo cũ/hư hỏng 🆕 | 
+vx-adj-20 | Tính từ tính cách cơ bản — bổ sung 🆕 | 
+vx-adj-21 | Từ vựng miêu tả ngoại hình chi tiết 🆕 | khuôn mặt & da, dáng người, mắt, mái tóc, biểu cảm khuôn mặt
+vx-adj-22 | VERY + tính từ → tính từ mạnh hơn — bổ sung 🆕 | 
+vx-adj-cvX3-1 | Tính từ miêu tả người — bổ sung (dễ mến/khó ưa, can đảm/nhanh nhẹn, thông minh/không đáng tin)🆕 | dễ mến (nice), khó ưa (unpleasant), can đảm (brave)
+vx-adv-1 | Cách nói khác của “if” 🆕 | 
+vx-adv-2 | Từ/cụm chỉ nguyên nhân 🆕 | 
+vx-adv-3 | Từ nối chỉ kết quả 🆕 | as a result, as a result of
+vx-adv-4 | Từ nối chỉ tương phản 🆕 | liên từ, trạng từ
+vx-adv-5 | Cụm thay thế: in other words, in terms of, in a sense… 🆕 | 
+vx-adv-6 | Từ chỉ khả năng/xác suất — bổ sung 🆕 | 
+vx-adv-7 | Cách nói khác của “sometimes” 🆕 | more often than not, time and again, over and over
+vx-adv-8 | Cách nói khác của “exactly” 🆕 | 
+vx-adv-9 | Cách nói khác của “otherwise”, “altogether”, “in addition” 🆕 | 
+vx-adv-10 | Từ dễ nhầm: also, as well, too 🆕 | also, as well, too
+vx-adv-11 | Từ dễ nhầm: besides, except, apart from 🆕 | apart from, beside, besides, except
+vx-adv-12 | Từ dễ nhầm: above, over 🆕 | over, above
+vx-adv-13 | Từ dễ nhầm: under, below, beneath, underneath, down 🆕 | below, beneath, down, under, underneath
+vx-adv-14 | Từ dễ nhầm: farther, further 🆕 | far, farther, further, farthest/furthest, furthest
+vx-adv-15 | Từ dễ nhầm: between, among(st) 🆕 | between, among, amongst
+vx-adv-16 | Cụm trạng từ thông dụng: anyway, according to, as far as I…, coming soon 🆕 | anyway, any way, according to + n, coming soon
+vx-adv-17 | Cặp từ dễ nhầm khác 🆕 | efficient, effective, error, mistake, make, stand up
+vx-adv-18 | Từ dễ nhầm: finally, lastly, at last, in the end 🆕 | at last, finally, in the end, lastly
+vx-adv-19 | Otherwise, however, unless, or — phân biệt 🆕 | otherwise, however, unless, or
+vx-adv-20 | Từ dễ nhầm: near, nearly, nearby 🆕 | near, nearby, nearly
+vx-adv-21 | Từ dễ nhầm: long, long before/after, (for) a long time, long ago 🆕 | (for) a long time, long, long after, long ago, long before
+vx-adv-22 | Cách nói khác của “firstly”, “really”, “important”, “approximately” 🆕 | firstly (đầu tiên), really (thật sự), important (quan trọng)
+vx-adv-23 | Cụm cố định với TIME, MOMENT; ngày/tuần tương đối 🆕 | time, moment, ngày/tuần tương đối, đếm tần suất
+vx-adv-24 | Từ đồng nghĩa: beg (van xin, nài nỉ) 🆕 | 
+vx-confuse-1 | Expect / Hope / Wait🆕 | expect, hope, wait, so sánh
+vx-confuse-2 | Last / Take (nói về thời lượng)🆕 | last, take
+vx-confuse-3 | House / Home🆕 | 
+vx-confuse-4 | Come / Get / Arrive / Approach / Reach🆕 | 
+vx-confuse-5 | Close / Near / Next to / Beside / By / Nearby🆕 | 
+vx-confuse-6 | Bring / Take / Fetch🆕 | i'll bring some tea
+vx-confuse-7 | Could / Could have + V3🆕 | 
+vx-confuse-8 | Ăn (eat) theo sắc thái🆕 | indulge (in), gobble, munch, bolt (down), devour, nibble
+vx-confuse-9 | Job / Work / Career🆕 | 
+vx-confuse-10 | Shade / Shadow🆕 | shade, shadows, throw shade, shady
+vx-confuse-11 | Nature / Countryside / Environment / Wildlife🆕 | 
+vx-confuse-12 | Seem / Look / Appear · Look / See / Watch🆕 | look / see / watch (nhìn), seem, look, appear
+vx-confuse-13 | Miss / Lose🆕 | i've lost my car keys, i missed the bus, i miss you
+vx-confuse-14 | Let / Allow / Permit🆕 | 
+vx-confuse-15 | Win / Earn / Gain🆕 | we can win a contract
+vx-confuse-16 | Reward / Award / Prize🆕 | 
+vx-confuse-17 | Learn / Study / Revise / Teach🆕 | master, perfect, review, be an expert (in), specialize in
+vx-confuse-18 | Beach / Bank / Coast / Shore🆕 | 
+vx-confuse-19 | Lend / Borrow🆕 | 
+vx-confuse-20 | Invent / Discover🆕 | 
+vx-confuse-21 | Cure / Heal / Treat / Recover🆕 | 
+vx-confuse-22 | Will / Shall🆕 | will, shall, shall we go?
+vx-confuse-23 | Food / Dish / Meal / Course / Cuisine🆕 | 
+vx-confuse-24 | Fish — đếm được hay không đếm được🆕 | fishes, he caught a huge fish
+vx-confuse-25 | On holiday / On vacation🆕 | holiday, vacation, staycation
+vx-confuse-26 | Ordinary / Usual (Normal) / Common🆕 | common, usual, normal, ordinary
+vx-confuse-27 | If / When / Unless🆕 | 
+vx-confuse-28 | Wear / Dress / Suit / Fit / Match / Put on🆕 | get dressed, dress up
+vx-confuse-29 | Rise / Raise / Arise🆕 | sales rose by 10%
+vx-confuse-30 | Apathy / Empathy / Sympathy🆕 | empathetic, emphatic
+vx-confuse-31 | Lazy / Idle🆕 | bone idle
+vx-confuse-32 | Quiet / Quite / Quit🆕 | simon quit smoking, quite sure, quite tired
+vx-confuse-33 | Mine (đại từ sở hữu) / My (tính từ sở hữu)🆕 | this is my bag
+vx-confuse-34 | Remember / Remind / Recall / Recollect🆕 | as far as i recall
+vx-confuse-35 | Sick vs Ill — bổ sung: Continuous/Continual, Grateful/Thankful🆕 | continuous, continual, grateful, thankful
+vx-confuse-36 | Từ dễ nhầm lẫn — chuỗi bài (accept → forward)🆕 | v-20-12, v-20-41
+vx-confuse-37 | Cặp từ đồng âm/gần âm dễ nhầm (phần 2)🆕 | compliment, complement
+vx-confuse-38 | Tính từ / Trạng từ cùng gốc dễ nhầm nghĩa🆕 | 
+vx-confuse-39 | End (n) vs Ending (n)🆕 | in the end, at the end of sth, be at an end, there is no end to sth, bring sth to an end, sth comes to an end
+vx-confuse-40 | Owing to / Due to / Because of🆕 | owing to, due to, because of
+vx-confuse-41 | Like V-ing / Would like to V / Not like to V / Not like V-ing🆕 | i like playing guitar
+vx-confuse-42 | Cách khác để nói "Nhanh lên" (hurry up)🆕 | 
+vx-confuse-43 | Cách nói khác cho các từ/câu thông dụng🆕 | 
+vx-confuse-44 | Từ nối nhấn mạnh/chỉ rõ (bổ sung)🆕 | 
+vx-confuse-45 | 20 cách nói khác cho "in general"🆕 | 
+vx-confuse-46 | Từ vựng bệnh tật & dịch bệnh (disease, illness, sickness…)🆕 | 
+vx-confuse-47 | Kỹ thuật paraphrase & cụm từ diễn giải lại ý🆕 | dùng từ đồng nghĩa, đổi dạng từ/từ loại, negatively affect, đổi cấu trúc câu, it is true that
+vx-confuse-48 | Từ đồng nghĩa học thuật theo nhóm nghĩa (IELTS Reading/Writing)🆕 | xu hướng & tính chất, mức độ, số lượng & nhân quả, nghiên cứu & lập luận
+vx-confuse-49 | Cụm từ paraphrase IELTS Writing Task 2 thông dụng🆕 | bear/keep in mind, take the view (that), a foregone conclusion, a widespread belief, jump to conclusions, fuel speculation
+vx-confuse-50 | Tính từ & động từ đồng nghĩa "gây ấn tượng" cho Speaking/Writing🆕 | 
+vx-confuse-51 | Paraphrase GIVE / GO / CHANGE / GET (band 8.0)🆕 | 
+vx-confuse-52 | Paraphrase chủ đề Tội phạm (Crime) & Con người (People)🆕 | thay thế danh từ "people" theo chủ đề
+vx-confuse-53 | "Nó giúp tôi thư giãn" — theo mức band IELTS Speaking🆕 | 
+vx-confuse-54 | Cách khác cho "right now" và "why"🆕 | 
+vx-confuse-55 | Cụm từ diễn tả cảm xúc bổ sung (buồn, thất vọng, lo lắng)🆕 | 
+vx-confuse-56 | Cụm từ phản hồi & xã giao bổ sung🆕 | 
+vx-confuse-57 | Thành ngữ màu sắc, "eye", Kinh Thánh & từ vựng ngân hàng🆕 | thành ngữ về màu sắc, thành ngữ với "eye", thành ngữ gốc kinh thánh, từ vựng ngân hàng
+vx-confuse-cvV1-1 | 20 lỗi sai phổ biến trong tiếng Anh 🆕 | the happiest day, she speaks well
+vx-confuse-cvW1-1 | Từ đồng nghĩa chủ đề Education (paraphrase) 🆕 | 
+vx-confuse-cvW1-2 | Cụm từ / từ đồng nghĩa IELTS thông dụng — bổ sung 🆕 | 20 cụm quen thuộc, một số từ đồng nghĩa đơn lẻ hay gặp
+vx-confuse-cvW2-1 | 5 cách nói khác cho "less than"🆕 | fewer than, less than, below, lower than
+vx-confuse-cvG1-1 | Take a rest / Get some rest 🆕 | không có dạng bị động, relax, let one's hair down
+vx-confuse-cvG1-2 | Include / Contain / Consist of 🆕 | đầy đủ, một phần, phân biệt
+vx-confuse-cvG1-3 | As / Like 🆕 | 
+vx-confuse-cvG3-1 | Differentiate / Discriminate / Distinguish🆕 | 
+vx-confuse-cvG3-2 | Be up to / Be up for🆕 | 
+vx-confuse-cvG3-3 | Wait / Await & Attend / Attend to🆕 | attended to, attended
+vx-confuse-cvX2-1 | Cách khác để nói "hurry up" — bổ sung🆕 | bản thân
+vx-confuse-cvX2-2 | CLOTHES: động từ liên quan đến quần áo — bổ sung🆕 | 
+vx-confuse-cvX2-3 | Paraphrase IELTS Writing Task 1 — miêu tả số liệu🆕 | the amount of, the number of
+vx-confuse-cvX2-4 | Do so / Doing so — tránh lặp động từ🆕 | do so, do it / that, doing so
+vx-confuse-cvX2-5 | Giới từ đổi nghĩa: good, grateful, mad, made, think🆕 | 
+vx-confuse-cvX2-6 | Phản ứng khi ai đó mắc lỗi🆕 | haul sb over the coals, hit the panic button
+vx-confuse-cvX2-7 | Cách nói khác cho nhiều tình huống — bổ sung (1)🆕 | 
+vx-confuse-cvX2-8 | Cách nói khác cho nhiều tình huống — bổ sung (2)🆕 | laugh, especially
+vx-topic-1 | Động từ thay thế cho READ 🆕 | thành ngữ liên quan đến sách
+vx-topic-2 | 14 khung giờ trong ngày 🆕 | good night
+vx-topic-3 | Từ vựng tai nạn giao thông 🆕 | 
+vx-topic-4 | Cách nói khác cho HUNGRY 🆕 | 
+vx-topic-5 | Động từ giao tiếp nâng cao 🆕 | 
+vx-topic-6 | Động từ chỉ chuyển động 🆕 | 
+vx-topic-7 | Động từ ăn uống nâng cao 🆕 | 
+vx-topic-8 | Cách diễn đạt mục đích 🆕 | 
+vx-topic-9 | Từ vựng & phrasal verb về cuối tuần 🆕 | 
+vx-topic-10 | Cụm từ khi ở nhà hàng 🆕 | đặt bàn, gọi món, thanh toán
+vx-topic-11 | Từ vựng giao thông, phương tiện & luật lệ 🆕 | vi phạm & luật giao thông, phương tiện & cách đi lại
+vx-topic-12 | Từ vựng mua sắm quần áo 🆕 | động từ liên quan đến quần áo
+vx-topic-13 | Cách kết thúc một cuộc hội thoại 🆕 | 
+vx-topic-14 | Từ thay thế cho BECAUSE / BECAUSE OF 🆕 | 
+vx-topic-15 | 20 động từ nâng cao cho IELTS/CAE 🆕 | động từ diễn tả nỗ lực/xử lý khó khăn
+vx-topic-16 | Động từ thay thế cho SPEAK/SAY 🆕 | 
+vx-topic-17 | Danh từ tập hợp — người & động vật 🆕 | nhóm động vật, nhóm người, troop, swarm, herd, murder
+vx-topic-18 | Từ vựng mùa đông 🆕 | thời tiết mùa đông, hoạt động mùa đông, thành ngữ liên quan mùa đông
+vx-topic-19 | Từ vựng thời tiết xấu & sự cố ngăn cản kế hoạch 🆕 | 
+vx-topic-20 | Từ vựng du lịch/kỳ nghỉ 🆕 | từ vựng kỳ nghỉ (ielts band 7+), khi kỳ nghỉ gặp sự cố
+vx-topic-21 | Từ vựng tội phạm & pháp luật 🆕 | các loại tội phạm, quá trình xử phạt, từ đồng nghĩa với steal (ăn cắp)
+vx-topic-22 | Từ vựng chủ đề Education (IELTS) — bổ sung 🆕 | 
+vx-topic-23 | Từ vựng bổ sung: Sức khỏe, nghề nghiệp & driving 🆕 | sức khỏe (health), collocation: worker (loại lao động)
+vx-topic-24 | Từ vựng chủ đề Money (Quản lý chi tiêu) — bổ sung 🆕 | idiom & cụm từ ielts nâng cao khác
+vx-topic-25 | 9 cụm động từ với OFF 🆕 | 
+vx-topic-26 | Thành ngữ thông dụng với I'M 🆕 | 
+vx-topic-27 | Từ vựng về bất công, thiên vị & tính cách xảo trá 🆕 | bất công & thiên vị, tính cách xảo trá, độc ác
+vx-topic-28 | Từ vựng làm từ thiện 🆕 | 
+vx-topic-29 | Từ vựng khi trẻ ăn vạ, khóc 🆕 | 
+vx-topic-30 | Từ vựng về đau buồn, tang thương & chống tham nhũng 🆕 | đau buồn, tang thương, chống tham nhũng
+vx-topic-31 | Từ vựng kinh doanh cơ bản 🆕 | 
+vx-topic-32 | Các loại ám ảnh sợ hãi (phobias) 🆕 | 
+vx-topic-33 | Cụm từ hỏi đường & di chuyển 🆕 | 
+vx-topic-34 | Mẫu câu nói về thói quen 🆕 | 
+vx-topic-35 | Cụm từ khi đi taxi 🆕 | 
+vx-topic-36 | Thành ngữ về việc ra quyết định 🆕 | 
+vx-topic-37 | Từ đồng nghĩa thay cho MANY (nâng cao) 🆕 | 
+vx-topic-38 | Cách nói khác cho "lack of" (thiếu, khan hiếm) 🆕 | 
+vx-topic-39 | Từ vựng & thành ngữ về Năm Mới 🆕 | 
+vx-topic-40 | Các kiểu ngủ, thành ngữ & tác hại của thiếu ngủ 🆕 | các kiểu ngủ, thành ngữ & tình trạng giấc ngủ
+vx-topic-cvW1-1 | Từ vựng Giáng sinh (Christmas) 🆕 | 
+vx-topic-cvW1-2 | Đồ vật trong nhà — từ vựng theo phòng 🆕 | phòng khách, phòng ngủ, nhà bếp, dọn dẹp/giặt giũ, chiếu sáng
+vx-topic-cvW3-1 | Đồ điện trong nhà (Electricity)🆕 | 
+vx-topic-cvG2-1 | Nổi tiếng, học tập & gia đình — từ vựng bổ sung🆕 | 
+vx-topic-cvG2-2 | Tiền bạc (Finance) — thành ngữ bổ sung🆕 | the bill came to £50
+vx-col-1 | Collocations với MAKE 🆕 | 
+vx-col-2 | DO hay MAKE? 🆕 | do, make
+vx-col-3 | Collocations với TAKE 🆕 | 
+vx-col-4 | Collocations với GIVE, HAVE 🆕 | give, have
+vx-col-5 | Collocations với GET 🆕 | 
+vx-col-6 | Collocations với GO 🆕 | 
+vx-col-7 | Collocations với COME 🆕 | 
+vx-col-8 | Collocations với BREAK 🆕 | 
+vx-col-9 | Cụm cố định với OUT, BEYOND 🆕 | out, beyond
+vx-col-10 | Mẫu: Adjective + Noun 🆕 | 
+vx-col-11 | Mẫu: Adverb + Adjective 🆕 | 
+vx-col-12 | Mẫu: Adverb + Verb 🆕 | 
+vx-col-13 | Mẫu: Verb + Noun 🆕 | 
+vx-col-14 | Mẫu: Noun + Preposition & Verb + Noun + Preposition 🆕 | 
+vx-col-15 | Mẫu: Verb + Preposition 🆕 | at, about, for, from, in, of
+vx-col-16 | Mẫu: Adjective + Preposition 🆕 | about, for, of, to, with
+vx-col-17 | Collocations theo chủ đề: task, sales, success 🆕 | task, sales, success
+vx-col-18 | Collocations theo chủ đề: travel, meetings, change 🆕 | travel, meetings, change
+vx-col-19 | Cụm cố định với AT, ON 🆕 | at, on
+vx-col-20 | Cụm cố định với WATER, MOST, HOW 🆕 | water, most, how
+vx-col-21 | Trạng từ nhấn mạnh + tính từ/động từ — bổ sung 🆕 | highly, absolutely, strongly, deeply, ridiculously
+vx-col-22 | Cụm collocations linh tinh hay gặp 🆕 | 
+vx-col-23 | feel like / feel up to 🆕 | 
+vx-col-cvV1-1 | Nói về vấn đề, rắc rối (problems) 🆕 | cụm động từ & thành ngữ
+vx-col-cvV1-2 | "Bận lắm" — các cách nói busy khác 🆕 | 
+vx-col-cvV1-3 | Collocation: xã hội, bệnh tật, thời gian 🆕 | 
+vx-col-cvW1-1 | Collocations với MINDED 🆕 | 
+vx-col-cvW1-2 | Collocations với PRICE 🆕 | 
+vx-col-cvW1-3 | Collocations với HAPPINESS 🆕 | 
+vx-col-cvW1-4 | Collocations với HIT & tính từ chỉ niềm vui 🆕 | 
+vx-col-cvW1-5 | Collocations với EXPERIENCE 🆕 | 
+vx-col-cvW1-6 | Collocations: MARRIAGE & OPPORTUNITY 🆕 | 
+vx-col-cvW1-7 | Collocations với SPLENDID 🆕 | 
+vx-col-cvW1-8 | Collocation: DISEASE — bổ sung 🆕 | 
+vx-col-cvW2-1 | Danh từ tập hợp — động vật (Collective nouns)🆕 | 
+vx-col-cvW2-2 | Các mốc thời gian trong ngày (Times of the Day)🆕 | 
+vx-col-cvG3-1 | Cụm từ TOEIC/IELTS hay gặp🆕 | 
+vx-col-cvX2-1 | Adverb collocations tự nhiên — bổ sung🆕 | 
+phr-1 | Cấu tạo & vị trí tân ngữ🆕 | đại từ, bắt buộc ở giữa, it, them
+phr-2 | Nghĩa của các tiểu từ🆕 | up, down, out, off, on, in / into
+phr-3 | Cụm động từ thông dụng theo động từ🆕 | get, take, look, put, turn, give
+phr-4 | Từ các mẫu câu bạn đã lưu🆕 | move in, run out of, fold away, fill sb in, get off
+phr-cvA7-1 | Go ahead vs. Go on🆕 | go ahead (with sth), go on
+vx-phrasal-1 | Cụm động từ chủ đề du lịch (Travel)🆕 | 
+vx-phrasal-2 | Cụm động từ chủ đề thời gian rảnh (Free time)🆕 | 
+vx-phrasal-3 | Cụm động từ: bóng đá & thiên tai🆕 | bóng đá (football), thiên tai (natural disasters)
+vx-phrasal-4 | Cụm động từ nâng cao cho giao tiếp🆕 | 
+vx-phrasal-5 | Thành ngữ thông dụng trong hội thoại🆕 | 
+vx-phrasal-6 | Cụm từ với WAY🆕 | 
+vx-phrasal-7 | Cụm từ với LET🆕 | 
+vx-phrasal-8 | Thành ngữ về thời tiết🆕 | 
+vx-phrasal-9 | Cụm từ diễn tả lựa chọn & quyết định🆕 | 
+vx-phrasal-10 | Cụm từ diễn tả ngoại lệ (Exception)🆕 | 
+vx-phrasal-11 | Cụm từ khích lệ, động viên🆕 | 
+vx-phrasal-12 | Tính từ nâng cao mô tả ngoại hình (C1)🆕 | gầy, mỏng manh, mập, to khỏe
+vx-phrasal-13 | Từ vựng về hình thức việc làm (Employment)🆕 | 
+vx-phrasal-14 | Cụm từ than phiền & xin hoàn tiền🆕 | xin hoàn tiền (asking for a refund), than phiền / khiếu nại (complaints), phản hồi khiếu nại
+vx-phrasal-15 | Cụm từ cảnh báo (Warning)🆕 | better safe than sorry, look before you leap
+vx-phrasal-16 | Cụm từ hội thoại bổ sung🆕 | cách nói “i’m hungry”, cách nói lịch sự thay “please”, cách nói “i want” lịch sự hơn
+vx-phrasal-17 | Động từ diễn tả tăng/giảm (Ups & downs)🆕 | tăng, giảm
+vx-phrasal-18 | Cụm từ nâng cao khác trong giao tiếp🆕 | diễn tả điều gì khó / dễ, diễn tả sự thất vọng
+vx-phrasal-19 | Cụm từ bổ sung khác🆕 | nhờ ai giữ bí mật, cách nói “không bao giờ” (never)
+vx-phrasal-20 | Thành ngữ theo chủ đề (bổ sung)🆕 | công việc (business & career), du lịch (travel), cảm xúc (feelings & emotion), học tập (education), gia đình (family), số đếm (numbers)
+vx-phrasal-21 | Cụm động từ bổ sung🆕 | cụm động từ thông dụng khác, cụm động từ khi gọi điện thoại
+vx-phrasal-22 | Cụm từ hội thoại bổ sung (2)🆕 | tiếng lóng thường ngày (native english), thêm cho “i’m fed up”, thêm cho “me too” (đồng tình), trời nóng (hot weather)
+vx-phrasal-23 | Cụm từ theo tình huống🆕 | đưa ra phỏng đoán, đổ lỗi, buộc tội, hứa hẹn, bày tỏ sự cảm thông, ở khách sạn (hotel check-in), vài cụm từ lẻ khác
+vx-phrasal-cvW2-1 | Từ lóng thông dụng (Everyday slang) — bổ sung🆕 | 
+vx-phrasal-cvW2-2 | Thành ngữ về đồ uống (Drinking) — bổ sung🆕 | 
+vx-phrasal-cvG1-1 | Come down to (phụ thuộc vào) 🆕 | v-ing, danh từ, his intelligence, depend on
+vx-phrasal-cvG1-2 | Thành ngữ miêu tả người/vật độc đáo, khác biệt — bổ sung 🆕 | 
+vx-phrasal-cvG3-1 | Cụm động từ theo chủ đề: điện thoại, lái xe, mua sắm, yêu đương, sức khỏe🆕 | điện thoại (telephone), lái xe (driving), mua sắm (shopping), yêu đương (relationships), sức khỏe (health)
+vx-phrasal-cvG3-2 | Sắp sửa xảy ra — bổ sung: be about to, on the verge of, on the brink of🆕 | 
+v-23-1 | Thành ngữ A – F 31 | 
+v-23-2 | Thành ngữ G – M 28 | 
+v-23-3 | Thành ngữ N – S 18 | 
+v-23-4 | Thành ngữ T – Z 5 | 
+v-23-cvW1-1 | Thành ngữ bổ sung (7.0+) 🆕 | 
+v-23-cvW2-1 | Thành ngữ chủ đề Du lịch (Travel)🆕 | 
+v-23-cvW2-2 | Thành ngữ chủ đề Gia đình (Family)🆕 | like two peas in a pod
+v-23-cvG2-1 | Thành ngữ bổ sung (đời sống & phim ảnh)🆕 | 

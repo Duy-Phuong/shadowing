@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sổ tay Ngữ pháp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fbfaf7; --surface: #ffffff; --ink: #1d232b; --muted: #5d6773; --line: #e5e2da;
+  --accent: #2f6f5e; --accent-soft: #e6f1ed; --warn: #a24a17; --warn-soft: #fbeee4;
+  --en: #1f5fa8; --ok: #2e7d32; --bad: #c62828; --head: #f3f1ec;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14171b; --surface: #1b1f24; --ink: #e7e9ec; --muted: #9aa3ad; --line: #2c323a;
+    --accent: #6fc2a8; --accent-soft: #1f2f2a; --warn: #f0a36b; --warn-soft: #34261c;
+    --en: #8bb8f0; --ok: #7fd08a; --bad: #ff8a80; --head: #22272d;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14171b; --surface: #1b1f24; --ink: #e7e9ec; --muted: #9aa3ad; --line: #2c323a;
+  --accent: #6fc2a8; --accent-soft: #1f2f2a; --warn: #f0a36b; --warn-soft: #34261c;
+  --en: #8bb8f0; --ok: #7fd08a; --bad: #ff8a80; --head: #22272d;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 16px; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 16px/1.65 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+a { color: var(--accent); }
+.layout { display: grid; grid-template-columns: 260px minmax(0, 1fr); max-width: 1180px; margin: 0 auto; gap: 40px; padding: 0 24px; }
+nav.toc { position: sticky; top: 0; align-self: start; max-height: 100vh; overflow-y: auto; padding: 32px 0; font-size: 14px; }
+nav.toc .brand { font-weight: 700; font-size: 15px; margin-bottom: 16px; }
+nav.toc ol { list-style: none; margin: 0; padding: 0; }
+nav.toc > ol > li { margin: 14px 0 4px; font-weight: 600; }
+nav.toc li li { font-weight: 400; margin: 2px 0; }
+nav.toc li li a { color: var(--muted); }
+nav.toc a { text-decoration: none; color: var(--ink); display: block; padding: 2px 8px; border-radius: 6px; }
+nav.toc a:hover { background: var(--accent-soft); color: var(--accent); }
+nav.toc ol ol { padding-left: 8px; border-left: 1px solid var(--line); margin-left: 8px; }
+main { padding: 32px 0 80px; min-width: 0; }
+header.hero { border-bottom: 1px solid var(--line); padding-bottom: 24px; margin-bottom: 8px; }
+.hero h1 { font-size: 34px; line-height: 1.2; margin: 0 0 8px; letter-spacing: -0.01em; }
+.hero p { color: var(--muted); margin: 4px 0; }
+.toolbar { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+button, .btn {
+  font: inherit; font-size: 14px; border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+  padding: 6px 12px; border-radius: 8px; cursor: pointer;
+}
+button:hover { border-color: var(--accent); color: var(--accent); }
+button.primary { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+button.primary:hover { opacity: .9; color: var(--bg); }
+h2.chapter { font-size: 26px; margin: 56px 0 4px; padding-top: 8px; }
+h2.chapter .num { color: var(--accent); margin-right: 8px; }
+.chapter-intro { color: var(--muted); margin: 0 0 16px; }
+section.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px 24px; margin: 16px 0; }
+section.card h3 { margin: 0 0 12px; font-size: 19px; }
+h4 { margin: 20px 0 8px; font-size: 16px; }
+.src { font-size: 12px; color: var(--muted); margin-top: 12px; }
+.tbl { overflow-x: auto; margin: 12px 0; border: 1px solid var(--line); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td { text-align: left; vertical-align: top; padding: 8px 12px; border-bottom: 1px solid var(--line); }
+th { background: var(--head); font-weight: 600; font-size: 14px; white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+td.w { white-space: nowrap; }
+.en { color: var(--en); }
+.ipa { color: var(--muted); font-size: 14px; }
+.vi { color: var(--muted); }
+mark.s { background: none; color: var(--warn); font-weight: 600; }
+ul.pos { margin: 8px 0; padding-left: 20px; }
+ul.pos li { margin: 6px 0; }
+.ex { display: block; color: var(--muted); font-size: 15px; }
+.ex b { color: var(--en); font-weight: 500; }
+.callout { border-left: 3px solid var(--accent); background: var(--accent-soft); padding: 10px 14px; border-radius: 0 8px 8px 0; margin: 12px 0; font-size: 15px; }
+.callout.warn { border-color: var(--warn); background: var(--warn-soft); }
+.fix { font-size: 12px; color: var(--warn); border: 1px solid var(--warn); border-radius: 4px; padding: 0 4px; margin-left: 4px; white-space: nowrap; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+.chip { border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; font-size: 14px; background: var(--bg); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 10px; margin: 12px 0; }
+.box { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; background: var(--bg); }
+.box strong { display: block; margin-bottom: 4px; }
+.box .words { font-size: 14px; color: var(--muted); }
+.quad { display: grid; grid-template-columns: auto 1fr 1fr; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin: 12px 0; }
+.quad > div { padding: 10px 12px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); }
+.quad .h { background: var(--head); font-weight: 600; font-size: 14px; }
+/* exercises */
+.q { margin: 10px 0; }
+.q input[type=text] { font: inherit; width: 150px; max-width: 100%; padding: 2px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); }
+.q input.ok { border-color: var(--ok); color: var(--ok); }
+.q input.bad { border-color: var(--bad); color: var(--bad); }
+.q .ans { display: none; color: var(--accent); font-size: 14px; margin-left: 6px; }
+.show-ans .q .ans { display: inline; }
+.opts { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 4px 0 0 18px; }
+.opts label { cursor: pointer; }
+.opts label.ok { color: var(--ok); font-weight: 600; }
+.opts label.bad { color: var(--bad); text-decoration: line-through; }
+.score { font-size: 14px; color: var(--muted); margin-left: 8px; }
+.ex-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 12px; }
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 0; padding: 0 16px; }
+  nav.toc { position: static; max-height: none; padding: 16px 0 0; }
+  nav.toc > ol { display: none; }
+  nav.toc.open > ol { display: block; }
+  .hero h1 { font-size: 27px; }
+  section.card { padding: 16px; }
+}
+@media (min-width: 901px) { #tocToggle { display: none; } }
+@media print { nav.toc, .toolbar, .ex-actions { display: none; } .layout { display: block; } section.card { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="toc" id="toc">
+  <div class="brand">📘 Sổ tay Ngữ pháp</div>
+  <button id="tocToggle" type="button">☰ Mục lục</button>
+  <ol>
+    <li><a href="#c1">1. Từ loại</a>
+      <ol>
+        <li><a href="#c1-1">Tổng quan 9 từ loại</a></li>
+        <li><a href="#c1-2">Danh từ</a></li>
+        <li><a href="#c1-3">Động từ</a></li>
+        <li><a href="#c1-4">Tính từ</a></li>
+        <li><a href="#c1-5">Trạng từ</a></li>
+        <li><a href="#c1-6">Giới từ</a></li>
+        <li><a href="#c1-7">Liên từ &amp; Thán từ</a></li>
+        <li><a href="#c1-8">Đại từ &amp; Từ hạn định</a></li>
+        <li><a href="#c1-9">Chuyển đổi từ loại</a></li>
+      </ol></li>
+    <li><a href="#c2">2. Đếm được / Không đếm được</a>
+      <ol>
+        <li><a href="#c2-1">Danh từ đếm được</a></li>
+        <li><a href="#c2-2">Danh từ không đếm được</a></li>
+        <li><a href="#c2-3">30 từ không đếm được</a></li>
+        <li><a href="#c2-4">Mạo từ &amp; lượng từ</a></li>
+        <li><a href="#c2-5">Từ mang cả hai nghĩa</a></li>
+        <li><a href="#c2-6">Bảng so sánh</a></li>
+      </ol></li>
+    <li><a href="#c3">3. Số nhiều của danh từ</a>
+      <ol>
+        <li><a href="#c3-1">Quy tắc thêm s / es</a></li>
+        <li><a href="#c3-2">Bất quy tắc</a></li>
+        <li><a href="#c3-3">Không thay đổi</a></li>
+        <li><a href="#c3-4">Danh từ ghép &amp; tên họ</a></li>
+      </ol></li>
+    <li><a href="#c4">4. Danh từ luôn số nhiều</a>
+      <ol>
+        <li><a href="#c4-1">Đồ vật hai phần</a></li>
+        <li><a href="#c4-2">Các từ luôn số nhiều khác</a></li>
+        <li><a href="#c4-3">Tận cùng -s nhưng số ít</a></li>
+      </ol></li>
+    <li><a href="#c5">5. Luyện tập</a></li>
+    <li><a href="#sources">Nguồn</a></li>
+  </ol>
+</nav>
+
+<main>
+<header class="hero">
+  <h1>Sổ tay Ngữ pháp Tiếng Anh</h1>
+  <p><strong>Phần 1: Từ loại &amp; Danh từ.</strong> Tổng hợp từ 5 trang trong bộ ghi chú Notion “English grammar”, gồm cả chữ và nội dung trong ảnh, được gom lại theo chủ đề.</p>
+  <p>Chỗ nào có nhãn <span class="fix">✎ sửa</span> là chỗ nguồn gốc bị lỗi và đã được sửa lại cho đúng.</p>
+  <div class="toolbar">
+    <button type="button" id="themeBtn">🌓 Đổi giao diện sáng/tối</button>
+    <button type="button" onclick="window.print()">🖨️ In / Lưu PDF</button>
+  </div>
+</header>
+
+<!-- ============ CHAPTER 1 ============ -->
+<h2 class="chapter" id="c1"><span class="num">1</span>Từ loại (Parts of Speech)</h2>
+<p class="chapter-intro">Mỗi từ trong câu đều thuộc một từ loại. Biết từ loại giúp bạn đặt từ đúng vị trí và nhận ra từ qua hậu tố (đuôi từ).</p>
+
+<section class="card" id="c1-1">
+  <h3>1.1 Tổng quan 9 từ loại</h3>
+  <div class="tbl"><table>
+    <tr><th>Từ loại</th><th>Chức năng</th><th>Ví dụ</th><th>Trong câu</th></tr>
+    <tr><td class="w"><b>Danh từ</b> (Noun)</td><td>Chỉ người, vật, sự việc</td><td>Lan, cat, pen, book</td><td><span class="en">Lan is discussing their upcoming project with Thu.</span> <span class="fix">✎ sửa</span></td></tr>
+    <tr><td class="w"><b>Động từ</b> (Verb)</td><td>Chỉ hành động, trạng thái</td><td>speak, eat, sleep, go</td><td><span class="en">John speaks fluent Spanish.</span></td></tr>
+    <tr><td class="w"><b>Tính từ</b> (Adjective)</td><td>Miêu tả danh từ, đại từ <span class="fix">✎ sửa</span></td><td>good, big, black, interesting</td><td><span class="en">The beautiful flowers bloomed in the garden.</span></td></tr>
+    <tr><td class="w"><b>Trạng từ</b> (Adverb)</td><td>Bổ nghĩa cho động từ, tính từ hoặc trạng từ khác</td><td>slowly, well, very, really</td><td><span class="en">He runs really slowly.</span></td></tr>
+    <tr><td class="w"><b>Giới từ</b> (Preposition)</td><td>Liên kết danh từ với phần còn lại của câu</td><td>to, at, in, on, for, by</td><td><span class="en">The book is on the table.</span></td></tr>
+    <tr><td class="w"><b>Liên từ</b> (Conjunction)</td><td>Nối từ, cụm từ, mệnh đề</td><td>and, or, but, that, since</td><td><span class="en">Sarah loves to read books, and she also enjoys watching movies.</span></td></tr>
+    <tr><td class="w"><b>Thán từ</b> (Interjection)</td><td>Bộc lộ cảm xúc</td><td>Oh!, Yeah!, Yay!</td><td><span class="en">Yay! We won the game!</span></td></tr>
+    <tr><td class="w"><b>Đại từ</b> (Pronoun)</td><td>Thay thế cho danh từ</td><td>I, you, we, he, she, it, they</td><td><span class="en">Catherine is going to the store. She needs to buy some groceries.</span></td></tr>
+    <tr><td class="w"><b>Từ hạn định</b> (Determiner)</td><td>Giới hạn hay xác định danh từ</td><td>a, an, the, some</td><td><span class="en">She has a cat and a dog.</span></td></tr>
+  </table></div>
+</section>
+
+<section class="card" id="c1-2">
+  <h3>1.2 Danh từ (Noun)</h3>
+  <p>Danh từ chỉ người, sự vật, địa điểm hay hiện tượng: <span class="en">house, cat, flower, book</span>. Theo sau danh từ thường là <b>động từ thường</b> hoặc <b>to be</b>.</p>
+  <h4>Vị trí — danh từ đứng sau:</h4>
+  <ul class="pos">
+    <li>Tính từ / tính từ sở hữu (my, his, her, their, your, its)<span class="ex"><b>This is my pen.</b> — Đây là cây bút của tôi.</span></li>
+    <li>Động từ, làm tân ngữ (object)<span class="ex"><b>It’s not my fault.</b> — Đây không phải là lỗi của tôi.</span></li>
+    <li>Mạo từ <i>a, an, the</i> và từ chỉ định <i>this, that, these, those</i><span class="ex"><b>I am reading a book.</b> — Tôi đang đọc một cuốn sách. <span class="fix">✎ sửa</span></span></li>
+    <li>Giới từ (in, on, at, under…)<span class="ex"><b>I found my ruler under the table.</b> — Mình tìm được cây thước ở dưới bàn.</span></li>
+    <li>Lượng từ (a few, any, some, every, enough, little, a little, all, each…)<span class="ex"><b>Did you bring any bread?</b> — Bạn có mang bánh mì không?</span></li>
+  </ul>
+  <h4>Nhận biết qua hậu tố</h4>
+  <div class="tbl"><table>
+    <tr><th>Hậu tố</th><th>Ví dụ</th></tr>
+    <tr><td><mark class="s">-tion / -sion</mark></td><td>function (chức năng), notion (khái niệm), confusion (sự phân vân), division (phép chia), television (tivi)</td></tr>
+    <tr><td><mark class="s">-ness</mark> <span class="fix">✎ sửa</span></td><td>sadness (nỗi buồn), kindness (sự tử tế), flatness (sự bằng phẳng)</td></tr>
+    <tr><td><mark class="s">-ment</mark></td><td>moment (khoảnh khắc), contentment (sự thỏa mãn)</td></tr>
+    <tr><td><mark class="s">-ce</mark></td><td>performance (màn trình diễn), convenience (sự thuận tiện)</td></tr>
+    <tr><td><mark class="s">-ity</mark></td><td>identity (danh tính), responsibility (trách nhiệm), opportunity (cơ hội)</td></tr>
+    <tr><td><mark class="s">-er / -or</mark></td><td>error (lỗi), terror (sự khiếp sợ), instructor (người hướng dẫn)</td></tr>
+    <tr><td><mark class="s">-ship</mark></td><td>friendship (tình bạn), citizenship (quyền công dân), championship (chức vô địch)</td></tr>
+    <tr><td><mark class="s">-ism</mark></td><td>heroism (tính anh hùng), minimalism (sự tối giản), racism (phân biệt chủng tộc)</td></tr>
+    <tr><td><mark class="s">-ture</mark></td><td>temperature (nhiệt độ), agriculture (nông nghiệp), culture (văn hóa)</td></tr>
+    <tr><td><mark class="s">-phy</mark></td><td>photography (nhiếp ảnh), biography (tiểu sử) <span class="fix">✎ sửa</span></td></tr>
+    <tr><td><mark class="s">-logy</mark></td><td>biology (sinh học), technology (công nghệ)</td></tr>
+    <tr><td><mark class="s">-hood</mark></td><td>childhood (thời thơ ấu), manhood (tuổi trưởng thành), likelihood (khả năng xảy ra)</td></tr>
+    <tr><td><mark class="s">-an / -ian</mark></td><td>musician (nhạc sĩ), vegetarian (người ăn chay)</td></tr>
+    <tr><td><mark class="s">-itude</mark></td><td>attitude (thái độ), solitude (sự cô độc)</td></tr>
+    <tr><td><mark class="s">-ic</mark></td><td>magic (ma thuật), music (âm nhạc) <span class="fix">✎ sửa</span></td></tr>
+    <tr><td><mark class="s">-age</mark></td><td>cabbage (bắp cải), advantage (lợi thế), disadvantage (bất lợi)</td></tr>
+    <tr><td><mark class="s">-th</mark></td><td>length (độ dài), strength (sức mạnh), youth (tuổi trẻ)</td></tr>
+  </table></div>
+</section>
+
+<section class="card" id="c1-3">
+  <h3>1.3 Động từ (Verb)</h3>
+  <p>Động từ diễn tả hành động, cảm xúc hoặc trạng thái của chủ thể: <span class="en">ask, suggest, discuss</span>. Theo sau động từ thường là tính từ, trạng từ hoặc tân ngữ.</p>
+  <div class="callout">
+    <b>Ghi chú của bạn:</b>
+    <ul class="pos">
+      <li><b>Ngoại động từ</b> (transitive) — nhận tân ngữ trực tiếp: <span class="en">I forgive <u>you</u>.</span></li>
+      <li><b>Nội động từ</b> (intransitive) — muốn có tân ngữ phải thêm giới từ (to / for…): <span class="en">listen <u>to</u> me, wait <u>for</u> you</span>.</li>
+      <li>Ngoài động từ hành động (action) còn có động từ <b>không chỉ hành động</b> (non-action / stative): <span class="en">know, like, believe, seem</span>.</li>
+    </ul>
+  </div>
+  <h4>Vị trí</h4>
+  <ul class="pos">
+    <li>Sau chủ ngữ<span class="ex"><b>I love to eat chicken.</b> — Tôi thích ăn gà.</span></li>
+    <li>Sau trạng từ chỉ tần suất (always, sometimes, usually, often…)<span class="ex"><b>I usually travel every month.</b> — Tôi thường đi du lịch mỗi tháng.</span></li>
+  </ul>
+  <h4>Nhận biết qua hậu tố</h4>
+  <div class="tbl"><table>
+    <tr><th>Hậu tố</th><th>Ví dụ</th></tr>
+    <tr><td><mark class="s">-ize</mark></td><td>minimize (thu nhỏ), criticize (phê bình), realize (nhận ra)</td></tr>
+    <tr><td><mark class="s">-en</mark></td><td>strengthen (làm mạnh lên), lengthen (làm dài ra), threaten (đe dọa)</td></tr>
+    <tr><td><mark class="s">-ate</mark></td><td>create (tạo ra), debate (tranh luận), donate (hiến tặng)</td></tr>
+    <tr><td><mark class="s">-ify</mark></td><td>notify (thông báo), simplify (đơn giản hóa), classify (phân loại)</td></tr>
+  </table></div>
+</section>
+
+<section class="card" id="c1-4">
+  <h3>1.4 Tính từ (Adjective)</h3>
+  <p>Tính từ biểu đạt tính chất của sự vật, sự việc, hiện tượng.</p>
+  <h4>Vị trí</h4>
+  <ul class="pos">
+    <li>Trước danh từ<span class="ex"><b>I bought a new t-shirt.</b> — Tôi đã mua một chiếc áo phông mới.</span></li>
+    <li>Sau <i>to be</i><span class="ex"><b>I am not good at English.</b> — Mình không giỏi tiếng Anh.</span></li>
+    <li>Sau trạng từ<span class="ex"><b>This donut is insanely tasty.</b> — Chiếc bánh rán này cực kỳ ngon.</span></li>
+    <li>Sau <i>too, so, very</i><span class="ex"><b>She is very smart.</b> — Cô ấy rất thông minh.</span></li>
+    <li>Sau động từ liên kết: seem, feel, taste, look…<span class="ex"><b>You seem sad. What’s the problem?</b> — Trông bạn không vui. Có chuyện gì vậy?</span></li>
+  </ul>
+  <h4>Nhận biết qua hậu tố</h4>
+  <p class="vi" style="font-size:14px">Bảng gộp chữ trong trang và ảnh “Adjective formation”.</p>
+  <div class="tbl"><table>
+    <tr><th>Hậu tố</th><th>Ví dụ</th></tr>
+    <tr><td><mark class="s">-ful</mark></td><td>joyful, peaceful, colorful · care → careful, beauty → beautiful, delight → delightful</td></tr>
+    <tr><td><mark class="s">-less</mark></td><td>friendless, homeless · use → useless, shame → shameless, hair → hairless</td></tr>
+    <tr><td><mark class="s">-able / -ible</mark></td><td>dependable, capable, available · accept → acceptable, agree → agreeable, access → accessible</td></tr>
+    <tr><td><mark class="s">-al</mark></td><td>herbal, frugal, special · electric → electrical, nation → national, emotion → emotional</td></tr>
+    <tr><td><mark class="s">-ive</mark></td><td>creative, attractive, active · create → creative, act → active</td></tr>
+    <tr><td><mark class="s">-ous</mark></td><td>fame → famous, fury → furious, poison → poisonous</td></tr>
+    <tr><td><mark class="s">-ic</mark></td><td>chaotic (lộn xộn), fantastic (tuyệt vời), energetic (đầy năng lượng)</td></tr>
+    <tr><td><mark class="s">-ish</mark></td><td>selfish, foolish · tall → tallish, dark → darkish, green → greenish</td></tr>
+    <tr><td><mark class="s">-y</mark></td><td>angry, windy, messy · sleep → sleepy, rain → rainy, fun → funny</td></tr>
+    <tr><td><mark class="s">-ed</mark></td><td>wicked (độc ác), tired (mệt mỏi), worried (lo lắng)</td></tr>
+  </table></div>
+</section>
+
+<section class="card" id="c1-5">
+  <h3>1.5 Trạng từ (Adverb)</h3>
+  <p>Trạng từ nêu trạng thái, tình trạng; bổ nghĩa cho động từ, tính từ hoặc trạng từ khác: <span class="en">quickly, well, interestingly</span>.</p>
+  <div class="callout"><b>Ghi chú của bạn:</b> Trạng ngữ có thể tạo từ <b>giới từ + danh từ</b>: <span class="en">at home, on time, in the morning</span>.</div>
+  <h4>Vị trí</h4>
+  <ul class="pos">
+    <li>Trạng từ tần suất (often, always, usually, seldom…) đứng <b>sau to be</b> và <b>trước động từ thường</b><span class="ex"><b>I often get up late on weekends.</b></span></li>
+    <li>Giữa trợ động từ và động từ chính<span class="ex"><b>The children have recently finished their homework.</b></span></li>
+    <li>Sau be / seem / look / feel / appear / sound… và trước tính từ<span class="ex"><b>They seem very excited when listening to music.</b></span></li>
+    <li>Sau <i>too</i><span class="ex"><b>The man speaks too quickly.</b></span></li>
+    <li>Trước <i>enough</i><span class="ex"><b>He ran quickly enough to catch the train.</b></span></li>
+    <li>Trong cấu trúc <i>so … that</i><span class="ex"><b>The girl is so beautiful that everyone likes her.</b></span></li>
+  </ul>
+  <h4>Nhận biết qua hậu tố</h4>
+  <div class="tbl"><table>
+    <tr><th>Hậu tố</th><th>Ví dụ</th></tr>
+    <tr><td><mark class="s">-ly</mark></td><td>beautifully (đẹp), carefully (cẩn thận), badly (tệ)</td></tr>
+    <tr><td><mark class="s">-ward(s)</mark></td><td>downwards (đi xuống), homeward (về nhà), upwards (lên trên)</td></tr>
+    <tr><td><mark class="s">-wise / -ways</mark> <span class="fix">✎ sửa</span></td><td>clockwise (theo chiều kim đồng hồ), lengthwise (theo chiều dài) · sideways (sang ngang)</td></tr>
+  </table></div>
+  <h4>9 nhóm trạng từ <span class="vi" style="font-weight:400">(từ ảnh “Adverbs in English”)</span></h4>
+  <div class="grid">
+    <div class="box"><strong>Nơi chốn · Place</strong><span class="words">there, here, away, out, far away, nearby, upstairs</span></div>
+    <div class="box"><strong>Thời gian · Time</strong><span class="words">already, later, soon, yet, then, now, tonight</span></div>
+    <div class="box"><strong>Mức độ · Degree</strong><span class="words">a little, really, totally, nearly, partly, enough, hardly</span></div>
+    <div class="box"><strong>Tần suất · Frequency</strong><span class="words">never, often, usually, sometimes, rarely, hardly (ever)</span></div>
+    <div class="box"><strong>Cách thức · Manner</strong><span class="words">well, badly, quietly, carefully, sloppily <span class="fix">✎</span>, fast, easily</span></div>
+    <div class="box"><strong>Liên kết · Linking</strong><span class="words">however, in addition, moreover, besides, as a result, therefore, in contrast <span class="fix">✎ sửa</span></span></div>
+    <div class="box"><strong>Cả câu · Sentence</strong><span class="words">actually, clearly, ironically, wisely, strangely <span class="fix">✎</span>, seriously, hopefully</span></div>
+    <div class="box"><strong>Bất quy tắc · Irregular</strong><span class="words">hard, well, daily, straight, early, late, fast</span></div>
+    <div class="box"><strong>Đánh giá · Evaluation</strong><span class="words">apparently, definitely, frankly, fortunately, honestly, bravely, carelessly</span></div>
+  </div>
+</section>
+
+<section class="card" id="c1-6">
+  <h3>1.6 Giới từ (Preposition)</h3>
+  <p>Giới từ diễn tả quan hệ về thời gian, hoàn cảnh hoặc vị trí của sự vật, sự việc trong câu.</p>
+  <h4>Vị trí</h4>
+  <ul class="pos">
+    <li>Sau tính từ<span class="ex"><b>She is fond of traveling.</b> — Cô ấy thích đi du lịch.</span></li>
+    <li>Sau động từ thường<span class="ex"><b>David is standing between Lisa and Jack.</b></span></li>
+    <li>Giữa <i>to be</i> và danh từ<span class="ex"><b>The dog is under the desk.</b></span></li>
+  </ul>
+  <h4>Phân loại</h4>
+  <div class="tbl"><table>
+    <tr><th>Loại</th><th>Giới từ</th></tr>
+    <tr><td>Thời gian</td><td><b>on</b> (+ ngày), <b>at</b> (+ giờ), <b>in</b> (+ tháng, năm, mùa, thế kỷ), <b>before</b> (trước khi), <b>after</b> (sau khi), <b>during</b> (trong suốt), <b>through</b> (đến hết + mốc thời gian)<span class="ex"><b>We often go skiing in the winter.</b></span></td></tr>
+    <tr><td>Mục đích</td><td><b>for</b> (để cho), <b>thanks to</b> (nhờ vào) · <span class="vi"><i>so as to / in order to / to</i> + V (để làm gì) cũng chỉ mục đích nhưng không phải giới từ</span> <span class="fix">✎ sửa</span></td></tr>
+    <tr><td>Thể cách</td><td><b>with</b> (với), <b>without</b> (không có), <b>according to</b> (theo như), <b>in spite of</b> (mặc dù), <b>instead of</b> (thay vì)<span class="ex"><b>A coat with two pockets.</b> — Cái áo khoác có 2 túi.</span></td></tr>
+  </table></div>
+  <h4>Bảng cụm từ với at / in / on / by / for <span class="vi" style="font-weight:400">(từ ảnh)</span></h4>
+  <div class="tbl"><table>
+    <tr><th>at</th><th>in</th><th>on</th><th>by</th><th>for</th></tr>
+    <tr><td>home, work, school, university</td><td>the morning / afternoon / evening</td><td>Mondays, Monday morning, Wednesday evening</td><td>car, train, ship, plane</td><td>a walk, a change</td></tr>
+    <tr><td>the airport, the station, the bottom</td><td>1978, March, the 1980s</td><td>my birthday, Christmas Day, New Year’s Day, May 11</td><td>sea, air, land, underground</td><td>an hour, two days, three weeks, five years</td></tr>
+    <tr><td>5 o’clock, noon, midday, midnight, night</td><td>(the) spring / summer / autumn / winter</td><td>holiday / vacation, time</td><td>tomorrow, next week, next month <span class="vi">(hạn chót)</span></td><td>breakfast, lunch, dinner</td></tr>
+    <tr><td>the weekend <span class="vi">(Anh)</span></td><td>a minute / an hour / two days <span class="vi">(sau bao lâu)</span></td><td>the weekend <span class="vi">(Mỹ)</span>; the bus / the plane / the ship</td><td>(by) him / her <span class="vi">(bởi ai)</span></td><td></td></tr>
+  </table></div>
+  <div class="callout">Phương tiện: <span class="en">by car / by bus</span> (không có mạo từ) nhưng <span class="en">on the bus / on the plane</span> (có <i>the</i>).</div>
+</section>
+
+<section class="card" id="c1-7">
+  <h3>1.7 Liên từ (Conjunction) &amp; Thán từ (Interjection)</h3>
+  <p>Liên từ nối các từ, cụm từ hoặc mệnh đề thành một câu thống nhất.</p>
+  <p class="ex"><b>Lisa was disappointed because she did not win the first prize.</b> <span class="fix">✎ sửa</span> — Lisa thất vọng vì không giành được giải nhất.</p>
+  <div class="callout warn">Nguồn gốc bị đảo tên hai loại “tương quan” và “phụ thuộc”. Bảng dưới đã sắp xếp lại cho đúng.</div>
+  <div class="tbl"><table>
+    <tr><th>Loại</th><th>Liên từ</th><th>Chức năng &amp; ví dụ</th></tr>
+    <tr><td class="w">Kết hợp<br><span class="vi">(Coordinating)</span></td><td>and (và), but / yet (nhưng), or (hoặc), so (nên), for (vì), nor (cũng không) — nhớ là <b>FANBOYS</b></td><td>Nối hai từ, cụm từ hoặc mệnh đề ngang hàng.<span class="ex"><b>I like my current job, and I enjoy my life as well.</b></span></td></tr>
+    <tr><td class="w">Phụ thuộc<br><span class="vi">(Subordinating)</span></td><td>although (mặc dù), because (vì), as long as (miễn là), before (trước khi), after (sau khi)</td><td>Nối mệnh đề phụ với mệnh đề chính.<span class="ex"><b>Although Lisa was sick, she still had to take the exam.</b> — Dù bị ốm, Lisa vẫn phải đi thi.</span></td></tr>
+    <tr><td class="w">Tương quan<br><span class="vi">(Correlative)</span></td><td>not only … but also … · either … or … · neither … nor …</td><td>Đi theo cặp.<span class="ex"><b>Either Lan or Thu likes this dish.</b> — Hoặc Lan hoặc Thu thích món này. <span class="fix">✎ sửa</span></span></td></tr>
+  </table></div>
+  <h4>Thán từ</h4>
+  <p>Bộc lộ cảm xúc của người nói, thường có dấu chấm than: <span class="en">Oh dear, oh my God, ouch, well…</span></p>
+  <p class="ex"><b>Oh my God! The weather today is nice!</b> — Trời ơi! Thời tiết hôm nay đẹp quá!</p>
+</section>
+
+<section class="card" id="c1-8">
+  <h3>1.8 Đại từ (Pronoun) &amp; Từ hạn định (Determiner)</h3>
+  <p>Đại từ thay thế cho danh từ / cụm danh từ đã nhắc tới, giúp câu không bị lặp và tự nhiên hơn.</p>
+  <div class="tbl"><table>
+    <tr><th>Loại đại từ</th><th>Các từ</th><th>Cách dùng &amp; ví dụ</th></tr>
+    <tr><td class="w">Nhân xưng</td><td>I, you, we, they, he, she, it</td><td>Chỉ người, nhóm người, sự vật cụ thể.<span class="ex"><b>She will go to work next week.</b></span></td></tr>
+    <tr><td class="w">Sở hữu</td><td>mine, yours, ours, theirs <span class="fix">✎</span>, his, hers, its</td><td>Chỉ vật gì là của ai.<span class="ex"><b>All these books are hers.</b></span></td></tr>
+    <tr><td class="w">Phản thân</td><td>myself, yourself, himself, herself, itself, ourselves, yourselves, themselves <span class="fix">✎</span></td><td>Khi chủ ngữ và tân ngữ là cùng một đối tượng.<span class="ex"><b>I bought myself a watch for my birthday.</b></span></td></tr>
+    <tr><td class="w">Bất định</td><td>any, many, each, every(one), all, both, neither…</td><td>Chỉ người/vật không xác định.<span class="ex"><b>Everybody loves coffee.</b></span></td></tr>
+    <tr><td class="w">Chỉ định</td><td>this, these, that, those</td><td>Chỉ định sự vật hoặc nhận dạng ai đó.<span class="ex"><b>I love these sandals.</b></span></td></tr>
+    <tr><td class="w">Quan hệ</td><td>who, whom, which, that, whose</td><td>Nối các mệnh đề liên quan với nhau.<span class="ex"><b>The girl who is behind the column is my sister.</b></span></td></tr>
+  </table></div>
+  <h4>this / that / these / those <span class="vi" style="font-weight:400">(từ ảnh)</span></h4>
+  <div class="quad">
+    <div class="h"></div><div class="h">Số ít</div><div class="h">Số nhiều</div>
+    <div class="h">Gần</div><div><b class="en">this</b> pen</div><div><b class="en">these</b> books</div>
+    <div class="h">Xa</div><div><b class="en">that</b> book</div><div><b class="en">those</b> pencils</div>
+  </div>
+  <h4>Từ hạn định</h4>
+  <p>Xác định và giới hạn danh từ / cụm danh từ trong câu.</p>
+  <div class="tbl"><table>
+    <tr><th>Loại</th><th>Ví dụ</th></tr>
+    <tr><td>Mạo từ: a, an, the</td><td><span class="en">The boy I met today was quite friendly.</span> — Cậu bé tôi gặp hôm nay khá thân thiện.</td></tr>
+    <tr><td>Chỉ định: this, that, these, those</td><td><span class="en">This drink is delicious.</span></td></tr>
+    <tr><td>Số lượng: any, many, a few…</td><td><span class="en">Lisa received many gifts at her graduation ceremony.</span></td></tr>
+    <tr><td>Sở hữu: my, his, her, their…</td><td><span class="en">Her car is new.</span> — Xe của cô ấy còn mới. <span class="fix">✎ sửa</span></td></tr>
+  </table></div>
+</section>
+
+<section class="card" id="c1-9">
+  <h3>1.9 Chuyển đổi từ loại (Word Formation)</h3>
+  <h4>Tạo danh từ từ động từ</h4>
+  <div class="tbl"><table>
+    <tr><th>Cấu trúc</th><th>Ví dụ</th></tr>
+    <tr><td>V + <mark class="s">-tion / -ation</mark></td><td>introduce → introduction, invent → invention, admire → admiration</td></tr>
+    <tr><td>V + <mark class="s">-ment</mark></td><td>achieve → achievement, employ → employment, disappoint → disappointment</td></tr>
+    <tr><td>V + <mark class="s">-er / -or</mark></td><td>contract → contractor, drive → driver, teach → teacher</td></tr>
+    <tr><td>V + <mark class="s">-ar / -ant / -ee</mark> (chỉ người)</td><td>lie → liar, assist → assistant, employ → employee</td></tr>
+    <tr><td>V + <mark class="s">-ence / -ance</mark></td><td>reside → residence, exist → existence, refer → reference</td></tr>
+    <tr><td>V + <mark class="s">-ing</mark></td><td>run → running, stand → standing, sing → singing</td></tr>
+    <tr><td>V + <mark class="s">-age</mark></td><td>pack → package, use → usage, shrink → shrinkage</td></tr>
+  </table></div>
+  <h4>Tạo danh từ từ tính từ</h4>
+  <div class="tbl"><table>
+    <tr><th>Cấu trúc</th><th>Ví dụ</th></tr>
+    <tr><td>Adj + <mark class="s">-ity</mark></td><td>possible → possibility, real → reality, national → nationality</td></tr>
+    <tr><td>Adj + <mark class="s">-ism</mark></td><td>social → socialism, professional → professionalism</td></tr>
+    <tr><td>Adj + <mark class="s">-ness</mark></td><td>happy → happiness, sad → sadness, willing → willingness</td></tr>
+  </table></div>
+  <h4>Tạo tính từ từ danh từ</h4>
+  <div class="tbl"><table>
+    <tr><th>Cấu trúc</th><th>Ví dụ</th></tr>
+    <tr><td>N + <mark class="s">-y</mark></td><td>cloud → cloudy, wind → windy, sun → sunny</td></tr>
+    <tr><td>N + <mark class="s">-ly</mark></td><td>love → lovely <span class="fix">✎</span>, man → manly, friend → friendly</td></tr>
+    <tr><td>N + <mark class="s">-ful</mark></td><td>pity → pitiful, beauty → beautiful, harm → harmful</td></tr>
+    <tr><td>N + <mark class="s">-less</mark></td><td>care → careless, harm → harmless, rest → restless</td></tr>
+    <tr><td>N + <mark class="s">-en</mark></td><td>gold → golden, wool → woollen, wood → wooden</td></tr>
+    <tr><td>N + <mark class="s">-ish</mark></td><td>girl → girlish, style → stylish, child → childish</td></tr>
+    <tr><td>N + <mark class="s">-ous</mark></td><td>humour → humorous, danger → dangerous, scandal → scandalous</td></tr>
+  </table></div>
+  <h4>Tính từ ghép <span class="fix">✎ sửa</span></h4>
+  <div class="tbl"><table>
+    <tr><th>Cấu trúc</th><th>Ví dụ</th></tr>
+    <tr><td>Danh từ + tính từ</td><td>world-famous, sugar-free</td></tr>
+    <tr><td>Danh từ + phân từ</td><td>eye-opening, man-made</td></tr>
+    <tr><td>Số + danh từ (số ít)</td><td>a three-day trip <span class="vi">(không nói “three-days”)</span></td></tr>
+  </table></div>
+  <h4>Tạo trạng từ từ tính từ</h4>
+  <p>Adj + <mark class="s">-ly</mark>: quick → quickly, possible → possibly, happy → happily, beautiful → beautifully, smooth → smoothly.</p>
+  <h4>Ngoại lệ cần nhớ</h4>
+  <div class="tbl"><table>
+    <tr><th>Từ</th><th>Loại</th><th>Ví dụ</th></tr>
+    <tr><td><b>friendly</b></td><td>Chỉ là tính từ (dù có đuôi -ly)</td><td><span class="en">She welcomes me in a friendly way.</span></td></tr>
+    <tr><td><b>late</b></td><td>Vừa tính từ vừa trạng từ</td><td><span class="en">He was late.</span> (adj) · <span class="en">He came late.</span> (adv)</td></tr>
+    <tr><td><b>hard</b></td><td>Vừa tính từ vừa trạng từ</td><td><span class="en">The exercise is pretty hard.</span> (adj) · <span class="en">She works hard.</span> (adv)</td></tr>
+    <tr><td><b>early</b></td><td>Vừa tính từ vừa trạng từ</td><td><span class="en">She likes being a little early for meetings.</span> (adj) · <span class="en">I don’t like getting up early.</span> (adv)</td></tr>
+    <tr><td><b>well</b></td><td>Vừa tính từ vừa trạng từ</td><td><span class="en">He has been very well lately.</span> (adj) · <span class="en">I hope she is doing well.</span> (adv)</td></tr>
+    <tr><td><b>fast</b></td><td>Vừa tính từ vừa trạng từ</td><td><span class="en">That is a fast car.</span> (adj) <span class="fix">✎</span> · <span class="en">You’ll have to act fast.</span> (adv)</td></tr>
+    <tr><td><b>high</b></td><td>Vừa tính từ vừa trạng từ</td><td><span class="en">She got very high marks.</span> (adj) · <span class="en">He jumped high to catch the ball.</span> (adv)</td></tr>
+  </table></div>
+  <div class="src">Nguồn: trang “Loại từ trong tiếng Anh” (ELSA Speak) + 4 ảnh minh họa.</div>
+</section>
+
+<!-- ============ CHAPTER 2 ============ -->
+<h2 class="chapter" id="c2"><span class="num">2</span>Danh từ đếm được &amp; không đếm được</h2>
+<p class="chapter-intro">Countable vs. Uncountable Nouns — quyết định bạn dùng <i>a/an</i>, <i>many/much</i> và động từ số ít hay số nhiều.</p>
+
+<section class="card" id="c2-1">
+  <h3>2.1 Danh từ đếm được (Countable nouns)</h3>
+  <p>Chỉ người, vật, hiện tượng tồn tại riêng lẻ; có thể đi với số đếm: <span class="en">a cat, three cats, a table, two tables</span>.</p>
+  <div class="tbl"><table>
+    <tr><th>Loại</th><th>Định nghĩa</th><th>Ví dụ</th></tr>
+    <tr><td class="w">Số ít (Singular)</td><td>Số lượng là MỘT; thường đứng sau <i>one</i> hoặc <i>a/an</i></td><td>one shirt, a picture, an apple</td></tr>
+    <tr><td class="w">Số nhiều (Plural)</td><td>Số lượng từ 2 trở lên</td><td>two shirts, six dogs</td></tr>
+  </table></div>
+  <p>Chuyển sang số nhiều thường thêm <b>-s / -es</b>: <span class="en">an orange → two oranges, a book → books</span>. Quy tắc chi tiết ở <a href="#c3">Chương 3</a>.</p>
+</section>
+
+<section class="card" id="c2-2">
+  <h3>2.2 Danh từ không đếm được (Uncountable nouns)</h3>
+  <p>Không dùng trực tiếp với số đếm. Thường là khái niệm trừu tượng, chất lỏng, chất khí, hoặc thứ được xem như một khối không tách rời: <span class="en">water, tea, air</span>.</p>
+  <div class="grid">
+    <div class="box"><strong>Đồ ăn</strong><span class="words">food, meat, rice, sugar</span></div>
+    <div class="box"><strong>Khái niệm trừu tượng</strong><span class="words">advice, love, patience, information</span></div>
+    <div class="box"><strong>Lĩnh vực, môn học</strong><span class="words">literature, English, tennis, music</span></div>
+    <div class="box"><strong>Hiện tượng tự nhiên</strong><span class="words">thunder, snow, fog, light</span></div>
+    <div class="box"><strong>Hoạt động</strong><span class="words">swimming, sleeping, walking, reading</span></div>
+  </div>
+  <h4>Lưu ý</h4>
+  <ul class="pos">
+    <li>Không dùng <i>a/an</i>, thường ở dạng số ít.<span class="ex"><b>I need some light to read this book.</b> · <b>Most pottery is made of clay.</b></span></li>
+    <li>Đặt trong vật chứa / đơn vị đo thì thành cụm đếm được.<span class="ex"><b>tea → a cup of tea</b> · <b>sugar → three bags of sugar</b></span></li>
+    <li>Có thể dùng số nhiều để chỉ các <b>loại</b> khác nhau (food, money, meat, water…).<span class="ex"><b>This is one of the meats that my younger brother likes very much.</b> — một trong những loại thịt em tôi thích.</span></li>
+  </ul>
+</section>
+
+<section class="card" id="c2-3">
+  <h3>2.3 30 danh từ không đếm được thường gặp</h3>
+  <div class="tbl"><table>
+    <tr><th>Từ</th><th>Phiên âm</th><th>Nghĩa</th><th>Từ</th><th>Phiên âm</th><th>Nghĩa</th></tr>
+    <tr><td>advertising</td><td class="ipa">/ˈæd.və.taɪ.zɪŋ/</td><td>quảng cáo</td><td>history</td><td class="ipa">/ˈhɪs.tər.i/</td><td>lịch sử</td></tr>
+    <tr><td>advice</td><td class="ipa">/ədˈvaɪs/</td><td>lời khuyên</td><td>homework</td><td class="ipa">/ˈhəʊm.wɜːk/</td><td>bài tập về nhà</td></tr>
+    <tr><td>air</td><td class="ipa">/eə(r)/</td><td>không khí</td><td>information</td><td class="ipa">/ˌɪn.fəˈmeɪ.ʃən/</td><td>thông tin</td></tr>
+    <tr><td>chemistry</td><td class="ipa">/ˈkem.ɪ.stri/</td><td>hóa học</td><td>justice</td><td class="ipa">/ˈdʒʌs.tɪs/</td><td>công lý</td></tr>
+    <tr><td>clothing</td><td class="ipa">/ˈkləʊ.ðɪŋ/</td><td>quần áo</td><td>knowledge</td><td class="ipa">/ˈnɒl.ɪdʒ/</td><td>kiến thức</td></tr>
+    <tr><td>confidence</td><td class="ipa">/ˈkɒn.fɪ.dəns/</td><td>sự tự tin</td><td>literature</td><td class="ipa">/ˈlɪt.rə.tʃər/</td><td>văn học</td></tr>
+    <tr><td>correspondence</td><td class="ipa">/ˌkɒr.ɪˈspɒn.dəns/</td><td>thư từ</td><td>luggage / baggage</td><td class="ipa">/ˈlʌɡ.ɪdʒ/ /ˈbæɡ.ɪdʒ/</td><td>hành lý</td></tr>
+    <tr><td>economics</td><td class="ipa">/ˌiː.kəˈnɒm.ɪks/</td><td>kinh tế học</td><td>machinery</td><td class="ipa">/məˈʃiː.nər.i/</td><td>máy móc</td></tr>
+    <tr><td>education</td><td class="ipa">/ˌedʒ.ʊˈkeɪ.ʃən/</td><td>giáo dục</td><td>maths</td><td class="ipa">/mæθs/</td><td>toán</td></tr>
+    <tr><td>employment</td><td class="ipa">/ɪmˈplɔɪ.mənt/</td><td>việc làm</td><td>meat</td><td class="ipa">/miːt/</td><td>thịt</td></tr>
+    <tr><td>environment</td><td class="ipa">/ɪnˈvaɪ.rən.mənt/</td><td>môi trường</td><td>merchandise</td><td class="ipa">/ˈmɜː.tʃən.daɪs/</td><td>hàng hóa <span class="vi">(<i>goods</i> luôn số nhiều — xem 4.2)</span> <span class="fix">✎ sửa</span></td></tr>
+    <tr><td>equipment</td><td class="ipa">/ɪˈkwɪp.mənt/</td><td>trang thiết bị</td><td>money</td><td class="ipa">/ˈmʌn.i/</td><td>tiền</td></tr>
+    <tr><td>evidence</td><td class="ipa">/ˈev.ɪ.dəns/</td><td>bằng chứng</td><td>news</td><td class="ipa">/njuːz/</td><td>tin tức</td></tr>
+    <tr><td>food</td><td class="ipa">/fuːd/</td><td>thức ăn</td><td>physics</td><td class="ipa">/ˈfɪz.ɪks/</td><td>vật lý</td></tr>
+    <tr><td>furniture</td><td class="ipa">/ˈfɜː.nɪ.tʃər/</td><td>đồ nội thất</td><td>politics</td><td class="ipa">/ˈpɒl.ə.tɪks/</td><td>chính trị</td></tr>
+  </table></div>
+  <div class="callout warn">Người Việt hay sai: <span class="en"><s>an advice</s> → a piece of advice</span>, <span class="en"><s>informations</s> → information</span>, <span class="en"><s>furnitures</s> → furniture</span>, <span class="en"><s>a homework</s> → some homework</span>.</div>
+</section>
+
+<section class="card" id="c2-4">
+  <h3>2.4 Dùng với mạo từ &amp; lượng từ</h3>
+  <div class="tbl"><table>
+    <tr><th>Dùng với</th><th>Mạo từ / lượng từ</th><th>Ví dụ</th></tr>
+    <tr><td>Chỉ danh từ <b>đếm được</b></td><td>a, an, many, few, a few</td><td>a student, many books, a few friends</td></tr>
+    <tr><td>Chỉ danh từ <b>không đếm được</b></td><td>much, little, a little (bit of)</td><td>much money, little milk, a little bit of salt</td></tr>
+    <tr><td><b>Cả hai</b></td><td>some, any, no, a lot of, lots of, plenty of</td><td>some tables / some milk · a lot of bags / a lot of tea</td></tr>
+  </table></div>
+</section>
+
+<section class="card" id="c2-5">
+  <h3>2.5 Từ vừa đếm được vừa không đếm được</h3>
+  <p>Nghĩa thay đổi theo cách dùng — ví dụ <b>time</b> (<span class="en">What time is it?</span> — thời gian / <span class="en">I read this book many times.</span> — nhiều lần) và <b>coffee</b> (<span class="en">Would you like some coffee?</span> / <span class="en">I want a coffee.</span> — một cốc). Bảng đầy đủ ở <a href="#c2-9">mục 2.9</a>.</p>
+  <p>Các từ tương tự:</p>
+  <div class="chips"><span class="chip">truth</span><span class="chip">cheese</span><span class="chip">currency</span><span class="chip">danger</span><span class="chip">education</span><span class="chip">entertainment</span><span class="chip">failure</span><span class="chip">food</span><span class="chip">friendship</span><span class="chip">lack</span></div>
+</section>
+
+<section class="card" id="c2-6">
+  <h3>2.6 Bảng so sánh</h3>
+  <div class="tbl"><table>
+    <tr><th></th><th>Đếm được</th><th>Không đếm được</th></tr>
+    <tr><td><b>Hình thái</b></td><td>Có số ít và số nhiều (thêm -s/-es)</td><td>Chỉ có một dạng, thường là số ít</td></tr>
+    <tr><td><b>Mạo từ</b></td><td>Số ít không đứng một mình; cần <i>a/an</i>, <i>the</i> hoặc số đếm</td><td>Có thể đứng một mình hoặc với <i>the</i>; <b>không</b> dùng <i>a/an</i></td></tr>
+    <tr><td><b>Số đếm</b></td><td>one bowl, three apples</td><td>Phải qua đơn vị đo: one bowl <u>of</u> rice, a cup <u>of</u> coffee</td></tr>
+    <tr><td><b>Lượng từ</b></td><td>many, few, a few + N số nhiều</td><td>much, little, a little + N</td></tr>
+    <tr><td><b>Động từ</b></td><td>Số ít/số nhiều theo danh từ<span class="ex"><b>The girl is beautiful. / The girls are beautiful.</b></span></td><td>Luôn chia số ít<span class="ex"><b>Sugar is sweet. · Coffee is my favorite drink.</b></span></td></tr>
+  </table></div>
+  <div class="src">Nguồn: trang “Danh từ đếm được và không đếm được trong tiếng Anh | ELSA Speak”.</div>
+</section>
+
+<section class="card" id="c2-7">
+  <h3>2.7 Danh sách danh từ không đếm được theo nhóm <span class="fix">✎ bổ sung</span><span class="new" title="Mới thêm — chưa xem lại">🆕</span></h3>
+  <p class="vi">Mở rộng bảng 30 từ ở mục 2.3. Các từ dưới đây <b>không</b> dùng a/an, <b>không</b> thêm -s, động từ chia <b>số ít</b>.</p>
+  <div class="tbl"><table>
+    <tr><th>Nhóm</th><th>Danh từ</th></tr>
+    <tr><td class="w">Đồ ăn</td><td><span class="en">bread, butter, cheese, meat, beef, pork, chicken (thịt gà), fish (thịt cá), rice, pasta, flour, sugar, salt, pepper, soup, jam, honey, chocolate, fruit, food</span></td></tr>
+    <tr><td class="w">Đồ uống, chất lỏng</td><td><span class="en">water, milk, tea, coffee, juice, beer, wine, oil, petrol / gas, blood, ink, shampoo</span></td></tr>
+    <tr><td class="w">Chất khí, vật liệu</td><td><span class="en">air, oxygen, smoke, steam, wood, paper, glass, plastic, metal, iron, gold, silver, cotton, wool, leather, sand, dust, cement</span></td></tr>
+    <tr><td class="w">Hiện tượng tự nhiên</td><td><span class="en">weather, rain, snow, ice, wind, fog, sunshine, heat, thunder, lightning, darkness, light, electricity, gravity</span></td></tr>
+    <tr><td class="w">Khái niệm trừu tượng</td><td><span class="en">advice, information, knowledge, news, evidence, research, progress, luck, fun, love, happiness, anger, fear, beauty, honesty, freedom, peace, patience, courage, help, trouble, permission</span></td></tr>
+    <tr><td class="w">Nhóm vật (danh từ tập hợp)</td><td><span class="en">furniture, luggage / baggage, equipment, machinery, clothing, jewellery, cutlery, stationery, homework, housework, mail, money, cash, change (tiền lẻ), traffic, rubbish / garbage, software, hardware, data (thường)</span></td></tr>
+    <tr><td class="w">Môn học, lĩnh vực</td><td><span class="en">maths, physics, chemistry, biology, history, economics, politics, music, art, literature, grammar, vocabulary, English, medicine, engineering</span></td></tr>
+    <tr><td class="w">Hoạt động (V-ing), thể thao</td><td><span class="en">swimming, reading, shopping, cooking, camping, sightseeing, football, tennis, chess, yoga, travel, work, employment, accommodation, transport</span></td></tr>
+    <tr><td class="w">Ngôn ngữ, quốc tịch</td><td><span class="en">English, Vietnamese, French, Japanese</span> (khi chỉ ngôn ngữ)</td></tr>
+  </table></div>
+  <div class="callout warn">Người Việt hay đếm những từ này vì tiếng Việt đếm được: <s>an advice</s>, <s>informations</s>, <s>furnitures</s>, <s>luggages</s>, <s>equipments</s>, <s>homeworks</s>, <s>a bad weather</s>, <s>a good news</s>, <s>vocabularies</s>, <s>travels</s> (nghĩa du lịch nói chung), <s>researches</s>, <s>an accommodation</s>.</div>
+</section>
+
+<section class="card" id="c2-8">
+  <h3>2.8 Cách đếm: đơn vị đo &amp; từ đếm được tương đương <span class="fix">✎ bổ sung</span><span class="new" title="Mới thêm — chưa xem lại">🆕</span></h3>
+  <h4>Đơn vị đo (a … of + N không đếm được)</h4>
+  <div class="tbl"><table>
+    <tr><th>Đơn vị</th><th>Dùng với</th><th>Ví dụ</th></tr>
+    <tr><td><b>a piece of</b></td><td>advice, information, news, furniture, luggage, equipment, paper, cake, music, evidence</td><td><span class="en">a piece of advice · two pieces of furniture</span></td></tr>
+    <tr><td><b>a slice of</b></td><td>bread, cake, pizza, cheese, meat</td><td><span class="en">a slice of pizza</span></td></tr>
+    <tr><td><b>a loaf of</b></td><td>bread</td><td><span class="en">two loaves of bread</span></td></tr>
+    <tr><td><b>a bar of</b></td><td>chocolate, soap, gold</td><td><span class="en">a bar of chocolate</span></td></tr>
+    <tr><td><b>a cup / glass / bottle / can of</b></td><td>tea, coffee / water, juice, wine / beer, soda</td><td><span class="en">a cup of tea · a glass of water · a bottle of wine</span></td></tr>
+    <tr><td><b>a bowl / plate of</b></td><td>rice, soup / food, pasta</td><td><span class="en">a bowl of rice · a plate of spaghetti</span></td></tr>
+    <tr><td><b>a kilo / litre / spoonful of</b></td><td>sugar, meat / milk, oil / salt, sugar</td><td><span class="en">a kilo of rice · a litre of milk · a spoonful of sugar</span></td></tr>
+    <tr><td><b>a sheet of</b></td><td>paper, glass</td><td><span class="en">a sheet of paper</span></td></tr>
+    <tr><td><b>a grain of</b></td><td>rice, sand, salt</td><td><span class="en">a grain of sand</span></td></tr>
+    <tr><td><b>a drop of</b></td><td>water, rain, blood, oil</td><td><span class="en">a drop of rain</span></td></tr>
+    <tr><td><b>a flash / clap of</b></td><td>lightning / thunder</td><td><span class="en">a flash of lightning · a clap of thunder</span></td></tr>
+    <tr><td><b>an item / article of</b></td><td>clothing, news, furniture</td><td><span class="en">an item of clothing</span></td></tr>
+    <tr><td><b>a stroke / bit of</b></td><td>luck / fun, help, trouble</td><td><span class="en">a stroke of luck · a bit of help</span></td></tr>
+  </table></div>
+  <h4>Thêm đơn vị theo nhóm <span class="vi" style="font-weight:400">(từ ảnh “uncountable nouns”)</span></h4>
+  <div class="grid">
+    <div class="box"><strong>Đồ ăn</strong><span class="words">a pinch of salt · a knob/pat of butter · a square of chocolate · a box of cereal · a bag of flour · a head of lettuce · a clove of garlic · a stalk of celery · a cube of ice</span></div>
+    <div class="box"><strong>Chất lỏng</strong><span class="words">a jug of water · a carton of yogurt · a can of coke · a pot of tea · a trickle of water · a shot of vodka · a pint of milk</span></div>
+    <div class="box"><strong>Vật/khái niệm chung</strong><span class="words">a piece of jewellery · a pile of money · a ray of sunshine · a bolt of lightning · a pane of glass · a ream of paper · a roll of toilet paper · a tube of toothpaste · a ball of wool · a bar of soap · a column of smoke</span></div>
+  </div>
+  <p class="ex"><b>Can you get me a knob of butter and a pinch of salt?</b> — Lấy giúp mình một cục bơ nhỏ và một nhúm muối nhé.</p>
+  <p class="src">Nguồn: <a href="https://phuongdocs.notion.site/e6475b3d4bef4890b9e71a11abde4188">uncountable nouns</a> — 3 ảnh</p>
+  <h4>Không đếm được ↔ từ đếm được tương đương</h4>
+  <div class="tbl"><table>
+    <tr><th>Không đếm được</th><th>Đếm được</th><th>Ví dụ</th></tr>
+    <tr><td>advice</td><td>a suggestion, a tip</td><td><span class="en">She gave me some advice. = She gave me a few tips.</span></td></tr>
+    <tr><td>work</td><td>a job, a task</td><td><span class="en">I’m looking for work. = I’m looking for a job.</span></td></tr>
+    <tr><td>travel</td><td>a trip, a journey</td><td><span class="en">Travel broadens the mind. · We had a long journey.</span></td></tr>
+    <tr><td>furniture</td><td>a table, a chair, a sofa</td><td><span class="en">We bought some new furniture: two chairs and a table.</span></td></tr>
+    <tr><td>luggage / baggage</td><td>a suitcase, a bag</td><td><span class="en">How much luggage do you have? – Two suitcases.</span></td></tr>
+    <tr><td>equipment / machinery</td><td>a tool, a machine</td><td><span class="en">The gym has modern equipment. · This machine is broken.</span></td></tr>
+    <tr><td>money / cash</td><td>a coin, a note, a dollar</td><td><span class="en">I don’t have much money — only a few coins.</span></td></tr>
+    <tr><td>food</td><td>a meal, a dish</td><td><span class="en">The food was great. · We had three meals.</span></td></tr>
+    <tr><td>vocabulary</td><td>a word</td><td><span class="en">Learn ten new words a day to build your vocabulary.</span></td></tr>
+    <tr><td>poetry · scenery · weather</td><td>a poem · a view · a storm</td><td><span class="en">The scenery is beautiful. · What a view!</span></td></tr>
+    <tr><td>traffic</td><td>a car, a vehicle</td><td><span class="en">There is heavy traffic. · There are many cars.</span></td></tr>
+    <tr><td>clothing</td><td>clothes (số nhiều), a shirt</td><td><span class="en">warm clothing · my clothes are wet</span></td></tr>
+  </table></div>
+</section>
+
+<section class="card" id="c2-9">
+  <h3>2.9 Danh từ vừa đếm được vừa không (đổi nghĩa) <span class="fix">✎ bổ sung</span><span class="new" title="Mới thêm — chưa xem lại">🆕</span></h3>
+  <p class="vi">Mở rộng mục 2.5: cùng một từ, đếm được và không đếm được mang nghĩa khác nhau.</p>
+  <div class="tbl"><table>
+    <tr><th>Từ</th><th>Không đếm được</th><th>Đếm được</th></tr>
+    <tr><td><b>paper</b></td><td>giấy — <span class="en">a sheet of paper</span></td><td>tờ báo; bài báo khoa học — <span class="en">I bought a paper. · She published two papers.</span></td></tr>
+    <tr><td><b>glass</b></td><td>thủy tinh — <span class="en">made of glass</span></td><td>cái cốc — <span class="en">a glass of water</span>; glasses = kính mắt</td></tr>
+    <tr><td><b>hair</b></td><td>tóc (cả mái) — <span class="en">She has long hair.</span></td><td>sợi tóc — <span class="en">There’s a hair in my soup!</span></td></tr>
+    <tr><td><b>room</b></td><td>chỗ trống — <span class="en">Is there room for me?</span></td><td>căn phòng — <span class="en">The house has five rooms.</span></td></tr>
+    <tr><td><b>time</b></td><td>thời gian — <span class="en">I don’t have much time.</span></td><td>lần; thời kỳ — <span class="en">three times · We had a great time.</span></td></tr>
+    <tr><td><b>experience</b></td><td>kinh nghiệm — <span class="en">She has a lot of experience.</span></td><td>trải nghiệm — <span class="en">It was an amazing experience.</span></td></tr>
+    <tr><td><b>work</b></td><td>công việc — <span class="en">I have a lot of work.</span></td><td>tác phẩm — <span class="en">the works of Shakespeare</span></td></tr>
+    <tr><td><b>business</b></td><td>kinh doanh — <span class="en">Business is good.</span></td><td>công ty — <span class="en">He runs two businesses.</span></td></tr>
+    <tr><td><b>chicken / fish / lamb</b></td><td>thịt — <span class="en">I had chicken for lunch.</span></td><td>con vật — <span class="en">She keeps ten chickens.</span></td></tr>
+    <tr><td><b>coffee / tea / beer</b></td><td>đồ uống nói chung — <span class="en">I love coffee.</span></td><td>một cốc/tách — <span class="en">Two coffees, please.</span></td></tr>
+    <tr><td><b>iron</b></td><td>sắt — <span class="en">an iron gate</span></td><td>bàn là — <span class="en">I need an iron.</span></td></tr>
+    <tr><td><b>light</b></td><td>ánh sáng — <span class="en">There isn’t enough light.</span></td><td>đèn — <span class="en">Turn off the lights.</span></td></tr>
+    <tr><td><b>noise</b></td><td>tiếng ồn nói chung — <span class="en">too much noise</span></td><td>một tiếng động — <span class="en">I heard a strange noise.</span></td></tr>
+    <tr><td><b>language</b></td><td>ngôn ngữ nói chung — <span class="en">Language changes over time.</span></td><td>một thứ tiếng — <span class="en">She speaks three languages.</span></td></tr>
+    <tr><td><b>cake / chocolate</b></td><td>(miếng) bánh, sô-cô-la — <span class="en">some cake</span></td><td>cả cái bánh, viên kẹo — <span class="en">a birthday cake · a box of chocolates</span></td></tr>
+    <tr><td><b>country</b></td><td>vùng nông thôn — <span class="en">in the country</span></td><td>quốc gia — <span class="en">many countries</span></td></tr>
+  </table></div>
+  <div class="callout"><b>Mẹo nhớ:</b> nói về <b>chất liệu / cái chung</b> → không đếm được; nói về <b>một vật / một lần / một loại cụ thể</b> → đếm được.</div>
+</section>
+
+<!-- ============ CHAPTER 3 ============ -->
+<h2 class="chapter" id="c3"><span class="num">3</span>Số nhiều của danh từ (Plural Forms)</h2>
+<p class="chapter-intro">Gộp từ 3 nguồn: bảng của ELSA, trang “S ES” và ảnh “PLURAL of NOUNS” (learn-english-today.com).</p>
+
+<section class="card" id="c3-1">
+  <h3>3.1 Quy tắc thêm -s / -es</h3>
+  <div class="tbl"><table>
+    <tr><th>Danh từ</th><th>Quy tắc</th><th>Ví dụ</th></tr>
+    <tr><td><b>Chung</b></td><td>thêm <mark class="s">-s</mark></td><td>car<mark class="s">s</mark>, bag<mark class="s">s</mark>, book<mark class="s">s</mark>, table<mark class="s">s</mark>, house<mark class="s">s</mark>, dog<mark class="s">s</mark></td></tr>
+    <tr><td>Tận cùng <b>s, ch, sh, x, z</b></td><td>thêm <mark class="s">-es</mark></td><td>bus → bus<mark class="s">es</mark>, class → class<mark class="s">es</mark>, lunch → lunch<mark class="s">es</mark>, watch → watch<mark class="s">es</mark>, switch → switch<mark class="s">es</mark>, brush → brush<mark class="s">es</mark>, dish → dish<mark class="s">es</mark>, box → box<mark class="s">es</mark>, waltz → waltz<mark class="s">es</mark>
+      <div class="callout warn" style="margin-bottom:0">Ngoại lệ: <i>-ch</i> đọc là /k/ thì chỉ thêm <b>-s</b>: <span class="en">stomach → stomachs, monarch → monarchs</span>. <span class="fix">✎ bổ sung</span> <span class="vi">(nội dung ngoại lệ trong trang Notion bị mất chữ)</span></div></td></tr>
+    <tr><td>Tận cùng <b>f, fe</b></td><td>đổi thành <mark class="s">-ves</mark></td><td>half → hal<mark class="s">ves</mark>, calf → cal<mark class="s">ves</mark>, shelf → shel<mark class="s">ves</mark>, leaf → lea<mark class="s">ves</mark>, thief → thie<mark class="s">ves</mark>, wolf → wol<mark class="s">ves</mark>, life → li<mark class="s">ves</mark>, knife → kni<mark class="s">ves</mark>, wife → wi<mark class="s">ves</mark>
+      <div class="callout warn" style="margin-bottom:0">Ngoại lệ chỉ thêm <b>-s</b>: <span class="en">chef → chefs, belief → beliefs, proof → proofs, roof → roofs</span>. Tận cùng <b>-ff</b> cũng chỉ thêm -s: <span class="en">cliff → cliffs</span> <span class="fix">✎ sửa</span></div></td></tr>
+    <tr><td rowspan="2">Tận cùng <b>o</b></td><td>thêm <mark class="s">-es</mark></td><td>potato<mark class="s">es</mark>, tomato<mark class="s">es</mark>, hero<mark class="s">es</mark>, echo<mark class="s">es</mark>, veto<mark class="s">es</mark>, mosquito<mark class="s">es</mark></td></tr>
+    <tr><td>thêm <mark class="s">-s</mark></td><td>radio<mark class="s">s</mark>, stereo<mark class="s">s</mark>, video<mark class="s">s</mark>, piano<mark class="s">s</mark>, photo<mark class="s">s</mark>, soprano<mark class="s">s</mark></td></tr>
+    <tr><td rowspan="2">Tận cùng <b>y</b></td><td><b>phụ âm</b> + y → bỏ y, thêm <mark class="s">-ies</mark></td><td>city → cit<mark class="s">ies</mark>, cherry → cherr<mark class="s">ies</mark>, country → countr<mark class="s">ies</mark>, family → famil<mark class="s">ies</mark>, lady → lad<mark class="s">ies</mark>, party → part<mark class="s">ies</mark></td></tr>
+    <tr><td><b>nguyên âm</b> + y → thêm <mark class="s">-s</mark></td><td>day<mark class="s">s</mark>, holiday<mark class="s">s</mark>, toy<mark class="s">s</mark>, key<mark class="s">s</mark>, donkey<mark class="s">s</mark>, turkey<mark class="s">s</mark>, valley<mark class="s">s</mark></td></tr>
+  </table></div>
+  <div class="callout">Mẹo nhớ tận cùng <b>o</b> + <b>-es</b>: “<span class="en">Heroes eat potatoes and tomatoes</span>”. Các từ mượn / viết tắt (photo, piano, radio, video) chỉ thêm <b>-s</b>.</div>
+</section>
+
+<section class="card" id="c3-2">
+  <h3>3.2 Số nhiều bất quy tắc</h3>
+  <div class="tbl"><table>
+    <tr><th>Số ít</th><th>Số nhiều</th><th>Nghĩa</th></tr>
+    <tr><td>man <span class="ipa">/mæn/</span></td><td><b>men</b> <span class="ipa">/men/</span></td><td>người đàn ông</td></tr>
+    <tr><td>woman <span class="ipa">/ˈwʊm.ən/</span></td><td><b>women</b> <span class="ipa">/ˈwɪm.ɪn/</span></td><td>người phụ nữ</td></tr>
+    <tr><td>child <span class="ipa">/tʃaɪld/</span></td><td><b>children</b> <span class="ipa">/ˈtʃɪl.drən/</span></td><td>đứa trẻ</td></tr>
+    <tr><td>person <span class="ipa">/ˈpɜː.sən/</span></td><td><b>people</b> <span class="ipa">/ˈpiː.pəl/</span></td><td>người</td></tr>
+    <tr><td>foot <span class="ipa">/fʊt/</span></td><td><b>feet</b> <span class="ipa">/fiːt/</span></td><td>bàn chân</td></tr>
+    <tr><td>tooth <span class="ipa">/tuːθ/</span></td><td><b>teeth</b> <span class="ipa">/tiːθ/</span></td><td>răng</td></tr>
+    <tr><td>goose <span class="ipa">/ɡuːs/</span></td><td><b>geese</b> <span class="ipa">/ɡiːs/</span></td><td>con ngỗng</td></tr>
+    <tr><td>mouse <span class="ipa">/maʊs/</span></td><td><b>mice</b> <span class="ipa">/maɪs/</span></td><td>con chuột</td></tr>
+    <tr><td>louse</td><td><b>lice</b></td><td>con chấy</td></tr>
+    <tr><td>ox</td><td><b>oxen</b></td><td>con bò đực</td></tr>
+  </table></div>
+  <h4>Từ gốc Latin / Hy Lạp</h4>
+  <div class="tbl"><table>
+    <tr><th>Quy luật</th><th>Ví dụ</th></tr>
+    <tr><td>-is → <mark class="s">-es</mark></td><td>analysis → analyses, crisis → crises, ellipsis → ellipses, oasis → oases</td></tr>
+    <tr><td>-um → <mark class="s">-a</mark></td><td>curriculum → curricula, erratum → errata, bacterium → bacteria</td></tr>
+    <tr><td>-a → <mark class="s">-ae</mark></td><td>alumna → alumnae, vita → vitae</td></tr>
+    <tr><td>-ex / -ix → <mark class="s">-ices</mark></td><td>index → indices, apex → apices</td></tr>
+  </table></div>
+</section>
+
+<section class="card" id="c3-3">
+  <h3>3.3 Danh từ không thay đổi ở số nhiều</h3>
+  <p>Số ít = số nhiều: <span class="en">one sheep, two sheep</span>.</p>
+  <div class="tbl"><table>
+    <tr><th>Nhóm</th><th>Từ</th></tr>
+    <tr><td>Con vật</td><td>deer, sheep <span class="ipa">/ʃiːp/</span> (cừu), fish <span class="ipa">/fɪʃ/</span>, salmon <span class="ipa">/ˈsæm.ən/</span> (cá hồi), trout <span class="ipa">/traʊt/</span> (cá hồi nước ngọt), tuna, grouse <span class="ipa">/ɡraʊs/</span> (gà rừng)</td></tr>
+    <tr><td>Phương tiện</td><td>craft <span class="ipa">/krɑːft/</span> (tàu, thuyền), aircraft, hovercraft, spacecraft</td></tr>
+    <tr><td>Khác</td><td>series, species, means, offspring, headquarters</td></tr>
+  </table></div>
+  <div class="callout"><b>fish</b> hay <b>fishes</b>? Đếm số con thì dùng <b>fish</b>: <span class="en">one fish, two fish, three fish</span>. Nói về nhiều <b>loài</b> cá khác nhau thì dùng <b>fishes</b>.</div>
+</section>
+
+<section class="card" id="c3-4">
+  <h3>3.4 Danh từ ghép &amp; tên họ</h3>
+  <h4>Danh từ ghép (từ hai từ trở lên)</h4>
+  <p>Thêm -s vào <b>danh từ chính</b>, không phải từ cuối cùng:</p>
+  <div class="chips"><span class="chip">passer-by → passer<b>s</b>-by</span><span class="chip">head of state → head<b>s</b> of state</span><span class="chip">mother-in-law → mother<b>s</b>-in-law</span></div>
+  <h4>Số nhiều của tên họ</h4>
+  <div class="tbl"><table>
+    <tr><th>Tên họ</th><th>Quy tắc</th><th>Ví dụ</th></tr>
+    <tr><td>Hầu hết</td><td>thêm <mark class="s">-s</mark></td><td><span class="en">The Windsors, the Carters, the Harringtons, the Fords … send you their best wishes.</span></td></tr>
+    <tr><td>Tận cùng <b>y</b></td><td>vẫn chỉ thêm <mark class="s">-s</mark> (không đổi thành -ies)</td><td>the Berrys, the Kennedys, the Lowrys, the O’Learys</td></tr>
+    <tr><td>Tận cùng <b>s</b></td><td>thêm <mark class="s">-es</mark></td><td>the Davises, the Joneses, the Jameses, the Ellises</td></tr>
+    <tr><td>Tận cùng <b>x, z, ch, sh</b></td><td>thêm <mark class="s">-es</mark></td><td>the Wessexes, the Sanchezes, the Lynches, the Walshes</td></tr>
+    <tr><td><b>x</b> câm</td><td>chỉ thêm <mark class="s">-s</mark></td><td>Bordeaux → the Bordeauxs</td></tr>
+  </table></div>
+  <div class="src">Nguồn: “PLURAL FORMS OF NOUNS” (ảnh), “S ES”, ELSA Speak.</div>
+</section>
+
+<!-- ============ CHAPTER 4 ============ -->
+<h2 class="chapter" id="c4"><span class="num">4</span>Danh từ luôn ở số nhiều (Plural-only Nouns)</h2>
+<p class="chapter-intro">Những danh từ không có dạng số ít và luôn đi với động từ số nhiều — và bẫy ngược lại: tận cùng -s nhưng lại chia số ít.</p>
+
+<section class="card" id="c4-1">
+  <h3>4.1 Đồ vật gồm hai phần</h3>
+  <p>Dùng động từ <b>số nhiều</b>. Muốn nói <b>một</b> cái thì dùng <b>a pair of</b>.</p>
+  <div class="grid">
+    <div class="box"><strong>Dụng cụ</strong><span class="words">scissors (kéo), tweezers (nhíp), tongs (kẹp gắp), shears (kéo tỉa), pliers (kìm), scales (cái cân)</span></div>
+    <div class="box"><strong>Kính, tai nghe</strong><span class="words">glasses (kính), sunglasses, binoculars (ống nhòm), headphones</span></div>
+    <div class="box"><strong>Quần áo</strong><span class="words">trousers, jeans, shorts, tights, knickers, pyjamas (đồ ngủ)</span></div>
+    <div class="box"><strong>Khác</strong><span class="words">braces (niềng răng)</span></div>
+  </div>
+  <p class="ex"><b>These scissors are rusty.</b> — Cái kéo này bị gỉ.</p>
+  <p class="ex"><b>Wow! Your sunglasses are very fashionable!</b></p>
+  <p class="ex"><b>a pair of trousers · a pair of scissors · a pair of binoculars</b></p>
+</section>
+
+<section class="card" id="c4-2">
+  <h3>4.2 Các danh từ luôn số nhiều khác</h3>
+  <div class="tbl"><table>
+    <tr><th>Từ</th><th>Nghĩa</th><th>Từ</th><th>Nghĩa</th></tr>
+    <tr><td>belongings</td><td>đồ đạc cá nhân</td><td>outskirts</td><td>vùng ngoại ô</td></tr>
+    <tr><td>breadcrumbs</td><td>vụn bánh mì</td><td>premises</td><td>cơ sở, khuôn viên</td></tr>
+    <tr><td>clothes <span class="ipa">/kləʊðz/</span></td><td>quần áo</td><td>riches</td><td>của cải</td></tr>
+    <tr><td>congratulations</td><td>lời chúc mừng</td><td>ruins</td><td>tàn tích</td></tr>
+    <tr><td>condolences</td><td>lời chia buồn</td><td>savings</td><td>tiền tiết kiệm</td></tr>
+    <tr><td>earnings <span class="ipa">/ˈɜː.nɪŋz/</span></td><td>thu nhập</td><td>stairs</td><td>cầu thang</td></tr>
+    <tr><td>goods <span class="ipa">/ɡʊdz/</span></td><td>hàng hóa</td><td>surroundings</td><td>môi trường xung quanh</td></tr>
+    <tr><td>arms <span class="ipa">/ɑːmz/</span></td><td>vũ khí</td><td>valuables</td><td>đồ quý giá</td></tr>
+    <tr><td>manners <span class="ipa">/ˈmæn.əz/</span></td><td>cách cư xử</td><td>leftovers</td><td>đồ ăn thừa</td></tr>
+  </table></div>
+  <p class="ex"><b>My clothes are wet.</b> · <b>The company's earnings are increasing every year.</b></p>
+</section>
+
+<section class="card" id="c4-3">
+  <h3>4.3 ⚠️ Tận cùng -s nhưng động từ SỐ ÍT</h3>
+  <p>Thường là tên môn học, môn thể thao, và <i>news</i>:</p>
+  <div class="chips"><span class="chip">news</span><span class="chip">maths</span><span class="chip">physics</span><span class="chip">economics</span><span class="chip">politics</span><span class="chip">linguistics</span><span class="chip">ethics</span><span class="chip">athletics</span><span class="chip">gymnastics</span><span class="chip">aerobics</span></div>
+  <p class="vi"><i>series, species, means</i> có dạng số ít = số nhiều: <i>a series is</i> / <i>two series are</i> (xem 3.3). <span class="fix">✎ sửa</span></p>
+  <p class="ex"><b>The news is not very good, I'm afraid.</b> — Tôi e là tin không tốt lắm.</p>
+  <p class="ex"><b>Athletics is a competitive sport.</b></p>
+  <p class="ex"><b>They say politics is a complicated business.</b></p>
+  <p class="ex"><b>Gymnastics is fun to watch.</b></p>
+  <p class="ex"><b>Linguistics is the study of language.</b></p>
+  <p class="ex"><b>Physics is a difficult subject for many students.</b></p>
+  <div class="src">Nguồn: ảnh “PLURAL-ONLY NOUNS” (trang “Plural noun”), “S ES”, ELSA Speak.</div>
+</section>
+
+<!-- ============ CHAPTER 5 ============ -->
+<h2 class="chapter" id="c5"><span class="num">5</span>Luyện tập</h2>
+<p class="chapter-intro">Gõ câu trả lời rồi bấm <b>Kiểm tra</b>. Bài 1–3 lấy từ ELSA Speak; bài 4 là bài thêm để ôn Chương 3.</p>
+
+<section class="card exercise" id="b1-x1">
+  <h3>Bài 1: Điền a / an / some / any / much / many</h3>
+  <div class="q">1. There is <input type="text" data-a="some"> money in the pocket. <span class="ans">some</span></div>
+  <div class="q">2. There isn’t <input type="text" data-a="any|much"> milk left in the fridge. <span class="ans">any</span></div>
+  <div class="q">3. There are <input type="text" data-a="some|many"> pictures on the wall. <span class="ans">some</span></div>
+  <div class="q">4. There is <input type="text" data-a="an"> egg in the frying pan. <span class="ans">an</span></div>
+  <div class="q">5. There are <input type="text" data-a="some|many"> cards in the box. <span class="ans">some</span></div>
+  <div class="q">6. There aren’t <input type="text" data-a="any|many"> pears in the tree. <span class="ans">any</span></div>
+  <div class="q">7. There is <input type="text" data-a="a"> potato in the garden. <span class="ans">a</span></div>
+  <div class="q">8. There is <input type="text" data-a="a|some"> fish in the tank. <span class="ans">a</span></div>
+  <div class="ex-actions"><button class="primary check" type="button">Kiểm tra</button><button class="reveal" type="button">Hiện đáp án</button><span class="score"></span></div>
+</section>
+
+<section class="card exercise" id="b1-x2">
+  <h3>Bài 2: Hoàn thành câu (thêm a/an nếu cần)</h3>
+  <div class="chips"><span class="chip">sugar</span><span class="chip">coat</span><span class="chip">decision</span><span class="chip">electricity</span><span class="chip">key</span><span class="chip">letter</span><span class="chip">music</span><span class="chip">moment</span></div>
+  <div class="q">1. We can’t delay much longer. We have to make <input type="text" data-a="a decision"> soon. <span class="ans">a decision</span></div>
+  <div class="q">2. Listen! Can you hear the <input type="text" data-a="music"> ? <span class="ans">music</span></div>
+  <div class="q">3. I couldn’t get into the house because I didn’t have <input type="text" data-a="a key"> . <span class="ans">a key</span></div>
+  <div class="q">4. Do you take <input type="text" data-a="sugar"> in your coffee? <span class="ans">sugar</span></div>
+  <div class="q">5. It’s very warm today. Why are you wearing <input type="text" data-a="a coat"> ? <span class="ans">a coat</span></div>
+  <div class="q">6. Our lives would be very difficult without <input type="text" data-a="electricity"> . <span class="ans">electricity</span></div>
+  <div class="q">7. I didn’t phone them. I wrote <input type="text" data-a="a letter"> instead. <span class="ans">a letter</span></div>
+  <div class="q">8. I’m not ready yet. Can you wait <input type="text" data-a="a moment"> , please? <span class="ans">a moment</span></div>
+  <div class="ex-actions"><button class="primary check" type="button">Kiểm tra</button><button class="reveal" type="button">Hiện đáp án</button><span class="score"></span></div>
+</section>
+
+<section class="card exercise" id="b1-x3">
+  <h3>Bài 3: Chọn đáp án đúng</h3>
+  <div class="q" data-a="A">1. Phuong wants to eat an …
+    <div class="opts"><label><input type="radio" name="b3q1" value="A"> apple</label><label><input type="radio" name="b3q1" value="B"> apples</label><label><input type="radio" name="b3q1" value="C"> a apple</label></div></div>
+  <div class="q" data-a="B">2. My girlfriend and I often drink … tea every morning.
+    <div class="opts"><label><input type="radio" name="b3q2" value="A"> the</label><label><input type="radio" name="b3q2" value="B"> a cup of</label><label><input type="radio" name="b3q2" value="C"> a</label></div></div>
+  <div class="q" data-a="C">3. People eat … rice every day because it is very good for health.
+    <div class="opts"><label><input type="radio" name="b3q3" value="A"> a</label><label><input type="radio" name="b3q3" value="B"> the</label><label><input type="radio" name="b3q3" value="C"> (không dùng mạo từ)</label></div>
+    <span class="ans">Không dùng mạo từ: “People eat rice every day.” — rice nói chung, không xác định. Đáp án nguồn (the) sai. <span class="fix">✎ sửa</span></span></div>
+  <div class="q" data-a="A">4. … wine was drunk at my birthday party last night.
+    <div class="opts"><label><input type="radio" name="b3q4" value="A"> A lot of</label><label><input type="radio" name="b3q4" value="B"> A</label><label><input type="radio" name="b3q4" value="C"> An</label></div></div>
+  <div class="q" data-a="B">5. There isn’t … fresh water on earth.
+    <div class="opts"><label><input type="radio" name="b3q5" value="A"> a</label><label><input type="radio" name="b3q5" value="B"> much</label><label><input type="radio" name="b3q5" value="C"> many</label></div>
+    <span class="ans">much — “water” không đếm được nên không dùng “a” hay “many”. <span class="fix">✎ sửa</span></span></div>
+  <div class="ex-actions"><button class="primary check" type="button">Kiểm tra</button><button class="reveal" type="button">Hiện đáp án</button><span class="score"></span></div>
+</section>
+
+<section class="card exercise" id="b1-x4">
+  <h3>Bài 4: Viết dạng số nhiều <span class="vi" style="font-weight:400;font-size:14px">(bài thêm)</span></h3>
+  <div class="q">1. box → <input type="text" data-a="boxes"> <span class="ans">boxes</span></div>
+  <div class="q">2. baby → <input type="text" data-a="babies"> <span class="ans">babies</span></div>
+  <div class="q">3. knife → <input type="text" data-a="knives"> <span class="ans">knives</span></div>
+  <div class="q">4. roof → <input type="text" data-a="roofs"> <span class="ans">roofs</span></div>
+  <div class="q">5. potato → <input type="text" data-a="potatoes"> <span class="ans">potatoes</span></div>
+  <div class="q">6. photo → <input type="text" data-a="photos"> <span class="ans">photos</span></div>
+  <div class="q">7. toy → <input type="text" data-a="toys"> <span class="ans">toys</span></div>
+  <div class="q">8. child → <input type="text" data-a="children"> <span class="ans">children</span></div>
+  <div class="q">9. sheep → <input type="text" data-a="sheep"> <span class="ans">sheep</span></div>
+  <div class="q">10. crisis → <input type="text" data-a="crises"> <span class="ans">crises</span></div>
+  <div class="q">11. passer-by → <input type="text" data-a="passers-by"> <span class="ans">passers-by</span></div>
+  <div class="q">12. tooth → <input type="text" data-a="teeth"> <span class="ans">teeth</span></div>
+  <div class="ex-actions"><button class="primary check" type="button">Kiểm tra</button><button class="reveal" type="button">Hiện đáp án</button><span class="score"></span></div>
+</section>
+
+<section class="card" id="sources">
+  <h3>Nguồn (5 trang Notion trong đợt này)</h3>
+  <ol>
+    <li><a href="https://phuongdocs.notion.site/Lo-i-t-trong-ti-ng-Anh-0d7a64b8fb664b36ad2081602f62daa2">Loại từ trong tiếng Anh</a> — chữ + 4 ảnh (trạng từ, giới từ, this/that, tính từ)</li>
+    <li><a href="https://phuongdocs.notion.site/Danh-t-m-c-v-kh-ng-m-c-trong-ti-ng-Anh-ELSA-Speak-14e00a84968881389381eb89692048e3">Danh từ đếm được và không đếm được</a> — chữ (các ảnh chỉ là ảnh minh họa / quảng cáo)</li>
+    <li><a href="https://phuongdocs.notion.site/PLURAL-FORMS-OF-NOUNS-1b700a84968880fcbef0e08a89bdc472">PLURAL FORMS OF NOUNS</a> — ảnh bảng quy tắc số nhiều</li>
+    <li><a href="https://phuongdocs.notion.site/S-ES-1bf00a84968880cf98b3efb39c1c9595">S ES</a> — chữ</li>
+    <li><a href="https://phuongdocs.notion.site/Plural-noun-1bf00a84968880efaebef5c4c7c1e12e">Plural noun</a> — ảnh “PLURAL-ONLY NOUNS”</li>
+  </ol>
+</section>
+</main>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  try { var t = localStorage.getItem('theme'); if (t) root.setAttribute('data-theme', t); } catch (e) {}
+  document.getElementById('themeBtn').addEventListener('click', function () {
+    var cur = root.getAttribute('data-theme') ||
+      (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    var next = cur === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+
+  var toc = document.getElementById('toc');
+  document.getElementById('tocToggle').addEventListener('click', function () { toc.classList.toggle('open'); });
+  toc.addEventListener('click', function (e) { if (e.target.tagName === 'A') toc.classList.remove('open'); });
+
+  function norm(s) { return s.trim().toLowerCase().replace(/[’']/g, "'").replace(/\s+/g, ' '); }
+
+  document.querySelectorAll('.exercise').forEach(function (ex) {
+    ex.querySelector('.check').addEventListener('click', function () {
+      var right = 0, total = 0;
+      ex.querySelectorAll('input[type=text]').forEach(function (inp) {
+        total++;
+        var ok = inp.dataset.a.split('|').indexOf(norm(inp.value)) !== -1;
+        inp.classList.toggle('ok', ok);
+        inp.classList.toggle('bad', !ok);
+        if (ok) right++;
+      });
+      ex.querySelectorAll('.q[data-a]').forEach(function (q) {
+        total++;
+        var picked = q.querySelector('input:checked');
+        q.querySelectorAll('label').forEach(function (l) { l.classList.remove('ok', 'bad'); });
+        if (!picked) return;
+        var ok = picked.value === q.dataset.a;
+        picked.parentElement.classList.add(ok ? 'ok' : 'bad');
+        if (ok) right++;
+      });
+      ex.querySelector('.score').textContent = 'Đúng ' + right + ' / ' + total;
+    });
+    ex.querySelector('.reveal').addEventListener('click', function () {
+      ex.classList.toggle('show-ans');
+      ex.querySelectorAll('.q[data-a]').forEach(function (q) {
+        q.querySelector('input[value="' + q.dataset.a + '"]').parentElement.classList.add('ok');
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
