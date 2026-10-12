@@ -97,6 +97,13 @@ header.bar { background: var(--surface); border-bottom: 1px solid var(--line); p
 .fchip span { overflow: hidden; text-overflow: ellipsis; }
 .fchip .x { font-size: 14px; line-height: 1; padding: 0 4px; opacity: .7; }
 .fchip:hover .x { opacity: 1; }
+button:disabled { opacity: .4; cursor: default; }
+button:disabled:hover { border-color: var(--line); color: var(--ink); }
+.pager { display: inline-flex; align-items: center; gap: 4px; }
+.pager button { padding: 1px 9px; font-size: 13px; }
+.pager .pg { padding: 0 4px; white-space: nowrap; }
+.pager-bot { display: flex; justify-content: center; padding: 12px; font-size: 13px; color: var(--muted); }
+.pager-bot:empty { display: none; }
 .linkbtn { border: 0; background: none; padding: 0 2px; font-size: 13px; color: var(--accent); text-decoration: underline; }
 
 /* ---- the sheet ---- */
@@ -219,7 +226,7 @@ td.c-act button:hover { border-color: var(--warn); }
       <a class="tab" href="english-grammar.html">📘 <span class="lg">Sổ tay ngữ pháp</span><span class="sm">Ngữ pháp</span></a>
       <span class="tab active" aria-current="page">📒 <span class="lg">Bảng từ vựng</span><span class="sm">Từ vựng</span></span>
     </nav>
-    <div class="search-wrap"><input id="q" type="search" placeholder="Tìm từ hoặc nghĩa: chalk, rất khác nhau…" autocomplete="off" aria-label="Tìm từ hoặc nghĩa"><kbd>/</kbd></div>
+    <div class="search-wrap"><input id="q" type="search" placeholder="Tìm từ, nghĩa hoặc ID: chalk, rất khác nhau, 1234…" autocomplete="off" aria-label="Tìm từ, nghĩa hoặc ID"><kbd>/</kbd></div>
     <div class="actions">
       <button type="button" id="themeBtn" title="Sáng / tối" aria-label="Đổi giao diện sáng / tối">🌓<span class="t"> Sáng/tối</span></button>
       <button type="button" id="moreBtn" aria-expanded="false" aria-controls="tools" title="Thêm">⋯</button>
@@ -249,6 +256,7 @@ td.c-act button:hover { border-color: var(--warn); }
     </tr></thead>
     <tbody id="tb"></tbody>
   </table>
+  <div class="pager-bot" id="pagerBot"></div>
 </div>
 <script type="application/json" id="vocab-data">/*__DATA__*/</script>
 <script>
@@ -348,11 +356,11 @@ td.c-act button:hover { border-color: var(--warn); }
   // ---- filter / sort state ----
   var st = { q: null, text: { id: '', name: '', desc: '' }, sets: { type: null, unit: null }, sort: null };
   var tf = {};      // text filters as needles
-  var view = [], shown = 0, editing = false;
+  var view = [], shown = 0, editing = false, page = 0, PAGE = 2000;
   var BLANK = '(Trống)';
   function key(k, v) { v = String(v).trim(); return v ? (k === 'type' ? v.toLowerCase() : v) : BLANK; }
   function match(r, skip) {
-    if (st.q && (st.q.exact ? r.low : r.hay).indexOf(st.q.s) < 0) return false;
+    if (st.q && (st.q.exact ? r.low : r.hay).indexOf(st.q.s) < 0 && Number(r.id) !== st.q.id) return false;
     for (var k in tf) if (tf[k] && k !== skip && !has(r[k], tf[k])) return false;
     for (k in st.sets) if (st.sets[k] && k !== skip && !st.sets[k].has(key(k, r[k]))) return false;
     return true;
@@ -372,19 +380,26 @@ td.c-act button:hover { border-color: var(--warn); }
     tf = {}; for (var k in st.text) tf[k] = st.text[k].trim() ? needle(st.text[k]) : null;
     view = rows.filter(function (r) { return match(r); });
     if (st.sort) view.sort(compare(st.sort.k, st.sort.dir));
-    sheet.scrollTop = 0;
-    if (pageScrolls() && scrollY > sheet.offsetTop) scrollTo(0, sheet.offsetTop);
+    else if (st.q && st.q.id) view.sort(function (a, b) { return (Number(b.id) === st.q.id) - (Number(a.id) === st.q.id); });  // the ID hit first
+    page = 0; toTop();
     render(0); heads(); chips(); status();
   }
+  function toTop() {
+    sheet.scrollTop = 0;
+    if (pageScrolls() && scrollY > sheet.offsetTop) scrollTo(0, sheet.offsetTop);
+  }
 
-  // ---- rendering: rows are appended in chunks while scrolling ----
+  // ---- rendering: one page of PAGE rows at a time; its rows are appended in chunks while scrolling ----
+  function pages() { return Math.max(1, Math.ceil(view.length / PAGE)); }
+  function pageEnd() { return Math.min(view.length, (page + 1) * PAGE); }
   function cell(r, f, inner) {
     return '<td class="c-' + f + (chg(r, f) ? ' chg' : '') + '" data-f="' + f + '" data-ph="' + LABEL[f] + '"' +
       (editing ? ' contenteditable="' + CE + '" spellcheck="false">' + esc(r[f]) : '>' + inner) + '</td>';
   }
   function rowHtml(r) {
     var u = String(r.unit).trim();
-    return '<tr data-id="' + r.id + '"><td class="c-id">' + (r.id == null ? '' : r.id) + '</td>' +
+    var id = r.id == null ? '' : st.q && st.q.id === Number(r.id) ? '<mark>' + r.id + '</mark>' : r.id;
+    return '<tr data-id="' + r.id + '"><td class="c-id">' + id + '</td>' +
       cell(r, 'name', hl(r.name, [st.q, tf.name])) +
       cell(r, 'type', r.type ? '<span class="pill">' + esc(r.type) + '</span>' : '') +
       cell(r, 'desc', hl(r.desc, [st.q, tf.desc])) +
@@ -396,21 +411,37 @@ td.c-act button:hover { border-color: var(--warn); }
     return sheet.scrollHeight - sheet.scrollTop - sheet.clientHeight < 800;
   }
   function more() {
-    var end = Math.min(shown + 150, view.length), html = '';
+    var end = Math.min(shown + 150, pageEnd()), html = '';
     for (var i = shown; i < end; i++) html += rowHtml(view[i]);
     tb.insertAdjacentHTML('beforeend', html); shown = end;
-    if (shown < view.length && nearEnd()) more();
+    if (shown < pageEnd() && nearEnd()) more();
   }
-  function render(atLeast) {          // redraw from the top, keeping at least `atLeast` rows (used by the edit toggle)
-    shown = 0; tb.textContent = '';
+  function render(atLeast) {          // redraw the page from its top, keeping rows up to index `atLeast` (used by the edit toggle)
+    shown = page * PAGE; tb.textContent = '';
     if (!view.length) {
       tb.innerHTML = '<tr><td class="empty" colspan="5">Không có từ nào khớp bộ lọc.<br><button type="button" data-clear="all">✕ Xoá mọi bộ lọc</button></td></tr>';
       return;
     }
-    while (shown < Math.min(atLeast, view.length)) more();
+    while (shown < Math.min(atLeast, pageEnd())) more();
     more();
   }
-  function onScroll() { if (shown < view.length && nearEnd()) more(); }
+  function onScroll() { if (shown < pageEnd() && nearEnd()) more(); }
+
+  // « ‹ Trang x / y › » — shown in the status line and again under the table
+  function pb(p, label, title) {
+    return '<button type="button" data-pg="' + p + '" title="' + title + '" aria-label="' + title + '"' +
+      (p < 0 || p >= pages() || p === page ? ' disabled' : '') + '>' + label + '</button>';
+  }
+  function pager() {
+    var n = pages(); if (n < 2) return '';
+    return '<span class="pager">' + pb(0, '«', 'Trang đầu') + pb(page - 1, '‹', 'Trang trước') +
+      '<span class="pg">Trang <b>' + (page + 1) + '</b> / ' + n + ' · hàng ' + (page * PAGE + 1).toLocaleString('vi') + '–' +
+      pageEnd().toLocaleString('vi') + '</span>' + pb(page + 1, '›', 'Trang sau') + pb(n - 1, '»', 'Trang cuối') + '</span>';
+  }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-pg]'); if (!b || b.disabled) return;
+    page = Number(b.dataset.pg); toTop(); render(0); status();
+  });
   sheet.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('scroll', onScroll, { passive: true });
 
@@ -429,12 +460,13 @@ td.c-act button:hover { border-color: var(--warn); }
     if (st.sets.type) f.push(fchip('set:type', 'Type: ' + short(st.sets.type)));
     if (st.sort) f.push(fchip('sort', 'Sắp xếp: ' + LABEL[st.sort.k] + (st.sort.dir > 0 ? ' ↑' : ' ↓')));
     document.getElementById('status').innerHTML =
-      '<span>Hiển thị <b>' + view.length.toLocaleString('vi') + '</b> / ' + rows.length.toLocaleString('vi') + ' từ</span>' +
+      '<span>Hiển thị <b>' + view.length.toLocaleString('vi') + '</b> / ' + rows.length.toLocaleString('vi') + ' từ</span>' + pager() +
       f.join('') + (f.length > 1 ? '<button type="button" class="linkbtn" data-clear="all">Xoá tất cả</button>' : '') +
       (n ? '<span class="edits">✎ ' + n + ' hàng đã sửa (lưu trong trình duyệt này)</span>' : '') +
       (syncMsg ? '<span>' + esc(syncMsg) + '</span>' : '') +
       (editing ? '<span>✏️ Bấm vào ô để sửa · Enter = xong · Shift+Enter = xuống dòng · Esc = huỷ</span>' : '') +
       '<span class="meta">Sheet “total” · Vocabulary-new.xlsx · cập nhật ' + esc(RAW.date) + '</span>';
+    document.getElementById('pagerBot').innerHTML = pager();
   }
   document.addEventListener('click', function (e) {
     var b = e.target.closest('[data-clear]'); if (!b) return;
@@ -486,7 +518,11 @@ td.c-act button:hover { border-color: var(--warn); }
   var q = document.getElementById('q'), qt;
   q.addEventListener('input', function () {
     clearTimeout(qt);
-    qt = setTimeout(function () { st.q = q.value.trim() ? needle(q.value) : null; apply(); }, 150);
+    qt = setTimeout(function () {
+      st.q = q.value.trim() ? needle(q.value) : null;
+      if (st.q && /^#?\d+$/.test(st.q.s)) st.q.id = Number(st.q.s.replace('#', ''));
+      apply();
+    }, 150);
   });
   document.addEventListener('keydown', function (e) {
     var a = document.activeElement;
@@ -602,9 +638,10 @@ td.c-act button:hover { border-color: var(--warn); }
   });
   document.getElementById('addBtn').addEventListener('click', function () {
     var r = mk(++maxId, '', '', '', ''); byId[r.id] = r;
-    rows.unshift(r); view.unshift(r); shown++;
-    if (view.length === 1) tb.textContent = '';
-    tb.insertAdjacentHTML('afterbegin', rowHtml(r)); record(r);
+    rows.unshift(r); view.unshift(r);
+    if (page) { page = 0; render(0); }
+    else { shown++; if (view.length === 1) tb.textContent = ''; tb.insertAdjacentHTML('afterbegin', rowHtml(r)); }
+    record(r);
     sheet.scrollTop = 0; if (pageScrolls()) scrollTo(0, sheet.offsetTop);
     tb.querySelector('td[data-f=name]').focus();
   });
@@ -626,7 +663,7 @@ td.c-act button:hover { border-color: var(--warn); }
   document.getElementById('saveBtn').addEventListener('click', function () {
     var d = root.cloneNode(true);
     d.querySelector('#vocab-data').textContent = table().replace(/<\//g, '<\\/');
-    d.querySelector('#tb').textContent = ''; d.querySelector('#levels').textContent = ''; d.querySelector('#status').textContent = '';
+    d.querySelector('#tb').textContent = ''; d.querySelector('#levels').textContent = ''; d.querySelector('#status').textContent = ''; d.querySelector('#pagerBot').textContent = '';
     d.querySelector('#editBtn').textContent = '✏️ Chế độ sửa';
     d.querySelector('#tools').classList.remove('open'); d.querySelector('#moreBtn').setAttribute('aria-expanded', 'false');
     d.querySelector('body').removeAttribute('class'); d.removeAttribute('data-theme');
