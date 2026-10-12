@@ -6,6 +6,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
       "port": 3000
+    },
+    {
+      "name": "grammar-static",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["-e", "const fs=require('fs'),p=require('path'),d=p.resolve('grammar');require('http').createServer((q,s)=>{const f=p.join(d,decodeURIComponent(q.url.split('?')[0]));fs.readFile(f,(e,b)=>{if(e){s.writeHead(404);return s.end()}s.writeHead(200,{'Content-Type':f.endsWith('.html')?'text/html; charset=utf-8':'application/octet-stream'});s.end(b)})}).listen(8765)"],
+      "port": 8765
     }
   ]
 }

@@ -74,7 +74,7 @@ header.bar { background: var(--surface); border-bottom: 1px solid var(--line); p
 .search-wrap input:focus + kbd, .search-wrap input:not(:placeholder-shown) + kbd { display: none; }
 .actions { position: relative; display: flex; gap: 6px; flex: none; }
 .tools { display: flex; gap: 6px; }
-#moreBtn, .tab .sm { display: none; }
+#moreBtn, .tab .sm, #syncBtn .t, #tokenBtn .t { display: none; }
 .levels { display: flex; align-items: center; gap: 6px; margin-top: 10px; font-size: 14px; overflow-x: auto; scrollbar-width: none; }
 .levels::-webkit-scrollbar { display: none; }
 .levels > b { font-weight: 600; margin-right: 2px; flex: none; }
@@ -160,13 +160,14 @@ td.c-act button:hover { border-color: var(--warn); }
 .plist .more { padding: 4px 8px; color: var(--muted); font-size: 12px; }
 
 /* ---- tablet: tools go into the ⋯ menu ---- */
-@media (max-width: 1000px) {
+@media (max-width: 1260px) {
   #moreBtn { display: inline-block; }
   .tools {
     display: none; position: absolute; right: 0; top: calc(100% + 6px); z-index: 15; flex-direction: column; min-width: 210px;
     padding: 6px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 10px 28px var(--shadow);
   }
   .tools.open { display: flex; }
+  #syncBtn .t, #tokenBtn .t { display: inline; }
   .tools button { text-align: left; border-color: transparent; }
   .tools button:hover { background: var(--accent-soft); }
 }
@@ -228,6 +229,8 @@ td.c-act button:hover { border-color: var(--warn); }
         <button type="button" id="resetBtn" class="edit-only" title="Bỏ mọi sửa đổi đã lưu trong trình duyệt này">↺ Bỏ sửa đổi</button>
         <button type="button" id="saveBtn" title="Tải về một bản HTML đã gồm các sửa đổi">💾 Lưu bản sửa</button>
         <button type="button" id="csvBtn" title="Xuất các hàng đang hiển thị ra CSV (mở bằng Excel)">⬇️ Xuất CSV</button>
+        <button type="button" id="syncBtn" title="Đồng bộ các sửa đổi với GitHub Gist" aria-label="Đồng bộ Gist">☁️<span class="t"> Đồng bộ Gist</span></button>
+        <button type="button" id="tokenBtn" title="Nhập / đổi / xoá GitHub token dùng để đồng bộ" aria-label="Token Gist">🔑<span class="t"> Token Gist</span></button>
       </div>
     </div>
   </div>
@@ -309,24 +312,32 @@ td.c-act button:hover { border-color: var(--warn); }
   }
 
   // rows from the sheet + this browser's saved edits (id → [name, type, desc, unit], or null = deleted)
-  var orig = {}, byId = {};
-  var rows = RAW.rows.map(function (a) { orig[a[0]] = a.slice(1); return (byId[a[0]] = mk(a[0], a[1], a[2], a[3], a[4])); });
+  var orig = {}, byId, rows, maxId;
+  RAW.rows.forEach(function (a) { orig[a[0]] = a.slice(1); });
   var edits = {};
   try { edits = JSON.parse(store(EDIT_KEY)) || {}; } catch (e) { console.warn('Bỏ qua bản sửa lỗi trong localStorage', e); }
-  Object.keys(edits).forEach(function (id) {
-    var v = edits[id], r = byId[id];
-    if (v === null) { if (r) r.deleted = true; return; }
-    if (!r) { r = byId[id] = mk(Number(id), '', '', '', ''); rows.unshift(r); }
-    F.forEach(function (f, i) { r[f] = v[i]; }); index(r);
-  });
-  rows = rows.filter(function (r) { return !r.deleted; });
-  var maxId = Object.keys(byId).reduce(function (m, id) { return Math.max(m, Number(id) || 0); }, 0);
+  function build() {          // (re)build rows from the sheet + `edits` — also called after a Gist sync brings new edits
+    byId = {};
+    rows = RAW.rows.map(function (a) { return (byId[a[0]] = mk(a[0], a[1], a[2], a[3], a[4])); });
+    Object.keys(edits).forEach(function (id) {
+      var v = edits[id], r = byId[id];
+      if (v === null) { if (r) r.deleted = true; return; }
+      if (!r) { r = byId[id] = mk(Number(id), '', '', '', ''); rows.unshift(r); }
+      F.forEach(function (f, i) { r[f] = v[i]; }); index(r);
+    });
+    rows = rows.filter(function (r) { return !r.deleted; });
+    maxId = Object.keys(byId).reduce(function (m, id) { return Math.max(m, Number(id) || 0); }, 0);
+  }
+  build();
 
   function chg(r, f) { var o = orig[r.id]; return !o || o[F.indexOf(f)] !== r[f]; }
-  function persist() {
+  function saveLocal() {
     try { localStorage.setItem(EDIT_KEY, JSON.stringify(edits)); }
     catch (e) { console.error('Không lưu được bản sửa', e); alert('Không lưu được bản sửa vào trình duyệt: ' + e.message); }
-    status();
+  }
+  function persist() {
+    saveLocal(); status();
+    if (token()) { clearTimeout(syncT); syncT = setTimeout(sync, 2000); }
   }
   function record(r) {
     var o = orig[r.id], cur = F.map(function (f) { return r[f]; });
@@ -421,6 +432,7 @@ td.c-act button:hover { border-color: var(--warn); }
       '<span>Hiển thị <b>' + view.length.toLocaleString('vi') + '</b> / ' + rows.length.toLocaleString('vi') + ' từ</span>' +
       f.join('') + (f.length > 1 ? '<button type="button" class="linkbtn" data-clear="all">Xoá tất cả</button>' : '') +
       (n ? '<span class="edits">✎ ' + n + ' hàng đã sửa (lưu trong trình duyệt này)</span>' : '') +
+      (syncMsg ? '<span>' + esc(syncMsg) + '</span>' : '') +
       (editing ? '<span>✏️ Bấm vào ô để sửa · Enter = xong · Shift+Enter = xuống dòng · Esc = huỷ</span>' : '') +
       '<span class="meta">Sheet “total” · Vocabulary-new.xlsx · cập nhật ' + esc(RAW.date) + '</span>';
   }
@@ -597,7 +609,8 @@ td.c-act button:hover { border-color: var(--warn); }
     tb.querySelector('td[data-f=name]').focus();
   });
   document.getElementById('resetBtn').addEventListener('click', function () {
-    if (!confirm('Bỏ toàn bộ ' + Object.keys(edits).length + ' hàng đã sửa / thêm / xoá trong trình duyệt này?')) return;
+    if (!confirm('Bỏ toàn bộ ' + Object.keys(edits).length + ' hàng đã sửa / thêm / xoá trong trình duyệt này' +
+      (token() ? ' và trên Gist' : '') + '?')) return;
     try { localStorage.removeItem(EDIT_KEY); } catch (e) { console.error(e); }
     location.reload();
   });
@@ -627,7 +640,65 @@ td.c-act button:hover { border-color: var(--warn); }
     download('vocabulary-total.csv', '﻿' + lines.join('\r\n'), 'text/csv;charset=utf-8');
   });
 
+  // ---- ☁️ sync `edits` with a GitHub Gist; the token stays in this browser's localStorage only ----
+  // 3-way merge per row against the last synced state (`base`): what this browser changed since then wins,
+  // everything else comes from the gist — so edits, reverts and deletions made on other devices all carry over.
+  var GIST_ID = '72cafdcb61fcd10684dbb9daf36b6e28', GIST_FILE = 'progress.json';
+  var TOKEN_KEY = 'gh_gist_token', BASE_KEY = 'vocab-sync-base';
+  var syncMsg = '', syncT = null, busy = false;
+  function token() { return store(TOKEN_KEY); }
+  function say(m) { syncMsg = m; status(); }
+  function gist(method, body) {
+    return fetch('https://api.github.com/gists/' + GIST_ID, {
+      method: method, cache: 'no-store', body: body && JSON.stringify(body),
+      headers: { Authorization: 'Bearer ' + token(), Accept: 'application/vnd.github+json' }
+    }).then(function (res) {
+      if (res.ok) return res.json();
+      throw new Error(res.status === 401 ? 'token sai hoặc hết hạn (401)' :
+        res.status === 404 ? 'không thấy gist, hoặc token thiếu quyền Gists (404)' : 'HTTP ' + res.status);
+    });
+  }
+  function merge(base, local, remote) {
+    var out = {};
+    Object.keys(Object.assign({}, base, local, remote)).forEach(function (id) {
+      var mine = JSON.stringify(local[id]) !== JSON.stringify(base[id]), v = mine ? local[id] : remote[id];
+      if (v !== undefined) out[id] = v;
+    });
+    return out;
+  }
+  function sync() {
+    if (!token()) return;
+    if (busy || tb.contains(document.activeElement)) { clearTimeout(syncT); syncT = setTimeout(sync, 2000); return; }  // never redraw under a cell being typed in
+    busy = true; say('☁️ Đang đồng bộ…');
+    var base = {};
+    try { base = JSON.parse(store(BASE_KEY)) || {}; } catch (e) { console.warn('Bỏ qua base đồng bộ lỗi', e); }
+    gist('GET').then(function (g) {
+      var f = g.files[GIST_FILE], remote = f && f.content.trim() ? JSON.parse(f.content).edits || {} : {};
+      var merged = merge(base, edits, remote), out = JSON.stringify(merged);
+      store(BASE_KEY, JSON.stringify(remote));
+      if (out !== JSON.stringify(edits)) { edits = merged; saveLocal(); build(); apply(); }
+      if (out === JSON.stringify(remote)) return;
+      var files = {}; files[GIST_FILE] = { content: JSON.stringify({ updated: new Date().toISOString(), edits: merged }) };
+      return gist('PATCH', { files: files }).then(function () { store(BASE_KEY, out); });
+    }).then(function () {
+      say('☁️ Đã đồng bộ Gist lúc ' + new Date().toLocaleTimeString('vi', { hour: '2-digit', minute: '2-digit' }));
+    }, function (e) {
+      console.error('Đồng bộ Gist lỗi', e); say('⚠️ Lỗi đồng bộ Gist: ' + e.message);
+    }).then(function () { busy = false; });
+  }
+  document.getElementById('tokenBtn').addEventListener('click', function () {
+    var v = prompt('Dán GitHub token (quyền Gists: Read and write).\nToken chỉ lưu trong trình duyệt này. Để trống rồi bấm OK = xoá token.', '');
+    if (v === null) return;
+    if (v.trim()) { store(TOKEN_KEY, v.trim()); sync(); return; }
+    try { localStorage.removeItem(TOKEN_KEY); } catch (e) { console.error(e); }
+    say('');
+  });
+  document.getElementById('syncBtn').addEventListener('click', function () {
+    if (token()) sync(); else document.getElementById('tokenBtn').click();
+  });
+
   apply();
+  sync();
 })();
 </script>
 </body>
