@@ -620,11 +620,12 @@ td.c-act button:hover { border-color: var(--warn); }
     var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type: type }));
     a.download = name; a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
   }
+  function table() {          // the whole current list, in the same shape as #vocab-data
+    return JSON.stringify({ date: RAW.date, rows: rows.map(function (r) { return [r.id, r.name, r.type, r.desc, r.unit]; }) });
+  }
   document.getElementById('saveBtn').addEventListener('click', function () {
     var d = root.cloneNode(true);
-    d.querySelector('#vocab-data').textContent = JSON.stringify({
-      date: RAW.date, rows: rows.map(function (r) { return [r.id, r.name, r.type, r.desc, r.unit]; })
-    }).replace(/<\//g, '<\\/');
+    d.querySelector('#vocab-data').textContent = table().replace(/<\//g, '<\\/');
     d.querySelector('#tb').textContent = ''; d.querySelector('#levels').textContent = ''; d.querySelector('#status').textContent = '';
     d.querySelector('#editBtn').textContent = '✏️ Chế độ sửa';
     d.querySelector('#tools').classList.remove('open'); d.querySelector('#moreBtn').setAttribute('aria-expanded', 'false');
@@ -643,7 +644,9 @@ td.c-act button:hover { border-color: var(--warn); }
   // ---- ☁️ sync `edits` with a GitHub Gist; the token stays in this browser's localStorage only ----
   // 3-way merge per row against the last synced state (`base`): what this browser changed since then wins,
   // everything else comes from the gist — so edits, reverts and deletions made on other devices all carry over.
-  var GIST_ID = '72cafdcb61fcd10684dbb9daf36b6e28', GIST_FILE = 'progress.json';
+  // The whole merged list is also written to LIST_FILE as a backup; it is never read back (the API truncates
+  // files over 1 MB), only its size is compared to decide whether it needs rewriting.
+  var GIST_ID = '72cafdcb61fcd10684dbb9daf36b6e28', GIST_FILE = 'progress.json', LIST_FILE = 'vocabulary.json';
   var TOKEN_KEY = 'gh_gist_token', BASE_KEY = 'vocab-sync-base';
   var syncMsg = '', syncT = null, busy = false;
   function token() { return store(TOKEN_KEY); }
@@ -677,8 +680,10 @@ td.c-act button:hover { border-color: var(--warn); }
       var merged = merge(base, edits, remote), out = JSON.stringify(merged);
       store(BASE_KEY, JSON.stringify(remote));
       if (out !== JSON.stringify(edits)) { edits = merged; saveLocal(); build(); apply(); }
-      if (out === JSON.stringify(remote)) return;
+      var list = table(), lf = g.files[LIST_FILE];
+      if (out === JSON.stringify(remote) && lf && lf.size === new Blob([list]).size) return;
       var files = {}; files[GIST_FILE] = { content: JSON.stringify({ updated: new Date().toISOString(), edits: merged }) };
+      files[LIST_FILE] = { content: list };
       return gist('PATCH', { files: files }).then(function () { store(BASE_KEY, out); });
     }).then(function () {
       say('☁️ Đã đồng bộ Gist lúc ' + new Date().toLocaleTimeString('vi', { hour: '2-digit', minute: '2-digit' }));
