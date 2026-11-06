@@ -18,6 +18,8 @@ export interface Transcript {
   videoId: string;
   title: string;
   sentences: Sentence[];
+  /** Captions look machine-generated (little punctuation), so sentences may run long. */
+  autoCaptions?: boolean;
 }
 
 export type PracticeMode = "shadowing" | "dictation";

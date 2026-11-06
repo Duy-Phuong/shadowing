@@ -1,5 +1,9 @@
 import { describe, expect, test } from "vitest";
-import { parseSearchResults } from "./youtubeSearch";
+import {
+  parseContinuationResponse,
+  parseSearchPage,
+  parseSearchResults,
+} from "./youtubeSearch";
 
 // A trimmed-down copy of the shape YouTube embeds on its results page:
 // window.ytInitialData holds a section list whose itemSectionRenderer contains
@@ -52,5 +56,66 @@ describe("parseSearchResults", () => {
   test("returns an empty array when there are no videoRenderer entries", () => {
     const empty = `<script>var ytInitialData = {"contents":{}};</script>`;
     expect(parseSearchResults(empty)).toEqual([]);
+  });
+});
+
+const pageHtml = `<script>var ytcfg = {"INNERTUBE_CONTEXT_CLIENT_VERSION":"2.20261101.01.00"};
+var ytInitialData = {"contents":{"sectionListRenderer":{"contents":[
+{"itemSectionRenderer":{"contents":[
+{"videoRenderer":{"videoId":"dQw4w9WgXcQ","title":{"simpleText":"First"}}},
+{"reelShelfRenderer":{"items":[{"continuationItemRenderer":{"continuationEndpoint":{"continuationCommand":{"token":"SHELF"}}}}]}}
+]}},
+{"continuationItemRenderer":{"continuationEndpoint":{"continuationCommand":{"token":"PAGE2"}}}}
+]}}};</script>`;
+
+describe("parseSearchPage", () => {
+  test("returns the results, the next-page token and the client version", () => {
+    const page = parseSearchPage(pageHtml);
+    expect(page.results.map((r) => r.videoId)).toEqual(["dQw4w9WgXcQ"]);
+    expect(page.continuation).toBe("PAGE2");
+    expect(page.clientVersion).toBe("2.20261101.01.00");
+  });
+
+  test("has no next page when YouTube gives no token", () => {
+    expect(parseSearchPage(html).continuation).toBeNull();
+    expect(parseSearchPage("<html></html>")).toEqual({
+      results: [],
+      continuation: null,
+      clientVersion: null,
+    });
+  });
+});
+
+describe("parseContinuationResponse", () => {
+  test("reads the appended results and the following token", () => {
+    const data = {
+      onResponseReceivedCommands: [
+        {
+          appendContinuationItemsAction: {
+            continuationItems: [
+              {
+                itemSectionRenderer: {
+                  contents: [
+                    { videoRenderer: { videoId: "abc123DEF45", title: { simpleText: "Second" } } },
+                  ],
+                },
+              },
+              {
+                continuationItemRenderer: {
+                  continuationEndpoint: { continuationCommand: { token: "PAGE3" } },
+                },
+              },
+            ],
+          },
+        },
+      ],
+    };
+    const page = parseContinuationResponse(data);
+    expect(page.results.map((r) => r.title)).toEqual(["Second"]);
+    expect(page.continuation).toBe("PAGE3");
+  });
+
+  test("returns no token on the last page", () => {
+    expect(parseContinuationResponse({}).continuation).toBeNull();
   });
 });

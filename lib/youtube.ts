@@ -3,6 +3,11 @@ import type { Cue } from "./types";
 
 const VIDEO_ID = /^[A-Za-z0-9_-]{11}$/;
 
+/** True for a bare 11-character YouTube video id (safe to use in a file name). */
+export function isVideoId(value: string): boolean {
+  return VIDEO_ID.test(value);
+}
+
 /**
  * Extracts an 11-character YouTube video id from a URL or bare id.
  * Returns null if the input is not a recognizable YouTube reference.

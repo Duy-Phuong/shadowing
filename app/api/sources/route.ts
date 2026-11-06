@@ -5,7 +5,7 @@ import {
   parseChannelName,
 } from "@/lib/youtubeChannel";
 import { addSource, removeSource, type Source } from "@/lib/sources";
-import { readSources, writeSources } from "@/lib/sourcesFile";
+import { readSources, updateSources } from "@/lib/sourcesFile";
 
 async function resolveChannel(
   rawUrl: string,
@@ -62,8 +62,7 @@ export async function POST(request: Request) {
   }
 
   const source: Source = { ...resolved, url: body.url };
-  const updated = addSource(await readSources(), source);
-  await writeSources(updated);
+  const updated = await updateSources((list) => addSource(list, source));
   return NextResponse.json(updated);
 }
 
@@ -72,7 +71,6 @@ export async function DELETE(request: Request) {
   if (!channelId) {
     return NextResponse.json({ error: "invalid_request" }, { status: 400 });
   }
-  const updated = removeSource(await readSources(), channelId);
-  await writeSources(updated);
+  const updated = await updateSources((list) => removeSource(list, channelId));
   return NextResponse.json(updated);
 }

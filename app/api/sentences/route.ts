@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
 import path from "node:path";
+import { withFileLock, writeFileAtomic } from "@/lib/fileStore";
 import {
   addSentence,
   parseSentences,
@@ -19,9 +20,13 @@ async function readAll(): Promise<SavedSentence[]> {
   }
 }
 
-async function writeAll(sentences: SavedSentence[]): Promise<void> {
-  await mkdir(path.dirname(FILE), { recursive: true });
-  await writeFile(FILE, serializeSentences(sentences), "utf8");
+/** Applies `change` to the stored list under a lock and returns the result. */
+function update(change: (list: SavedSentence[]) => SavedSentence[]): Promise<SavedSentence[]> {
+  return withFileLock(FILE, async () => {
+    const next = change(await readAll());
+    await writeFileAtomic(FILE, serializeSentences(next));
+    return next;
+  });
 }
 
 export async function GET() {
@@ -38,15 +43,15 @@ export async function POST(request: Request) {
   if (!body.id || !body.videoId || !body.text) {
     return NextResponse.json({ error: "invalid_request" }, { status: 400 });
   }
-  const updated = addSentence(await readAll(), {
+  const entry: SavedSentence = {
     id: body.id,
     videoId: body.videoId,
     title: body.title ?? "",
     text: body.text,
     start: typeof body.start === "number" ? body.start : 0,
     sentenceId: typeof body.sentenceId === "number" ? body.sentenceId : 0,
-  });
-  await writeAll(updated);
+  };
+  const updated = await update((list) => addSentence(list, entry));
   return NextResponse.json(updated);
 }
 
@@ -55,7 +60,6 @@ export async function DELETE(request: Request) {
   if (!id) {
     return NextResponse.json({ error: "invalid_request" }, { status: 400 });
   }
-  const updated = removeSentence(await readAll(), id);
-  await writeAll(updated);
+  const updated = await update((list) => removeSentence(list, id));
   return NextResponse.json(updated);
 }

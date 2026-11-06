@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { compareWords } from "@/lib/compareWords";
 import { bestTranscript, pronunciationAccuracy } from "@/lib/pronunciation";
 import { celebrate } from "@/lib/confetti";
@@ -23,14 +23,6 @@ export default function ShadowingSpeak({ expected }: { expected: string }) {
   const [listening, setListening] = useState(false);
   const [heard, setHeard] = useState<string | null>(null);
   const recognitionRef = useRef<SpeechRecognitionInstance | null>(null);
-
-  if (!supported) {
-    return (
-      <p className="text-xs text-neutral-400">
-        Speaking practice needs Chrome or Edge (Web Speech API).
-      </p>
-    );
-  }
 
   const start = () => {
     const Ctor = getRecognitionCtor();
@@ -66,6 +58,36 @@ export default function ShadowingSpeak({ expected }: { expected: string }) {
     recognitionRef.current?.stop();
     setListening(false);
   };
+
+  // M starts or stops recording, like the button. Read through a ref so the
+  // listener always calls the current start/stop.
+  const toggleRef = useRef<() => void>(() => {});
+  useEffect(() => {
+    toggleRef.current = listening ? stop : start;
+  });
+  useEffect(() => {
+    if (!supported) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "m" && e.key !== "M") return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      const el = e.target as HTMLElement | null;
+      if (el && (el.tagName === "INPUT" || el.tagName === "TEXTAREA" || el.isContentEditable)) {
+        return;
+      }
+      e.preventDefault();
+      toggleRef.current();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [supported]);
+
+  if (!supported) {
+    return (
+      <p className="text-xs text-neutral-400">
+        Speaking practice needs Chrome or Edge (Web Speech API).
+      </p>
+    );
+  }
 
   const results = heard !== null ? compareWords(expected, heard) : null;
   const accuracy = heard !== null ? pronunciationAccuracy(expected, heard) : 0;

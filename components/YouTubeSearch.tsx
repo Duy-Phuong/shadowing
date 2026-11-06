@@ -7,36 +7,72 @@ interface Props {
   onOpen: (videoId: string) => void;
 }
 
+interface NextPage {
+  continuation: string;
+  clientVersion: string;
+}
+
+interface SearchResponse {
+  results: SearchResult[];
+  next: NextPage | null;
+}
+
 export default function YouTubeSearch({ onOpen }: Props) {
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [results, setResults] = useState<SearchResult[]>([]);
   const [searched, setSearched] = useState(false);
+  const [next, setNext] = useState<NextPage | null>(null);
+  const [loadingMore, setLoadingMore] = useState(false);
 
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (query.trim() === "") return;
-    setLoading(true);
+  /** Posts to /api/search; returns the page, or null after showing the error. */
+  const request = async (payload: object): Promise<SearchResponse | null> => {
     setError(null);
     try {
       const res = await fetch("/api/search", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query }),
+        body: JSON.stringify(payload),
       });
       const data = await res.json();
       if (!res.ok) {
         setError(data.message ?? "Search failed. Try again.");
-        return;
+        return null;
       }
-      setResults(data.results as SearchResult[]);
-      setSearched(true);
+      return data as SearchResponse;
     } catch {
       setError("Network error. Please try again.");
-    } finally {
-      setLoading(false);
+      return null;
     }
+  };
+
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (query.trim() === "") return;
+    setLoading(true);
+    const page = await request({ query });
+    if (page) {
+      setResults(page.results);
+      setNext(page.next);
+      setSearched(true);
+    }
+    setLoading(false);
+  };
+
+  const loadMore = async () => {
+    if (!next) return;
+    setLoadingMore(true);
+    const page = await request({ next });
+    if (page) {
+      // YouTube can repeat a video across pages; keep the first copy.
+      setResults((prev) => {
+        const seen = new Set(prev.map((r) => r.videoId));
+        return [...prev, ...page.results.filter((r) => !seen.has(r.videoId))];
+      });
+      setNext(page.next);
+    }
+    setLoadingMore(false);
   };
 
   return (
@@ -110,6 +146,18 @@ export default function YouTubeSearch({ onOpen }: Props) {
             </li>
           ))}
         </ul>
+      )}
+
+      {!loading && searched && next && (
+        <div className="mt-8 flex justify-center">
+          <button
+            onClick={loadMore}
+            disabled={loadingMore}
+            className="rounded-lg border border-neutral-300 px-6 py-2.5 text-sm font-medium transition hover:border-neutral-500 hover:bg-neutral-50 disabled:opacity-50 dark:border-neutral-700 dark:hover:bg-neutral-900"
+          >
+            {loadingMore ? "Loading more videos…" : "Load more"}
+          </button>
+        </div>
       )}
     </div>
   );

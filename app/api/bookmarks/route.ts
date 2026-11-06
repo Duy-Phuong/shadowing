@@ -1,31 +1,11 @@
 import { NextResponse } from "next/server";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
-import path from "node:path";
-import {
-  addBookmark,
-  parseBookmarks,
-  removeBookmark,
-  serializeBookmarks,
-  type Bookmark,
-} from "@/lib/bookmarks";
-
-const FILE = path.join(process.cwd(), "data", "bookmarks.txt");
-
-async function readAll(): Promise<Bookmark[]> {
-  try {
-    return parseBookmarks(await readFile(FILE, "utf8"));
-  } catch {
-    return []; // file doesn't exist yet
-  }
-}
-
-async function writeAll(bookmarks: Bookmark[]): Promise<void> {
-  await mkdir(path.dirname(FILE), { recursive: true });
-  await writeFile(FILE, serializeBookmarks(bookmarks), "utf8");
-}
+import { addBookmark, removeBookmark, type Bookmark } from "@/lib/bookmarks";
+import { readBookmarks, updateBookmarks } from "@/lib/bookmarksFile";
+import { isVideoId } from "@/lib/youtube";
+import { keepTranscript, releaseTranscript } from "@/lib/transcriptStore";
 
 export async function GET() {
-  return NextResponse.json(await readAll());
+  return NextResponse.json(await readBookmarks());
 }
 
 export async function POST(request: Request) {
@@ -35,15 +15,21 @@ export async function POST(request: Request) {
   } catch {
     return NextResponse.json({ error: "invalid_request" }, { status: 400 });
   }
-  if (!body.videoId || !body.title || !body.url) {
+  if (!body.videoId || !body.title || !body.url || !isVideoId(body.videoId)) {
     return NextResponse.json({ error: "invalid_request" }, { status: 400 });
   }
-  const updated = addBookmark(await readAll(), {
+  const entry: Bookmark = {
     videoId: body.videoId,
     title: body.title,
     url: body.url,
-  });
-  await writeAll(updated);
+  };
+  const updated = await updateBookmarks((list) => addBookmark(list, entry));
+  // Keep a copy of the transcript in data/ so this video still opens when
+  // YouTube's caption fetch breaks. Runs in the background: starring stays
+  // instant even when the transcript has to be downloaded first.
+  keepTranscript(entry.videoId).catch((err) =>
+    console.warn(`[bookmarks] couldn't save transcript for ${entry.videoId}:`, err),
+  );
   return NextResponse.json(updated);
 }
 
@@ -52,7 +38,11 @@ export async function DELETE(request: Request) {
   if (!videoId) {
     return NextResponse.json({ error: "invalid_request" }, { status: 400 });
   }
-  const updated = removeBookmark(await readAll(), videoId);
-  await writeAll(updated);
+  const updated = await updateBookmarks((list) => removeBookmark(list, videoId));
+  if (isVideoId(videoId)) {
+    await releaseTranscript(videoId).catch((err) =>
+      console.warn(`[bookmarks] couldn't move transcript for ${videoId}:`, err),
+    );
+  }
   return NextResponse.json(updated);
 }

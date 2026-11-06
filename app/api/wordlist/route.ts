@@ -5,7 +5,7 @@ import {
   updateWord,
   type WordEntry,
 } from "@/lib/wordlist";
-import { readWordlist, writeWordlist } from "@/lib/wordlistFile";
+import { readWordlist, updateWordlist } from "@/lib/wordlistFile";
 
 export async function GET() {
   return NextResponse.json(await readWordlist());
@@ -21,14 +21,14 @@ export async function POST(request: Request) {
   if (!body.word) {
     return NextResponse.json({ error: "invalid_request" }, { status: 400 });
   }
-  const updated = addWord(await readWordlist(), {
+  const entry: WordEntry = {
     word: body.word,
     ipa: body.ipa ?? null,
     definition: body.definition ?? "",
     partOfSpeech: body.partOfSpeech ?? null,
     unit: body.unit ?? 1,
-  });
-  await writeWordlist(updated);
+  };
+  const updated = await updateWordlist((list) => addWord(list, entry));
   return NextResponse.json(updated);
 }
 
@@ -42,10 +42,10 @@ export async function PATCH(request: Request) {
   if (!body.word) {
     return NextResponse.json({ error: "invalid_request" }, { status: 400 });
   }
-  const updated = updateWord(await readWordlist(), body.word, {
-    unit: body.unit ?? null,
-  });
-  await writeWordlist(updated);
+  const { word, unit } = body;
+  const updated = await updateWordlist((list) =>
+    updateWord(list, word, { unit: unit ?? null }),
+  );
   return NextResponse.json(updated);
 }
 
@@ -54,7 +54,6 @@ export async function DELETE(request: Request) {
   if (!word) {
     return NextResponse.json({ error: "invalid_request" }, { status: 400 });
   }
-  const updated = removeWord(await readWordlist(), word);
-  await writeWordlist(updated);
+  const updated = await updateWordlist((list) => removeWord(list, word));
   return NextResponse.json(updated);
 }

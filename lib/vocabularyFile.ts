@@ -1,5 +1,6 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
 import path from "node:path";
+import { withFileLock, writeFileAtomic } from "./fileStore";
 import type { VocabRow } from "./vocabulary";
 
 const FILE = path.join(process.cwd(), "data", "vocabulary.json");
@@ -26,7 +27,8 @@ export async function readVocabulary(): Promise<VocabRow[]> {
   }
 }
 
-export async function writeVocabulary(rows: VocabRow[]): Promise<void> {
-  await mkdir(path.dirname(FILE), { recursive: true });
-  await writeFile(FILE, JSON.stringify(rows, null, 2), "utf8");
+export function writeVocabulary(rows: VocabRow[]): Promise<void> {
+  return withFileLock(FILE, () =>
+    writeFileAtomic(FILE, JSON.stringify(rows, null, 2)),
+  );
 }

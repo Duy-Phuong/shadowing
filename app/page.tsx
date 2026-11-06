@@ -46,6 +46,38 @@ function StarIcon({ filled }: { filled: boolean }) {
   );
 }
 
+/** Grey placeholder of the practice layout, shown while a transcript loads. */
+function PracticeSkeleton() {
+  const bar = "rounded-md bg-neutral-200 dark:bg-neutral-800";
+  return (
+    <div
+      className="mx-auto flex max-w-6xl animate-pulse flex-col gap-6 px-4 py-6"
+      role="status"
+      aria-label="Loading video"
+    >
+      <div className={`${bar} h-7 w-2/3 max-w-md`} />
+      <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
+        <div className="flex flex-col gap-4">
+          <div className={`${bar} aspect-video w-full rounded-xl`} />
+          <div className={`${bar} h-2 w-full`} />
+          <div className="flex gap-3">
+            <div className={`${bar} h-9 w-40`} />
+            <div className={`${bar} h-9 w-32`} />
+            <div className={`${bar} h-9 w-24`} />
+          </div>
+          <div className={`${bar} h-28 w-full rounded-xl`} />
+        </div>
+        <div className="flex flex-col gap-3 rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+          {Array.from({ length: 9 }, (_, i) => (
+            <div key={i} className={`${bar} h-10`} style={{ width: `${70 + ((i * 37) % 30)}%` }} />
+          ))}
+        </div>
+      </div>
+      <span className="sr-only">Loading video…</span>
+    </div>
+  );
+}
+
 export default function Home() {
   const [view, setView] = useState<View>("home");
   const [collapsed, setCollapsed] = useState(false);
@@ -180,8 +212,12 @@ export default function Home() {
     setView("practice");
     try {
       showTranscript(await fetchTranscript(url));
-    } catch {
+    } catch (err) {
       setView(fallback);
+      toast(
+        err instanceof Error ? err.message : "Couldn't open that video.",
+        "error",
+      );
     } finally {
       setBusy(false);
     }
@@ -400,6 +436,8 @@ export default function Home() {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (view !== "practice" || !transcript) return;
+      // Leave browser shortcuts (Cmd+R reload, Ctrl+← etc.) alone.
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
       const el = e.target as HTMLElement | null;
       if (el && (el.tagName === "INPUT" || el.tagName === "TEXTAREA")) return;
       if (e.key === " ") {
@@ -478,21 +516,7 @@ export default function Home() {
 
     if (view === "practice") {
       if (busy || !transcript) {
-        return (
-          <div className="flex min-h-[60vh] flex-col items-center justify-center gap-3 text-neutral-400">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              className="h-8 w-8 animate-spin"
-              aria-hidden="true"
-            >
-              <path d="M21 12a9 9 0 1 1-6.22-8.56" strokeLinecap="round" />
-            </svg>
-            <span className="text-sm">Loading video…</span>
-          </div>
-        );
+        return <PracticeSkeleton />;
       }
       const sentences = transcript.sentences;
       const sentence = sentences[selectedId];
@@ -581,7 +605,8 @@ export default function Home() {
                 </button>
               </div>
               <p className="text-xs text-neutral-400">
-                Shortcuts: Space play/pause · ← → prev/next · R replay
+                Shortcuts: Space play/pause · ← → prev/next · R replay ·{" "}
+                {mode === "shadowing" ? "M record" : "Enter check"}
               </p>
               <div className="rounded-xl border border-neutral-200 p-5 dark:border-neutral-800">
                 {mode === "shadowing" ? (
@@ -603,13 +628,21 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="h-[70vh] rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
-              <TranscriptList
-                sentences={sentences}
-                selectedId={selectedId}
-                masked={mode === "dictation"}
-                onSelect={select}
-              />
+            <div className="flex h-[70vh] flex-col gap-3 rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
+              {transcript.autoCaptions && (
+                <p className="rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-800 dark:bg-amber-950/40 dark:text-amber-300">
+                  These captions look auto-generated (little punctuation), so
+                  some sentences may be long or split in odd places.
+                </p>
+              )}
+              <div className="min-h-0 flex-1">
+                <TranscriptList
+                  sentences={sentences}
+                  selectedId={selectedId}
+                  masked={mode === "dictation"}
+                  onSelect={select}
+                />
+              </div>
             </div>
           </div>
         </div>

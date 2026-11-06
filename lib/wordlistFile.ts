@@ -1,5 +1,6 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
 import path from "node:path";
+import { withFileLock, writeFileAtomic } from "./fileStore";
 import { parseWordlist, serializeWordlist, type WordEntry } from "./wordlist";
 
 const FILE = path.join(process.cwd(), "data", "wordlist.csv");
@@ -12,7 +13,13 @@ export async function readWordlist(): Promise<WordEntry[]> {
   }
 }
 
-export async function writeWordlist(entries: WordEntry[]): Promise<void> {
-  await mkdir(path.dirname(FILE), { recursive: true });
-  await writeFile(FILE, serializeWordlist(entries), "utf8");
+/** Applies `change` to the stored wordlist under a lock and returns the result. */
+export function updateWordlist(
+  change: (entries: WordEntry[]) => WordEntry[],
+): Promise<WordEntry[]> {
+  return withFileLock(FILE, async () => {
+    const next = change(await readWordlist());
+    await writeFileAtomic(FILE, serializeWordlist(next));
+    return next;
+  });
 }
