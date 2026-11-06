@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
-import { parseChannelId, parseChannelName } from "@/lib/youtubeChannel";
+import {
+  isYouTubeUrl,
+  parseChannelId,
+  parseChannelName,
+} from "@/lib/youtubeChannel";
 import { addSource, removeSource, type Source } from "@/lib/sources";
 import { readSources, writeSources } from "@/lib/sourcesFile";
 
@@ -12,7 +16,7 @@ async function resolveChannel(
   } catch {
     return null;
   }
-  if (!url.hostname.replace(/^www\./, "").endsWith("youtube.com")) return null;
+  if (!isYouTubeUrl(url)) return null;
 
   try {
     const res = await fetch(url.toString(), {

@@ -4,6 +4,7 @@ import {
   parseLookupResponse,
   pickFlashModels,
   resolveModel,
+  isValidModelName,
 } from "./gemini";
 
 describe("parseLookupResponse", () => {
@@ -184,6 +185,30 @@ describe("resolveModel", () => {
     expect(resolveModel("  ")).toBe("gemini-2.0-flash");
     delete process.env.GEMINI_MODEL;
     expect(resolveModel()).toBe("gemini-flash-latest");
+  });
+});
+
+describe("isValidModelName", () => {
+  test("accepts real model ids", () => {
+    for (const m of ["gemini-flash-latest", "gemini-2.5-flash", "gemini-2.0-flash-001"]) {
+      expect(isValidModelName(m)).toBe(true);
+    }
+  });
+
+  test("rejects anything that could change the request URL", () => {
+    for (const m of [
+      "",
+      "../files",
+      "gemini..flash",
+      "models/gemini-flash",
+      "gemini-flash:countTokens",
+      "gemini?x=1",
+      "gemini#x",
+      "gemini flash",
+      "a".repeat(101),
+    ]) {
+      expect(isValidModelName(m)).toBe(false);
+    }
   });
 });
 

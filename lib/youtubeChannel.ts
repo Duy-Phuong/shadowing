@@ -1,5 +1,17 @@
 const CHANNEL_ID = /UC[A-Za-z0-9_-]{22}/;
 
+/**
+ * True when the server may fetch this URL as a channel page: http(s) on the
+ * default port, host youtube.com or one of its subdomains. A bare suffix check
+ * would also let "evilyoutube.com" through.
+ */
+export function isYouTubeUrl(url: URL): boolean {
+  if (url.protocol !== "https:" && url.protocol !== "http:") return false;
+  if (url.port !== "" || url.username !== "" || url.password !== "") return false;
+  const host = url.hostname.toLowerCase();
+  return host === "youtube.com" || host.endsWith(".youtube.com");
+}
+
 /** Extracts a channel id (UC…) from a YouTube channel page's HTML. */
 export function parseChannelId(html: string): string | null {
   const patterns = [

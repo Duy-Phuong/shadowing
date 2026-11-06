@@ -1,9 +1,36 @@
 import { describe, expect, test } from "vitest";
 import {
+  isYouTubeUrl,
   parseChannelId,
   parseChannelName,
   parseYouTubeFeed,
 } from "./youtubeChannel";
+
+describe("isYouTubeUrl", () => {
+  test("accepts youtube.com and its subdomains", () => {
+    for (const u of [
+      "https://www.youtube.com/@bbclearningenglish",
+      "https://youtube.com/channel/UC1234567890123456789012",
+      "https://m.youtube.com/@ted",
+      "http://www.youtube.com/c/ted",
+    ]) {
+      expect(isYouTubeUrl(new URL(u))).toBe(true);
+    }
+  });
+
+  test("rejects look-alike hosts, other schemes and ports", () => {
+    for (const u of [
+      "https://evilyoutube.com/@x",
+      "https://youtube.com.evil.example/@x",
+      "https://www.youtube.com:8080/@x",
+      "https://user:pw@www.youtube.com/@x",
+      "ftp://www.youtube.com/@x",
+      "http://127.0.0.1/@x",
+    ]) {
+      expect(isYouTubeUrl(new URL(u))).toBe(false);
+    }
+  });
+});
 
 describe("parseChannelName", () => {
   test("reads the og:title meta tag", () => {

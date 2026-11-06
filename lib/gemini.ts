@@ -50,6 +50,15 @@ export const FALLBACK_MODELS = [
 /** Thrown when the API key is not configured, so callers can 503 cleanly. */
 export class GeminiNotConfiguredError extends Error {}
 
+/**
+ * True for a bare model id like "gemini-flash-latest". The id goes into the
+ * request URL path, so anything else ("/", "?", "..", ":") could point the
+ * request — with the API key attached — at a different endpoint.
+ */
+export function isValidModelName(name: string): boolean {
+  return /^[A-Za-z0-9][A-Za-z0-9._-]{0,99}$/.test(name) && !name.includes("..");
+}
+
 /** Resolves the model to use: explicit override → env → built-in default. */
 export function resolveModel(override?: string | null): string {
   const o = override?.trim();
